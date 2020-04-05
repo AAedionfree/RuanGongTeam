@@ -61,4 +61,19 @@ CREATE TABLE `devices`  (
 
 alter table devices comment '设备信息表';
 
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users`  (
+  `user_id` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '用户编号',
+  `user_name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '用户昵称',
+  `user_account` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '用户账号',
+  `user_password` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '用户密码',
+  `user_power` int(1) NULL DEFAULT NULL COMMENT '用户权限(1.领导,2.设备负责人,3.经办人,4.一般用户)',
+  PRIMARY KEY (`user_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+alter table users comment '用户表';
+
 SET FOREIGN_KEY_CHECKS = 1;
