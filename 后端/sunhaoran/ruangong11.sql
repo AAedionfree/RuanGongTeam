@@ -22,7 +22,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 
 
 -- ----------------------------
--- Table structure for t_dev_log
+-- Table structure for logs
 -- ----------------------------
 DROP TABLE IF EXISTS `logs`;
 CREATE TABLE `logs`  (
@@ -40,7 +40,7 @@ CREATE TABLE `logs`  (
 alter table logs comment '设备日志记录表';
 
 -- ----------------------------
--- Table structure for t_device
+-- Table structure for devices
 -- ----------------------------
 DROP TABLE IF EXISTS `devices`;
 CREATE TABLE `devices`  (
