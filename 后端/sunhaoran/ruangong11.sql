@@ -28,8 +28,8 @@ DROP TABLE IF EXISTS `logs`;
 CREATE TABLE `logs`  (
   `log_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '日志编号',
   `dev_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '设备编号',
-  `status` int(1) NULL DEFAULT NULL COMMENT '设备出借状态(1:空闲,2:出借)',
-  `work_status` int(1) NULL DEFAULT NULL COMMENT '设备状态(1:正常,2:报废,3:故障,4:维修)',
+  `dev_status` int(1) NULL DEFAULT NULL COMMENT '设备出借状态(1:空闲,2:出借)',
+  `dev_work_status` int(1) NULL DEFAULT NULL COMMENT '设备状态(1:正常,2:报废,3:故障,4:维修)',
   `token_id` int(1) NULL DEFAULT NULL COMMENT '指令编号(1:借取,2:归还,3:修理,4:报废,5:确认报废记录)',
   `token_status` int(1) NULL DEFAULT NULL COMMENT '指令执行状态(1:执行成功,2:执行失败)',
   `user_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '执行操作用户编号',
