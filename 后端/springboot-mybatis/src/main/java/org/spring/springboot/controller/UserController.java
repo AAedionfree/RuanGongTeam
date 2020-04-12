@@ -19,6 +19,10 @@ public class UserController {
     List<User> findUserByUserAccount(@RequestParam(value = "userAccount", required = true) String userAccount){
         return userService.findUserByUserAccount(userAccount);
     }
+    @RequestMapping(value = "/api/userId", method = RequestMethod.GET)
+    List<User> findUserByUserId(@RequestParam(value = "userId", required = true) String userId){
+        return userService.findUserByUserId(userId);
+    }
 }
 
 //controller --> service --> dao
