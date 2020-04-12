@@ -15,8 +15,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/api/user", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/userAccount", method = RequestMethod.GET)
     List<User> findUserByUserAccount(@RequestParam(value = "userAccount", required = true) String userAccount){
         return userService.findUserByUserAccount(userAccount);
     }
 }
+
+//controller --> service --> dao
