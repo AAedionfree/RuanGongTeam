@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f74b2037-3366-45bc-9e5e-289313a4cfeb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot-mybatis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mybatis.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/impl/UserServicrImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/impl/UserServicrImp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,13 +27,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
@@ -43,10 +36,13 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586183403953" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -55,11 +51,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Documents\GitHub\RuanGong11\后端\springboot-mybatis" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Documents\GitHub\RuanGong11\后端\springboot-mybatis\src\main\docker" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.spring.springboot.dao.users" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\GitHub\RuanGong11\后端\springboot-mybatis" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Application">
@@ -88,6 +87,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/getRequest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -108,11 +108,11 @@
     <configuration name="springboot" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
+          <option name="imageTag" value="" />
           <option name="buildCliOptions" value="" />
           <option name="command" value="" />
           <option name="containerName" value="rest-home" />
           <option name="entrypoint" value="" />
-          <option name="imageTag" value="" />
           <option name="commandLineOptions" value="-d -p 8002:8002" />
           <option name="sourceFilePath" value="Dockerfile" />
         </settings>
@@ -141,6 +141,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585809891460</updated>
+      <workItem from="1586689651344" duration="293000" />
     </task>
     <servers />
   </component>
@@ -153,6 +154,9 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
@@ -163,24 +167,28 @@
       <screen x="35" y="23" width="1245" height="697" />
     </state>
     <state x="781" y="62" key="#com.intellij.ide.util.MemberChooser/35.23.1245.697@35.23.1245.697" timestamp="1586500920645" />
-    <state width="1203" height="267" key="GridCell.Tab.0.bottom" timestamp="1586501606448">
-      <screen x="35" y="23" width="1245" height="697" />
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom" timestamp="1586689948489">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586689948489" />
     <state width="1238" height="266" key="GridCell.Tab.0.bottom/0.23.1280.697@0.23.1280.697" timestamp="1586268017913" />
     <state width="1203" height="267" key="GridCell.Tab.0.bottom/35.23.1245.697@35.23.1245.697" timestamp="1586501606448" />
-    <state width="1203" height="267" key="GridCell.Tab.0.center" timestamp="1586501606448">
-      <screen x="35" y="23" width="1245" height="697" />
+    <state width="1877" height="274" key="GridCell.Tab.0.center" timestamp="1586689948489">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586689948489" />
     <state width="1238" height="266" key="GridCell.Tab.0.center/0.23.1280.697@0.23.1280.697" timestamp="1586268017911" />
     <state width="1203" height="267" key="GridCell.Tab.0.center/35.23.1245.697@35.23.1245.697" timestamp="1586501606448" />
-    <state width="1203" height="267" key="GridCell.Tab.0.left" timestamp="1586501606447">
-      <screen x="35" y="23" width="1245" height="697" />
+    <state width="1877" height="274" key="GridCell.Tab.0.left" timestamp="1586689948488">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586689948488" />
     <state width="1238" height="266" key="GridCell.Tab.0.left/0.23.1280.697@0.23.1280.697" timestamp="1586268017911" />
     <state width="1203" height="267" key="GridCell.Tab.0.left/35.23.1245.697@35.23.1245.697" timestamp="1586501606447" />
-    <state width="1203" height="267" key="GridCell.Tab.0.right" timestamp="1586501606448">
-      <screen x="35" y="23" width="1245" height="697" />
+    <state width="1877" height="274" key="GridCell.Tab.0.right" timestamp="1586689948489">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586689948489" />
     <state width="1238" height="266" key="GridCell.Tab.0.right/0.23.1280.697@0.23.1280.697" timestamp="1586268017912" />
     <state width="1203" height="267" key="GridCell.Tab.0.right/35.23.1245.697@35.23.1245.697" timestamp="1586501606448" />
     <state x="460" y="230" key="com.intellij.ide.util.TipDialog" timestamp="1586495863904">
