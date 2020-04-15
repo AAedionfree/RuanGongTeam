@@ -5,6 +5,6 @@ import org.spring.springboot.domain.User;
 import java.util.List;
 
 public interface UserService {
-    List<User> findUserByUserAccount(String userId);
-    List<User> findUserByUserId(String userId);
+    User findUserByUserAccount(String userId);
+    User findUserByUserId(String userId);
 }

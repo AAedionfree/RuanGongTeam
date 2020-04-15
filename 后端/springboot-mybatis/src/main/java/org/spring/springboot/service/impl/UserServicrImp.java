@@ -17,11 +17,11 @@ public class UserServicrImp implements UserService {
     private UserIdDao userIdDao;
 
     @Override
-    public List<User> findUserByUserAccount(String userAccount) {
+    public User findUserByUserAccount(String userAccount) {
         return userAccountDao.findUserByUserAccount(userAccount);
     }
     @Override
-    public List<User> findUserByUserId(String userId) {
+    public User findUserByUserId(String userId) {
         return userIdDao.findUserByUserId(userId);
     }
 }
