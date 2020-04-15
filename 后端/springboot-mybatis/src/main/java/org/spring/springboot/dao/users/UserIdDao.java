@@ -17,7 +17,7 @@ public interface UserIdDao {
             @Result(property = "userPassword", column = "user_password"),
             @Result(property = "userAuthority", column = "user_authority")
     })
-    User findUserByUserId(@Param("userId") String userId);
+    List<User> findUserByUserId(@Param("userId") String userId);
 }
 
 

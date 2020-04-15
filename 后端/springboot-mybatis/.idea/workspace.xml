@@ -2,11 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f74b2037-3366-45bc-9e5e-289313a4cfeb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/androidTest/java/com/example/shebeimanage2/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/java/com/example/shebeimanage2/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/java/com/example/shebeimanage2/activity/Constant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/java/com/example/shebeimanage2/activity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/java/com/example/shebeimanage2/activity/login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/java/com/example/shebeimanage2/activity/splsh.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/layout/login.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/values/refs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/xml/network_security_config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/test/java/com/example/shebeimanage2/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/settings.gradle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getRequest.py" beforeDir="false" afterPath="$PROJECT_DIR$/getRequest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot-mybatis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot-mybatis.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/docker/Dockerfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/dao/users/UserAccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/dao/users/UserAccountDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/dao/users/UserIdDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/dao/users/UserIdDao.java" afterDir="false" />
@@ -67,7 +107,7 @@
       <recent name="D:\Documents\GitHub\RuanGong11\后端\springboot-mybatis\src\main\docker" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.springboot">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.spring.springboot.Application" />
       <module name="springboot-mybatis" />
@@ -159,7 +199,8 @@
       <workItem from="1586881983344" duration="311000" />
       <workItem from="1586882336819" duration="1060000" />
       <workItem from="1586946967642" duration="2654000" />
-      <workItem from="1586951222246" duration="1709000" />
+      <workItem from="1586951222246" duration="2041000" />
+      <workItem from="1586957940032" duration="1139000" />
     </task>
     <servers />
   </component>
@@ -196,34 +237,34 @@
       <screen x="35" y="23" width="1245" height="697" />
     </state>
     <state x="550" y="141" key="FileChooserDialogImpl/35.23.1245.697@35.23.1245.697" timestamp="1586882672679" />
-    <state width="1202" height="186" key="GridCell.Tab.0.bottom" timestamp="1586951199813">
+    <state width="1238" height="232" key="GridCell.Tab.0.bottom" timestamp="1586958136610">
       <screen x="0" y="23" width="1280" height="697" />
     </state>
-    <state width="1202" height="186" key="GridCell.Tab.0.bottom/0.23.1280.697@0.23.1280.697" timestamp="1586951199813" />
+    <state width="1238" height="232" key="GridCell.Tab.0.bottom/0.23.1280.697@0.23.1280.697" timestamp="1586958136610" />
     <state width="1203" height="254" key="GridCell.Tab.0.bottom/30.23.1250.697@30.23.1250.697" timestamp="1586508002333" />
     <state width="1204" height="170" key="GridCell.Tab.0.bottom/33.23.1247.697@33.23.1247.697" timestamp="1586739242109" />
     <state width="1204" height="170" key="GridCell.Tab.0.bottom/34.23.1246.697@34.23.1246.697" timestamp="1586695320571" />
     <state width="1202" height="172" key="GridCell.Tab.0.bottom/35.23.1245.697@35.23.1245.697" timestamp="1586883414116" />
-    <state width="1202" height="186" key="GridCell.Tab.0.center" timestamp="1586951199812">
+    <state width="1238" height="232" key="GridCell.Tab.0.center" timestamp="1586958136609">
       <screen x="0" y="23" width="1280" height="697" />
     </state>
-    <state width="1202" height="186" key="GridCell.Tab.0.center/0.23.1280.697@0.23.1280.697" timestamp="1586951199812" />
+    <state width="1238" height="232" key="GridCell.Tab.0.center/0.23.1280.697@0.23.1280.697" timestamp="1586958136609" />
     <state width="1203" height="254" key="GridCell.Tab.0.center/30.23.1250.697@30.23.1250.697" timestamp="1586508002332" />
     <state width="1204" height="170" key="GridCell.Tab.0.center/33.23.1247.697@33.23.1247.697" timestamp="1586739242108" />
     <state width="1204" height="170" key="GridCell.Tab.0.center/34.23.1246.697@34.23.1246.697" timestamp="1586695320569" />
     <state width="1202" height="172" key="GridCell.Tab.0.center/35.23.1245.697@35.23.1245.697" timestamp="1586883414115" />
-    <state width="1202" height="186" key="GridCell.Tab.0.left" timestamp="1586951199812">
+    <state width="1238" height="232" key="GridCell.Tab.0.left" timestamp="1586958136608">
       <screen x="0" y="23" width="1280" height="697" />
     </state>
-    <state width="1202" height="186" key="GridCell.Tab.0.left/0.23.1280.697@0.23.1280.697" timestamp="1586951199812" />
+    <state width="1238" height="232" key="GridCell.Tab.0.left/0.23.1280.697@0.23.1280.697" timestamp="1586958136608" />
     <state width="1203" height="254" key="GridCell.Tab.0.left/30.23.1250.697@30.23.1250.697" timestamp="1586508002331" />
     <state width="1204" height="170" key="GridCell.Tab.0.left/33.23.1247.697@33.23.1247.697" timestamp="1586739242107" />
     <state width="1204" height="170" key="GridCell.Tab.0.left/34.23.1246.697@34.23.1246.697" timestamp="1586695320568" />
     <state width="1202" height="172" key="GridCell.Tab.0.left/35.23.1245.697@35.23.1245.697" timestamp="1586883414114" />
-    <state width="1202" height="186" key="GridCell.Tab.0.right" timestamp="1586951199812">
+    <state width="1238" height="232" key="GridCell.Tab.0.right" timestamp="1586958136610">
       <screen x="0" y="23" width="1280" height="697" />
     </state>
-    <state width="1202" height="186" key="GridCell.Tab.0.right/0.23.1280.697@0.23.1280.697" timestamp="1586951199812" />
+    <state width="1238" height="232" key="GridCell.Tab.0.right/0.23.1280.697@0.23.1280.697" timestamp="1586958136610" />
     <state width="1203" height="254" key="GridCell.Tab.0.right/30.23.1250.697@30.23.1250.697" timestamp="1586508002332" />
     <state width="1204" height="170" key="GridCell.Tab.0.right/33.23.1247.697@33.23.1247.697" timestamp="1586739242108" />
     <state width="1204" height="170" key="GridCell.Tab.0.right/34.23.1246.697@34.23.1246.697" timestamp="1586695320570" />

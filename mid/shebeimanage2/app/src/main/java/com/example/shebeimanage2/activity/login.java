@@ -8,10 +8,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.example.shebeimanage2.R;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -63,16 +64,22 @@ public class login extends AppCompatActivity {
                     new Thread(()-> {
                         OkHttpClient okHttpClient = new OkHttpClient();
                         String name = ((EditText) findViewById(R.id.text_userid)).getText().toString();
-                        //String pswd = ((EditText)findViewById(R.id.text_userpwd)).getText().toString();
-                        FormBody formBody = new FormBody.Builder().add("userAccount", name).build();
+                        String pwd = ((EditText)findViewById(R.id.text_userpwd)).getText().toString();
                         Request request = new Request.Builder()
-                                .url(Constant.GET)
-                                .post(formBody)
+//                                .url(Constant.GET + "/login?" + "userAccount=" + name + "&" + "userPassword=" + pwd)
+                                .url(Constant.GET + "/userAccount?" + "userAccount=" + name)
                                 .build();
                         try (Response response = okHttpClient.newCall(request).execute()) {
-                            List<User> users = JSONArray.parseArray(Objects.requireNonNull(response.body()).string(),User.class);
+                            String info = response.body().string();
+                            ArrayList<User> users = new ArrayList<>();
+                            for(String str:parseJsonArray.split(info)){
+                                JSONObject json = JSONObject.parseObject(str);
+                                User user = (User)JSONObject.toJavaObject(json, User.class);
+                                users.add(user);
+                            }
+                            System.out.println(users.get(0).getUserName());
                             Looper.prepare();
-                            if(users.size() == 0)
+                            if(Integer.valueOf(users.get(0).getUserAuthority()) == 0)
                             {
                                 Toast.makeText(this,"登录失败",Toast.LENGTH_SHORT).show();
                             }
