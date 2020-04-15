@@ -17,5 +17,5 @@ public interface UserAccountDao {
             @Result(property = "userPassword", column = "user_password"),
             @Result(property = "userAuthority", column = "user_authority")
     })
-    List<User> findUserByUserAccount(@Param("userAccount") String userAccount);
+    User findUserByUserAccount(@Param("userAccount") String userAccount);
 }
