@@ -1,5 +1,6 @@
 package org.spring.springboot.controller;
 
+import org.spring.springboot.ResultBean;
 import org.spring.springboot.domain.Device;
 import org.spring.springboot.service.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,11 @@ public class DeviceController {
     @Autowired
     private DeviceService deviceService;
 
-    @RequestMapping(value = "/api/device", method = RequestMethod.GET)
-    public List<Device> findDeviceByDevId(@RequestParam(value = "devId", required = true) String devId){
-        return deviceService.findDeviceByDevId(devId);
+    @RequestMapping(value = "/api/devId", method = RequestMethod.GET)
+    public ResultBean<Device> findDeviceByDevId(@RequestParam(value = "devId", required = true) String devId){
+        List<Device> devices = deviceService.findDeviceByDevId(devId);
+        if(devices.size() == 0) return ResultBean.error(-1,"not found DeviceID");
+        return ResultBean.success(devices);
     }
 
 
