@@ -1,5 +1,6 @@
 package org.spring.springboot.controller;
 
+import org.spring.springboot.ResultBean;
 import org.spring.springboot.domain.Log;
 import org.spring.springboot.domain.User;
 import org.spring.springboot.service.LogService;
@@ -17,7 +18,7 @@ public class LogController {
     private LogService logService;
 
     @RequestMapping(value = "/api/logs", method = RequestMethod.GET)
-    List<Log> findUserByUserAccount(){
-        return logService.findAllLogs();
+    ResultBean<Log> findUserByUserAccount(){
+        return ResultBean.success(logService.findAllLogs());
     }
 }

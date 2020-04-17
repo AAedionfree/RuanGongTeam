@@ -1,57 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f74b2037-3366-45bc-9e5e-289313a4cfeb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/androidTest/java/com/example/shebeimanage2/ExampleInstrumentedTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/java/com/example/shebeimanage2/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/java/com/example/shebeimanage2/activity/Constant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/java/com/example/shebeimanage2/activity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/java/com/example/shebeimanage2/activity/login.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/java/com/example/shebeimanage2/activity/splsh.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/layout/login.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/values/refs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/main/res/xml/network_security_config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/app/src/test/java/com/example/shebeimanage2/ExampleUnitTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../中间层/shebeimanage2/settings.gradle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/controller/DeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/controller/DeviceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/controller/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/controller/LogController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/dao/users/UserAccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/dao/users/UserAccountDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/dao/users/UserIdDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/dao/users/UserIdDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/impl/UserServicrImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/impl/UserServicrImp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +172,11 @@
       <workItem from="1586882336819" duration="1060000" />
       <workItem from="1586946967642" duration="2654000" />
       <workItem from="1586951222246" duration="2041000" />
-      <workItem from="1586957940032" duration="1139000" />
+      <workItem from="1586957940032" duration="1800000" />
+      <workItem from="1587024233075" duration="18000" />
+      <workItem from="1587052135618" duration="104000" />
+      <workItem from="1587098940565" duration="804000" />
+      <workItem from="1587100765725" duration="8280000" />
     </task>
     <servers />
   </component>
@@ -210,6 +186,17 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.facetType" implementationName="Python" />
     <option featureType="com.intellij.configurationType" implementationName="PythonConfigurationType" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -221,9 +208,10 @@
       <screen x="0" y="23" width="1280" height="697" />
     </state>
     <state x="122" y="33" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1280.697@0.23.1280.697" timestamp="1586947120138" />
-    <state x="781" y="62" key="#com.intellij.ide.util.MemberChooser" timestamp="1586500920645">
-      <screen x="35" y="23" width="1245" height="697" />
+    <state x="780" y="62" key="#com.intellij.ide.util.MemberChooser" timestamp="1587107915922">
+      <screen x="33" y="23" width="1247" height="697" />
     </state>
+    <state x="780" y="62" key="#com.intellij.ide.util.MemberChooser/33.23.1247.697@33.23.1247.697" timestamp="1587107915922" />
     <state x="781" y="62" key="#com.intellij.ide.util.MemberChooser/35.23.1245.697@35.23.1245.697" timestamp="1586500920645" />
     <state x="350" y="41" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor" timestamp="1586882677653">
       <screen x="35" y="23" width="1245" height="697" />
@@ -237,54 +225,62 @@
       <screen x="35" y="23" width="1245" height="697" />
     </state>
     <state x="550" y="141" key="FileChooserDialogImpl/35.23.1245.697@35.23.1245.697" timestamp="1586882672679" />
-    <state width="1238" height="232" key="GridCell.Tab.0.bottom" timestamp="1586958136610">
-      <screen x="0" y="23" width="1280" height="697" />
+    <state width="1201" height="160" key="GridCell.Tab.0.bottom" timestamp="1587110752329">
+      <screen x="35" y="23" width="1245" height="697" />
     </state>
-    <state width="1238" height="232" key="GridCell.Tab.0.bottom/0.23.1280.697@0.23.1280.697" timestamp="1586958136610" />
+    <state width="1238" height="148" key="GridCell.Tab.0.bottom/0.23.1280.697@0.23.1280.697" timestamp="1586962676868" />
     <state width="1203" height="254" key="GridCell.Tab.0.bottom/30.23.1250.697@30.23.1250.697" timestamp="1586508002333" />
-    <state width="1204" height="170" key="GridCell.Tab.0.bottom/33.23.1247.697@33.23.1247.697" timestamp="1586739242109" />
-    <state width="1204" height="170" key="GridCell.Tab.0.bottom/34.23.1246.697@34.23.1246.697" timestamp="1586695320571" />
-    <state width="1202" height="172" key="GridCell.Tab.0.bottom/35.23.1245.697@35.23.1245.697" timestamp="1586883414116" />
-    <state width="1238" height="232" key="GridCell.Tab.0.center" timestamp="1586958136609">
-      <screen x="0" y="23" width="1280" height="697" />
+    <state width="1201" height="335" key="GridCell.Tab.0.bottom/33.23.1247.697@33.23.1247.697" timestamp="1587109755933" />
+    <state width="1201" height="311" key="GridCell.Tab.0.bottom/34.23.1246.697@34.23.1246.697" timestamp="1587102765161" />
+    <state width="1201" height="160" key="GridCell.Tab.0.bottom/35.23.1245.697@35.23.1245.697" timestamp="1587110752329" />
+    <state width="1201" height="160" key="GridCell.Tab.0.center" timestamp="1587110752329">
+      <screen x="35" y="23" width="1245" height="697" />
     </state>
-    <state width="1238" height="232" key="GridCell.Tab.0.center/0.23.1280.697@0.23.1280.697" timestamp="1586958136609" />
+    <state width="1238" height="148" key="GridCell.Tab.0.center/0.23.1280.697@0.23.1280.697" timestamp="1586962676867" />
     <state width="1203" height="254" key="GridCell.Tab.0.center/30.23.1250.697@30.23.1250.697" timestamp="1586508002332" />
-    <state width="1204" height="170" key="GridCell.Tab.0.center/33.23.1247.697@33.23.1247.697" timestamp="1586739242108" />
-    <state width="1204" height="170" key="GridCell.Tab.0.center/34.23.1246.697@34.23.1246.697" timestamp="1586695320569" />
-    <state width="1202" height="172" key="GridCell.Tab.0.center/35.23.1245.697@35.23.1245.697" timestamp="1586883414115" />
-    <state width="1238" height="232" key="GridCell.Tab.0.left" timestamp="1586958136608">
-      <screen x="0" y="23" width="1280" height="697" />
+    <state width="1201" height="335" key="GridCell.Tab.0.center/33.23.1247.697@33.23.1247.697" timestamp="1587109755932" />
+    <state width="1201" height="311" key="GridCell.Tab.0.center/34.23.1246.697@34.23.1246.697" timestamp="1587102765160" />
+    <state width="1201" height="160" key="GridCell.Tab.0.center/35.23.1245.697@35.23.1245.697" timestamp="1587110752329" />
+    <state width="1201" height="160" key="GridCell.Tab.0.left" timestamp="1587110752328">
+      <screen x="35" y="23" width="1245" height="697" />
     </state>
-    <state width="1238" height="232" key="GridCell.Tab.0.left/0.23.1280.697@0.23.1280.697" timestamp="1586958136608" />
+    <state width="1238" height="148" key="GridCell.Tab.0.left/0.23.1280.697@0.23.1280.697" timestamp="1586962676867" />
     <state width="1203" height="254" key="GridCell.Tab.0.left/30.23.1250.697@30.23.1250.697" timestamp="1586508002331" />
-    <state width="1204" height="170" key="GridCell.Tab.0.left/33.23.1247.697@33.23.1247.697" timestamp="1586739242107" />
-    <state width="1204" height="170" key="GridCell.Tab.0.left/34.23.1246.697@34.23.1246.697" timestamp="1586695320568" />
-    <state width="1202" height="172" key="GridCell.Tab.0.left/35.23.1245.697@35.23.1245.697" timestamp="1586883414114" />
-    <state width="1238" height="232" key="GridCell.Tab.0.right" timestamp="1586958136610">
-      <screen x="0" y="23" width="1280" height="697" />
+    <state width="1201" height="335" key="GridCell.Tab.0.left/33.23.1247.697@33.23.1247.697" timestamp="1587109755932" />
+    <state width="1201" height="311" key="GridCell.Tab.0.left/34.23.1246.697@34.23.1246.697" timestamp="1587102765160" />
+    <state width="1201" height="160" key="GridCell.Tab.0.left/35.23.1245.697@35.23.1245.697" timestamp="1587110752328" />
+    <state width="1201" height="160" key="GridCell.Tab.0.right" timestamp="1587110752329">
+      <screen x="35" y="23" width="1245" height="697" />
     </state>
-    <state width="1238" height="232" key="GridCell.Tab.0.right/0.23.1280.697@0.23.1280.697" timestamp="1586958136610" />
+    <state width="1238" height="148" key="GridCell.Tab.0.right/0.23.1280.697@0.23.1280.697" timestamp="1586962676868" />
     <state width="1203" height="254" key="GridCell.Tab.0.right/30.23.1250.697@30.23.1250.697" timestamp="1586508002332" />
-    <state width="1204" height="170" key="GridCell.Tab.0.right/33.23.1247.697@33.23.1247.697" timestamp="1586739242108" />
-    <state width="1204" height="170" key="GridCell.Tab.0.right/34.23.1246.697@34.23.1246.697" timestamp="1586695320570" />
-    <state width="1202" height="172" key="GridCell.Tab.0.right/35.23.1245.697@35.23.1245.697" timestamp="1586883414115" />
-    <state width="1202" height="186" key="GridCell.Tab.1.bottom" timestamp="1586950494195">
-      <screen x="0" y="23" width="1280" height="697" />
+    <state width="1201" height="335" key="GridCell.Tab.0.right/33.23.1247.697@33.23.1247.697" timestamp="1587109755932" />
+    <state width="1201" height="311" key="GridCell.Tab.0.right/34.23.1246.697@34.23.1246.697" timestamp="1587102765161" />
+    <state width="1201" height="160" key="GridCell.Tab.0.right/35.23.1245.697@35.23.1245.697" timestamp="1587110752329" />
+    <state width="1201" height="160" key="GridCell.Tab.1.bottom" timestamp="1587110752331">
+      <screen x="35" y="23" width="1245" height="697" />
     </state>
     <state width="1202" height="186" key="GridCell.Tab.1.bottom/0.23.1280.697@0.23.1280.697" timestamp="1586950494195" />
-    <state width="1202" height="186" key="GridCell.Tab.1.center" timestamp="1586950494195">
-      <screen x="0" y="23" width="1280" height="697" />
+    <state width="1201" height="160" key="GridCell.Tab.1.bottom/34.23.1246.697@34.23.1246.697" timestamp="1587101544679" />
+    <state width="1201" height="160" key="GridCell.Tab.1.bottom/35.23.1245.697@35.23.1245.697" timestamp="1587110752331" />
+    <state width="1201" height="160" key="GridCell.Tab.1.center" timestamp="1587110752330">
+      <screen x="35" y="23" width="1245" height="697" />
     </state>
     <state width="1202" height="186" key="GridCell.Tab.1.center/0.23.1280.697@0.23.1280.697" timestamp="1586950494195" />
-    <state width="1202" height="186" key="GridCell.Tab.1.left" timestamp="1586950494195">
-      <screen x="0" y="23" width="1280" height="697" />
+    <state width="1201" height="160" key="GridCell.Tab.1.center/34.23.1246.697@34.23.1246.697" timestamp="1587101544675" />
+    <state width="1201" height="160" key="GridCell.Tab.1.center/35.23.1245.697@35.23.1245.697" timestamp="1587110752330" />
+    <state width="1201" height="160" key="GridCell.Tab.1.left" timestamp="1587110752330">
+      <screen x="35" y="23" width="1245" height="697" />
     </state>
     <state width="1202" height="186" key="GridCell.Tab.1.left/0.23.1280.697@0.23.1280.697" timestamp="1586950494195" />
-    <state width="1202" height="186" key="GridCell.Tab.1.right" timestamp="1586950494195">
-      <screen x="0" y="23" width="1280" height="697" />
+    <state width="1201" height="160" key="GridCell.Tab.1.left/34.23.1246.697@34.23.1246.697" timestamp="1587101544673" />
+    <state width="1201" height="160" key="GridCell.Tab.1.left/35.23.1245.697@35.23.1245.697" timestamp="1587110752330" />
+    <state width="1201" height="160" key="GridCell.Tab.1.right" timestamp="1587110752331">
+      <screen x="35" y="23" width="1245" height="697" />
     </state>
     <state width="1202" height="186" key="GridCell.Tab.1.right/0.23.1280.697@0.23.1280.697" timestamp="1586950494195" />
+    <state width="1201" height="160" key="GridCell.Tab.1.right/34.23.1246.697@34.23.1246.697" timestamp="1587101544678" />
+    <state width="1201" height="160" key="GridCell.Tab.1.right/35.23.1245.697@35.23.1245.697" timestamp="1587110752331" />
     <state x="162" y="23" key="SettingsEditor" timestamp="1586951189022">
       <screen x="0" y="23" width="1280" height="697" />
     </state>
