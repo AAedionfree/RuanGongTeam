@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@drawable/backimg">
+
+    <Button
+        android:id='@+id/but1'
+        android:text='设备查询'
+        android:textColor="#FFFFFF"
+        android:textSize='20sp'
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="150dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/shape"
+        android:layout_width="150dp"
+        android:layout_height="60dp" />
+
+    <Button
+        android:id='@+id/but2'
+        android:text='设备租借'
+        android:textColor="#FFFFFF"
+        android:textSize='20sp'
+        android:layout_marginTop="-80dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="150dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/shape"
+        android:layout_width="150dp"
+        android:layout_height="60dp" />
+
+</LinearLayout>
