@@ -30,7 +30,7 @@ public class UserController {
         return ResultBean.success(ans);
     }
     @RequestMapping(value = "/api/login", method = RequestMethod.GET)
-    ResultBean findUserByUserId(@RequestParam(value = "userAccount", required = true) String userAccount ,
+    ResultBean login(@RequestParam(value = "userAccount", required = true) String userAccount ,
                                 @RequestParam(value = "userPassword", required = true) String userPassword) throws RuntimeException{
         ResultBean<User> userByUserAccount = findUserByUserAccount(userAccount);
         if(ResultBean.IsSuccess(userByUserAccount)){

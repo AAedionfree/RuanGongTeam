@@ -4,6 +4,8 @@ import java.util.Collection;
 
 public class ResultBean<T> {
     private int code;
+    private String message;
+    private Collection<T> data;
 
     public int getCode() {
         return code;
@@ -28,9 +30,6 @@ public class ResultBean<T> {
     public void setData(Collection<T> data) {
         this.data = data;
     }
-
-    private String message;
-    private Collection<T> data;
 
     private ResultBean() {
 
