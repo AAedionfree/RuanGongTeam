@@ -1,5 +1,6 @@
 package com.example.shebeimanage2.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
 import android.widget.Button;
@@ -13,7 +14,6 @@ import com.example.shebeimanage2.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import okhttp3.FormBody;
@@ -22,6 +22,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class login extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,26 +67,30 @@ public class login extends AppCompatActivity {
                         String name = ((EditText) findViewById(R.id.text_userid)).getText().toString();
                         String pwd = ((EditText)findViewById(R.id.text_userpwd)).getText().toString();
                         Request request = new Request.Builder()
-//                                .url(Constant.GET + "/login?" + "userAccount=" + name + "&" + "userPassword=" + pwd)
-                                .url(Constant.GET + "/userAccount?" + "userAccount=" + name)
+                                .url(Constant.GET + "/login?" + "userAccount=" + name + "&" + "userPassword=" + pwd)
+//                                .url(Constant.GET + "/userAccount?" + "userAccount=" + name)
                                 .build();
                         try (Response response = okHttpClient.newCall(request).execute()) {
                             String info = response.body().string();
-                            ArrayList<User> users = new ArrayList<>();
-                            for(String str:parseJsonArray.split(info)){
-                                JSONObject json = JSONObject.parseObject(str);
-                                User user = (User)JSONObject.toJavaObject(json, User.class);
-                                users.add(user);
-                            }
-                            System.out.println(users.get(0).getUserName());
+                            ArrayList<ResultBean> resultBeans = new ArrayList<>();
+                                JSONObject json = JSONObject.parseObject(info);
+                                ResultBean resultBean = (ResultBean) JSONObject.toJavaObject(json,ResultBean.class);
+                                resultBeans.add(resultBean);
+
+//                            String info = response.body().string();
+//                            System.out.println(info);
                             Looper.prepare();
-                            if(Integer.valueOf(users.get(0).getUserAuthority()) == 0)
+                            if((resultBeans.get(0).getCode())==0)
                             {
-                                Toast.makeText(this,"登录失败",Toast.LENGTH_SHORT).show();
+                                String message = resultBeans.get(0).getMessage();
+                                Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(com.example.shebeimanage2.activity.login.this,splsh.class));
+
                             }
                             else
                             {
-                                Toast.makeText(this,"登录成功",Toast.LENGTH_SHORT).show();
+                                String message = resultBeans.get(0).getMessage();
+                                Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
 
                             }
                             Looper.loop();

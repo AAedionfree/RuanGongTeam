@@ -1,11 +1,11 @@
 package com.example.shebeimanage2.activity;
 
 public class User {
-    String userId;
-    String userName;
-    String userAccount;
-    String userPassword;
-    String userAuthority;
+    private String userId;
+    private String userName;
+    private String userAccount;
+    private String userPassword;
+    private String userAuthority;
 
     public String getUserId() {
         return userId;
