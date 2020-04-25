@@ -35,28 +35,28 @@ public class ResultBean<T> {
 
     }
 
-    public static ResultBean error(String id, String func, int code, String message) {
+    public static ResultBean error(String id, int code, String message) {
         ResultBean resultBean = new ResultBean();
         resultBean.setCode(code);
         resultBean.setMessage(message);
-        http(id, func, "error");
+        http(id, Thread.currentThread().getStackTrace()[2].toString(), message + "-error");
         return resultBean;
     }
 
-    public static ResultBean success(String id, String func) {
+    public static ResultBean success(String id) {
         ResultBean resultBean = new ResultBean();
         resultBean.setCode(0);
         resultBean.setMessage("success");
-        http(id,func,"success");
+        http(id,Thread.currentThread().getStackTrace()[2].toString(),"success");
         return resultBean;
     }
 
-    public static <V> ResultBean<V> success(String id, String func,Collection<V> data) {
+    public static <V> ResultBean<V> success(String id, Collection<V> data) {
         ResultBean resultBean = new ResultBean();
         resultBean.setCode(0);
         resultBean.setMessage("success");
         resultBean.setData(data);
-        http(id,func,"success");
+        http(id,Thread.currentThread().getStackTrace()[2].toString(),"success");
         return resultBean;
     }
 
@@ -66,7 +66,7 @@ public class ResultBean<T> {
 
     private static void http(String id, String func, String state){
         try{
-            HttpClient.record(id + "---" + func + "---" + state + "!");
+            HttpClient.record(id + "---"  + func + "---" + state + "!");
         }
         catch(Exception e){
             System.out.println("----------------------");

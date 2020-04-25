@@ -12,7 +12,7 @@ public class HttpClient {
     private static HttpURLConnection con;
 
     public static void record(String content) throws Exception{
-        url = new URL("http://aaedion.club/exception.php?content=" + content);
+        url = new URL("http://aaedion.club/exception.php?content=" + content.replace(" ","-"));
         con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
         con.getResponseCode();

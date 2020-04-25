@@ -21,35 +21,31 @@ public class UserController {
     // find userInfo by userAccount
     @RequestMapping(value = "/api/userAccount", method = RequestMethod.GET)
     ResultBean<User> findUserByUserAccount(@RequestParam(value = "userAccount", required = true) String userAccount) throws RuntimeException {
-        String funcName = Thread.currentThread().getStackTrace()[1].getMethodName();
         List<User> ans = userService.findUserByUserAccount(userAccount);
         if (ans.size() == 0)
-            return ResultBean.error(userAccount, funcName,
-                    -1, "not found UserAccount");
-        return ResultBean.success(userAccount, funcName, ans);
+            return ResultBean.error(userAccount, -1, "not found UserAccount");
+        return ResultBean.success(userAccount, ans);
     }
 
     //  find userInfo by userId
     @RequestMapping(value = "/api/userId", method = RequestMethod.GET)
     ResultBean<User> findUserByUserId(@RequestParam(value = "userId", required = true) String userId) throws RuntimeException {
-        String funcName = Thread.currentThread().getStackTrace()[1].getMethodName();
         List<User> ans = userService.findUserByUserId(userId);
-        if (ans.size() == 0) return ResultBean.error(userId, funcName, -1, "not found UserID");
-        return ResultBean.success(userId,funcName, ans);
+        if (ans.size() == 0) return ResultBean.error(userId, -1, "not found UserID");
+        return ResultBean.success(userId, ans);
     }
 
     //  login
     @RequestMapping(value = "/api/login", method = RequestMethod.GET)
     ResultBean login(@RequestParam(value = "userAccount", required = true) String userAccount,
                      @RequestParam(value = "userPassword", required = true) String userPassword) throws Exception {
-        String funcName = Thread.currentThread().getStackTrace()[1].getMethodName();
         ResultBean<User> userByUserAccount = findUserByUserAccount(userAccount);
         ResultBean ans = userByUserAccount;
         if (ResultBean.IsSuccess(userByUserAccount)) {
             if (new ArrayList<User>(userByUserAccount.getData()).get(0).getUserPassword().equals(userPassword))
-                ans = ResultBean.success(userAccount, funcName);
+                ans = ResultBean.success(userAccount);
             else
-                ans = ResultBean.error(userAccount, funcName, -1, "Wrong password");
+                ans = ResultBean.error(userAccount, -1, "Wrong password");
         }
         return ans;
     }

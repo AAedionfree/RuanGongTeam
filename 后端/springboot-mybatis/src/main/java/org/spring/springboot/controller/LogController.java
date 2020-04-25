@@ -21,14 +21,12 @@ public class LogController {
     //  find all logs
     @RequestMapping(value = "/api/logs", method = RequestMethod.GET)
     ResultBean<Log> findAllLogs() {
-        String funcName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        return ResultBean.success("allLogs", funcName, logService.findAllLogs());
+        return ResultBean.success("allLogs", logService.findAllLogs());
     }
 
     //  find logs by userId
     @RequestMapping(value = "/api/userLogs", method = RequestMethod.GET)
     ResultBean<Log> findLogsByUserId(@RequestParam(value = "UserId", required = true) String userId) {
-        String funcName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        return ResultBean.success(userId, funcName, logService.findLogsByUserId(userId));
+        return ResultBean.success(userId, logService.findLogsByUserId(userId));
     }
 }
