@@ -16,12 +16,20 @@ public class DeviceController {
     @Autowired
     private DeviceService deviceService;
 
+    // find devInfo by devId
     @RequestMapping(value = "/api/devId", method = RequestMethod.GET)
     public ResultBean<Device> findDeviceByDevId(@RequestParam(value = "devId", required = true) String devId){
+        String funcName = Thread.currentThread().getStackTrace()[1].getMethodName();
         List<Device> devices = deviceService.findDeviceByDevId(devId);
-        if(devices.size() == 0) return ResultBean.error(-1,"not found DeviceID");
-        return ResultBean.success(devices);
+        if(devices.size() == 0) return ResultBean.error(devId,funcName,-1,"not found DeviceID");
+        return ResultBean.success(devId,funcName,devices);
     }
 
-
+    // find devInfo by ManagerId
+    @RequestMapping(value = "/api/devManagerId", method = RequestMethod.GET)
+    public ResultBean<Device> findDeviceByManagerId(@RequestParam(value = "ManagerId", required = true) String managerId){
+        String funcName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        List<Device> devices = deviceService.findDeviceByManagerId(managerId);
+        return ResultBean.success(managerId,funcName,devices);
+    }
 }

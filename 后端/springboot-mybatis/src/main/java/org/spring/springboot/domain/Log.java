@@ -9,7 +9,7 @@ public class Log {
     private int tokenStatus;
     private String userId;
     private String changeTime;
-
+    private int auth;
     public String getLogId() {
         return logId;
     }
@@ -72,5 +72,12 @@ public class Log {
 
     public void setChangeTime(String changeTime) {
         this.changeTime = changeTime;
+    }
+
+    public void setAuth(int auth){
+        this.auth = auth;
+    }
+    public int getAuth(){
+        return this.auth;
     }
 }

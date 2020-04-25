@@ -12,4 +12,5 @@ import java.util.List;
 public interface DeviceService {
 
     List<Device> findDeviceByDevId(String devId);
+    List<Device> findDeviceByManagerId(String managerId);
 }

@@ -20,7 +20,8 @@ public interface LogsDao {
             @Result(property = "tokenId", column = "token_id"),
             @Result(property = "tokenStatus", column = "token_status"),
             @Result(property = "userId", column = "user_id"),
-            @Result(property = "changeTime", column = "change_time")
+            @Result(property = "changeTime", column = "change_time"),
+            @Result(property = "auth", column = "auth")
     })
     List<Log> findAllLogs();
 }
