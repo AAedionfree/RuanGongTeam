@@ -35,30 +35,48 @@ public class ResultBean<T> {
 
     }
 
-    public static ResultBean error(int code, String message) {
+    public static ResultBean error(String id, String func, int code, String message) {
         ResultBean resultBean = new ResultBean();
         resultBean.setCode(code);
         resultBean.setMessage(message);
+        http(id, func, "error");
         return resultBean;
     }
 
-    public static ResultBean success() {
+    public static ResultBean success(String id, String func) {
         ResultBean resultBean = new ResultBean();
         resultBean.setCode(0);
         resultBean.setMessage("success");
+        http(id,func,"success");
         return resultBean;
     }
 
-    public static <V> ResultBean<V> success(Collection<V> data) {
+    public static <V> ResultBean<V> success(String id, String func,Collection<V> data) {
         ResultBean resultBean = new ResultBean();
         resultBean.setCode(0);
         resultBean.setMessage("success");
         resultBean.setData(data);
+        http(id,func,"success");
         return resultBean;
     }
 
     public static boolean IsSuccess(ResultBean res){
         return res.getCode() == 0;
+    }
+
+    private static void http(String id, String func, String state){
+        try{
+            HttpClient.record(id + "---" + func + "---" + state + "!");
+        }
+        catch(Exception e){
+            System.out.println("----------------------");
+            System.out.println("----------------------");
+            System.out.println("----------------------");
+            e.printStackTrace();
+            System.out.println("----------------------");
+            System.out.println("----------------------");
+            System.out.println("----------------------");
+        }
     }
 }
 
