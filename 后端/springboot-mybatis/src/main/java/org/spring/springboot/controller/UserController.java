@@ -52,21 +52,17 @@ public class UserController {
 
     // register
     /**
-     * password's legality checked in mid
-     * just check userAccount's legality
+     * The legality of password should checked in mid
+     * just check the legality of userAccount legality
      */
-//    @RequestMapping(value = "/api/register", method = RequestMethod.GET)
-//    ResultBean register(@RequestParam(value = "userAccount", required = true) String userAccount ,
-//                     @RequestParam(value = "userPassword", required = true) String userPassword) throws RuntimeException{
-//        ResultBean<User> userByUserAccount = findUserByUserAccount(userAccount);
-//        if(ResultBean.IsSuccess(userByUserAccount)){
-//            if(new ArrayList<User>(userByUserAccount.getData()).get(0).getUserPassword().equals(userPassword))
-//                return ResultBean.success();
-//            else
-//                return ResultBean.error(-1, "Wrong password");
-//        }
-//        else return userByUserAccount;
-//    }
+    @RequestMapping(value = "/api/register", method = RequestMethod.GET)
+    ResultBean register(@RequestParam(value = "userAccount", required = true) String userAccount ,
+                        @RequestParam(value = "userName", required = true) String userName ,
+                        @RequestParam(value = "userPassword", required = true) String userPassword) throws RuntimeException{
+        if(userService.userSignUp(userAccount, userName, userPassword))
+            return ResultBean.success(userAccount);
+        else return ResultBean.error(userAccount,-1,"Duplicate-userName");
+    }
 
 }
 
