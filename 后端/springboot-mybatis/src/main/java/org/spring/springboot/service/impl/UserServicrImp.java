@@ -4,6 +4,7 @@ import org.spring.springboot.ResultBean;
 import org.spring.springboot.dao.users.UserAccountDao;
 import org.spring.springboot.dao.users.UserSignUp;
 import org.spring.springboot.dao.users.UserIdDao;
+import org.spring.springboot.dao.users.UserUpdatePassword;
 import org.spring.springboot.domain.User;
 import org.spring.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class UserServicrImp implements UserService {
     private UserIdDao userIdDao;
     @Autowired
     private UserSignUp userSignUp;
+    @Autowired
+    private UserUpdatePassword userUpdatePassword;
 
     @Override
     public List<User> findUserByUserAccount(String userAccount) throws Exception {
@@ -59,5 +62,13 @@ public class UserServicrImp implements UserService {
         }else{
             throw new Exception("Wrong password");
         }
+    }
+
+    @Override
+    public List<User> userUpdatePassword(String userAccount, String userOldPassword, String userNewPassword) throws Exception{
+        List<User> userByUserAccount = findUserByUserAccount(userAccount);
+        if (userUpdatePassword.isPasswordRight(userAccount, userOldPassword) == 0) throw new Exception("Wrong-userPassword");
+        userUpdatePassword.userUpdatePassword(userAccount, userNewPassword);
+        return userByUserAccount;
     }
 }
