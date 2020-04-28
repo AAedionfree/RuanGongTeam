@@ -5,7 +5,7 @@ public class User {
     String userName;
     String userAccount;
     String userPassword;
-    String userAuthority;
+    int userAuthority;
 
     public String getUserId() {
         return userId;
@@ -39,11 +39,11 @@ public class User {
         this.userPassword = userPassword;
     }
 
-    public String getUserAuthority() {
+    public int getUserAuthority() {
         return userAuthority;
     }
 
-    public void setUserAuthority(String userAuthority) {
+    public void setUserAuthority(int userAuthority) {
         this.userAuthority = userAuthority;
     }
 }
