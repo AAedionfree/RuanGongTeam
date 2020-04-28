@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f74b2037-3366-45bc-9e5e-289313a4cfeb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/ExceptionCatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/ExceptionCatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/impl/UserServicrImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/impl/UserServicrImp.java" afterDir="false" />
-    </list>
+    <list default="true" id="f74b2037-3366-45bc-9e5e-289313a4cfeb" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
