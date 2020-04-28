@@ -8,7 +8,6 @@ import java.util.Collection;
 public class ExceptionCatch {
     public static ResultBean exceptionCatch(Service service, String id, Object... args) {
         String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
-        System.out.println(methodName);
         Class[] classes = new Class[args.length];
         for (int i = 0; i < args.length; i++) classes[i] = args[i].getClass();
         try {
