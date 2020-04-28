@@ -27,11 +27,11 @@ function repassword_m(request_url){
 		return;
 	}
 	else{
-		if(s_password==q_password){
+		if(o_password==n_password){
 			mui.toast("旧密码和新密码一致！");
 			return;
 		}else{
-				var repasswordurl=request_url+'userUpdataPassword?userAccount='+useraccount+'&userOldPassword='+o_password+'&userNewPassword='+n_password;
+				var repasswordurl=request_url+'userUpdatePassword?userAccount='+useraccount+'&userOldPassword='+o_password+'&userNewPassword='+n_password;
 				mui.plusReady(function(){
 					mui.ajax({
 						type:'GET',
