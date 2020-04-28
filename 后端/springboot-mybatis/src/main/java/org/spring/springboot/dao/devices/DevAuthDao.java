@@ -6,9 +6,8 @@ import org.spring.springboot.domain.Device;
 import java.util.List;
 
 @Mapper
-public interface DevIdDao {
-
-    @Select("SELECT * FROM devices where dev_id = #{devId}")
+public interface DevAuthDao {
+    @Select("SELECT * FROM devices where dev_auth >= #{devAuth}")
     // 返回 Map 结果集
     @Results({
             @Result(property = "devId", column = "dev_id"),
@@ -23,5 +22,5 @@ public interface DevIdDao {
             @Result(property = "devStatus", column = "dev_status"),
             @Result(property = "devAuth", column = "dev_auth")
     })
-    List<Device> findDeviceBydevId(@Param("devId") String devId);
+    List<Device> findDeviceByDevAuth(@Param("devAuth") int devAuth);
 }

@@ -13,4 +13,6 @@ public interface DeviceService {
 
     List<Device> findDeviceByDevId(String devId);
     List<Device> findDeviceByManagerId(String managerId);
+    List<Device> findDeviceByDevAuth(int devAuth);
+    List<Device> findDeviceByUserAccount(String devAuth) throws Exception;
 }
