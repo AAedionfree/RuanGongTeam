@@ -1,17 +1,17 @@
 package org.spring.springboot.domain;
 
 public class User {
-    String userId;
+    int userId;
     String userName;
     String userAccount;
     String userPassword;
     int userAuthority;
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 

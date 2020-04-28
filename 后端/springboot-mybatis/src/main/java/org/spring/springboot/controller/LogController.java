@@ -1,5 +1,6 @@
 package org.spring.springboot.controller;
 
+import org.spring.springboot.ExceptionCatch;
 import org.spring.springboot.ResultBean;
 import org.spring.springboot.dao.logs.LogsUserIdDao;
 import org.spring.springboot.domain.Log;
@@ -21,12 +22,12 @@ public class LogController {
     //  find all logs
     @RequestMapping(value = "/api/logs", method = RequestMethod.GET)
     ResultBean<Log> findAllLogs() {
-        return ResultBean.success("allLogs", logService.findAllLogs());
+        return ExceptionCatch.exceptionCatch(logService, "AllLogs");
     }
 
     //  find logs by userId
     @RequestMapping(value = "/api/userLogs", method = RequestMethod.GET)
-    ResultBean<Log> findLogsByUserId(@RequestParam(value = "UserId", required = true) String userId) {
-        return ResultBean.success(userId, logService.findLogsByUserId(userId));
+    ResultBean<Log> findLogsByUserId(@RequestParam(value = "userId", required = true) String userId) {
+        return ExceptionCatch.exceptionCatch(logService, userId, userId);
     }
 }

@@ -25,5 +25,5 @@ public interface DevManagerIdDao {
             @Result(property = "devStatus", column = "dev_status"),
             @Result(property = "devAuth", column = "dev_auth")
     })
-    List<Device> findDeviceByManagerId(@Param("managerId") String managerId);
+    List<Device> findDeviceByManagerId(@Param("managerId") int managerId);
 }
