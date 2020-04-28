@@ -39,7 +39,7 @@ public class ResultBean<T> {
         ResultBean resultBean = new ResultBean();
         resultBean.setCode(code);
         resultBean.setMessage(message);
-        http(id, Thread.currentThread().getStackTrace()[2].toString(), message + "-error");
+        http(id, Thread.currentThread().getStackTrace()[3].toString(), message + "-error");
         return resultBean;
     }
 
@@ -47,7 +47,7 @@ public class ResultBean<T> {
         ResultBean resultBean = new ResultBean();
         resultBean.setCode(0);
         resultBean.setMessage("success");
-        http(id,Thread.currentThread().getStackTrace()[2].toString(),"success");
+        http(id,Thread.currentThread().getStackTrace()[3].toString(),"success");
         return resultBean;
     }
 
@@ -56,7 +56,7 @@ public class ResultBean<T> {
         resultBean.setCode(0);
         resultBean.setMessage("success");
         resultBean.setData(data);
-        http(id,Thread.currentThread().getStackTrace()[2].toString(),"success");
+        http(id,Thread.currentThread().getStackTrace()[3].toString(),"success");
         return resultBean;
     }
 

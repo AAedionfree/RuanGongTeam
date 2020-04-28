@@ -7,8 +7,8 @@ public class Device {
     String devDate;
     String devProv;
     String devPeriod;
-    String chargeId;
-    String managerId;
+    int chargeId;
+    int managerId;
     int devWordStatus;
     int devStatus;
     int devAuth;
@@ -61,19 +61,19 @@ public class Device {
         this.devPeriod = devPeriod;
     }
 
-    public String getChargeId() {
+    public int getChargeId() {
         return chargeId;
     }
 
-    public void setChargeId(String chargeId) {
+    public void setChargeId(int chargeId) {
         this.chargeId = chargeId;
     }
 
-    public String getManagerId() {
+    public int getManagerId() {
         return managerId;
     }
 
-    public void setManagerId(String managerId) {
+    public void setManagerId(int managerId) {
         this.managerId = managerId;
     }
 

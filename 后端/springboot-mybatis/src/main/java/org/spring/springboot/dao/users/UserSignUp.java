@@ -16,8 +16,8 @@ public interface UserSignUp {
     int isDulicate(@Param("userAccount") String userAccount);
 
     @Insert("insert into users value(#{userId}, #{userName}, #{userAccount}, #{userPassword}, 3)")
-    void userSignUP(@Param("userId") String userId,
-                    @Param("userName") String userName,
+    void userSignUP(@Param("userId") int userId,
                     @Param("userAccount") String userAccount,
+                    @Param("userName") String userName,
                     @Param("userPassword") String userPassword);
 }

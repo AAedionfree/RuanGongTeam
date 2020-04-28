@@ -28,15 +28,17 @@ public class DeviceServiceImp implements DeviceService {
     @Autowired
     private UserAccountDao userAccountDao;
 
-    public List<Device> findDeviceByDevId(String devId) {
-        return devIdDao.findDeviceBydevId(devId);
+    public List<Device> findDeviceByDevId(String devId) throws Exception{
+        List<Device> devices = devIdDao.findDeviceBydevId(devId);
+        if(devices.size() == 0) throw new Exception("not found DeviceID");
+        return devices;
     }
 
-    public List<Device> findDeviceByManagerId(String managerId) {
+    public List<Device> findDeviceByManagerId(Integer managerId) {
         return devManagerIdDao.findDeviceByManagerId(managerId);
     }
 
-    public List<Device> findDeviceByDevAuth(int devAuth) {
+    public List<Device> findDeviceByDevAuth(Integer devAuth) {
         return devAuthDao.findDeviceByDevAuth(devAuth);
     }
 
@@ -45,7 +47,7 @@ public class DeviceServiceImp implements DeviceService {
         if (users.size() == 1) {
             User user = users.get(0);
             int auth = user.getUserAuthority();
-            String userId = user.getUserId();
+            int userId = user.getUserId();
             List<Device> authDevices = findDeviceByDevAuth(auth);
             List<Device> ownDevices = findDeviceByManagerId(userId);
             authDevices.addAll(ownDevices);

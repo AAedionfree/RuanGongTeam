@@ -1,5 +1,6 @@
 package org.spring.springboot.service.impl;
 
+import org.spring.springboot.ResultBean;
 import org.spring.springboot.dao.users.UserAccountDao;
 import org.spring.springboot.dao.users.UserSignUp;
 import org.spring.springboot.dao.users.UserIdDao;
@@ -20,27 +21,43 @@ public class UserServicrImp implements UserService {
     private UserSignUp userSignUp;
 
     @Override
-    public List<User> findUserByUserAccount(String userAccount) {
-        return userAccountDao.findUserByUserAccount(userAccount);
-    }
-    @Override
-    public List<User> findUserByUserId(String userId) {
-        return userIdDao.findUserByUserId(userId);
+    public List<User> findUserByUserAccount(String userAccount) throws Exception {
+        List<User> users = userAccountDao.findUserByUserAccount(userAccount);
+        if (users.size() == 0) throw new Exception("UserAccount not Exist in DataBase");
+        return users;
     }
 
     @Override
-    public boolean userSignUp(String userAccount, String userName, String userPassword) {
-        if(userSignUp.isDulicate(userAccount) == 1) return false;
-        String id = Integer.parseInt(userSignUp.getPrimayKey()) + 1 + "";
-        userSignUp.userSignUP(id,userAccount,userName,userPassword);
-        return true;
+    public List<User> findUserByUserId(Integer userId) throws Exception {
+        List<User> users = userIdDao.findUserByUserId(userId);
+        if (users.size() == 0) throw new Exception("UserId not Exist in DataBase");
+        return users;
     }
 
     @Override
-    public boolean userSignUp(String userAccount, String userPassword) {
-        if(userSignUp.isDulicate(userAccount) == 1) return false;
-        String id = Integer.parseInt(userSignUp.getPrimayKey()) + 1 + "";
-        userSignUp.userSignUP(id,userAccount,"user",userPassword);
-        return true;
+    public List<User> userSignUp(String userAccount, String userName, String userPassword) throws Exception {
+        if (userSignUp.isDulicate(userAccount) == 1) throw new Exception("Duplicate-userName");
+        System.out.println(userSignUp.getPrimayKey());
+        int id = Integer.parseInt(userSignUp.getPrimayKey()) + 1;
+        userSignUp.userSignUP(id, userAccount, userName, userPassword);
+        return findUserByUserAccount(userAccount);
+    }
+
+    @Override
+    public List<User> userSignUp(String userAccount, String userPassword) throws Exception{
+        if (userSignUp.isDulicate(userAccount) == 1) throw new Exception("Duplicate-userName");
+        int id = Integer.parseInt(userSignUp.getPrimayKey()) + 1;
+        userSignUp.userSignUP(id, userAccount, "user", userPassword);
+        return findUserByUserAccount(userAccount);
+    }
+
+    @Override
+    public List<User> login(String userAccount, String userPassword) throws Exception{
+        List<User> userByUserAccount = findUserByUserAccount(userAccount);
+        if(userByUserAccount.get(0).getUserPassword().equals(userPassword)){
+            return userByUserAccount;
+        }else{
+            throw new Exception("Wrong password");
+        }
     }
 }
