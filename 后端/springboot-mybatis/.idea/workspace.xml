@@ -20,7 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f74b2037-3366-45bc-9e5e-289313a4cfeb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/ExceptionCatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/ExceptionCatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/impl/UserServicrImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/spring/springboot/service/impl/UserServicrImp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +36,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -192,10 +195,7 @@
       <workItem from="1587794405406" duration="10159000" />
       <workItem from="1587816093412" duration="1552000" />
       <workItem from="1587973389858" duration="6962000" />
-      <workItem from="1588033946777" duration="18416000" />
-      <workItem from="1588058340918" duration="6308000" />
-      <workItem from="1588066083589" duration="1567000" />
-      <workItem from="1588069598645" duration="932000" />
+      <workItem from="1588033946777" duration="18529000" />
     </task>
     <servers />
   </component>
