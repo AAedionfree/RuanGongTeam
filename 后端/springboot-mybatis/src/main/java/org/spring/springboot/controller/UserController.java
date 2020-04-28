@@ -1,5 +1,6 @@
 package org.spring.springboot.controller;
 
+import org.spring.springboot.ExceptionCatch;
 import org.spring.springboot.HttpClient;
 import org.spring.springboot.ResultBean;
 import org.spring.springboot.domain.User;
@@ -21,47 +22,32 @@ public class UserController {
     // find userInfo by userAccount
     @RequestMapping(value = "/api/userAccount", method = RequestMethod.GET)
     ResultBean<User> findUserByUserAccount(@RequestParam(value = "userAccount", required = true) String userAccount) throws RuntimeException {
-        List<User> ans = userService.findUserByUserAccount(userAccount);
-        if (ans.size() == 0)
-            return ResultBean.error(userAccount, -1, "not found UserAccount");
-        return ResultBean.success(userAccount, ans);
+        return ExceptionCatch.exceptionCatch(userService,userAccount,userAccount);
     }
 
     //  find userInfo by userId
     @RequestMapping(value = "/api/userId", method = RequestMethod.GET)
-    ResultBean<User> findUserByUserId(@RequestParam(value = "userId", required = true) String userId) throws RuntimeException {
-        List<User> ans = userService.findUserByUserId(userId);
-        if (ans.size() == 0) return ResultBean.error(userId, -1, "not found UserID");
-        return ResultBean.success(userId, ans);
+    ResultBean<User> findUserByUserId(@RequestParam(value = "userId", required = true) int userId) throws RuntimeException {
+        return ExceptionCatch.exceptionCatch(userService,userId + "", new Integer(userId));
     }
 
     //  login
     @RequestMapping(value = "/api/login", method = RequestMethod.GET)
     ResultBean login(@RequestParam(value = "userAccount", required = true) String userAccount,
-                     @RequestParam(value = "userPassword", required = true) String userPassword) throws Exception {
-        ResultBean<User> userByUserAccount = findUserByUserAccount(userAccount);
-        ResultBean ans = userByUserAccount;
-        if (ResultBean.IsSuccess(userByUserAccount)) {
-            if (new ArrayList<User>(userByUserAccount.getData()).get(0).getUserPassword().equals(userPassword))
-                ans = ResultBean.success(userAccount);
-            else
-                ans = ResultBean.error(userAccount, -1, "Wrong password");
-        }
-        return ans;
+                     @RequestParam(value = "userPassword", required = true) String userPassword) {
+        return ExceptionCatch.exceptionCatch(userService,userAccount, userAccount,userPassword);
     }
-
     // register
+
     /**
      * The legality of password should checked in mid
      * just check the legality of userAccount legality
      */
     @RequestMapping(value = "/api/register", method = RequestMethod.GET)
-    ResultBean register(@RequestParam(value = "userAccount", required = true) String userAccount ,
-                        @RequestParam(value = "userName", required = true) String userName ,
-                        @RequestParam(value = "userPassword", required = true) String userPassword) throws RuntimeException{
-        if(userService.userSignUp(userAccount, userName, userPassword))
-            return ResultBean.success(userAccount);
-        else return ResultBean.error(userAccount,-1,"Duplicate-userName");
+    ResultBean userSignUp(@RequestParam(value = "userAccount", required = true) String userAccount,
+                          @RequestParam(value = "userName", required = true) String userName,
+                          @RequestParam(value = "userPassword", required = true) String userPassword) {
+        return ExceptionCatch.exceptionCatch(userService, userAccount, userAccount, userName, userPassword);
     }
 
 }
