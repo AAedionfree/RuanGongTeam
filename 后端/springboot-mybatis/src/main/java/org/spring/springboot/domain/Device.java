@@ -3,8 +3,6 @@ package org.spring.springboot.domain;
 public class Device {
     String devId;
     String devType;
-    String devName;
-    String devTypeNum;
     float devPrise;
     String devDate;
     String devProv;
@@ -13,6 +11,7 @@ public class Device {
     String managerId;
     int devWordStatus;
     int devStatus;
+    int devAuth;
 
     public String getDevId() {
         return devId;
@@ -28,22 +27,6 @@ public class Device {
 
     public void setDevType(String devType) {
         this.devType = devType;
-    }
-
-    public String getDevName() {
-        return devName;
-    }
-
-    public void setDevName(String devName) {
-        this.devName = devName;
-    }
-
-    public String getDevTypeNum() {
-        return devTypeNum;
-    }
-
-    public void setDevTypeNum(String devTypeNum) {
-        this.devTypeNum = devTypeNum;
     }
 
     public float getDevPrise() {
@@ -108,5 +91,27 @@ public class Device {
 
     public void setDevStatus(int devStatus) {
         this.devStatus = devStatus;
+    }
+
+    public int getDevAuth() {
+        return devAuth;
+    }
+
+    public void setDevAuth(int devAuth) {
+        this.devAuth = devAuth;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Device) {
+            Device dev = (Device) obj;
+            return dev.getDevId().equals(this.devId);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.parseInt(devId);
     }
 }

@@ -37,7 +37,7 @@ public class UserServicrImp implements UserService {
     }
 
     @Override
-    public boolean userSignUP(String userAccount, String userPassword) {
+    public boolean userSignUp(String userAccount, String userPassword) {
         if(userSignUp.isDulicate(userAccount) == 1) return false;
         String id = Integer.parseInt(userSignUp.getPrimayKey()) + 1 + "";
         userSignUp.userSignUP(id,userAccount,"user",userPassword);
