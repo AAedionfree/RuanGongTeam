@@ -50,6 +50,14 @@ public class UserController {
         return ExceptionCatch.exceptionCatch(userService, userAccount, userAccount, userName, userPassword);
     }
 
+    //  update user password
+    @RequestMapping(value = "/api/userUpdatePassword", method = RequestMethod.GET)
+    ResultBean userUpdatePassword(@RequestParam(value = "userAccount", required = true) String userAccount,
+                                  @RequestParam(value = "userOldPassword", required = true) String userOldPassword,
+                                  @RequestParam(value = "userNewPassword", required = true) String userNewPassword) {
+        return ExceptionCatch.exceptionCatch(userService, userAccount, userAccount, userOldPassword, userNewPassword);
+    }
+
 }
 
 

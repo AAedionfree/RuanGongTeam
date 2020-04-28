@@ -10,4 +10,5 @@ public interface UserService extends Service{
     List<User> userSignUp(String userAccount, String userName, String userPassword) throws Exception;
     List<User> userSignUp(String userAccount, String userPassword) throws Exception;
     List<User> login(String userAccount, String userPassword) throws Exception;
+    List<User> userUpdatePassword(String userAccount, String userOldPassword, String userNewPassword) throws Exception;
 }
