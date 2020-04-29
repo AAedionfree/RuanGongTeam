@@ -5,7 +5,6 @@ function to_register(){
 		url:'register.html',
 	});
 }
-
 	
 function register_m(request_url){
 	mui.init();
@@ -13,7 +12,15 @@ function register_m(request_url){
 	var s_password = document.getElementById("s_password").value;
 	var useraccount = document.getElementById("account").value;
 	var username = document.getElementById("username").value;
+	var cha_qpd =is_special(q_password);
+	var cha_spd =is_special(s_password);
+	var cha_ua=is_special(useraccount);
+	var cha_un=is_special(username);
+	
 		
+	if(cha_qpd==1||cha_spd==1||cha_ua==1||cha_un==1){
+		mui.toast("输入的格式不正确！应输入数字或字母！");
+	}	
 	if(useraccount.length==0){
 		mui.toast("账号不能为空！");
 		return;
