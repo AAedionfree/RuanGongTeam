@@ -10,7 +10,13 @@ function repassword_m(request_url){
 	var o_password = document.getElementById("o_password").value;
 	var n_password = document.getElementById("n_password").value;
 	var useraccount = document.getElementById("account").value;
+	var cha_opd=is_special(o_password);
+	var cha_npd=is_special(n_password);
+	var cha_ua = is_special(useraccount);
 		
+	if(cha_npd==1||cha_opd==1||cha_ua==1){
+		mui.toast("输入的格式不正确！应输入数字或字母！");
+	}
 	if(useraccount.length==0){
 		mui.toast("账号不能为空！");
 		return;
