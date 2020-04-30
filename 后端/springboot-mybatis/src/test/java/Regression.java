@@ -4,24 +4,25 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.spring.springboot.Application;
 import org.spring.springboot.HttpClient;
-import org.spring.springboot.RegressionTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import RegressionTest.DeviceControllerJunitTest;
+import RegressionTest.UserControllerJunitTest;
 
 @SpringBootTest(classes = Application.class)
 @RunWith(Suite.class)
 @Suite.SuiteClasses({UserControllerJunitTest.class,
                      DeviceControllerJunitTest.class})
 
-public class TestAll {
+public class Regression {
     @BeforeClass
     public static void before() throws Exception {
         HttpClient.record("------------------RegressionTest Start!!!------------------:");
-        RegressionTest.RegressionTestBegin();
+        org.spring.springboot.RegressionTest.RegressionTestBegin();
     }
 
     @AfterClass
     public static void after() throws Exception {
-        RegressionTest.RegressionTestEnd();
+        org.spring.springboot.RegressionTest.RegressionTestEnd();
         HttpClient.record("------------------RegressionTest End!!!------------------:");
     }
 }
