@@ -1,10 +1,9 @@
-
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.spring.springboot.Application;
 import org.spring.springboot.ResultBean;
 import org.spring.springboot.controller.DeviceController;
 import org.spring.springboot.controller.UserController;
@@ -21,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = Application.class)
 public class UserControllerJunitTest {
 
 
