@@ -1,9 +1,9 @@
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+
+
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.spring.springboot.Application;
+import org.spring.springboot.RegressionTest;
 import org.spring.springboot.ResultBean;
 import org.spring.springboot.controller.DeviceController;
 import org.spring.springboot.controller.UserController;
@@ -14,10 +14,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
@@ -27,8 +27,12 @@ public class UserControllerJunitTest {
     @Autowired
     UserController userController;
 
+    @BeforeClass
+    public static void setTestInfo(){
+        RegressionTest.setTestInfo("---UserControllerJunitTest---:");
+    }
     @Before
-    public void testBefore(){
+    public void testBefore() {
         System.out.println("UserController Test Start:");
     }
 
@@ -46,13 +50,43 @@ public class UserControllerJunitTest {
         ResultBean<User> findUserByUserAccount = userController.findUserByUserAccount("sadaldkj");
         assertEquals(-1, findUserByUserAccount.getCode());
         assertEquals("UserAccount not Exist in DataBase", findUserByUserAccount.getMessage());
-        assertTrue(findUserByUserAccount.getData() == null);
+        assertNull(findUserByUserAccount.getData());
 
+        // findUserByUserId
+        ResultBean findUserByUserId = userController.findUserByUserId(-1);
+        ArrayList<User> user = new ArrayList<User>(findUserByUserId.getData());
+        assertEquals(0, findUserByUserId.getCode());
+        assertEquals("success", findUserByUserId.getMessage());
+        assertEquals(1, user.size());
+        assertEquals(true, user.get(0).getUserName().equals("TestUserName")
+                && user.get(0).getUserAccount().equals("TestUserAccount")
+                && user.get(0).getUserPassword().equals("TestUserPassword")
+                && user.get(0).getUserAuthority() == 0
+                && user.get(0).getUserId() == -1);
 
+        // updatePassword"
+        ResultBean updatePassword = userController.userUpdatePassword("TestUserAccount",
+                "TestUserPassword", "NewTestUserPassword");
+        assertEquals(0, updatePassword.getCode());
+        assertEquals(userController.login("TestUserAccount", "TestUserPassword")
+                .getCode(), -1);
+        assertEquals(0, userController.userUpdatePassword("TestUserAccount",
+                "NewTestUserPassword", "TestUserPassword").getCode());
+        assertEquals(0, userController.login("TestUserAccount", "TestUserPassword")
+                .getCode());
+
+        // logout
+        ResultBean logout = userController.userLogout("TestUserAccount", "TestUserPassword");
+        assertEquals(0, logout.getCode());
+
+        // register
+        ResultBean register = userController.userSignUp(-1,"TestUserAccount","TestUserName",
+                "TestUserPassword", 0);
+        assertEquals(0, register.getCode());
     }
 
     @After
-    public void testAfter(){
+    public void testAfter() {
         System.out.println("UserController Test End:");
     }
 }

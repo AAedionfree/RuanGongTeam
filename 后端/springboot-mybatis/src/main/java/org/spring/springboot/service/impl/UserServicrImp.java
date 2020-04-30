@@ -1,10 +1,7 @@
 package org.spring.springboot.service.impl;
 
 import org.spring.springboot.ResultBean;
-import org.spring.springboot.dao.users.UserAccountDao;
-import org.spring.springboot.dao.users.UserSignUp;
-import org.spring.springboot.dao.users.UserIdDao;
-import org.spring.springboot.dao.users.UserUpdatePassword;
+import org.spring.springboot.dao.users.*;
 import org.spring.springboot.domain.User;
 import org.spring.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +19,8 @@ public class UserServicrImp implements UserService {
     private UserSignUp userSignUp;
     @Autowired
     private UserUpdatePassword userUpdatePassword;
+    @Autowired
+    private UserLogoutDao userLogout;
 
     @Override
     public List<User> findUserByUserAccount(String userAccount) throws Exception {
@@ -38,10 +37,17 @@ public class UserServicrImp implements UserService {
     }
 
     @Override
+    public List<User> userSignUp(Integer userId, String userAccount, String userName, String userPassword, Integer auth) throws Exception {
+        if (userSignUp.isDulicate(userAccount) == 1) throw new Exception("Duplicate-userName");
+        userSignUp.userSignUpTest(userId, userAccount, userName, userPassword, auth);
+        return findUserByUserAccount(userAccount);
+    }
+
+    @Override
     public List<User> userSignUp(String userAccount, String userName, String userPassword) throws Exception {
         if (userSignUp.isDulicate(userAccount) == 1) throw new Exception("Duplicate-userName");
         int id = Integer.parseInt(userSignUp.getPrimayKey()) + 1;
-        userSignUp.userSignUP(id, userAccount, userName, userPassword);
+        userSignUp.userSignUp(id, userAccount, userName, userPassword);
         return findUserByUserAccount(userAccount);
     }
 
@@ -49,7 +55,7 @@ public class UserServicrImp implements UserService {
     public List<User> userSignUp(String userAccount, String userPassword) throws Exception{
         if (userSignUp.isDulicate(userAccount) == 1) throw new Exception("Duplicate-userName");
         int id = Integer.parseInt(userSignUp.getPrimayKey()) + 1;
-        userSignUp.userSignUP(id, userAccount, "user", userPassword);
+        userSignUp.userSignUp(id, userAccount, "user", userPassword);
         return findUserByUserAccount(userAccount);
     }
 
@@ -65,9 +71,15 @@ public class UserServicrImp implements UserService {
 
     @Override
     public List<User> userUpdatePassword(String userAccount, String userOldPassword, String userNewPassword) throws Exception{
-        List<User> userByUserAccount = findUserByUserAccount(userAccount);
-        if (userUpdatePassword.isPasswordRight(userAccount, userOldPassword) == 0) throw new Exception("Wrong-userPassword");
+        List<User> users = login(userAccount, userOldPassword);
         userUpdatePassword.userUpdatePassword(userAccount, userNewPassword);
-        return userByUserAccount;
+        return findUserByUserAccount(userAccount);
+    }
+
+    @Override
+    public List<User> userLogout(String userAccount, String userPassword) throws Exception{
+        List<User> users = login(userAccount, userPassword);
+        userLogout.userLogout(userAccount);
+        return users;
     }
 }
