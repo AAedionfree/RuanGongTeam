@@ -27,7 +27,7 @@ public class LogController {
 
     //  find logs by userId
     @RequestMapping(value = "/api/userLogs", method = RequestMethod.GET)
-    ResultBean<Log> findLogsByUserId(@RequestParam(value = "userId", required = true) String userId) {
-        return ExceptionCatch.exceptionCatch(logService, userId, userId);
+    ResultBean<Log> findLogsByUserId(@RequestParam(value = "userId", required = true) int userId) {
+        return ExceptionCatch.exceptionCatch(logService, userId + "", new Integer(userId));
     }
 }
