@@ -1,11 +1,11 @@
 package org.spring.springboot.domain;
 
 public class Device {
-    String devId;
+    int devId;
+    String devName;
     String devType;
     float devPrise;
     String devDate;
-    String devProv;
     String devPeriod;
     int chargeId;
     int managerId;
@@ -13,12 +13,20 @@ public class Device {
     int devStatus;
     int devAuth;
 
-    public String getDevId() {
+    public int getDevId() {
         return devId;
     }
 
-    public void setDevId(String devId) {
+    public void setDevId(int devId) {
         this.devId = devId;
+    }
+
+    public String getDevName() {
+        return devName;
+    }
+
+    public void setDevName(String devName) {
+        this.devName = devName;
     }
 
     public String getDevType() {
@@ -43,14 +51,6 @@ public class Device {
 
     public void setDevDate(String devDate) {
         this.devDate = devDate;
-    }
-
-    public String getDevProv() {
-        return devProv;
-    }
-
-    public void setDevProv(String devProv) {
-        this.devProv = devProv;
     }
 
     public String getDevPeriod() {
@@ -105,13 +105,13 @@ public class Device {
     public boolean equals(Object obj) {
         if (obj instanceof Device) {
             Device dev = (Device) obj;
-            return dev.getDevId().equals(this.devId);
+            return dev.getDevId() == this.devId;
         }
         return false;
     }
 
     @Override
     public int hashCode() {
-        return Integer.parseInt(devId);
+        return devId;
     }
 }

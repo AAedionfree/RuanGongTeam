@@ -67,6 +67,7 @@ public class UserController {
         return ExceptionCatch.exceptionCatch(userService, userAccount, userAccount, userOldPassword, userNewPassword);
     }
 
+    //  logout
     @RequestMapping(value = "/api/logout", method = RequestMethod.GET)
     public ResultBean userLogout(@RequestParam(value = "userAccount", required = true) String userAccount,
                                          @RequestParam(value = "userPassword", required = true) String userPassword) {

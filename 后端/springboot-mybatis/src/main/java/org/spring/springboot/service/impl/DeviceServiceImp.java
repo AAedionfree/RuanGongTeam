@@ -28,7 +28,7 @@ public class DeviceServiceImp implements DeviceService {
     @Autowired
     private UserAccountDao userAccountDao;
 
-    public List<Device> findDeviceByDevId(String devId) throws Exception{
+    public List<Device> findDeviceByDevId(Integer devId) throws Exception{
         List<Device> devices = devIdDao.findDeviceBydevId(devId);
         if(devices.size() == 0) throw new Exception("not found DeviceID");
         return devices;

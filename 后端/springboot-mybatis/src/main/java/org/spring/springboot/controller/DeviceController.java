@@ -19,14 +19,14 @@ public class DeviceController {
 
     // find devInfo by devId
     @RequestMapping(value = "/api/devId", method = RequestMethod.GET)
-    public ResultBean<Device> findDeviceByDevId(@RequestParam(value = "devId", required = true) String devId) {
-        return ExceptionCatch.exceptionCatch(deviceService, devId, devId);
+    public ResultBean<Device> findDeviceByDevId(@RequestParam(value = "devId", required = true) int devId) {
+        return ExceptionCatch.exceptionCatch(deviceService, devId + "", new Integer(devId));
     }
 
     // find devInfo by ManagerId
     @RequestMapping(value = "/api/devManagerId", method = RequestMethod.GET)
     public ResultBean<Device> findDeviceByManagerId(@RequestParam(value = "managerId", required = true) int managerId) {
-        return ExceptionCatch.exceptionCatch(deviceService, managerId + "", managerId);
+        return ExceptionCatch.exceptionCatch(deviceService, managerId + "", new Integer(managerId));
     }
 
     // find devInfo by userAuth
