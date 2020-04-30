@@ -14,7 +14,6 @@ public class ExceptionCatch {
             Method method = service.getClass().getDeclaredMethod(methodName, classes);
             return ResultBean.success(id, (Collection<?>) method.invoke(service, args));
         } catch (Exception e) {
-//            e.printStackTrace();
             return ResultBean.error(id, -1, e.getCause().getMessage());
         }
     }
