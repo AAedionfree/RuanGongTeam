@@ -1,8 +1,8 @@
 package org.spring.springboot.domain;
 
 public class Log {
-    private String logId;
-    private String devId;
+    private int logId;
+    private int devId;
     private int devStatus;
     private int devWorkStatus;
     private int tokenId;
@@ -10,19 +10,19 @@ public class Log {
     private String userId;
     private String changeTime;
     private int auth;
-    public String getLogId() {
+    public int getLogId() {
         return logId;
     }
 
-    public void setLogId(String logId) {
+    public void setLogId(int logId) {
         this.logId = logId;
     }
 
-    public String getDevId() {
+    public int getDevId() {
         return devId;
     }
 
-    public void setDevId(String devId) {
+    public void setDevId(int devId) {
         this.devId = devId;
     }
 

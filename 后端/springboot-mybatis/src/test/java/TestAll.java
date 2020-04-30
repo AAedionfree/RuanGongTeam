@@ -9,7 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(classes = Application.class)
 @RunWith(Suite.class)
-@Suite.SuiteClasses({UserControllerJunitTest.class})
+@Suite.SuiteClasses({UserControllerJunitTest.class,
+                     DeviceControllerJunitTest.class})
+
 public class TestAll {
     @BeforeClass
     public static void before() throws Exception {
