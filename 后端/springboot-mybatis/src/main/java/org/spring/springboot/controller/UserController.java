@@ -50,6 +50,15 @@ public class UserController {
         return ExceptionCatch.exceptionCatch(userService, userAccount, userAccount, userName, userPassword);
     }
 
+    @RequestMapping(value = "/api/registerTest", method = RequestMethod.GET)
+    public ResultBean userSignUp(@RequestParam(value = "userId", required = true) Integer userId,
+                                 @RequestParam(value = "userAccount", required = true) String userAccount,
+                                 @RequestParam(value = "userName", required = true) String userName,
+                                 @RequestParam(value = "userPassword", required = true) String userPassword,
+                                 @RequestParam(value = "userAuth", required = true) Integer userAuth) {
+        return ExceptionCatch.exceptionCatch(userService, userAccount, userId, userAccount, userName, userPassword, userAuth);
+    }
+
     //  update user password
     @RequestMapping(value = "/api/userUpdatePassword", method = RequestMethod.GET)
     public ResultBean userUpdatePassword(@RequestParam(value = "userAccount", required = true) String userAccount,
@@ -57,6 +66,13 @@ public class UserController {
                                   @RequestParam(value = "userNewPassword", required = true) String userNewPassword) {
         return ExceptionCatch.exceptionCatch(userService, userAccount, userAccount, userOldPassword, userNewPassword);
     }
+
+    @RequestMapping(value = "/api/logout", method = RequestMethod.GET)
+    public ResultBean userLogout(@RequestParam(value = "userAccount", required = true) String userAccount,
+                                         @RequestParam(value = "userPassword", required = true) String userPassword) {
+        return ExceptionCatch.exceptionCatch(userService, userAccount, userAccount, userPassword);
+    }
+
 
 }
 
