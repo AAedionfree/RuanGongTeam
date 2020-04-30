@@ -1,18 +1,3 @@
-function is_special(a){
-		var flag=0;
-	for(var i =0;i<a.length;i++){
-			
-		if((0<=a[i]&&a[i]<=9)||('a'<=a[i]&&a[i]<='z')||('A'<=a[i]&&a[i]<='Z')){
-			continue;
-			
-		}else{
-			flag = 1;
-		}
-	}
-	return flag;
-}
-
-
 function login_m(request_url){
 		mui.init();
 		var password = document.getElementById("password").value;
@@ -40,17 +25,26 @@ function login_m(request_url){
 					timeout:10000,	
 					dataType:"json",
 					success: function(data){
+						if(data.data!=null){
 						var user_s = JSON.stringify(data.data);
 						user_s=user_s.substring(1,user_s.length-1);
 						var user = JSON.parse(user_s);
+						}
 						// var s ="";
 							
 						// for (var p in user) {
 						// 	s= s+"n "+p+": "+user[p];
 						// }
 						// alert(s);
+						
 						if(data.code==0){
 							mui.toast(data.message);
+							mui.openWindow({
+								url:'search.html',
+								extras:{
+									user:user,
+								}
+							});
 						}else {
 							mui.toast(data.message);
 						}	

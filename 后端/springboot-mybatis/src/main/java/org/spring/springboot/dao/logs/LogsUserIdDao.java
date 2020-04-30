@@ -21,5 +21,5 @@ public interface LogsUserIdDao {
                 @Result(property = "changeTime", column = "change_time"),
                 @Result(property = "auth", column = "auth")
         })
-        List<Log> findLogsByUserId(String UserId);
+        List<Log> findLogsByUserId(int UserId);
 }

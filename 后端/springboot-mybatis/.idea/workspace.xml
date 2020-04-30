@@ -64,7 +64,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586183403953" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
@@ -299,9 +299,10 @@
       <screen x="35" y="23" width="1245" height="697" />
     </state>
     <state x="344" y="23" key="#getRequest/35.23.1245.697@35.23.1245.697" timestamp="1586882393005" />
-    <state x="550" y="141" key="FileChooserDialogImpl" timestamp="1586882672679">
-      <screen x="35" y="23" width="1245" height="697" />
+    <state x="794" y="176" key="FileChooserDialogImpl" timestamp="1588230251948">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="794" y="176" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588230251948" />
     <state x="550" y="141" key="FileChooserDialogImpl/35.23.1245.697@35.23.1245.697" timestamp="1586882672679" />
     <state width="1238" height="211" key="GridCell.Tab.0.bottom" timestamp="1588228877341">
       <screen x="0" y="0" width="1280" height="720" />
@@ -379,10 +380,11 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="178" y="22" key="Maven.ArtifactSearchDialog/0.0.1280.720@0.0.1280.720" timestamp="1588042361319" />
-    <state x="162" y="0" width="997" height="720" key="SettingsEditor" timestamp="1588036159499">
-      <screen x="0" y="0" width="1280" height="720" />
+    <state x="243" y="0" width="997" height="720" key="SettingsEditor" timestamp="1588228791325">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="162" y="0" width="997" height="720" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1588036159499" />
+    <state x="243" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588228791325" />
     <state x="162" y="23" key="SettingsEditor/0.23.1280.697@0.23.1280.697" timestamp="1586951189022" />
     <state x="159" y="23" key="SettingsEditor/33.23.1247.697@33.23.1247.697" timestamp="1586503234526" />
     <state x="160" y="23" key="SettingsEditor/34.23.1246.697@34.23.1246.697" timestamp="1586883298426" />
