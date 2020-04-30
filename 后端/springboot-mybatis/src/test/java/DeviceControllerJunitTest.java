@@ -1,4 +1,4 @@
-package RegressionTest;
+
 
 import org.junit.*;
 import org.junit.runner.RunWith;
@@ -6,12 +6,16 @@ import org.spring.springboot.Application;
 import org.spring.springboot.RegressionTest;
 import org.spring.springboot.ResultBean;
 import org.spring.springboot.controller.DeviceController;
+import org.spring.springboot.controller.UserController;
 import org.spring.springboot.domain.Device;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -25,7 +29,7 @@ public class DeviceControllerJunitTest {
 
     @BeforeClass
     public static void setTestInfo(){
-        RegressionTest.setTestInfo("---test.DeviceControllerJunitTest---:");
+        RegressionTest.setTestInfo("---DeviceControllerJunitTest---:");
     }
     @Before
     public void testBefore(){
@@ -33,7 +37,7 @@ public class DeviceControllerJunitTest {
     }
 
     @Test
-    public void findDeviceByDevId(){
+    public void test() {
         // find devInfo by devId
         ResultBean<Device> findDeviceByDeviceId = deviceController.findDeviceByDevId(-1);
         ArrayList<Device> device = new ArrayList<Device>(findDeviceByDeviceId.getData());
@@ -50,30 +54,25 @@ public class DeviceControllerJunitTest {
                 && device.get(0).getDevWordStatus() == 0
                 && device.get(0).getDevStatus() ==0
                 && device.get(0).getDevAuth() == 0);
-    }
 
-    @Test
-    public void findDeviceByManagerId(){
+        // find devInfo by ManagerId
         ResultBean<Device> findDeviceByManagerId = deviceController.findDeviceByManagerId(0);
         assertEquals(0, findDeviceByManagerId.getCode());
         assertEquals("success", findDeviceByManagerId.getMessage());
         assertNotNull(findDeviceByManagerId.getData());
-    }
 
-    @Test
-    public void findDeviceByDevAuth(){
+        // find devInfo by userAuth
         ResultBean<Device> findDeviceByDevAuth = deviceController.findDeviceByDevAuth(0);
         assertEquals(0, findDeviceByDevAuth.getCode());
         assertEquals("success", findDeviceByDevAuth.getMessage());
         assertNotNull(findDeviceByDevAuth.getData());
-    }
 
-    @Test
-    public void findDeviceByUserAccount() {
+        // find devInfo by userAccount
         ResultBean<Device> findDeviceByUserAccount = deviceController.findDeviceByUserAccount("22233");
         assertEquals(-1, findDeviceByUserAccount.getCode());
         assertEquals("userAccount not exist in DataBase", findDeviceByUserAccount.getMessage());
         assertNull(findDeviceByUserAccount.getData());
+
     }
 
     @After
