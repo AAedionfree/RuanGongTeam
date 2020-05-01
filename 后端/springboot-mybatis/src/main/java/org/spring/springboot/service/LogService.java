@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface LogService extends Service{
     List<Log> findAllLogs();
-    List<Log> findLogsByUserId(int UserId);
+    List<Log> findLogsByUserId(Integer UserId);
 }
