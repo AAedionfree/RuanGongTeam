@@ -191,10 +191,10 @@
       <item itemvalue="Docker.springboot" />
       <item itemvalue="JUnit.UserControllerJunitTest" />
       <item itemvalue="JUnit.DeviceControllerJunitTest" />
-      <item itemvalue="Python.getRequest" />
-      <item itemvalue="Spring Boot.Application" />
       <item itemvalue="JUnit.TestAll" />
       <item itemvalue="JUnit.DeviceControllerJunitTest.test" />
+      <item itemvalue="Python.getRequest" />
+      <item itemvalue="Spring Boot.Application" />
     </list>
     <recent_temporary>
       <list>
