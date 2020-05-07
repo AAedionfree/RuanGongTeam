@@ -14,7 +14,11 @@ public class ExceptionCatch {
             Method method = service.getClass().getDeclaredMethod(methodName, classes);
             return ResultBean.success(id, (Collection<?>) method.invoke(service, args));
         } catch (Exception e) {
+<<<<<<< HEAD
 //            e.printStackTrace();
+=======
+            if(e.getCause() == null) e.printStackTrace();
+>>>>>>> cbae7016019df2da6e792365c3276cca1f782097
             return ResultBean.error(id, -1, e.getCause().getMessage());
         }
     }

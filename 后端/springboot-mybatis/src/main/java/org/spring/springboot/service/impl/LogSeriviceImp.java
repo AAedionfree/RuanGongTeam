@@ -23,5 +23,9 @@ public class LogSeriviceImp implements LogService {
     }
 
     @Override
+<<<<<<< HEAD
     public List<Log> findLogsByUserId(int UserId){ return logsUserIdDao.findLogsByUserId(UserId);}
+=======
+    public List<Log> findLogsByUserId(Integer UserId){ return logsUserIdDao.findLogsByUserId(UserId);}
+>>>>>>> cbae7016019df2da6e792365c3276cca1f782097
 }

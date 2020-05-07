@@ -7,9 +7,17 @@ public class Log {
     private int devWorkStatus;
     private int tokenId;
     private int tokenStatus;
-    private String userId;
+<<<<<<< HEAD
     private String changeTime;
     private int auth;
+    private String senderAccount;
+    private String receiverAccount;
+
+=======
+    private int userId;
+    private String changeTime;
+    private int auth;
+>>>>>>> cbae7016019df2da6e792365c3276cca1f782097
     public int getLogId() {
         return logId;
     }
@@ -58,14 +66,17 @@ public class Log {
         this.tokenStatus = tokenStatus;
     }
 
-    public String getUserId() {
+<<<<<<< HEAD
+=======
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
+>>>>>>> cbae7016019df2da6e792365c3276cca1f782097
     public String getChangeTime() {
         return changeTime;
     }
@@ -74,10 +85,19 @@ public class Log {
         this.changeTime = changeTime;
     }
 
-    public void setAuth(int auth){
-        this.auth = auth;
-    }
     public int getAuth(){
         return this.auth;
     }
+
+    public void setAuth(int auth){
+        this.auth = auth;
+    }
+
+    public String getSenderAccount() { return senderAccount; }
+
+    public void setSenderAccount(String senderAccount) { this.senderAccount = senderAccount; }
+
+    public String getReceiverAccount() { return receiverAccount; }
+
+    public void setReceiverAccount(String receiverAccount) { this.receiverAccount = receiverAccount; }
 }
