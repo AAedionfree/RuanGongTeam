@@ -39,9 +39,45 @@ public class LogControllerJunitTest {
 
     @Test
     public void findLogsByUserId(){
-        ResultBean<Log> logs = logController.findLogsByUserId(-1);
+        ResultBean<Log> logs = logController.findLogsByUserAccount("-1");
         assertEquals(logs.getCode(), 0);
         assertEquals(logs.getData().size(), 1);
+    }
+
+    @Test
+    public void addFixLog(){
+        ResultBean addFixLogAuthError = logController.addFixLog("AAedion",-1);
+        assertEquals(addFixLogAuthError.getCode(), -1);
+        assertEquals(addFixLogAuthError.getData(), null);
+        assertEquals(addFixLogAuthError.getMessage(),"Authentication failed AAedion");
+
+        ResultBean addFixDamageWorkStatusError = logController.addDamageLog("TestUserAccount",-1);
+        assertEquals(addFixDamageWorkStatusError.getCode(), -1);
+        assertEquals(addFixDamageWorkStatusError.getData(), null);
+        assertEquals(addFixDamageWorkStatusError.getMessage(),"Can't fix device with devStatus:3");
+
+        ResultBean addFixLog = logController.addFixLog("TestUserAccount",-1);
+        assertEquals(addFixLog.getCode(), 0);
+        assertEquals(addFixLog.getData(), null);
+        assertEquals(addFixLog.getMessage(),"success");
+    }
+
+    @Test
+    public void addDamageLog(){
+        ResultBean addDamageLogAuthError = logController.addDamageLog("AAedion",-1);
+        assertEquals(addDamageLogAuthError.getCode(), -1);
+        assertEquals(addDamageLogAuthError.getData(), null);
+        assertEquals(addDamageLogAuthError.getMessage(),"Authentication failed AAedion");
+
+        ResultBean addFixLogWorkStatusError = logController.addFixLog("TestUserAccount",-1);
+        assertEquals(addFixLogWorkStatusError.getCode(), -1);
+        assertEquals(addFixLogWorkStatusError.getData(), null);
+        assertEquals(addFixLogWorkStatusError.getMessage(),"Can't fix device with devStatus:1");
+
+        ResultBean addDamageLog = logController.addDamageLog("TestUserAccount",-1);
+        assertEquals(addDamageLog.getCode(), 0);
+        assertEquals(addDamageLog.getData(), null);
+        assertEquals(addDamageLog.getMessage(),"success");
     }
 
     @After

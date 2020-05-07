@@ -8,8 +8,8 @@ import org.spring.springboot.domain.Log;
 
 import java.util.List;
 
-public interface LogsUserIdDao {
-        @Select("SELECT * FROM logs where user_id = #{userId}")
+public interface LogsUserAccountDao {
+        @Select("SELECT * FROM logs where sender_account = #{userAccount} or receiver_account = #{userAccount}")
         // 返回 Map 结果集
         @Results({
                 @Result(property = "logId", column = "log_id"),
@@ -18,9 +18,10 @@ public interface LogsUserIdDao {
                 @Result(property = "devWorkStatus", column = "dev_work_status"),
                 @Result(property = "tokenId", column = "token_id"),
                 @Result(property = "tokenStatus", column = "token_status"),
-                @Result(property = "userId", column = "user_id"),
+                @Result(property = "senderAccount", column = "sender_Account"),
+                @Result(property = "receiverAccount", column = "receiver_Account"),
                 @Result(property = "changeTime", column = "change_time"),
                 @Result(property = "auth", column = "auth")
         })
-        List<Log> findLogsByUserId(@Param("userId") int userId);
+        List<Log> findLogsByUserAccount(@Param("userAccount") String userAccount);
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public interface UserSignUp {
     @Select("select user_id from users order by user_id desc limit 1")
     @ResultType(Integer.class)
-    String getPrimayKey();
+    Integer getPrimayKey();
 
     @Select("select Count(*) from users where user_account = #{userAccount} limit 1")
     @ResultType(Integer.class)
