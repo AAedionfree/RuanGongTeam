@@ -7,7 +7,7 @@ public class Log {
     private int devWorkStatus;
     private int tokenId;
     private int tokenStatus;
-    private String userId;
+    private int userId;
     private String changeTime;
     private int auth;
     public int getLogId() {
@@ -58,11 +58,11 @@ public class Log {
         this.tokenStatus = tokenStatus;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
