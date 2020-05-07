@@ -18,16 +18,9 @@ public interface DevAuthDao {
             @Result(property = "devPeriod", column = "dev_period"),
             @Result(property = "chargeId", column = "charge_id"),
             @Result(property = "managerId", column = "manager_id"),
-<<<<<<< HEAD
-            @Result(property = "devWorkStatus", column = "dev_work_status"),
-            @Result(property = "devStatus", column = "dev_status"),
-            @Result(property = "devAuth", column = "dev_auth"),
-            @Result(property = "userAccount", column = "user_account")
-=======
             @Result(property = "devWorkStatus", column = "dev_word_status"),
             @Result(property = "devStatus", column = "dev_status"),
             @Result(property = "devAuth", column = "dev_auth")
->>>>>>> cbae7016019df2da6e792365c3276cca1f782097
     })
     List<Device> findDeviceByDevAuth(@Param("devAuth") int devAuth);
 }

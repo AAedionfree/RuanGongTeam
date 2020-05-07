@@ -103,4 +103,3 @@ venv.bak/
 # mypy
 .mypy_cache/
 后端/springboot-mybatis/.idea/workspace.xml
-*.xml

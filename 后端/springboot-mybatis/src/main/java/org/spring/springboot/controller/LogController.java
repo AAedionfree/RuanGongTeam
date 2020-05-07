@@ -21,21 +21,13 @@ public class LogController {
 
     //  find all logs
     @RequestMapping(value = "/api/logs", method = RequestMethod.GET)
-<<<<<<< HEAD
     ResultBean<Log> findAllLogs() {
-=======
-    public ResultBean<Log> findAllLogs() {
->>>>>>> cbae7016019df2da6e792365c3276cca1f782097
         return ExceptionCatch.exceptionCatch(logService, "AllLogs");
     }
 
     //  find logs by userId
     @RequestMapping(value = "/api/userLogs", method = RequestMethod.GET)
-<<<<<<< HEAD
     ResultBean<Log> findLogsByUserId(@RequestParam(value = "userId", required = true) int userId) {
-=======
-    public ResultBean<Log> findLogsByUserId(@RequestParam(value = "userId", required = true) int userId) {
->>>>>>> cbae7016019df2da6e792365c3276cca1f782097
         return ExceptionCatch.exceptionCatch(logService, userId + "", new Integer(userId));
     }
 }

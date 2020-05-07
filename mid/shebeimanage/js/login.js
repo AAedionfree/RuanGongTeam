@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function is_special(a){
 		var flag=0;
 	for(var i =0;i<a.length;i++){
@@ -14,8 +13,6 @@ function is_special(a){
 }
 
 
-=======
->>>>>>> cbae7016019df2da6e792365c3276cca1f782097
 function login_m(request_url){
 		mui.init();
 		var password = document.getElementById("password").value;
@@ -43,37 +40,17 @@ function login_m(request_url){
 					timeout:10000,	
 					dataType:"json",
 					success: function(data){
-<<<<<<< HEAD
 						var user_s = JSON.stringify(data.data);
 						user_s=user_s.substring(1,user_s.length-1);
 						var user = JSON.parse(user_s);
-=======
-						if(data.data!=null){
-						var user_s = JSON.stringify(data.data);
-						user_s=user_s.substring(1,user_s.length-1);
-						var user = JSON.parse(user_s);
-						}
->>>>>>> cbae7016019df2da6e792365c3276cca1f782097
 						// var s ="";
 							
 						// for (var p in user) {
 						// 	s= s+"n "+p+": "+user[p];
 						// }
 						// alert(s);
-<<<<<<< HEAD
 						if(data.code==0){
 							mui.toast(data.message);
-=======
-						
-						if(data.code==0){
-							mui.toast(data.message);
-							mui.openWindow({
-								url:'search.html',
-								extras:{
-									user:user,
-								}
-							});
->>>>>>> cbae7016019df2da6e792365c3276cca1f782097
 						}else {
 							mui.toast(data.message);
 						}	

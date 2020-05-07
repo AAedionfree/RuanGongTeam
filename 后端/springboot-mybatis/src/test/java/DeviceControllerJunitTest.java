@@ -6,6 +6,7 @@ import org.spring.springboot.Application;
 import org.spring.springboot.RegressionTest;
 import org.spring.springboot.ResultBean;
 import org.spring.springboot.controller.DeviceController;
+import org.spring.springboot.controller.UserController;
 import org.spring.springboot.domain.Device;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -50,10 +51,9 @@ public class DeviceControllerJunitTest {
                 && device.get(0).getDevPeriod().equals("TestDevPeriod")
                 && device.get(0).getChargeId() == 0
                 && device.get(0).getManagerId() == 0
-                && device.get(0).getDevWorkStatus() == 0
-                && device.get(0).getDevStatus() == 0
-                && device.get(0).getDevAuth() == 0
-                && device.get(0).getUserAccount().equals("TestUserAccount"));
+                && device.get(0).getDevWordStatus() == 0
+                && device.get(0).getDevStatus() ==0
+                && device.get(0).getDevAuth() == 0);
 
         // find devInfo by ManagerId
         ResultBean<Device> findDeviceByManagerId = deviceController.findDeviceByManagerId(0);

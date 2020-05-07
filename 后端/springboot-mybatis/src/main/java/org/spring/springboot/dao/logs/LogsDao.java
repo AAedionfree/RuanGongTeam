@@ -19,10 +19,9 @@ public interface LogsDao {
             @Result(property = "devWorkStatus", column = "dev_work_status"),
             @Result(property = "tokenId", column = "token_id"),
             @Result(property = "tokenStatus", column = "token_status"),
+            @Result(property = "userId", column = "user_id"),
             @Result(property = "changeTime", column = "change_time"),
-            @Result(property = "auth", column = "auth"),
-            @Result(property = "senderAccount", column = "sender_account"),
-            @Result(property = "receiverAccount", column = "receiver_account")
+            @Result(property = "auth", column = "auth")
     })
     List<Log> findAllLogs();
 }

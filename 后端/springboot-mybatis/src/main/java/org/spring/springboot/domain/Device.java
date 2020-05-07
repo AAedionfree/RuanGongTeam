@@ -9,16 +9,9 @@ public class Device {
     String devPeriod;
     int chargeId;
     int managerId;
-<<<<<<< HEAD
-    int devWorkStatus;
-    int devStatus;
-    int devAuth;
-    String userAccount;
-=======
     int devWordStatus;
     int devStatus;
     int devAuth;
->>>>>>> cbae7016019df2da6e792365c3276cca1f782097
 
     public int getDevId() {
         return devId;
@@ -84,12 +77,12 @@ public class Device {
         this.managerId = managerId;
     }
 
-    public int getDevWorkStatus() {
-        return devWorkStatus;
+    public int getDevWordStatus() {
+        return devWordStatus;
     }
 
-    public void setDevWorkStatus(int devWorkStatus) {
-        this.devWorkStatus = devWorkStatus;
+    public void setDevWordStatus(int devWordStatus) {
+        this.devWordStatus = devWordStatus;
     }
 
     public int getDevStatus() {
@@ -108,17 +101,6 @@ public class Device {
         this.devAuth = devAuth;
     }
 
-<<<<<<< HEAD
-    public String getUserAccount() {
-        return userAccount;
-    }
-
-    public void setUserAccount(String userAccount) {
-        this.userAccount = userAccount;
-    }
-
-=======
->>>>>>> cbae7016019df2da6e792365c3276cca1f782097
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Device) {
