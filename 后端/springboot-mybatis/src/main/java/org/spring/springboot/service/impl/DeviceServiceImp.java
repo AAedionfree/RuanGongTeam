@@ -3,6 +3,7 @@ package org.spring.springboot.service.impl;
 import org.apache.commons.collections.CollectionUtils;
 
 import org.spring.springboot.dao.devices.DevAuthDao;
+import org.spring.springboot.dao.devices.DevChangeDao;
 import org.spring.springboot.dao.devices.DevIdDao;
 import org.spring.springboot.dao.devices.DevManagerIdDao;
 import org.spring.springboot.dao.users.UserAccountDao;
@@ -27,6 +28,8 @@ public class DeviceServiceImp implements DeviceService {
     private DevAuthDao devAuthDao;
     @Autowired
     private UserAccountDao userAccountDao;
+    @Autowired
+    private DevChangeDao devChangeDao;
 
     public List<Device> findDeviceByDevId(Integer devId) throws Exception{
         List<Device> devices = devIdDao.findDeviceBydevId(devId);
@@ -56,6 +59,24 @@ public class DeviceServiceImp implements DeviceService {
             throw new Exception("userAccount not exist in DataBase");
         } else {
             throw new Exception("Duplicate userAccount in DataBase");
+        }
+    }
+
+    public List<Device> lendDeviceByDevId(String userAccount, Integer devId) throws Exception {
+        List<User> users = userAccountDao.findUserByUserAccount(userAccount);
+        List<Device> devices = devIdDao.findDeviceBydevId(devId);
+        if (users.size() == 1 && devices.size() == 1) {
+            Device device = devices.get(0);
+            int devWorkStatus = device.getDevWorkStatus();
+            int devStatus = device.getDevStatus();
+            if (devWorkStatus == 1 && devStatus == 1) {
+                devChangeDao.lendDeviceByDevId(userAccount, devId);
+                return devIdDao.findDeviceBydevId(devId);
+            } else {
+                throw new Exception("Device can not be lend to you");
+            }
+        } else {
+            throw new Exception("Wrong userAccount or devId");
         }
     }
 }

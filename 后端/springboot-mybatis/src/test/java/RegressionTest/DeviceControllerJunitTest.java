@@ -47,7 +47,7 @@ public class DeviceControllerJunitTest {
                 && device.get(0).getDevPeriod().equals("TestDevPeriod")
                 && device.get(0).getChargeId() == 0
                 && device.get(0).getManagerId() == 0
-                && device.get(0).getDevWordStatus() == 0
+                && device.get(0).getDevWorkStatus() == 0
                 && device.get(0).getDevStatus() ==0
                 && device.get(0).getDevAuth() == 0);
     }

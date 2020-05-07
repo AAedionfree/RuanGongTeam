@@ -40,4 +40,11 @@ public class DeviceController {
     public ResultBean<Device> findDeviceByUserAccount(@RequestParam(value = "userAccount", required = true) String userAccount) {
         return ExceptionCatch.exceptionCatch(deviceService, userAccount,userAccount);
     }
+
+    //lend dev by devId
+    @RequestMapping(value = "/api/devLend", method = RequestMethod.GET)
+    public ResultBean<Device> lendDeviceByDevId(@RequestParam(value = "userAccount", required = true) String userAccount,
+                                                @RequestParam(value = "devId", required = true) int devId) {
+        return ExceptionCatch.exceptionCatch(deviceService, userAccount, userAccount, devId);
+    }
 }
