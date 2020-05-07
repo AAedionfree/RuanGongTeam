@@ -45,19 +45,19 @@ public class DeviceControllerJunitTest {
                 && device.get(0).getDevPrise() == 0.0
                 && device.get(0).getDevDate().equals("TestDevDate")
                 && device.get(0).getDevPeriod().equals("TestDevPeriod")
-                && device.get(0).getChargeId() == 0
-                && device.get(0).getManagerId() == 0
+                && device.get(0).getChargeAccount().equals("TestChargeAccount")
+                && device.get(0).getManagerAccount().equals("TestManagerAccount")
                 && device.get(0).getDevWorkStatus() == 0
                 && device.get(0).getDevStatus() ==0
                 && device.get(0).getDevAuth() == 0);
     }
 
     @Test
-    public void findDeviceByManagerId(){
-        ResultBean<Device> findDeviceByManagerId = deviceController.findDeviceByManagerId(0);
-        assertEquals(0, findDeviceByManagerId.getCode());
-        assertEquals("success", findDeviceByManagerId.getMessage());
-        assertNotNull(findDeviceByManagerId.getData());
+    public void findDeviceByManagerAccount(){
+        ResultBean<Device> findDeviceByManagerAccount = deviceController.findDeviceByManagerAccount("TestManagerAccount");
+        assertEquals(0, findDeviceByManagerAccount.getCode());
+        assertEquals("success", findDeviceByManagerAccount.getMessage());
+        assertNotNull(findDeviceByManagerAccount.getData());
     }
 
     @Test

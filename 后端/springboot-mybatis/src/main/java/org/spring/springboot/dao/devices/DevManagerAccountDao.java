@@ -8,9 +8,9 @@ import org.spring.springboot.domain.Device;
 
 import java.util.List;
 
-public interface DevManagerIdDao {
+public interface DevManagerAccountDao {
 
-    @Select("SELECT * FROM devices where manager_id = #{managerId}")
+    @Select("SELECT * FROM devices where manager_account = #{managerAccount}")
     // 返回 Map 结果集
     @Results({
             @Result(property = "devId", column = "dev_id"),
@@ -19,12 +19,12 @@ public interface DevManagerIdDao {
             @Result(property = "devPrise", column = "dev_prise"),
             @Result(property = "devDate", column = "dev_date"),
             @Result(property = "devPeriod", column = "dev_period"),
-            @Result(property = "chargeId", column = "charge_id"),
-            @Result(property = "managerId", column = "manager_id"),
+            @Result(property = "chargeAccount", column = "charge_account"),
+            @Result(property = "managerAccount", column = "manager_account"),
             @Result(property = "devWorkStatus", column = "dev_work_status"),
             @Result(property = "devStatus", column = "dev_status"),
             @Result(property = "devAuth", column = "dev_auth"),
             @Result(property = "userAccount", column = "user_account")
     })
-    List<Device> findDeviceByManagerId(@Param("managerId") int managerId);
+    List<Device> findDeviceByManagerAccount(@Param("managerAccount") String managerAccount);
 }

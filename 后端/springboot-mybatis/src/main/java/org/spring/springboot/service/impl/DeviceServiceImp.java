@@ -1,11 +1,9 @@
 package org.spring.springboot.service.impl;
 
-import org.apache.commons.collections.CollectionUtils;
-
 import org.spring.springboot.dao.devices.DevAuthDao;
 import org.spring.springboot.dao.devices.DevChangeDao;
 import org.spring.springboot.dao.devices.DevIdDao;
-import org.spring.springboot.dao.devices.DevManagerIdDao;
+import org.spring.springboot.dao.devices.DevManagerAccountDao;
 import org.spring.springboot.dao.users.UserAccountDao;
 import org.spring.springboot.domain.Device;
 import org.spring.springboot.domain.User;
@@ -16,14 +14,13 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class DeviceServiceImp implements DeviceService {
     @Autowired
     private DevIdDao devIdDao;
     @Autowired
-    private DevManagerIdDao devManagerIdDao;
+    private DevManagerAccountDao devManagerAccountDao;
     @Autowired
     private DevAuthDao devAuthDao;
     @Autowired
@@ -37,8 +34,8 @@ public class DeviceServiceImp implements DeviceService {
         return devices;
     }
 
-    public List<Device> findDeviceByManagerId(Integer managerId) {
-        return devManagerIdDao.findDeviceByManagerId(managerId);
+    public List<Device> findDeviceByManagerAccount(String managerAccount) {
+        return devManagerAccountDao.findDeviceByManagerAccount(managerAccount);
     }
 
     public List<Device> findDeviceByDevAuth(Integer devAuth) {
@@ -50,9 +47,8 @@ public class DeviceServiceImp implements DeviceService {
         if (users.size() == 1) {
             User user = users.get(0);
             int auth = user.getUserAuthority();
-            int userId = user.getUserId();
             List<Device> authDevices = findDeviceByDevAuth(auth);
-            List<Device> ownDevices = findDeviceByManagerId(userId);
+            List<Device> ownDevices = findDeviceByManagerAccount(userAccount);
             authDevices.addAll(ownDevices);
             return new ArrayList<>(new HashSet<>(authDevices));
         } else if (users.size() == 0) {

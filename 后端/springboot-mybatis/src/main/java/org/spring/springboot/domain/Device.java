@@ -7,8 +7,8 @@ public class Device {
     float devPrise;
     String devDate;
     String devPeriod;
-    int chargeId;
-    int managerId;
+    String chargeAccount;
+    String managerAccount;
     int devWorkStatus;
     int devStatus;
     int devAuth;
@@ -62,20 +62,20 @@ public class Device {
         this.devPeriod = devPeriod;
     }
 
-    public int getChargeId() {
-        return chargeId;
+    public String getChargeAccount() {
+        return chargeAccount;
     }
 
-    public void setChargeId(int chargeId) {
-        this.chargeId = chargeId;
+    public void setChargeAccount(String chargeAccount) {
+        this.chargeAccount = chargeAccount;
     }
 
-    public int getManagerId() {
-        return managerId;
+    public String getManagerAccount() {
+        return managerAccount;
     }
 
-    public void setManagerId(int managerId) {
-        this.managerId = managerId;
+    public void setManagerAccount(String managerAccount) {
+        this.managerAccount = managerAccount;
     }
 
     public int getDevWorkStatus() {
