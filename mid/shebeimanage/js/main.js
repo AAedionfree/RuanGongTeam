@@ -4,6 +4,7 @@ function load_xian(){
 	
 function to_myequ(user){
 	mui.init();
+	alert(user);
 	mui.openWindow({
 		url:'myequipment.html',
 		extras:{
@@ -13,7 +14,6 @@ function to_myequ(user){
 }
 function to_arrange(user){
 	mui.init();
-	alert(user);
 	mui.openWindow({
 		url:'arrange.html',
 		extras:{
