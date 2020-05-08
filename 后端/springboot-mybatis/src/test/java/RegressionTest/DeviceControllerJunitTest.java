@@ -76,6 +76,14 @@ public class DeviceControllerJunitTest {
         assertNull(findDeviceByUserAccount.getData());
     }
 
+    @Test
+    public void lendDeviceByDevId(){
+        ResultBean<Device> lendDeviceByDevId = deviceController.lendDeviceByDevId("TestUserAccount",-1);
+        assertEquals(-1,lendDeviceByDevId.getCode());
+        assertEquals("Device can not be lend to you",lendDeviceByDevId.getMessage());
+        assertNull(lendDeviceByDevId.getData());
+    }
+
     @After
     public void testAfter(){
         System.out.println("DeviceController Test End:");

@@ -22,9 +22,9 @@ public class LogController {
         return ExceptionCatch.exceptionCatch(logService, "AllLogs");
     }
 
-    //  find logs by userId
+    //  find logs by userAccount
     @RequestMapping(value = "/api/userLogs", method = RequestMethod.GET)
-    public ResultBean<Log> findLogsByUserAccount(@RequestParam(value = "userId", required = true) String userAccount) {
+    public ResultBean<Log> findLogsByUserAccount(@RequestParam(value = "userAccount", required = true) String userAccount) {
         return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount);
     }
 
