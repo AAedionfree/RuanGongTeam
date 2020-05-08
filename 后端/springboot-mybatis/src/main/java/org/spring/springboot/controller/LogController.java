@@ -46,5 +46,20 @@ public class LogController {
         return ExceptionCatch.exceptionCatch(logService, devId + "", userAccount, new Integer(devId));
     }
 
+    // add scrapped record
+    @RequestMapping(value = "/api/devAddScrapRecord", method = RequestMethod.GET)
+    public ResultBean addScrapLog(
+            @RequestParam(value = "userAccount", required = true) String userAccount ,
+            @RequestParam(value = "devId", required = true) int devId
+    ) {
+        return ExceptionCatch.exceptionCatch(logService, devId + "", userAccount, new Integer(devId));
+    }
 
+    // find scrap record
+    @RequestMapping(value = "/api/devFindScrapRecord", method = RequestMethod.GET)
+    public ResultBean findScrapLog(
+            @RequestParam(value = "userAccount", required = true) String userAccount
+    ) {
+        return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount);
+    }
 }

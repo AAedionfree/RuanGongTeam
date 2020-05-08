@@ -9,4 +9,6 @@ public interface LogService extends Service{
     List<Log> findLogsByUserAccount(String UserAccount);
     List<Log> addFixLog(String userAccount, Integer devId) throws Exception;
     List<Log> addDamageLog(String userAccount, Integer devId) throws Exception;
+    List<Log> addScrapLog(String userAccount, Integer devId) throws Exception;
+    List<Log> findScrapLog(String userAccount) throws Exception;
 }
