@@ -26,7 +26,7 @@ public class DeviceServiceImp implements DeviceService {
     @Autowired
     private UserAccountDao userAccountDao;
     @Autowired
-    private DevRentDao devChangeDao;
+    private DevRentDao devRentDao;
 
     public List<Device> findDeviceByDevId(Integer devId) throws Exception{
         List<Device> devices = devIdDao.findDeviceBydevId(devId);
@@ -66,7 +66,7 @@ public class DeviceServiceImp implements DeviceService {
             int devWorkStatus = device.getDevWorkStatus();
             int devStatus = device.getDevStatus();
             if (devWorkStatus == 1 && devStatus == 1) {
-                devChangeDao.lendDeviceByDevId(userAccount, devId);
+                devRentDao.lendDeviceByDevId(userAccount, devId);
                 return devIdDao.findDeviceBydevId(devId);
             } else {
                 throw new Exception("Device can not be lend to you");

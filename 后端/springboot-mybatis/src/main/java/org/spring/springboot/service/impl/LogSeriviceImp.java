@@ -70,4 +70,6 @@ public class LogSeriviceImp implements LogService {
         addBasicRecord(userAccount,devId,1,3);
         return null;
     }
+
+
 }

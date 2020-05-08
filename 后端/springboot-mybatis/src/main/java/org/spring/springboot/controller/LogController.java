@@ -45,4 +45,6 @@ public class LogController {
     ) {
         return ExceptionCatch.exceptionCatch(logService, devId + "", userAccount, new Integer(devId));
     }
+
+
 }
