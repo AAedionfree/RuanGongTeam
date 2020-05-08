@@ -23,10 +23,10 @@ public class DeviceController {
         return ExceptionCatch.exceptionCatch(deviceService, devId + "", new Integer(devId));
     }
 
-    // find devInfo by ManagerId
-    @RequestMapping(value = "/api/devManagerId", method = RequestMethod.GET)
-    public ResultBean<Device> findDeviceByManagerId(@RequestParam(value = "managerId", required = true) int managerId) {
-        return ExceptionCatch.exceptionCatch(deviceService, managerId + "", new Integer(managerId));
+    // find devInfo by ManagerAccount
+    @RequestMapping(value = "/api/devManagerAccount", method = RequestMethod.GET)
+    public ResultBean<Device> findDeviceByManagerAccount(@RequestParam(value = "managerAccount", required = true) String managerAccount) {
+        return ExceptionCatch.exceptionCatch(deviceService, managerAccount, managerAccount);
     }
 
     // find devInfo by userAuth
@@ -39,5 +39,12 @@ public class DeviceController {
     @RequestMapping(value = "/api/devUserAccount", method = RequestMethod.GET)
     public ResultBean<Device> findDeviceByUserAccount(@RequestParam(value = "userAccount", required = true) String userAccount) {
         return ExceptionCatch.exceptionCatch(deviceService, userAccount,userAccount);
+    }
+
+    //lend dev by devId
+    @RequestMapping(value = "/api/devLend", method = RequestMethod.GET)
+    public ResultBean<Device> lendDeviceByDevId(@RequestParam(value = "userAccount", required = true) String userAccount,
+                                                @RequestParam(value = "devId", required = true) int devId) {
+        return ExceptionCatch.exceptionCatch(deviceService, userAccount, userAccount, devId);
     }
 }

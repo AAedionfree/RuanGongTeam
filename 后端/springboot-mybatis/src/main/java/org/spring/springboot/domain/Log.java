@@ -7,9 +7,11 @@ public class Log {
     private int devWorkStatus;
     private int tokenId;
     private int tokenStatus;
-    private String userId;
+    private String senderAccount;
+    private String receiverAccount;
     private String changeTime;
     private int auth;
+
     public int getLogId() {
         return logId;
     }
@@ -58,12 +60,20 @@ public class Log {
         this.tokenStatus = tokenStatus;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getSenderAccount() {
+        return senderAccount;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setSenderAccount(String senderAccount) {
+        this.senderAccount = senderAccount;
+    }
+
+    public String getReceiverAccount() {
+        return receiverAccount;
+    }
+
+    public void setReceiverAccount(String receiverAccount) {
+        this.receiverAccount = receiverAccount;
     }
 
     public String getChangeTime() {

@@ -1,10 +1,9 @@
 package org.spring.springboot.service.impl;
 
-import org.apache.commons.collections.CollectionUtils;
-
 import org.spring.springboot.dao.devices.DevAuthDao;
+import org.spring.springboot.dao.devices.DevRentDao;
 import org.spring.springboot.dao.devices.DevIdDao;
-import org.spring.springboot.dao.devices.DevManagerIdDao;
+import org.spring.springboot.dao.devices.DevManagerAccountDao;
 import org.spring.springboot.dao.users.UserAccountDao;
 import org.spring.springboot.domain.Device;
 import org.spring.springboot.domain.User;
@@ -15,18 +14,19 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class DeviceServiceImp implements DeviceService {
     @Autowired
     private DevIdDao devIdDao;
     @Autowired
-    private DevManagerIdDao devManagerIdDao;
+    private DevManagerAccountDao devManagerAccountDao;
     @Autowired
     private DevAuthDao devAuthDao;
     @Autowired
     private UserAccountDao userAccountDao;
+    @Autowired
+    private DevRentDao devRentDao;
 
     public List<Device> findDeviceByDevId(Integer devId) throws Exception{
         List<Device> devices = devIdDao.findDeviceBydevId(devId);
@@ -34,8 +34,8 @@ public class DeviceServiceImp implements DeviceService {
         return devices;
     }
 
-    public List<Device> findDeviceByManagerId(Integer managerId) {
-        return devManagerIdDao.findDeviceByManagerId(managerId);
+    public List<Device> findDeviceByManagerAccount(String managerAccount) {
+        return devManagerAccountDao.findDeviceByManagerAccount(managerAccount);
     }
 
     public List<Device> findDeviceByDevAuth(Integer devAuth) {
@@ -47,15 +47,32 @@ public class DeviceServiceImp implements DeviceService {
         if (users.size() == 1) {
             User user = users.get(0);
             int auth = user.getUserAuthority();
-            int userId = user.getUserId();
             List<Device> authDevices = findDeviceByDevAuth(auth);
-            List<Device> ownDevices = findDeviceByManagerId(userId);
+            List<Device> ownDevices = findDeviceByManagerAccount(userAccount);
             authDevices.addAll(ownDevices);
             return new ArrayList<>(new HashSet<>(authDevices));
         } else if (users.size() == 0) {
             throw new Exception("userAccount not exist in DataBase");
         } else {
             throw new Exception("Duplicate userAccount in DataBase");
+        }
+    }
+
+    public List<Device> lendDeviceByDevId(String userAccount, Integer devId) throws Exception {
+        List<User> users = userAccountDao.findUserByUserAccount(userAccount);
+        List<Device> devices = devIdDao.findDeviceBydevId(devId);
+        if (users.size() == 1 && devices.size() == 1) {
+            Device device = devices.get(0);
+            int devWorkStatus = device.getDevWorkStatus();
+            int devStatus = device.getDevStatus();
+            if (devWorkStatus == 1 && devStatus == 1) {
+                devRentDao.lendDeviceByDevId(userAccount, devId);
+                return devIdDao.findDeviceBydevId(devId);
+            } else {
+                throw new Exception("Device can not be lend to you");
+            }
+        } else {
+            throw new Exception("Wrong userAccount or devId");
         }
     }
 }

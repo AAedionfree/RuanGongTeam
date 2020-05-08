@@ -46,7 +46,7 @@ public class UserServicrImp implements UserService {
     @Override
     public List<User> userSignUp(String userAccount, String userName, String userPassword) throws Exception {
         if (userSignUp.isDulicate(userAccount) == 1) throw new Exception("Duplicate-userName");
-        int id = Integer.parseInt(userSignUp.getPrimayKey()) + 1;
+        int id = userSignUp.getPrimayKey() + 1;
         userSignUp.userSignUp(id, userAccount, userName, userPassword);
         return findUserByUserAccount(userAccount);
     }
@@ -54,7 +54,7 @@ public class UserServicrImp implements UserService {
     @Override
     public List<User> userSignUp(String userAccount, String userPassword) throws Exception{
         if (userSignUp.isDulicate(userAccount) == 1) throw new Exception("Duplicate-userName");
-        int id = Integer.parseInt(userSignUp.getPrimayKey()) + 1;
+        int id = userSignUp.getPrimayKey() + 1;
         userSignUp.userSignUp(id, userAccount, "user", userPassword);
         return findUserByUserAccount(userAccount);
     }

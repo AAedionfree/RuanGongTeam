@@ -2,17 +2,14 @@ package org.spring.springboot.controller;
 
 import org.spring.springboot.ExceptionCatch;
 import org.spring.springboot.ResultBean;
-import org.spring.springboot.dao.logs.LogsUserIdDao;
+import org.spring.springboot.domain.Device;
 import org.spring.springboot.domain.Log;
-import org.spring.springboot.domain.User;
 import org.spring.springboot.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 public class LogController {
@@ -21,13 +18,48 @@ public class LogController {
 
     //  find all logs
     @RequestMapping(value = "/api/logs", method = RequestMethod.GET)
-    ResultBean<Log> findAllLogs() {
+    public ResultBean<Log> findAllLogs() {
         return ExceptionCatch.exceptionCatch(logService, "AllLogs");
     }
 
-    //  find logs by userId
+    //  find logs by userAccount
     @RequestMapping(value = "/api/userLogs", method = RequestMethod.GET)
-    ResultBean<Log> findLogsByUserId(@RequestParam(value = "userId", required = true) int userId) {
-        return ExceptionCatch.exceptionCatch(logService, userId + "", new Integer(userId));
+    public ResultBean<Log> findLogsByUserAccount(@RequestParam(value = "userAccount", required = true) String userAccount) {
+        return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount);
+    }
+
+    // add Fix record
+    @RequestMapping(value = "/api/devAddFixRecord", method = RequestMethod.GET)
+    public ResultBean addFixLog(
+            @RequestParam(value = "userAccount", required = true) String userAccount ,
+            @RequestParam(value = "devId", required = true) int devId
+    ) {
+        return ExceptionCatch.exceptionCatch(logService, devId + "", userAccount, new Integer(devId));
+    }
+
+    // add damage record
+    @RequestMapping(value = "/api/devAddDamageRecord", method = RequestMethod.GET)
+    public ResultBean addDamageLog(
+            @RequestParam(value = "userAccount", required = true) String userAccount ,
+            @RequestParam(value = "devId", required = true) int devId
+    ) {
+        return ExceptionCatch.exceptionCatch(logService, devId + "", userAccount, new Integer(devId));
+    }
+
+    // add scrapped record
+    @RequestMapping(value = "/api/devAddScrapRecord", method = RequestMethod.GET)
+    public ResultBean addScrapLog(
+            @RequestParam(value = "userAccount", required = true) String userAccount ,
+            @RequestParam(value = "devId", required = true) int devId
+    ) {
+        return ExceptionCatch.exceptionCatch(logService, devId + "", userAccount, new Integer(devId));
+    }
+
+    // find scrap record
+    @RequestMapping(value = "/api/devFindScrapRecord", method = RequestMethod.GET)
+    public ResultBean findScrapLog(
+            @RequestParam(value = "userAccount", required = true) String userAccount
+    ) {
+        return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount);
     }
 }

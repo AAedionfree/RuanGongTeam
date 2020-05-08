@@ -16,11 +16,12 @@ public interface DevAuthDao {
             @Result(property = "devPrise", column = "dev_prise"),
             @Result(property = "devDate", column = "dev_date"),
             @Result(property = "devPeriod", column = "dev_period"),
-            @Result(property = "chargeId", column = "charge_id"),
-            @Result(property = "managerId", column = "manager_id"),
-            @Result(property = "devWorkStatus", column = "dev_word_status"),
+            @Result(property = "chargeAccount", column = "charge_account"),
+            @Result(property = "managerAccount", column = "manager_account"),
+            @Result(property = "devWorkStatus", column = "dev_work_status"),
             @Result(property = "devStatus", column = "dev_status"),
-            @Result(property = "devAuth", column = "dev_auth")
+            @Result(property = "devAuth", column = "dev_auth"),
+            @Result(property = "userAccount", column = "user_account")
     })
     List<Device> findDeviceByDevAuth(@Param("devAuth") int devAuth);
 }

@@ -7,11 +7,12 @@ public class Device {
     float devPrise;
     String devDate;
     String devPeriod;
-    int chargeId;
-    int managerId;
-    int devWordStatus;
+    String chargeAccount;
+    String managerAccount;
+    int devWorkStatus;
     int devStatus;
     int devAuth;
+    String userAccount;
 
     public int getDevId() {
         return devId;
@@ -61,28 +62,28 @@ public class Device {
         this.devPeriod = devPeriod;
     }
 
-    public int getChargeId() {
-        return chargeId;
+    public String getChargeAccount() {
+        return chargeAccount;
     }
 
-    public void setChargeId(int chargeId) {
-        this.chargeId = chargeId;
+    public void setChargeAccount(String chargeAccount) {
+        this.chargeAccount = chargeAccount;
     }
 
-    public int getManagerId() {
-        return managerId;
+    public String getManagerAccount() {
+        return managerAccount;
     }
 
-    public void setManagerId(int managerId) {
-        this.managerId = managerId;
+    public void setManagerAccount(String managerAccount) {
+        this.managerAccount = managerAccount;
     }
 
-    public int getDevWordStatus() {
-        return devWordStatus;
+    public int getDevWorkStatus() {
+        return devWorkStatus;
     }
 
-    public void setDevWordStatus(int devWordStatus) {
-        this.devWordStatus = devWordStatus;
+    public void setDevWorkStatus(int devWordStatus) {
+        this.devWorkStatus = devWordStatus;
     }
 
     public int getDevStatus() {
@@ -99,6 +100,14 @@ public class Device {
 
     public void setDevAuth(int devAuth) {
         this.devAuth = devAuth;
+    }
+
+    public String getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(String userAccount) {
+        this.userAccount = userAccount;
     }
 
     @Override
