@@ -40,7 +40,7 @@ function login_m(request_url){
 						if(data.code==0){
 							mui.toast(data.message);
 							mui.openWindow({
-								url:'search.html',
+								url:'main.html',
 								extras:{
 									user:user,
 								}
