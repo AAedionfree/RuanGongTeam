@@ -87,6 +87,7 @@ public class UserControllerJunitTest {
         ResultBean logout = userController.userLogout("TestUserAccount", "TestUserPassword");
         assertEquals(0, logout.getCode());
     }
+
     @Test
     public void userSignUp() {
         // register
