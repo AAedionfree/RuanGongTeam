@@ -1,9 +1,6 @@
 package org.spring.springboot.service.impl;
 
-import org.spring.springboot.dao.devices.DevAuthDao;
-import org.spring.springboot.dao.devices.DevRentDao;
-import org.spring.springboot.dao.devices.DevIdDao;
-import org.spring.springboot.dao.devices.DevManagerAccountDao;
+import org.spring.springboot.dao.devices.*;
 import org.spring.springboot.dao.users.UserAccountDao;
 import org.spring.springboot.domain.Device;
 import org.spring.springboot.domain.User;
@@ -27,6 +24,8 @@ public class DeviceServiceImp implements DeviceService {
     private UserAccountDao userAccountDao;
     @Autowired
     private DevRentDao devRentDao;
+    @Autowired
+    private DevUserAccountDao devUserAccountDao;
 
     public List<Device> findDeviceByDevId(Integer devId) throws Exception{
         List<Device> devices = devIdDao.findDeviceBydevId(devId);
@@ -74,5 +73,9 @@ public class DeviceServiceImp implements DeviceService {
         } else {
             throw new Exception("Wrong userAccount or devId");
         }
+    }
+
+    public List<Device> findDeviceByDevUserAccount(String userAccount){
+        return devUserAccountDao.findDeviceByDevUserAccount(userAccount);
     }
 }

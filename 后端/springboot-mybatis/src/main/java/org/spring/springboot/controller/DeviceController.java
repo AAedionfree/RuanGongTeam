@@ -47,4 +47,10 @@ public class DeviceController {
                                                 @RequestParam(value = "devId", required = true) int devId) {
         return ExceptionCatch.exceptionCatch(deviceService, userAccount, userAccount, devId);
     }
+
+    //find devInfo by devUserAccount
+    @RequestMapping(value = "/api/devDevUserAccount", method = RequestMethod.GET)
+    public ResultBean<Device> findDeviceByDevUserAccount(@RequestParam(value = "userAccount", required = true) String userAccount) {
+        return ExceptionCatch.exceptionCatch(deviceService, userAccount, userAccount);
+    }
 }

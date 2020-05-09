@@ -84,6 +84,14 @@ public class DeviceControllerJunitTest {
         assertNull(lendDeviceByDevId.getData());
     }
 
+    @Test
+    public void findDeviceByDevUserAccount(){
+        ResultBean<Device> findDeviceByDevUserAccount = deviceController.findDeviceByDevUserAccount("TestUserAccount");
+        assertEquals(0,findDeviceByDevUserAccount.getCode());
+        assertEquals("success",findDeviceByDevUserAccount.getMessage());
+        assertNotNull(findDeviceByDevUserAccount.getData());
+    }
+
     @After
     public void testAfter(){
         System.out.println("DeviceController Test End:");
