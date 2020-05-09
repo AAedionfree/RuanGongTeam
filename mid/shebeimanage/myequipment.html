@@ -25,36 +25,27 @@
 				<% } %>
 			</ul>
 				</script>
+		<script type="text/html" id="temp_zu">
+			<h>租借到的设备</h>
+			<ul class="mui-table-view">
+			<% for(var i = 0;i < list.length;i++){ %>		
+					<div class="mui-table-view">
+						<li class="mui-table-view-cell"><%= list[i].devId%></li>
+							<button style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;">归还</button>
+					</div>		
+				<% } %>
+			</ul>
+				</script>
 	</head>
 
-	<body onload="search_fuze(request_url)">
+	<body onload="search_fuze_zujie(request_url)">
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">我的设备</h1>
 		</header>
 		<div class="mui-content" style="margin-top:20px;"></div>
-		<h>添加记录</h>
-		<ul class="mui-table-view">
-		    <li class="mui-table-view-cell">Item 1</li>
-		    <li class="mui-table-view-cell">Item 2</li>
-		    <li class="mui-table-view-cell">Item 3</li>
-		</ul>
 		<div id="fuze"></div>
-		<h>租借到的设备</h>
-		<ul class="mui-table-view">
-			<div class="mui-table-view">
-				<li class="mui-table-view-cell">Item 1</li>
-					<button style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;">归还</button>
-		    </div>
-			<div class="mui-table-view">
-				<li class="mui-table-view-cell">Item 2</li>
-					<button style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;">归还</button>
-		    </div>
-			<div class="mui-table-view">
-				<li class="mui-table-view-cell">Item 3</li>
-					<button style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;">归还</button>
-			</div>
-		</ul>
+		<div id="zujie"></div>
 		<script type="text/javascript">
 					mui.init()
 					var request_url = localStorage.getItem('request_url');

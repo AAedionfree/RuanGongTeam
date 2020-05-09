@@ -1,4 +1,4 @@
-function search_fuze(request_url){
+function search_fuze_zujie(request_url){
 	mui.init();
 	mui.plusReady(function(){
 	            var self = plus.webview.currentWebview();
@@ -11,6 +11,7 @@ function search_fuze(request_url){
 				 // }
 				 // alert(s);
 				 var search_man_url=request_url+'devManagerAccount?managerAccount='+user.userAccount;
+				 var search_zujie_url = request_url+'devDevUserAccount?userAccount='+user.userAccount;
 				 // alert(search_url);
 				 mui.ajax({
 					 type:'GET',
@@ -30,6 +31,26 @@ function search_fuze(request_url){
 					 	mui.toast("服务器内部出错！");
 					 }
 				 });
+				
+				
+				mui.ajax({
+					type:'GET',
+					 url:search_zujie_url,
+					 timeout:10000,	
+					dataType:"json",
+					success:function(data){
+											
+						if((data.data!=null)){
+							var dev_data = new Array();
+							dev_data=data.data;
+							var temp_stable = document.getElementById('temp_zu').innerHTML;
+							document.getElementById('zujie').innerHTML = template(temp_stable,{list:dev_data});
+						}
+					},
+					error: function(xhr,type,errorThrown){
+						mui.toast("服务器内部出错！");
+					}
+				});
 	        });
 }
 	
