@@ -53,4 +53,11 @@ public class DeviceController {
     public ResultBean<Device> findDeviceByDevUserAccount(@RequestParam(value = "userAccount", required = true) String userAccount) {
         return ExceptionCatch.exceptionCatch(deviceService, userAccount, userAccount);
     }
+
+    //revert dev by devId
+    @RequestMapping(value = "/api/devRevert", method = RequestMethod.GET)
+    public ResultBean<Device> revertDeviceByDevId(@RequestParam(value = "userAccount", required = true) String userAccount,
+                                                  @RequestParam(value = "devId", required = true) int devId) {
+        return ExceptionCatch.exceptionCatch(deviceService, userAccount, userAccount, devId);
+    }
 }

@@ -62,10 +62,20 @@ public class LogSeriviceImp implements LogService {
         if (deviceWorkStatus != startStatus) {
             throw new Exception("Can't fix device with devStatus:" + device.getDevWorkStatus());
         }
+        //if lend dev
+        if (tokenId == 1){
+
+        }
         logsAddBasicRecordDao.logsAddBasicRecord(logId, devId, deviceStatus, deviceWorkStatus,
                 tokenId, tokenStatus, userAccount, device.getManagerAccount(), date, auth);
         devWorkStatusDao.updateDevWorkStatusByDevId(devId, nextStatus);
     }
+/*
+    @Override List<Log> addLendLog(String userAccount, Integer devId) throws Exception {
+        addBasicRecord(userAccount, devId, 1, 1, 2, 1);
+        return null;
+    }
+*/
 
     @Override
     public List<Log> addFixLog(String userAccount, Integer devId) throws Exception {

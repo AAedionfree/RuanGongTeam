@@ -26,6 +26,8 @@ public class DeviceServiceImp implements DeviceService {
     private DevRentDao devRentDao;
     @Autowired
     private DevUserAccountDao devUserAccountDao;
+    @Autowired
+    private DevRevertDao devRevertDao;
 
     public List<Device> findDeviceByDevId(Integer devId) throws Exception{
         List<Device> devices = devIdDao.findDeviceBydevId(devId);
@@ -69,6 +71,24 @@ public class DeviceServiceImp implements DeviceService {
                 return devIdDao.findDeviceBydevId(devId);
             } else {
                 throw new Exception("Device can not be lend to you");
+            }
+        } else {
+            throw new Exception("Wrong userAccount or devId");
+        }
+    }
+
+    public List<Device> revertDeviceByDevId(String userAccount, Integer devId) throws Exception {
+        List<User> users = userAccountDao.findUserByUserAccount(userAccount);
+        List<Device> devices = devIdDao.findDeviceBydevId(devId);
+        if (users.size() == 1 && devices.size() == 1) {
+            Device device = devices.get(0);
+            int devStatus = device.getDevStatus();
+            String devUserAccount = device.getUserAccount();
+            if (devStatus == 2 && devUserAccount.equals(userAccount)) {
+                devRevertDao.revertDeviceByDevId(devId);
+                return devIdDao.findDeviceBydevId(devId);
+            } else {
+                throw new Exception("Device can not be reverted");
             }
         } else {
             throw new Exception("Wrong userAccount or devId");

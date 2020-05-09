@@ -47,8 +47,8 @@ public class DeviceControllerJunitTest {
                 && device.get(0).getDevPeriod().equals("TestDevPeriod")
                 && device.get(0).getChargeAccount().equals("TestChargeAccount")
                 && device.get(0).getManagerAccount().equals("TestManagerAccount")
-                && device.get(0).getDevWorkStatus() == 3
-                && device.get(0).getDevStatus() ==0
+                && device.get(0).getDevWorkStatus() == 0
+                && device.get(0).getDevStatus() == 0
                 && device.get(0).getDevAuth() == 0);
     }
 
@@ -90,6 +90,14 @@ public class DeviceControllerJunitTest {
         assertEquals(0,findDeviceByDevUserAccount.getCode());
         assertEquals("success",findDeviceByDevUserAccount.getMessage());
         assertNotNull(findDeviceByDevUserAccount.getData());
+    }
+
+    @Test
+    public void revertDeviceByDevId(){
+        ResultBean<Device> revertDeviceByDevId = deviceController.revertDeviceByDevId("TestUserAccount", -1);
+        assertEquals(-1, revertDeviceByDevId.getCode());
+        assertEquals("Device can not be reverted", revertDeviceByDevId.getMessage());
+        assertNull(revertDeviceByDevId.getData());
     }
 
     @After
