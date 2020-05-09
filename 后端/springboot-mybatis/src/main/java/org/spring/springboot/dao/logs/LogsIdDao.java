@@ -1,12 +1,15 @@
 package org.spring.springboot.dao.logs;
 
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
+import org.apache.ibatis.annotations.Select;
 import org.spring.springboot.domain.Log;
 
 import java.util.List;
 
-public interface LogsScrapRecordDao {
-    @Select("SELECT * FROM logs where token_id=5")
+public interface LogsIdDao {
+    @Select("SELECT * FROM logs where log_id = #{logId}")
     // 返回 Map 结果集
     @Results({
             @Result(property = "logId", column = "log_id"),
@@ -20,8 +23,5 @@ public interface LogsScrapRecordDao {
             @Result(property = "changeTime", column = "change_time"),
             @Result(property = "auth", column = "auth")
     })
-    List<Log> findScrapRecord();
-
-    @Update("update logs set token_status = #{logStatus} where log_id = #{logId}")
-    void dealScrapRecord(@Param("logId") int logId, @Param("logStatus") int logStatus);
+    List<Log> findLogsByLogId(@Param("logId") int logId);
 }

@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
@@ -54,7 +56,7 @@ public class LogControllerJunitTest {
         ResultBean addFixDamageWorkStatusError = logController.addDamageLog("TestUserAccount",-1);
         assertEquals(addFixDamageWorkStatusError.getCode(), -1);
         assertEquals(addFixDamageWorkStatusError.getData(), null);
-        assertEquals(addFixDamageWorkStatusError.getMessage(),"Can't fix device with devStatus:3");
+        assertEquals(addFixDamageWorkStatusError.getMessage(),"Can't deal device with devStatus:3");
 
         ResultBean addFixLog = logController.addFixLog("TestUserAccount",-1);
         assertEquals(addFixLog.getCode(), 0);
@@ -72,12 +74,36 @@ public class LogControllerJunitTest {
         ResultBean addFixLogWorkStatusError = logController.addFixLog("TestUserAccount",-1);
         assertEquals(addFixLogWorkStatusError.getCode(), -1);
         assertEquals(addFixLogWorkStatusError.getData(), null);
-        assertEquals(addFixLogWorkStatusError.getMessage(),"Can't fix device with devStatus:1");
+        assertEquals(addFixLogWorkStatusError.getMessage(),"Can't deal device with devStatus:1");
 
         ResultBean addDamageLog = logController.addDamageLog("TestUserAccount",-1);
         assertEquals(addDamageLog.getCode(), 0);
         assertEquals(addDamageLog.getData(), null);
         assertEquals(addDamageLog.getMessage(),"success");
+    }
+
+    @Test
+    public void addScrapRecord(){
+        ResultBean addScrapLogAuthError = logController.addScrapLog("AAedion",-1);
+        assertEquals(addScrapLogAuthError.getCode(), -1);
+        assertEquals(addScrapLogAuthError.getData(), null);
+        assertEquals(addScrapLogAuthError.getMessage(),"Authentication failed AAedion");
+
+        ResultBean addScrapLog = logController.addScrapLog("TestUserAccount",-1);
+        assertEquals(addScrapLog.getCode(), 0);
+        assertEquals(addScrapLog.getData(), null);
+        assertEquals(addScrapLog.getMessage(),"success");
+
+        ResultBean scrapLog = logController.findScrapLog("TestUserAccount");
+        assertEquals(scrapLog.getCode(), 0);
+        assertEquals(scrapLog.getMessage(),"success");
+        assertEquals(scrapLog.getData().size(), 1);
+        int logId = new ArrayList<Log>(scrapLog.getData()).get(0).getLogId();
+
+        ResultBean dealScrapLog = logController.dealScrapLog("TestUserAccount",logId,1);
+        assertEquals(dealScrapLog.getCode(), 0);
+        assertEquals(dealScrapLog.getData(), null);
+        assertEquals(dealScrapLog.getMessage(),"success");
     }
 
     @After

@@ -2,10 +2,7 @@ package org.spring.springboot.service.impl;
 
 import org.spring.springboot.dao.devices.DevIdDao;
 import org.spring.springboot.dao.devices.DevWorkStatusDao;
-import org.spring.springboot.dao.logs.LogsAddBasicRecordDao;
-import org.spring.springboot.dao.logs.LogsDao;
-import org.spring.springboot.dao.logs.LogsScrapRecordDao;
-import org.spring.springboot.dao.logs.LogsUserAccountDao;
+import org.spring.springboot.dao.logs.*;
 import org.spring.springboot.dao.users.UserAccountDao;
 import org.spring.springboot.domain.Device;
 import org.spring.springboot.domain.Log;
@@ -26,6 +23,9 @@ public class LogSeriviceImp implements LogService {
 
     @Autowired
     private LogsDao logsDao;
+
+    @Autowired
+    private LogsIdDao logsIdDao;
 
     @Autowired
     private LogsUserAccountDao logsUserAccountDao;
@@ -60,7 +60,7 @@ public class LogSeriviceImp implements LogService {
             throw new Exception("Authentication failed " + userAccount);
         }
         if (deviceWorkStatus != startStatus) {
-            throw new Exception("Can't fix device with devStatus:" + device.getDevWorkStatus());
+            throw new Exception("Can't deal device with devStatus:" + device.getDevWorkStatus());
         }
         //if lend dev
         if (tokenId == 1){
@@ -91,17 +91,37 @@ public class LogSeriviceImp implements LogService {
 
     @Override
     public List<Log> addScrapLog(String userAccount, Integer devId) throws Exception {
-        addBasicRecord(userAccount, devId, 5, 3, 5, 2);
+        addBasicRecord(userAccount, devId, 5, 3, 5, 3);
         return null;
     }
 
     @Override
     public List<Log> findScrapLog(String userAccount) throws Exception {
         int auth = userAccountDao.findUserByUserAccount(userAccount).get(0).getUserAuthority();
-        if (auth != 0) {
+        if (auth > 0) {
             throw new Exception("Authentication failed with UserAuthority:" + auth);
         }
         return logsScrapRecordDao.findScrapRecord();
+    }
+
+    @Override
+    public List<Log> dealScrapLog(String userAccount, Integer logId, Integer logStatus) throws Exception {
+        if (logStatus != 0 && logStatus != 1){
+            throw new Exception("logStatus only can be 0 or 1 but receviced:" + logStatus);
+        }
+        int userAuth = userAccountDao.findUserByUserAccount(userAccount).get(0).getUserAuthority();
+        if (userAuth > 0) {
+            throw new Exception("Authentication user failed with UserAuthority:" + userAuth);
+        }
+        Log log = logsIdDao.findLogsByLogId(logId).get(0);
+        int logNowStatus = log.getTokenStatus();
+        int devId = log.getDevId();
+        if (logNowStatus != 3) {
+            throw new Exception("Authentication Log Status failed with:" + logNowStatus);
+        }
+        logsScrapRecordDao.dealScrapRecord(logId,logStatus);
+        devWorkStatusDao.updateDevWorkStatusByDevId(devId,logStatus == 0?3:2);
+        return null;
     }
 
 
