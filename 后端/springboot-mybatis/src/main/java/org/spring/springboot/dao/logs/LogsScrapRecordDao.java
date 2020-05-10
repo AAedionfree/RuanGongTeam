@@ -6,7 +6,7 @@ import org.spring.springboot.domain.Log;
 import java.util.List;
 
 public interface LogsScrapRecordDao {
-    @Select("SELECT * FROM logs where token_id=5")
+    @Select("SELECT * FROM logs where token_id=5 and token_status=3")
     // 返回 Map 结果集
     @Results({
             @Result(property = "logId", column = "log_id"),

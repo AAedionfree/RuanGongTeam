@@ -106,6 +106,7 @@ public class LogSeriviceImp implements LogService {
 
     @Override
     public List<Log> dealScrapLog(String userAccount, Integer logId, Integer logStatus) throws Exception {
+        String date = new Date().toString();
         if (logStatus != 0 && logStatus != 1){
             throw new Exception("logStatus only can be 0 or 1 but receviced:" + logStatus);
         }
@@ -121,6 +122,9 @@ public class LogSeriviceImp implements LogService {
         }
         logsScrapRecordDao.dealScrapRecord(logId,logStatus);
         devWorkStatusDao.updateDevWorkStatusByDevId(devId,logStatus == 0?3:2);
+        int id = logsAddBasicRecordDao.getPrimayKey() + 1;
+        logsAddBasicRecordDao.logsAddBasicRecord(id, devId, -1, logStatus == 0?3:2,
+                6, logStatus, userAccount, "NULL", date, -1);
         return null;
     }
 

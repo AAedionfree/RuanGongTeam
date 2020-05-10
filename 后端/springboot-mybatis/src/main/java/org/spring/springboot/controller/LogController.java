@@ -64,7 +64,7 @@ public class LogController {
     }
 
     // find scrap record
-    @RequestMapping(value = "/api/devAcceptScrapRecord", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/devDealScrapRecord", method = RequestMethod.GET)
     public ResultBean dealScrapLog(
             @RequestParam(value = "userAccount", required = true) String userAccount ,
             @RequestParam(value = "logId", required = true) int logId ,
