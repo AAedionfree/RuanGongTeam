@@ -20,7 +20,13 @@
 					<div class="mui-table-view">
 						<li class="mui-table-view-cell"><%= list[i].devId%></li>
 							<button style="position: absolute;top:6px;right:120px;height:28px;line-height: 15px;" onclick="more(<%=i%>,request_url)">更多</button>
-							<button style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;">添加记录</button>
+							<select class="mui-btn" style="position: absolute;top:1px;right:10px;height:33px;line-height: 15px;width: 90px;">
+								<option value="item-1">添加记录</option>
+								<option value="item-2">item-1</option>
+								<option value="item-3">item-2</option>
+								<option value="item-4">item-3</option>
+								<option value="item-5">item-4</option>
+							</select>
 					</div>		
 				<% } %>
 			</ul>
