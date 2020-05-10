@@ -187,10 +187,9 @@ function add_scrap(request_url,dev_data_num){
 }
 
 	
-function add_record(request_url,dev_data_num){
-	var record_se = document.getElementById("record");
+function add_record(request_url,dev_data_num,num){
+	var record_se = document.getElementById("record-"+num);
 	var record_type = record_se.options[record_se.selectedIndex].value;
-		
 	if(record_type=="item-2"){
 		add_xiu(request_url,dev_data_num);
 	}
