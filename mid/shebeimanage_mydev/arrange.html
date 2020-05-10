@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<script src="js/mui.js"></script>
+		<script src="js/fun.js"></script>
+		<script src="js/main.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui('body').on('click','a',function(){document.location.href=this.href;});
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">代办</h1>
+		</header>
+		<div class="mui-content" style="margin-top:20px;">
+		</div>
+		<div style="margin-top:10px;">
+			<button type="button" style="margin-left: 20px; width: 100px; height: 100px; border-radius: 50px; background: rgba(100, 177, 245, 0.8); font-size: 12px;">我的代办</button>
+			<button type="button" style="margin-left: -100px; margin-top: 200px; width: 70px; height: 70px; border-radius: 50px; background: rgba(100, 177, 245, 0.8); font-size: 12px;">租借设备</button>
+			<button type="button" style="margin-left: 60px; margin-top: 200px; width: 70px; height: 70px; border-radius: 50px; background: rgba(100, 177, 245, 0.8); font-size: 12px;">购置设备</button>
+		</div>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item" href="#tabbar-with-home" onclick="to_main()">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">主页</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-search" onclick="to_arrange()">
+				<span class="mui-icon mui-icon-list"></span>
+				<span class="mui-tab-label">代办</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-person" onclick="to_mine()">
+				<span class="mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+	</body>
+
+</html>
