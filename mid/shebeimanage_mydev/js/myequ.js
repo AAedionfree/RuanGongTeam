@@ -122,6 +122,7 @@ function add_xiu(request_url,dev_data_num){
 						 dataType:"json",
 						 success:function(data){
 								mui.toast(data.message);
+								search_fuze_zujie(request_url);
 						 },
 						 error: function(xhr,type,errorThrown){
 						 	mui.toast("服务器内部出错！");
@@ -150,6 +151,7 @@ function add_damage(request_url,dev_data_num){
 						 dataType:"json",
 						 success:function(data){
 								mui.toast(data.message);
+								search_fuze_zujie(request_url);
 						 },
 						 error: function(xhr,type,errorThrown){
 						 	mui.toast("服务器内部出错！");
@@ -178,6 +180,7 @@ function add_scrap(request_url,dev_data_num){
 						 dataType:"json",
 						 success:function(data){
 								mui.toast(data.message);
+								search_fuze_zujie(request_url);
 						 },
 						 error: function(xhr,type,errorThrown){
 						 	mui.toast("服务器内部出错！");
@@ -187,10 +190,9 @@ function add_scrap(request_url,dev_data_num){
 }
 
 	
-function add_record(request_url,dev_data_num){
-	var record_se = document.getElementById("record");
+function add_record(request_url,dev_data_num,num){
+	var record_se = document.getElementById("record-"+num);
 	var record_type = record_se.options[record_se.selectedIndex].value;
-		
 	if(record_type=="item-2"){
 		add_xiu(request_url,dev_data_num);
 	}
@@ -227,6 +229,7 @@ function back(request_url,dev_data_num){
 					 dataType:"json",
 					 success:function(data){
 							mui.toast(data.message);
+							search_fuze_zujie(request_url);
 					 },
 					 error: function(xhr,type,errorThrown){
 					 	mui.toast("服务器内部出错！");

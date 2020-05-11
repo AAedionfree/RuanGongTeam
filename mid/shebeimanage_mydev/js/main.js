@@ -1,11 +1,20 @@
 function load_xian(){
-	// document.getElementById("").innerHTML=user.username; 
+	document.getElementById("mian_username").innerHTML=user.username; 
 }
 	
 function to_myequ(user){
 	mui.init();
 	mui.openWindow({
 		url:'myequipment.html',
+		extras:{
+			user:user,
+		}
+	});
+}
+function to_myapp(user){
+	mui.init();
+	mui.openWindow({
+		url:'apply.html',
 		extras:{
 			user:user,
 		}
