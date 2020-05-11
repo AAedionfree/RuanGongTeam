@@ -12,6 +12,8 @@ public class HttpClient {
     private static URL url;
     private static HttpURLConnection con;
 
+    private HttpClient(){}
+
     public static void record(String content) throws Exception {
         url = new URL("http://aaedion.club/exception.php?content=" + RegressionTest.Regression()
                 + content.replace(" ", "-"));

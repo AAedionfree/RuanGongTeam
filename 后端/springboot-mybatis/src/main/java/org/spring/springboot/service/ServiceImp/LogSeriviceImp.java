@@ -1,4 +1,4 @@
-package org.spring.springboot.service.impl;
+package org.spring.springboot.service.ServiceImp;
 
 import org.spring.springboot.dao.devices.DevIdDao;
 import org.spring.springboot.dao.devices.DevWorkStatusDao;
@@ -61,10 +61,6 @@ public class LogSeriviceImp implements LogService {
         }
         if (deviceWorkStatus != startStatus) {
             throw new Exception("Can't deal device with devStatus:" + device.getDevWorkStatus());
-        }
-        //if lend dev
-        if (tokenId == 1){
-
         }
         logsAddBasicRecordDao.logsAddBasicRecord(logId, devId, deviceStatus, deviceWorkStatus,
                 tokenId, tokenStatus, userAccount, device.getManagerAccount(), date, auth);

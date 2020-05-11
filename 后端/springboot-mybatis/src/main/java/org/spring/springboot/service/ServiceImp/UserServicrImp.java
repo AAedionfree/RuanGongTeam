@@ -1,6 +1,5 @@
-package org.spring.springboot.service.impl;
+package org.spring.springboot.service.ServiceImp;
 
-import org.spring.springboot.ResultBean;
 import org.spring.springboot.dao.users.*;
 import org.spring.springboot.domain.User;
 import org.spring.springboot.service.UserService;

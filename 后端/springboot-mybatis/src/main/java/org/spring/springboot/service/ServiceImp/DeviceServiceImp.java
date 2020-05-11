@@ -1,4 +1,4 @@
-package org.spring.springboot.service.impl;
+package org.spring.springboot.service.ServiceImp;
 
 import org.spring.springboot.dao.devices.*;
 import org.spring.springboot.dao.users.UserAccountDao;

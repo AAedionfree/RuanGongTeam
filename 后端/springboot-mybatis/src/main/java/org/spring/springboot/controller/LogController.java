@@ -2,7 +2,6 @@ package org.spring.springboot.controller;
 
 import org.spring.springboot.ExceptionCatch;
 import org.spring.springboot.ResultBean;
-import org.spring.springboot.domain.Device;
 import org.spring.springboot.domain.Log;
 import org.spring.springboot.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;

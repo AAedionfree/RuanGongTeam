@@ -1,10 +1,8 @@
 package org.spring.springboot.dao.logs;
 
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
-import org.spring.springboot.domain.Device;
 import org.spring.springboot.domain.Log;
 
 import java.util.List;
