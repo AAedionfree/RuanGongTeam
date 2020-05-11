@@ -122,6 +122,7 @@ function add_xiu(request_url,dev_data_num){
 						 dataType:"json",
 						 success:function(data){
 								mui.toast(data.message);
+								search_fuze_zujie(request_url);
 						 },
 						 error: function(xhr,type,errorThrown){
 						 	mui.toast("服务器内部出错！");
@@ -150,6 +151,7 @@ function add_damage(request_url,dev_data_num){
 						 dataType:"json",
 						 success:function(data){
 								mui.toast(data.message);
+								search_fuze_zujie(request_url);
 						 },
 						 error: function(xhr,type,errorThrown){
 						 	mui.toast("服务器内部出错！");
@@ -178,6 +180,7 @@ function add_scrap(request_url,dev_data_num){
 						 dataType:"json",
 						 success:function(data){
 								mui.toast(data.message);
+								search_fuze_zujie(request_url);
 						 },
 						 error: function(xhr,type,errorThrown){
 						 	mui.toast("服务器内部出错！");
@@ -226,6 +229,7 @@ function back(request_url,dev_data_num){
 					 dataType:"json",
 					 success:function(data){
 							mui.toast(data.message);
+							search_fuze_zujie(request_url);
 					 },
 					 error: function(xhr,type,errorThrown){
 					 	mui.toast("服务器内部出错！");

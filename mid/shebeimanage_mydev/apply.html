@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<script src="js/mui.js"></script>
+		<script src="js/apply.js"></script>
+		<script src="js/template.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			localStorage.setItem('request_url','http://aaedion.club:8002/api/');//前半部分固定URL
+		</script>
+		<script type="text/html" id="temp_now_shen">
+			<ul class="mui-table-view">
+			<% for(var i = 0;i < list.length;i++){ %>		
+					<div class="mui-table-view">
+						<li class="mui-table-view-cell"><%= list[i].logId%></li>
+							<button style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;">取消申请</button>
+					</div>		
+				<% } %>
+			</ul>
+				</script>
+		<script type="text/html" id="temp_al_shen">
+			<ul class="mui-table-view">
+			<% for(var i = 0;i < list.length;i++){ %>		
+					<div class="mui-table-view">
+						<li class="mui-table-view-cell"><%= list[i].logId%></li>
+					</div>		
+				<% } %>
+			</ul>
+				</script>		
+	</head>
+
+	<body onload="my_apply(request_url)">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我的申请</h1>
+		</header>
+		<div class="mui-content" style="margin-top:10px;"></div>
+		
+		
+		
+		<h>申请中</h>
+		<div id = "shen_now"></div>
+		<div class="mui-content" style="margin-top:-35px;"></div>
+		<h>已申请</h>
+		<div id ="shen_al"></div>
+		<script type="text/javascript">
+					mui.init()
+					var request_url = localStorage.getItem('request_url');
+				</script>
+		
+	</body>
+
+</html>

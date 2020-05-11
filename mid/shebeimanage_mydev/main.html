@@ -15,6 +15,8 @@
 			mui.plusReady(function(){
 				var self = plus.webview.currentWebview();
 				user = self.user;
+				alert(user.username);
+				document.getElementById("mian_username").innerHTML=user.username;
 			});
 		</script>
 	</head>
@@ -55,7 +57,7 @@
 				<div class="mui-content" style="background-color: #C4C400; height: 190px; margin-top:-190px; margin-left: 190px; width:186px"></div>
 				<div class="mui-content" style="background-color: #FFC78E; height: 250px;"></div>
 				<img src="images/head.jpg" id="head_img" style="position: absolute; margin-top: -560px; margin-left: 20px; border-radius:100px; width:100px; height:100px" />
-				<h1 style="position: absolute; margin-top: -500px; margin-left: 170px">用户名</h1>
+				<h1 id = "main_username" style="position: absolute; margin-top: -500px; margin-left: 170px"></h1>
 				
 				
 				
@@ -66,7 +68,7 @@
 				
 				
 				<img src="images/zi10.png" style="position: absolute; margin-top: -410px; margin-left: 240px; width:110px; height:110px">
-				<button type="button" style="position: absolute; margin-top: -440px; margin-left: 190px; width: 190px; height: 190px;  background: transparent; font-size: 16px; color: #ffffff; line-height: 330px;">我的申请</button>
+				<button onclick="to_myapp(user)" type="button" style="position: absolute; margin-top: -440px; margin-left: 190px; width: 190px; height: 190px;  background: transparent; font-size: 16px; color: #ffffff; line-height: 330px;">我的申请</button>
 				
 				
 				
