@@ -1,5 +1,31 @@
 function load_xian(){
-	document.getElementById("mian_username").innerHTML=user.username; 
+	mui.init();
+	mui.plusReady(function(){
+		var self = plus.webview.currentWebview();
+		user = self.user;
+		document.getElementById("main_username").innerHTML=user.userName;
+	});
+}
+function load_xian_my(){
+	mui.init();
+	mui.plusReady(function(){
+		var self = plus.webview.currentWebview();
+		user = self.user;
+		document.getElementById("my_username").innerHTML=user.userName;	
+		if(user.userAuthority==3){
+			document.getElementById("my_auth").innerHTML="租借用户";
+		}
+			
+		else if(user.userAuthority==2){
+			document.getElementById("my_auth").innerHTML="设备负责人";
+		}
+		else if(user.userAuthority==1){
+			document.getElementById("my_auth").innerHTML="领导";
+		}
+		else if(user.userAuthority==0){
+			document.getElementById("my_auth").innerHTML="内测用户";
+		}
+	});
 }
 	
 function to_myequ(user){

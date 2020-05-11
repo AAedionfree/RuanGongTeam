@@ -10,18 +10,17 @@
 		<link href="css/mui.min.css" rel="stylesheet"/>
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
-			mui('body').on('click','a',function(){document.location.href=this.href;});
 			var user;
+			mui('body').on('click','a',function(){document.location.href=this.href;});
 			mui.plusReady(function(){
-				var self = plus.webview.currentWebview();
-				user = self.user;
-				alert(user.username);
-				document.getElementById("mian_username").innerHTML=user.username;
-			});
+					var self = plus.webview.currentWebview();
+					user = self.user;
+				});
+			</script>
 		</script>
 	</head>
 
-	<body>
+	<body onload="load_xian()">
 				<!-- <header class="mui-bar mui-bar-nav">
 					<h1 class="mui-title">主页</h1>
 				</header>
@@ -51,15 +50,12 @@
 				</header>
 				
 				
-				
 				<div class="mui-content" style="background-color: #41deb7;height: 190px;"></div>
 				<div class="mui-content" style="background-color: #385acc; height: 190px;  width: 190px;"></div>
 				<div class="mui-content" style="background-color: #C4C400; height: 190px; margin-top:-190px; margin-left: 190px; width:186px"></div>
 				<div class="mui-content" style="background-color: #FFC78E; height: 250px;"></div>
 				<img src="images/head.jpg" id="head_img" style="position: absolute; margin-top: -560px; margin-left: 20px; border-radius:100px; width:100px; height:100px" />
 				<h1 id = "main_username" style="position: absolute; margin-top: -500px; margin-left: 170px"></h1>
-				
-				
 				
 				
 				<img src="images/zi30.png" style="position: absolute; margin-top: -420px; margin-left: 20px; width:120px; height:120px">
