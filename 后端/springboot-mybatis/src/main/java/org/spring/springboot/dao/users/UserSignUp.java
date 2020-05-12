@@ -20,9 +20,9 @@ public interface UserSignUp {
 
     @Insert("insert into users value(#{userId}, #{userName}, #{userAccount}, #{userPassword}, #{userAuth})")
     void userSignUpTest(@Param("userId") int userId,
-                    @Param("userAccount") String userAccount,
-                    @Param("userName") String userName,
-                    @Param("userPassword") String userPassword,
-                    @Param("userAuth") int auth);
+                        @Param("userAccount") String userAccount,
+                        @Param("userName") String userName,
+                        @Param("userPassword") String userPassword,
+                        @Param("userAuth") int auth);
 
 }

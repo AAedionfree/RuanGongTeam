@@ -84,10 +84,11 @@ public class Log {
         this.changeTime = changeTime;
     }
 
-    public void setAuth(int auth){
+    public void setAuth(int auth) {
         this.auth = auth;
     }
-    public int getAuth(){
+
+    public int getAuth() {
         return this.auth;
     }
 }

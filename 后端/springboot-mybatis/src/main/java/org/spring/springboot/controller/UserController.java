@@ -18,20 +18,20 @@ public class UserController {
     // find userInfo by userAccount
     @RequestMapping(value = "/api/userAccount", method = RequestMethod.GET)
     public ResultBean<User> findUserByUserAccount(@RequestParam(value = "userAccount", required = true) String userAccount) throws RuntimeException {
-        return ExceptionCatch.exceptionCatch(userService,userAccount,userAccount);
+        return ExceptionCatch.exceptionCatch(userService, userAccount, userAccount);
     }
 
     //  find userInfo by userId
     @RequestMapping(value = "/api/userId", method = RequestMethod.GET)
     public ResultBean<User> findUserByUserId(@RequestParam(value = "userId", required = true) int userId) throws RuntimeException {
-        return ExceptionCatch.exceptionCatch(userService,userId + "", new Integer(userId));
+        return ExceptionCatch.exceptionCatch(userService, userId + "", new Integer(userId));
     }
 
     //  login
     @RequestMapping(value = "/api/login", method = RequestMethod.GET)
     public ResultBean login(@RequestParam(value = "userAccount", required = true) String userAccount,
-                     @RequestParam(value = "userPassword", required = true) String userPassword) {
-        return ExceptionCatch.exceptionCatch(userService,userAccount, userAccount,userPassword);
+                            @RequestParam(value = "userPassword", required = true) String userPassword) {
+        return ExceptionCatch.exceptionCatch(userService, userAccount, userAccount, userPassword);
     }
     // register
 
@@ -41,8 +41,8 @@ public class UserController {
      */
     @RequestMapping(value = "/api/register", method = RequestMethod.GET)
     public ResultBean userSignUp(@RequestParam(value = "userAccount", required = true) String userAccount,
-                          @RequestParam(value = "userName", required = true) String userName,
-                          @RequestParam(value = "userPassword", required = true) String userPassword) {
+                                 @RequestParam(value = "userName", required = true) String userName,
+                                 @RequestParam(value = "userPassword", required = true) String userPassword) {
         return ExceptionCatch.exceptionCatch(userService, userAccount, userAccount, userName, userPassword);
     }
 
@@ -58,15 +58,15 @@ public class UserController {
     //  update user password
     @RequestMapping(value = "/api/userUpdatePassword", method = RequestMethod.GET)
     public ResultBean userUpdatePassword(@RequestParam(value = "userAccount", required = true) String userAccount,
-                                  @RequestParam(value = "userOldPassword", required = true) String userOldPassword,
-                                  @RequestParam(value = "userNewPassword", required = true) String userNewPassword) {
+                                         @RequestParam(value = "userOldPassword", required = true) String userOldPassword,
+                                         @RequestParam(value = "userNewPassword", required = true) String userNewPassword) {
         return ExceptionCatch.exceptionCatch(userService, userAccount, userAccount, userOldPassword, userNewPassword);
     }
 
     //  logout
     @RequestMapping(value = "/api/logout", method = RequestMethod.GET)
     public ResultBean userLogout(@RequestParam(value = "userAccount", required = true) String userAccount,
-                                         @RequestParam(value = "userPassword", required = true) String userPassword) {
+                                 @RequestParam(value = "userPassword", required = true) String userPassword) {
         return ExceptionCatch.exceptionCatch(userService, userAccount, userAccount, userPassword);
     }
 

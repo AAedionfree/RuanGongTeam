@@ -26,16 +26,17 @@ public class UserControllerJunitTest {
     UserController userController;
 
     @BeforeClass
-    public static void setTestInfo(){
+    public static void setTestInfo() {
         RegressionTest.setTestInfo("---test.UserControllerJunitTest---:");
     }
+
     @Before
     public void testBefore() {
         System.out.println("UserController Test Start:");
     }
 
     @Test
-    public void login(){
+    public void login() {
         ResultBean<User> login = userController.login("17182626", "666666");
         assertEquals(0, login.getCode());
         assertEquals("success", login.getMessage());
@@ -45,7 +46,7 @@ public class UserControllerJunitTest {
     }
 
     @Test
-    public void findUserByUserAccount(){
+    public void findUserByUserAccount() {
         // findUserByUserAccount
         ResultBean<User> findUserByUserAccount = userController.findUserByUserAccount("sadaldkj");
         assertEquals(-1, findUserByUserAccount.getCode());
@@ -54,7 +55,7 @@ public class UserControllerJunitTest {
     }
 
     @Test
-    public void findUserByUserId(){
+    public void findUserByUserId() {
         // findUserByUserId
         ResultBean findUserByUserId = userController.findUserByUserId(-1);
         ArrayList<User> user = new ArrayList<User>(findUserByUserId.getData());
@@ -69,7 +70,7 @@ public class UserControllerJunitTest {
     }
 
     @Test
-    public void userUpdatePassword(){
+    public void userUpdatePassword() {
         ResultBean updatePassword = userController.userUpdatePassword("TestUserAccount",
                 "TestUserPassword", "NewTestUserPassword");
         assertEquals(0, updatePassword.getCode());
@@ -82,7 +83,7 @@ public class UserControllerJunitTest {
     }
 
     @Test
-    public void userLogout(){
+    public void userLogout() {
         // logout
         ResultBean logout = userController.userLogout("TestUserAccount", "TestUserPassword");
         assertEquals(0, logout.getCode());
@@ -91,7 +92,7 @@ public class UserControllerJunitTest {
     @Test
     public void userSignUp() {
         // register
-        ResultBean register = userController.userSignUp(-1,"TestUserAccount","TestUserName",
+        ResultBean register = userController.userSignUp(-1, "TestUserAccount", "TestUserName",
                 "TestUserPassword", 0);
         assertEquals(0, register.getCode());
     }

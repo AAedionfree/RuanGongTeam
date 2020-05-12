@@ -1,3 +1,4 @@
 package org.spring.springboot.service;
 
-public interface Service {}
+public interface Service {
+}

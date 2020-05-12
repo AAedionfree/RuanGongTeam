@@ -124,14 +124,14 @@ public class LogControllerJunitTest {
     }
 
     @Test
-    public void findScrapRecord(){
+    public void findScrapRecord() {
         ResultBean scrapLog = logController.findScrapLog("TestUserAccount");
         assertEquals(0, scrapLog.getCode());
         assertEquals("success", scrapLog.getMessage());
     }
 
     @Test
-    public void dealScrapRecord(){
+    public void dealScrapRecord() {
         ResultBean scrapLog = logController.findScrapLog("TestUserAccount");
         int logId = new ArrayList<Log>(scrapLog.getData()).get(0).getLogId();
 

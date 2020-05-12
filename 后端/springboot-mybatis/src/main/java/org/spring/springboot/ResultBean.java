@@ -47,7 +47,7 @@ public class ResultBean<T> {
         ResultBean resultBean = new ResultBean();
         resultBean.setCode(0);
         resultBean.setMessage("success");
-        http(id,Thread.currentThread().getStackTrace()[3].toString(),"success");
+        http(id, Thread.currentThread().getStackTrace()[3].toString(), "success");
         return resultBean;
     }
 
@@ -56,19 +56,18 @@ public class ResultBean<T> {
         resultBean.setCode(0);
         resultBean.setMessage("success");
         resultBean.setData(data);
-        http(id,Thread.currentThread().getStackTrace()[3].toString(),"success");
+        http(id, Thread.currentThread().getStackTrace()[3].toString(), "success");
         return resultBean;
     }
 
-    public static boolean IsSuccess(ResultBean res){
+    public static boolean IsSuccess(ResultBean res) {
         return res.getCode() == 0;
     }
 
-    private static void http(String id, String func, String state){
-        try{
-            HttpClient.record(id + "---"  + func + "---" + state + "!");
-        }
-        catch(Exception e){
+    private static void http(String id, String func, String state) {
+        try {
+            HttpClient.record(id + "---" + func + "---" + state + "!");
+        } catch (Exception e) {
             System.out.println("----------------------");
             System.out.println("----------------------");
             System.out.println("----------------------");

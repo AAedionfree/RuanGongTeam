@@ -12,14 +12,14 @@ public interface LogsAddBasicRecordDao {
 
     @Insert("insert into logs value(#{logId}, #{devId}, #{devStatus}, #{devWorkStatus}, #{tokenId}, #{tokenStatus}, #{senderAccount}, #{receiverAccount}, #{changeTime}, #{auth})")
     void logsAddBasicRecord(@Param("logId") int logId,
-                          @Param("devId") int devId,
-                          @Param("devStatus") int devStatus,
-                          @Param("devWorkStatus") int devWorkStatus,
-                          @Param("tokenId") int tokenId,
-                          @Param("tokenStatus") int tokenStatus,
-                          @Param("senderAccount") String senderAccount,
-                          @Param("receiverAccount") String receiverAccount,
-                          @Param("changeTime") String changeTime,
-                          @Param("auth") int auth
-                          );
+                            @Param("devId") int devId,
+                            @Param("devStatus") int devStatus,
+                            @Param("devWorkStatus") int devWorkStatus,
+                            @Param("tokenId") int tokenId,
+                            @Param("tokenStatus") int tokenStatus,
+                            @Param("senderAccount") String senderAccount,
+                            @Param("receiverAccount") String receiverAccount,
+                            @Param("changeTime") String changeTime,
+                            @Param("auth") int auth
+    );
 }

@@ -12,8 +12,8 @@ import RegressionTest.UserControllerJunitTest;
 @SpringBootTest(classes = Application.class)
 @RunWith(Suite.class)
 @Suite.SuiteClasses({UserControllerJunitTest.class,
-                     DeviceControllerJunitTest.class,
-                     LogControllerJunitTest.class})
+        DeviceControllerJunitTest.class,
+        LogControllerJunitTest.class})
 
 public class Regression {
     @BeforeClass

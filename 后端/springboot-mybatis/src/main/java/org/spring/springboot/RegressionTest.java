@@ -5,7 +5,8 @@ public class RegressionTest {
     private static String nullString = "";
     private static String regressionStr = "---RegressionTest---:";
 
-    private RegressionTest(){}
+    private RegressionTest() {
+    }
 
     public static void RegressionTestBegin() {
         regression = regressionStr;
