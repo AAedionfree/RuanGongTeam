@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 
@@ -28,6 +29,8 @@ public class DeviceServiceImp implements DeviceService {
     private DevUserAccountDao devUserAccountDao;
     @Autowired
     private DevRevertDao devRevertDao;
+    @Autowired
+    private DevBuyDao devBuyDao;
 
     public List<Device> findDeviceByDevId(Integer devId) throws Exception{
         List<Device> devices = devIdDao.findDeviceBydevId(devId);
@@ -97,5 +100,29 @@ public class DeviceServiceImp implements DeviceService {
 
     public List<Device> findDeviceByDevUserAccount(String userAccount){
         return devUserAccountDao.findDeviceByDevUserAccount(userAccount);
+    }
+
+    public List<Device> buyDeviceByDevInfo(String devName, String devType, Float devPrise, String devPeriod,
+                                           String chargeAccount, String managerAccount, Integer devAuth) throws Exception {
+        List<User> chargers = userAccountDao.findUserByUserAccount(chargeAccount);
+        List<User> managers = userAccountDao.findUserByUserAccount(managerAccount);
+        if (chargers.size() == 1 && managers.size() == 1) {
+            User charger = chargers.get(0);
+            User manager = managers.get(0);
+            int chargerAuth = charger.getUserAuthority();
+            int managerAuth = manager.getUserAuthority();
+            if (chargerAuth == 1 && managerAuth <= 2){
+                int id = devBuyDao.getPrimayKey() + 1;
+                String devDate = new Date().toString();
+                devBuyDao.buyDeviceByDevInfo(id,devName,devType,devPrise,devDate,devPeriod,chargeAccount,managerAccount,devAuth);
+                return devIdDao.findDeviceBydevId(id);
+            }
+            else {
+                throw new Exception("Wrong charger or manager");
+            }
+        }
+        else {
+            throw new Exception("No such charger or manager");
+        }
     }
 }

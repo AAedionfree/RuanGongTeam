@@ -101,6 +101,11 @@ public class DeviceControllerJunitTest {
         assertNull(revertDeviceByDevId.getData());
     }
 
+    @Test
+    public void buyDeviceByDevInfo() {
+        //ResultBean<Device> buyDeviceByDevInfo = deviceController.buyDeviceByDevInfo();
+    }
+
     @After
     public void testAfter() {
         System.out.println("DeviceController Test End:");

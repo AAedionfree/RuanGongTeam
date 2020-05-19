@@ -58,4 +58,17 @@ public class DeviceController {
                                                   @RequestParam(value = "devId", required = true) int devId) {
         return ExceptionCatch.exceptionCatch(deviceService, userAccount, userAccount, devId);
     }
+
+    //buy dev by devInfo
+    @RequestMapping(value = "/api/devBuy", method = RequestMethod.GET)
+    public ResultBean<Device> buyDeviceByDevInfo(@RequestParam(value = "devName", required = true) String devName,
+                                                 @RequestParam(value = "devType", required = true) String devType,
+                                                 @RequestParam(value = "devPrise", required = true) float devPrise,
+                                                 @RequestParam(value = "devPeriod", required = true) String devPeriod,
+                                                 @RequestParam(value = "chargeAccount", required = true) String chargeAccount,
+                                                 @RequestParam(value = "managerAccount", required = true) String managerAccount,
+                                                 @RequestParam(value = "devAuth", required = true) int devAuth) {
+        return  ExceptionCatch.exceptionCatch(deviceService, chargeAccount, devName, devType, devPrise,
+                                                devPeriod, chargeAccount, managerAccount, devAuth);
+    }
 }

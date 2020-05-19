@@ -19,4 +19,7 @@ public interface DeviceService extends Service {
     List<Device> findDeviceByDevUserAccount(String userAccount);
 
     List<Device> revertDeviceByDevId(String userAccount, Integer devId) throws Exception;
+
+    List<Device> buyDeviceByDevInfo(String devName, String devType, Float devPrise, String devPeriod,
+                                    String chargeAccount, String managerAccount, Integer devAuth) throws Exception;
 }
