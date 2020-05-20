@@ -67,8 +67,9 @@ public class DeviceController {
                                                  @RequestParam(value = "devPeriod", required = true) String devPeriod,
                                                  @RequestParam(value = "chargeAccount", required = true) String chargeAccount,
                                                  @RequestParam(value = "managerAccount", required = true) String managerAccount,
-                                                 @RequestParam(value = "devAuth", required = true) int devAuth) {
+                                                 @RequestParam(value = "devAuth", required = true) int devAuth,
+                                                 @RequestParam(value = "number", required = true) int number) {
         return  ExceptionCatch.exceptionCatch(deviceService, chargeAccount, devName, devType, devPrise,
-                                                devPeriod, chargeAccount, managerAccount, devAuth);
+                                                devPeriod, chargeAccount, managerAccount, devAuth, number);
     }
 }

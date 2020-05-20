@@ -103,7 +103,7 @@ public class DeviceServiceImp implements DeviceService {
     }
 
     public List<Device> buyDeviceByDevInfo(String devName, String devType, Float devPrise, String devPeriod,
-                                           String chargeAccount, String managerAccount, Integer devAuth) throws Exception {
+                                           String chargeAccount, String managerAccount, Integer devAuth, Integer number) throws Exception {
         List<User> chargers = userAccountDao.findUserByUserAccount(chargeAccount);
         List<User> managers = userAccountDao.findUserByUserAccount(managerAccount);
         if (chargers.size() == 1 && managers.size() == 1) {
@@ -112,9 +112,12 @@ public class DeviceServiceImp implements DeviceService {
             int chargerAuth = charger.getUserAuthority();
             int managerAuth = manager.getUserAuthority();
             if (chargerAuth == 1 && managerAuth <= 2){
-                int id = devBuyDao.getPrimayKey() + 1;
-                String devDate = new Date().toString();
-                devBuyDao.buyDeviceByDevInfo(id,devName,devType,devPrise,devDate,devPeriod,chargeAccount,managerAccount,devAuth);
+                for (int i = 0; i <number; i++){
+                    int id = devBuyDao.getPrimayKey() + 1;
+                    String devDate = new Date().toString();
+                    devBuyDao.buyDeviceByDevInfo(id,devName,devType,devPrise,devDate,devPeriod,chargeAccount,managerAccount,devAuth);
+                }
+                int id = devBuyDao.getPrimayKey();
                 return devIdDao.findDeviceBydevId(id);
             }
             else {
