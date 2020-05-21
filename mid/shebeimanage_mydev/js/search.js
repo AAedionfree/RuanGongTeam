@@ -5,13 +5,12 @@ function search_m(request_url){
 	mui.plusReady(function(){
 	            var self = plus.webview.currentWebview();
 				 var user = self.user;
-				 
 				 // var s ="";
 				 	
 				 // for (var p in user) {
 				 // 	s= s+"n "+p+": "+user[p];
 				 // }
-				 // alert(s);
+				 // mui.toast(s);
 				 var search_url=request_url+'devUserAccount?userAccount='+user.userAccount;
 				 // alert(search_url);
 				 mui.ajax({

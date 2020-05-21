@@ -7,6 +7,8 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.css" rel="stylesheet" />
 		<script src="js/mui.js"></script>
+		<script src="js/buy.js"></script>
+		<script src="js/template.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>
@@ -14,7 +16,7 @@
 			<ul class="mui-table-view">
 			<% for(var i = 0;i < list.length;i++){ %>		
 					<div class="mui-table-view">
-						<li class="mui-table-view-cell"><%= list[i].logId%></li>
+						<li class="mui-table-view-cell"><%= list[i].dev_name%></li>
 					</div>		
 				<% } %>
 			</ul>
@@ -38,11 +40,16 @@
 		<div class="mui-content" style="margin-top:20px;"></div>
 		
 		
-		<button type="button" class="mui-btn mui-btn-success mui-icon mui-icon-plus" style="margin-right: 120px; margin-top: 5px;">添加设备</button>
+		<button onclick="to_buymore()" type="button" class="mui-btn mui-btn-success mui-icon mui-icon-plus" style="margin-right: 120px; margin-top: 5px;">添加设备</button>
 		<button type="button" class="mui-btn mui-btn-success" style="margin-right: 30px; margin-top: 5px;">提交</button>
 		<button type="button" class="mui-btn mui-btn-danger" style="margin-top: 5px;">取消</button>
-		
+		<div id="buy_new"></div>
 		<h1 style="font-size: 16px; margin-top: 100px;">历史记录</h1>
+		
+		<script type="text/javascript">
+					mui.init()
+					var request_url = localStorage.getItem('request_url');
+				</script>
 	</body>
 
 </html>

@@ -82,3 +82,10 @@ function to_search(user){
 		}
 	});
 }
+
+function to_buy(){
+	mui.init();
+	mui.openWindow({
+		url:'buy.html',
+	});
+}
