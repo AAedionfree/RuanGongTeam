@@ -10,6 +10,7 @@
 		<script src="js/buymore.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			localStorage.setItem('request_url','http://aaedion.club:8002/api/');//前半部分固定URL
 		</script>
 	</head>
 
@@ -54,8 +55,12 @@
 			    <input id="dev_auth" type="text" class="mui-input-clear" placeholder="请输入设备权限">
 			</div>
 		</form>
-		<button onclick="finish()" type="button" class="mui-btn mui-btn-success" style="margin-left: 30px; margin-top: 10px; width: 150px;">完成</button>
+		<button onclick="finish(request_url)" type="button" class="mui-btn mui-btn-success" style="margin-left: 30px; margin-top: 10px; width: 150px;">提交</button>
 		<button onclick="quit()" type="button" class="mui-btn mui-btn-danger" style="margin-top: 10px; margin-left: 20px; width: 150px;">取消</button>
+		<script type="text/javascript">
+					mui.init()
+					var request_url = localStorage.getItem('request_url');
+				</script>
 	</body>
 
 </html>

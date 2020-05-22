@@ -83,9 +83,9 @@ function to_search(user){
 	});
 }
 
-function to_buy(){
+function to_buymore(){
 	mui.init();
 	mui.openWindow({
-		url:'buy.html',
+		url:'buymore.html',
 	});
 }
