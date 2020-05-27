@@ -18,4 +18,6 @@ public interface LogService extends Service {
     List<Log> findScrapLog(String userAccount) throws Exception;
 
     List<Log> dealScrapLog(String userAccount, Integer logId, Integer logStatus) throws Exception;
+
+    List<Log> cancelRecord(String userAccount, Integer logId, Integer logStatus) throws Exception;
 }
