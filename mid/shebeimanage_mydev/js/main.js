@@ -89,3 +89,10 @@ function to_buymore(){
 		url:'buymore.html',
 	});
 }
+
+function to_checkEquipment(){
+	mui.init();
+	mui.openWindow({
+		url:'checkequipment.html',
+	});
+}
