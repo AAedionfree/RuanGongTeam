@@ -16,6 +16,9 @@
 		<script type="text/html" id="temp_stable">
 			<h>负责的设备</h>
 			<ul class="mui-table-view">
+				<% if(list.length==0) {%>
+					<li class="mui-table-view-cell">您当前暂无负责的设备!</li>
+				<% } %>
 			<% for(var i = 0;i < list.length;i++){ %>		
 					<div class="mui-table-view">
 						<li class="mui-table-view-cell"><%= list[i].devName%></li>
@@ -33,6 +36,9 @@
 		<script type="text/html" id="temp_zu">
 			<h>租借到的设备</h>
 			<ul class="mui-table-view">
+				<% if(list.length==0) {%>
+					<li class="mui-table-view-cell">您当前暂无租借到的设备!</li>
+				<% } %>
 			<% for(var i = 0;i < list.length;i++){ %>		
 					<div class="mui-table-view">
 						<li class="mui-table-view-cell"><%= list[i].devName%></li>

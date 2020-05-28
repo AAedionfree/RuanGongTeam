@@ -90,9 +90,12 @@ function to_buymore(){
 	});
 }
 
-function to_checkEquipment(){
+function to_checkEquipment(user){
 	mui.init();
 	mui.openWindow({
 		url:'checkequipment.html',
+		extras:{
+			user:user,
+		}
 	});
 }
