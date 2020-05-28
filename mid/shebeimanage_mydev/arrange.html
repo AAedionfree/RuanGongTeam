@@ -9,7 +9,9 @@
 		<script src="js/mui.js"></script>
 		<script src="js/fun.js"></script>
 		<script src="js/main.js"></script>
+		<script src="js/arrange.js"></script>
 		<script src="js/search.js"></script>
+		<script src="js/template.js"></script>
 		<script type="text/javascript">
 			mui.init()
 			var user;
@@ -21,31 +23,7 @@
 		</script>
 	</head>
 
-	<body>
-		<!-- <header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">代办</h1>
-		</header>
-		<div class="mui-content" style="margin-top:20px;">
-		</div>
-		<div style="margin-top:10px;">
-			<button type="button" style="margin-left: 20px; width: 100px; height: 100px; border-radius: 50px; background: rgba(100, 177, 245, 0.8); font-size: 12px;">我的代办</button>
-			<button type="button" style="margin-left: -100px; margin-top: 200px; width: 70px; height: 70px; border-radius: 50px; background: rgba(100, 177, 245, 0.8); font-size: 12px;">租借设备</button>
-			<button type="button" style="margin-left: 60px; margin-top: 200px; width: 70px; height: 70px; border-radius: 50px; background: rgba(100, 177, 245, 0.8); font-size: 12px;">购置设备</button>
-		</div>
-		<nav class="mui-bar mui-bar-tab">
-			<a class="mui-tab-item" href="#tabbar-with-home" onclick="to_main()">
-				<span class="mui-icon mui-icon-home"></span>
-				<span class="mui-tab-label">主页</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-search" onclick="to_arrange()">
-				<span class="mui-icon mui-icon-list"></span>
-				<span class="mui-tab-label">代办</span>
-			</a>
-			<a class="mui-tab-item" href="#tabbar-with-person" onclick="to_mine()">
-				<span class="mui-icon mui-icon-person"></span>
-				<span class="mui-tab-label">我的</span>
-			</a>
-		</nav> -->
+	<body onload="load_dai(request_url)">
 		<header class="mui-bar mui-bar-nav">
 				<h1 class="mui-title">代办</h1>
 			</header>
@@ -63,19 +41,24 @@
 			<img src="images/zi18.png" style="position: absolute; margin-top: -560px; margin-left: 230px; width:100px; height:100px">
 			<button onclick="to_buymore()" type="button" style="position: absolute; margin-top: -574px; margin-left: 190px; width: 190px; height: 150px;  background: transparent; font-size:16px; color: #ffffff; line-height: 260px;">购置设备</button>
 			
+			<!-- <h1 style="margin-left: 10px; margin-top: -410px;font-size: 16px;">代办事项</h1> -->
+			<div id="bao_arrange"></div>
+			<script type="text/html" id="temp_arrange">
 			<h1 style="margin-left: 10px; margin-top: -410px;font-size: 16px;">代办事项</h1>
 			<ul class="mui-table-view">
-				<div class="mui-table-view" style="background-color: #FFFFDF;">
-					<li class="mui-table-view-cell">Item 1</li>
-			    </div>
-				<div class="mui-table-view" style="background-color: #FFFFDF;">
-					<li class="mui-table-view-cell">Item 2</li>
-			    </div>
-				<div class="mui-table-view" style="background-color: #FFFFDF;">
-					<li class="mui-table-view-cell">Item 3</li>
-				</div>
+			<% if(list.length==0) {%>
+				<li class="mui-table-view-cell">您当前暂无代办事项!</li>
+			<% } %>
+			<% for(var i = 0;i < list.length;i++){ %>
+				<div class="mui-table-view">
+					<li class="mui-table-view-cell"><%= list[i].logId%></li>
+					    <button style="position: absolute;top:6px;right:80px;height:28px;line-height: 15px;" onclick="yes_arrange(<%= list[i].logId%>,request_url)">确认</button>
+						<button style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;" onclick="no_arrange(<%= list[i].logId%>,request_url)">驳回</button>
+						
+				</div>			
+				<% } %>
 			</ul>
-			
+			</script>
 			
 			
 			<nav class="mui-bar mui-bar-tab">
@@ -92,6 +75,9 @@
 					<span class="mui-tab-label">我的</span>
 				</a>
 			</nav>
+			<script type="text/javascript">
+				var request_url = localStorage.getItem('request_url');
+			</script>
 	</body>
 
 </html>

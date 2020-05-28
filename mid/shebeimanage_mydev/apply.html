@@ -34,7 +34,7 @@
 			<% for(var i = 0;i < list.length;i++){ %>		
 					<div class="mui-table-view">
 						<li class="mui-table-view-cell"><%= list[i].logId%></li>
-						<button style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;">更多</button>
+						<button onclick="app_more(<%=i%>,request_url)" style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;">更多</button>
 					</div>		
 				<% } %>
 			</ul>
