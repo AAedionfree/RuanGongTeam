@@ -39,6 +39,9 @@ public class LogSeriviceImp implements LogService {
     @Autowired
     private LogsAddBasicRecordDao logsAddBasicRecordDao;
 
+    @Autowired
+    private LogsCancelRecord logsCancelRecord;
+
     @Override
     public List<Log> findAllLogs() {
         return logsDao.findAllLogs();
@@ -121,6 +124,15 @@ public class LogSeriviceImp implements LogService {
         int id = logsAddBasicRecordDao.getPrimayKey() + 1;
         logsAddBasicRecordDao.logsAddBasicRecord(id, devId, -1, logStatus == 0?3:2,
                 6, logStatus, userAccount, "NULL", date, -1);
+        return null;
+    }
+
+    @Override
+    public List<Log> cancelRecord(String userAccount, Integer logId, Integer logStatus) throws Exception {
+        if (logStatus == 4){
+            throw new Exception("This log has been canceled");
+        }
+        logsCancelRecord.cancelRecord(logId);
         return null;
     }
 
