@@ -20,7 +20,7 @@ function load_dai(request_url){
 					 dataType:"json",
 					 success:function(data){
 							
-						if((data.data!=null)&&(user.userAuthority==0)){
+						if((user.userAuthority==0)){
 							var bao_data = new Array();
 								bao_data=data.data;
 								var temp_arrange= document.getElementById('temp_arrange').innerHTML;
