@@ -106,8 +106,8 @@ public class LogSeriviceImp implements LogService {
     @Override
     public List<Log> dealScrapLog(String userAccount, Integer logId, Integer logStatus) throws Exception {
         String date = new Date().toString();
-        if (logStatus != 0 && logStatus != 1){
-            throw new Exception("logStatus only can be 0 or 1 but receviced:" + logStatus);
+        if (logStatus != 1 && logStatus != 2){
+            throw new Exception("logStatus only can be 1 or 2 but received:" + logStatus);
         }
         int userAuth = userAccountDao.findUserByUserAccount(userAccount).get(0).getUserAuthority();
         if (userAuth > 0) {
@@ -120,9 +120,9 @@ public class LogSeriviceImp implements LogService {
             throw new Exception("Authentication Log Status failed with:" + logNowStatus);
         }
         logsScrapRecordDao.dealScrapRecord(logId,logStatus);
-        devWorkStatusDao.updateDevWorkStatusByDevId(devId,logStatus == 0?3:2);
+        devWorkStatusDao.updateDevWorkStatusByDevId(devId,logStatus == 2?3:2);
         int id = logsAddBasicRecordDao.getPrimayKey() + 1;
-        logsAddBasicRecordDao.logsAddBasicRecord(id, devId, -1, logStatus == 0?3:2,
+        logsAddBasicRecordDao.logsAddBasicRecord(id, devId, -1, logStatus == 2?3:2,
                 6, logStatus, userAccount, "NULL", date, -1);
         return null;
     }
