@@ -55,7 +55,7 @@ function my_apply(request_url){
 	        });
 }
 
-function app_more(log_num,request_url){
+function app_more(type,log_num,request_url){
 	mui.init();
 	mui.plusReady(function(){
 	            var self = plus.webview.currentWebview();
@@ -92,7 +92,13 @@ function app_more(log_num,request_url){
 									k++;
 								}
 							}
-							var xian_log=al_data[log_num];
+							if(type==0){
+								var xian_log=al_data[log_num];
+								
+							}else if(type==1){
+								var xian_log=now_data[log_num];
+							}
+							
 							var s ="";
 								
 							for (var p in xian_log) {
