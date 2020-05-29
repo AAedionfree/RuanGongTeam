@@ -197,3 +197,43 @@ function app_more(log_num,request_url){
 	// }
 	// alert(s);
 }
+
+	
+function back_app(logid,request_url){
+	mui.init();
+	mui.plusReady(function(){
+	            var self = plus.webview.currentWebview();
+				 var user = self.user;
+				 
+				 // var s ="";
+				 	
+				 // for (var p in user) {
+				 // 	s= s+"n "+p+": "+user[p];
+				 // }
+				 // alert(s);
+				 var app_back_url=request_url+'logCancelRecord?userAccount='+user.userAccount+'&logId='+logid+'&logStatus=3';
+				 // alert(search_url);
+				 mui.ajax({
+					 type:'GET',
+					 url:app_back_url,
+					 timeout:10000,	
+					 dataType:"json",
+					 success:function(data){
+							
+						if((data.code==0)){
+							mui.toast("取消成功！")
+							my_apply(request_url);
+							}
+						// 	var s ="";
+								
+						// 	for (var p in dev_chadata) {
+						// 		s= s+"\n"+p+": "+dev_chadata[p];
+						// 	}
+						// 	alert(s);
+					 },
+					 error: function(xhr,type,errorThrown){
+					 	mui.toast("服务器内部出错！");
+					 }
+				 });
+	        });
+}

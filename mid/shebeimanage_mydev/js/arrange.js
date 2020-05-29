@@ -12,7 +12,7 @@ function load_dai(request_url){
 				 // }
 				 // alert(s);
 				 var arrange_load_url=request_url+'devFindScrapRecord?userAccount='+user.userAccount;
-				 // alert(search_url);
+				 // alert(user.userAuthority);
 				 mui.ajax({
 					 type:'GET',
 					 url:arrange_load_url,
@@ -20,7 +20,7 @@ function load_dai(request_url){
 					 dataType:"json",
 					 success:function(data){
 							
-						if((user.userAuthority==0)){
+						if((data.data!=null)&&(user.userAuthority==0)){
 							var bao_data = new Array();
 								bao_data=data.data;
 								var temp_arrange= document.getElementById('temp_arrange').innerHTML;
@@ -91,8 +91,7 @@ function no_arrange(logid,request_url){
 				 // 	s= s+"n "+p+": "+user[p];
 				 // }
 				 // alert(s);
-				 var arrange_no_url=request_url+'devDealScrapRecord?userAccount='+user.userAccount+'&logId='+logid+'&logStatus=0';
-				 // alert(search_url);
+				 var arrange_no_url=request_url+'devDealScrapRecord?userAccount='+user.userAccount+'&logId='+logid+'&logStatus=2';
 				 mui.ajax({
 					 type:'GET',
 					 url:arrange_no_url,

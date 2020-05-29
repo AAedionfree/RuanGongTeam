@@ -15,10 +15,13 @@ function my_info(){
 				 	document.getElementById("myinfo_auth").innerHTML="设备负责人";
 				 }
 				 else if(user.userAuthority==1){
-				 	document.getElementById("myinfo_auth").innerHTML="领导";
+				 	document.getElementById("myinfo_auth").innerHTML="经办人";
 				 }
 				 else if(user.userAuthority==0){
-				 	document.getElementById("myinfo_auth").innerHTML="内测用户";
+				 	document.getElementById("myinfo_auth").innerHTML="领导";
+				 }
+				 else if(user.userAuthority==-1){
+				 	document.getElementById("myinfo_auth").innerHTML="测试用户";
 				 }
 				 });
 }

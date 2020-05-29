@@ -20,9 +20,12 @@ function load_xian_my(){
 			document.getElementById("my_auth").innerHTML="设备负责人";
 		}
 		else if(user.userAuthority==1){
-			document.getElementById("my_auth").innerHTML="领导";
+			document.getElementById("my_auth").innerHTML="经办人";
 		}
 		else if(user.userAuthority==0){
+			document.getElementById("my_auth").innerHTML="领导";
+		}
+		else if(user.userAuthority==-1){
 			document.getElementById("my_auth").innerHTML="内测用户";
 		}
 	});
@@ -66,11 +69,15 @@ function to_mine(user){
 }
 function to_main(user){
 	mui.init();
-	mui.openWindow({
-		url:'main.html',
-		extras:{
-			user:user,
-		}
+	mui.plusReady(function () {
+	    var curr = plus.webview.currentWebview();
+		mui.openWindow({
+			url:'main.html',
+			extras:{
+				user:user,
+			}
+		});
+		curr.close();
 	});
 }
 function to_search(user){
