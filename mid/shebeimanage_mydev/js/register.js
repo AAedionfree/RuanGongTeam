@@ -20,6 +20,7 @@ function register_m(request_url){
 		
 	if(cha_qpd==1||cha_spd==1||cha_ua==1||cha_un==1){
 		mui.toast("输入的格式不正确！应输入数字或字母！");
+		return;
 	}	
 	if(useraccount.length==0){
 		mui.toast("账号不能为空！");
