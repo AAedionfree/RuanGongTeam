@@ -144,7 +144,10 @@ public class LogSeriviceImp implements LogService {
         if (logStatus == 4){
             throw new Exception("This log has been canceled");
         }
+        Log log = logsIdDao.findLogsByLogId(logId).get(0);
+        int devId = log.getDevId();
         logsCancelRecord.cancelRecord(logId);
+        devWorkStatusDao.updateDevWorkStatusByDevId(devId,3);
         return null;
     }
 
