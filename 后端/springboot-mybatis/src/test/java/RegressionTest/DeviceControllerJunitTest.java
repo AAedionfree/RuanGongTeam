@@ -2,6 +2,7 @@ package RegressionTest;
 
 import org.junit.*;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.spring.springboot.Application;
 import org.spring.springboot.RegressionTest;
 import org.spring.springboot.ResultBean;
