@@ -135,10 +135,10 @@ public class LogControllerJunitTest {
         ResultBean scrapLog = logController.findScrapLog("TestUserAccount");
         int logId = new ArrayList<Log>(scrapLog.getData()).get(0).getLogId();
 
-        ResultBean dealScrapLog = logController.dealScrapLog("TestUserAccount", logId, 0);
-        assertEquals(0, dealScrapLog.getCode());
-        assertEquals(null, dealScrapLog.getData());
+        ResultBean dealScrapLog = logController.dealScrapLog("TestUserAccount", logId, 2);
         assertEquals("success", dealScrapLog.getMessage());
+        assertEquals(null, dealScrapLog.getData());
+        assertEquals(0, dealScrapLog.getCode());
 
         ResultBean<Device> device = deviceController.findDeviceByDevId(-1);
         Device dev = new ArrayList<Device>(device.getData()).get(0);

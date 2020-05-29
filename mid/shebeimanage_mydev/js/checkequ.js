@@ -68,7 +68,40 @@ function more(dev_data_num,request_url){
 							var s ="";
 								
 							for (var p in dev_chadata) {
-								s= s+"\n"+p+": "+dev_chadata[p];
+									
+								if((p=="devWorkStatus")||(p=="devStatus")){
+										
+									if(p=="devWorkStatus"){
+										if(dev_chadata[p]==1){
+											s= s+"\n"+"设备状态"+": "+"正常";
+										}
+										else if(dev_chadata[p]==2){
+											s= s+"\n"+"设备状态"+": "+"报废";
+										}
+										else if(dev_chadata[p]==3){
+											s= s+"\n"+"设备状态"+": "+"故障";
+										}
+										else if(dev_chadata[p]==4){
+											s= s+"\n"+"设备状态"+": "+"维修";
+										}
+										else if(dev_chadata[p]==5){
+											s= s+"\n"+"设备状态"+": "+"待报废";
+										}
+									}
+									
+									else if(p=="devStatus"){
+										if(dev_chadata[p]==1){
+											s= s+"\n"+"设备出借状态"+": "+"空闲";
+										}
+										else if(dev_chadata[p]==2){
+											s= s+"\n"+"设备出借状态"+": "+"出借";
+										}
+									}
+								}
+									
+								else {
+									s= s+"\n"+p+": "+dev_chadata[p];
+								}
 							}
 							alert(s);
 						}

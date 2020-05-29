@@ -37,7 +37,7 @@ public class UserControllerJunitTest {
 
     @Test
     public void login() {
-        ResultBean<User> login = userController.login("17182626", "666666");
+        ResultBean<User> login = userController.login("17182626", "17182626");
         assertEquals(0, login.getCode());
         assertEquals("success", login.getMessage());
         login = userController.login("123133", "AAedion");
@@ -62,11 +62,11 @@ public class UserControllerJunitTest {
         assertEquals(0, findUserByUserId.getCode());
         assertEquals("success", findUserByUserId.getMessage());
         assertEquals(1, user.size());
-        assertEquals(true, user.get(0).getUserName().equals("TestUserName")
-                && user.get(0).getUserAccount().equals("TestUserAccount")
-                && user.get(0).getUserPassword().equals("TestUserPassword")
-                && user.get(0).getUserAuthority() == 0
-                && user.get(0).getUserId() == -1);
+        assertEquals(true, user.get(0).getUserName().equals("TestUserName"));
+        assertEquals(true, user.get(0).getUserAccount().equals("TestUserAccount"));
+        assertEquals(true,user.get(0).getUserPassword().equals("TestUserPassword"));
+        assertEquals(true, user.get(0).getUserAuthority() == 0);
+        assertEquals(true,user.get(0).getUserId() == -1);
     }
 
     @Test
