@@ -15,8 +15,10 @@
 		<script type="text/javascript">
 			mui.init()
 			var user;
-			mui('body').on('click','a',function(){document.location.href=this.href;});
-			mui.plusReady(function(){
+			mui('body').on('click', 'a', function() {
+				document.location.href = this.href;
+			});
+			mui.plusReady(function() {
 				var self = plus.webview.currentWebview();
 				user = self.user;
 			});
@@ -25,25 +27,25 @@
 
 	<body onload="load_dai(request_url)">
 		<header class="mui-bar mui-bar-nav">
-				<h1 class="mui-title">代办</h1>
-			</header>
-			
-			<div class="mui-content" style="background-color: #AAAAFF; height: 190px;  width: 190px;"></div>
-			<div class="mui-content" style="background-color: #EAC100; height: 190px; margin-top:-190px; margin-left: 190px; width:186px"></div>
-			<div class="mui-content" style="background-color: #FFFFDF; height: 424px;"></div>
-			
-			
+			<h1 class="mui-title">代办</h1>
+		</header>
 
-			<img src="images/zi33.png" style="position: absolute; margin-top: -560px; margin-left: 40px; width:100px; height:100px">
-			<button onclick="to_search(user)" type="button" style="position: absolute; margin-top: -574px; width: 190px; height: 150px;  background: transparent; font-size:16px; color: #ffffff; line-height: 260px;">租借设备</button>
+		<div class="mui-content" style="background-color: #AAAAFF; height: 190px;  width: 190px;"></div>
+		<div class="mui-content" style="background-color: #EAC100; height: 190px; margin-top:-190px; margin-left: 190px; width:186px"></div>
+		<div class="mui-content" style="background-color: #FFFFDF; height: 424px;"></div>
 
-			
-			<img src="images/zi18.png" style="position: absolute; margin-top: -560px; margin-left: 230px; width:100px; height:100px">
-			<button onclick="to_buymore(user)" type="button" style="position: absolute; margin-top: -574px; margin-left: 190px; width: 190px; height: 150px;  background: transparent; font-size:16px; color: #ffffff; line-height: 260px;">购置设备</button>
-			
-			<!-- <h1 style="margin-left: 10px; margin-top: -410px;font-size: 16px;">代办事项</h1> -->
-			<div id="bao_arrange"></div>
-			<script type="text/html" id="temp_arrange">
+
+
+		<img src="images/zi33.png" style="position: absolute; margin-top: -560px; margin-left: 40px; width:100px; height:100px">
+		<button onclick="to_search(user)" type="button" style="position: absolute; margin-top: -574px; width: 190px; height: 150px;  background: transparent; font-size:16px; color: #ffffff; line-height: 260px;">租借设备</button>
+
+
+		<img src="images/zi18.png" style="position: absolute; margin-top: -560px; margin-left: 230px; width:100px; height:100px">
+		<button onclick="to_buymore(user)" type="button" style="position: absolute; margin-top: -574px; margin-left: 190px; width: 190px; height: 150px;  background: transparent; font-size:16px; color: #ffffff; line-height: 260px;">购置设备</button>
+
+		<!-- <h1 style="margin-left: 10px; margin-top: -410px;font-size: 16px;">代办事项</h1> -->
+		<div id="bao_arrange"></div>
+		<script type="text/html" id="temp_arrange">
 			<h1 style="margin-left: 10px; margin-top: -410px;font-size: 16px;">代办事项</h1>
 			<ul class="mui-table-view">
 			<% if(list.length==0) {%>
@@ -60,25 +62,25 @@
 				<% } %>
 			</ul>
 			</script>
-			
-			
-			<nav class="mui-bar mui-bar-tab">
-				<a class="mui-tab-item" href="#tabbar-with-home" onclick="to_main(user)">
-					<span class="mui-icon mui-icon-home"></span>
-					<span class="mui-tab-label">主页</span>
-				</a>
-				<a class="mui-tab-item" href="#tabbar-with-search" onclick="to_arrange(user)">
-					<span class="mui-icon mui-icon-list"></span>
-					<span class="mui-tab-label">代办</span>
-				</a>
-				<a class="mui-tab-item" href="#tabbar-with-person" onclick="to_mine(user)">
-					<span class="mui-icon mui-icon-person"></span>
-					<span class="mui-tab-label">我的</span>
-				</a>
-			</nav>
-			<script type="text/javascript">
-				var request_url = localStorage.getItem('request_url');
-			</script>
+
+
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item" href="#tabbar-with-home" onclick="to_main(user)">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">主页</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-search" onclick="to_arrange(user)">
+				<span class="mui-icon mui-icon-list"></span>
+				<span class="mui-tab-label">代办</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-person" onclick="to_mine(user)">
+				<span class="mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		<script type="text/javascript">
+			var request_url = localStorage.getItem('request_url');
+		</script>
 	</body>
 
 </html>
