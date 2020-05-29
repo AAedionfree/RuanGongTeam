@@ -90,10 +90,13 @@ function to_search(user){
 	});
 }
 
-function to_buymore(){
+function to_buymore(user){
 	mui.init();
 	mui.openWindow({
 		url:'buymore.html',
+		extras:{
+			user:user,
+		}
 	});
 }
 

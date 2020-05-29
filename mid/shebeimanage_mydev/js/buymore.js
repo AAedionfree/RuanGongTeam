@@ -5,11 +5,13 @@ function finish(resquest_url){
 	var dev_num = document.getElementById("dev_num").value;
 	var dev_prise = document.getElementById("dev_prise").value;
 	var dev_period = document.getElementById("dev_period").value;
-	var charge_account = document.getElementById("charge_account").value;
+	// var charge_account = document.getElementById("charge_account").value;
 	var manager_account = document.getElementById("manager_account").value;
 	var dev_auth = document.getElementById("dev_auth").value;
 	mui.plusReady(function(){
-				 
+				 var self = plus.webview.currentWebview();
+				  var user = self.user;
+				  var charge_account=user.userAccount;
 				 // var s ="";
 				 	
 				 // for (var p in user) {
