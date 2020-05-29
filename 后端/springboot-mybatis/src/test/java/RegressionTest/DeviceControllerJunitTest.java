@@ -2,6 +2,7 @@ package RegressionTest;
 
 import org.junit.*;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.spring.springboot.Application;
 import org.spring.springboot.RegressionTest;
 import org.spring.springboot.ResultBean;
@@ -17,6 +18,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
+@FixMethodOrder(MethodSorters.JVM)
 public class DeviceControllerJunitTest {
 
 
@@ -41,16 +43,16 @@ public class DeviceControllerJunitTest {
         assertEquals(0, findDeviceByDeviceId.getCode());
         assertEquals("success", findDeviceByDeviceId.getMessage());
         assertEquals(1, device.size());
-        assertEquals(true, device.get(0).getDevName().equals("TestDevName")
-                && device.get(0).getDevType().equals("TestDevType")
-                && device.get(0).getDevPrise() == 0.0
-                && device.get(0).getDevDate().equals("TestDevDate")
-                && device.get(0).getDevPeriod().equals("TestDevPeriod")
-                && device.get(0).getChargeAccount().equals("TestChargeAccount")
-                && device.get(0).getManagerAccount().equals("TestManagerAccount")
-                && device.get(0).getDevWorkStatus() == 3
-                && device.get(0).getDevStatus() == 0
-                && device.get(0).getDevAuth() == 0);
+        assertEquals(true, device.get(0).getDevName().equals("TestDevName"));
+        assertEquals(true, device.get(0).getDevType().equals("TestDevType"));
+        assertEquals(true,device.get(0).getDevPrise() == 0.0);
+        assertEquals(true,device.get(0).getDevDate().equals("TestDevDate"));
+        assertEquals(true,device.get(0).getDevPeriod().equals("TestDevPeriod"));
+        assertEquals(true, device.get(0).getChargeAccount().equals("TestChargeAccount"));
+        assertEquals(true, device.get(0).getManagerAccount().equals("TestManagerAccount"));
+        assertEquals(true, device.get(0).getDevWorkStatus() == 3);
+        assertEquals(true, device.get(0).getDevStatus() == 0);
+        assertEquals(true, device.get(0).getDevAuth() == 0);
     }
 
     @Test
