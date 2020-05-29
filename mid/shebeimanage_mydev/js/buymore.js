@@ -23,11 +23,15 @@ function finish(resquest_url){
 					 timeout:10000,	
 					 dataType:"json",
 					 success:function(data){
-								
+							
 							if(data.message=="success"){
 								mui.toast("添加成功！");
 								mui.back();
 							}
+							else {
+								mui.toast(data.message);
+							}
+							
 					 },
 					 error: function(xhr,type,errorThrown){
 					 	mui.toast("服务器内部出错！");
