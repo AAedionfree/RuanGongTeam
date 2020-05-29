@@ -4,8 +4,10 @@ import org.spring.springboot.dao.devices.DevIdDao;
 import org.spring.springboot.dao.devices.DevWorkStatusDao;
 import org.spring.springboot.dao.logs.*;
 import org.spring.springboot.dao.users.UserAccountDao;
+import org.spring.springboot.dao.users.UserAuthDao;
 import org.spring.springboot.domain.Device;
 import org.spring.springboot.domain.Log;
+import org.spring.springboot.domain.User;
 import org.spring.springboot.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,6 +44,9 @@ public class LogSeriviceImp implements LogService {
     @Autowired
     private LogsCancelRecord logsCancelRecord;
 
+    @Autowired
+    private UserAuthDao userAuthDao;
+
     @Override
     public List<Log> findAllLogs() {
         return logsDao.findAllLogs();
@@ -55,6 +60,7 @@ public class LogSeriviceImp implements LogService {
     private void addBasicRecord(String userAccount, Integer devId, int tokenId, int startStatus, int nextStatus, int tokenStatus) throws Exception {
         String date = new Date().toString();
         Device device = devIdDao.findDeviceBydevId(devId).get(0);
+        User user = userAuthDao.findUserByUserAuth().get(0);
         int logId = logsAddBasicRecordDao.getPrimayKey() + 1;
         int deviceStatus = device.getDevStatus();
         int deviceWorkStatus = device.getDevWorkStatus();
@@ -65,8 +71,14 @@ public class LogSeriviceImp implements LogService {
         if (deviceWorkStatus != startStatus) {
             throw new Exception("Can't deal device with devStatus:" + device.getDevWorkStatus());
         }
-        logsAddBasicRecordDao.logsAddBasicRecord(logId, devId, deviceStatus, deviceWorkStatus,
-                tokenId, tokenStatus, userAccount, device.getManagerAccount(), date, auth);
+        if (tokenId == 5){
+            logsAddBasicRecordDao.logsAddBasicRecord(logId, devId, deviceStatus, deviceWorkStatus,
+                    tokenId, tokenStatus, userAccount, user.getUserAccount(), date, auth);
+        }
+        else {
+            logsAddBasicRecordDao.logsAddBasicRecord(logId, devId, deviceStatus, deviceWorkStatus,
+                    tokenId, tokenStatus, userAccount, device.getManagerAccount(), date, auth);
+        }
         devWorkStatusDao.updateDevWorkStatusByDevId(devId, nextStatus);
     }
 /*
