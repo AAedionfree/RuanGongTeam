@@ -26,9 +26,9 @@ function login_m(request_url){
 					dataType:"json",
 					success: function(data){
 						if(data.data!=null){
-						var user_s = JSON.stringify(data.data);
-						user_s=user_s.substring(1,user_s.length-1);
-						var user = JSON.parse(user_s);
+							var user_s = JSON.stringify(data.data);
+							user_s=user_s.substring(1,user_s.length-1);
+							var user = JSON.parse(user_s);
 						}
 						// var s ="";
 							

@@ -10,7 +10,7 @@
 		<script src="js/buymore.js"></script>
 		<script type="text/javascript">
 			mui.init()
-			localStorage.setItem('request_url','http://aaedion.club:8002/api/');//前半部分固定URL
+			localStorage.setItem('request_url', 'http://aaedion.club:8002/api/'); //前半部分固定URL
 		</script>
 	</head>
 
@@ -20,47 +20,47 @@
 			<h1 class="mui-title">填写设备详情</h1>
 		</header>
 		<div class="mui-content" style="margin-top:20px;"></div>
-		
+
 		<form class="mui-input-group">
-		    <div class="mui-input-row">
-		        <label>名称</label>
-		        <input id="dev_name" type="text" class="mui-input-clear" placeholder="请输入设备名称">
-		    </div>
 			<div class="mui-input-row">
-			    <label>类型</label>
-			    <input id="dev_type" type="text" class="mui-input-clear" placeholder="请输入设备类型">
+				<label>名称</label>
+				<input id="dev_name" type="text" class="mui-input-clear" placeholder="请输入设备名称">
 			</div>
 			<div class="mui-input-row">
-			    <label>数量</label>
-			    <input id="dev_num" type="text" class="mui-input-clear" placeholder="请输入设备数量">
+				<label>类型</label>
+				<input id="dev_type" type="text" class="mui-input-clear" placeholder="请输入设备类型">
 			</div>
 			<div class="mui-input-row">
-			    <label>价格</label>
-			    <input id="dev_prise" type="text" class="mui-input-clear" placeholder="请输入设备价格">
+				<label>数量</label>
+				<input id="dev_num" type="text" class="mui-input-clear" placeholder="请输入设备数量">
 			</div>
 			<div class="mui-input-row">
-			    <label>保质期</label>
-			    <input id="dev_period" type="text" class="mui-input-clear" placeholder="请输入设备保质期">
+				<label>价格</label>
+				<input id="dev_prise" type="text" class="mui-input-clear" placeholder="请输入设备价格">
+			</div>
+			<div class="mui-input-row">
+				<label>保质期</label>
+				<input id="dev_period" type="text" class="mui-input-clear" placeholder="请输入设备保质期">
 			</div>
 			<!-- <div class="mui-input-row">
 			    <label>经办人</label>
 			    <input id="charge_account" type="text" class="mui-input-clear" placeholder="请输入设备经办人账号">
 			</div> -->
 			<div class="mui-input-row">
-			    <label>设备负责人</label>
-			    <input id="manager_account" type="text" class="mui-input-clear" placeholder="请输入设备负责人账号">
+				<label>设备负责人</label>
+				<input id="manager_account" type="text" class="mui-input-clear" placeholder="请输入设备负责人账号">
 			</div>
 			<div class="mui-input-row">
-			    <label>设备权限</label>
-			    <input id="dev_auth" type="text" class="mui-input-clear" placeholder="请输入设备权限">
+				<label>设备权限</label>
+				<input id="dev_auth" type="text" class="mui-input-clear" placeholder="请输入设备权限">
 			</div>
 		</form>
 		<button onclick="finish(request_url)" type="button" class="mui-btn mui-btn-success" style="margin-left: 30px; margin-top: 10px; width: 150px;">提交</button>
 		<button onclick="quit()" type="button" class="mui-btn mui-btn-danger" style="margin-top: 10px; margin-left: 20px; width: 150px;">取消</button>
 		<script type="text/javascript">
-					mui.init()
-					var request_url = localStorage.getItem('request_url');
-				</script>
+			mui.init()
+			var request_url = localStorage.getItem('request_url');
+		</script>
 	</body>
 
 </html>

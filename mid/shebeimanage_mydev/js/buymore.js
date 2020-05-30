@@ -1,4 +1,4 @@
-function finish(resquest_url){
+function finish(resquest_url) {
 	mui.init();
 	var dev_name = document.getElementById("dev_name").value;
 	var dev_type = document.getElementById("dev_type").value;
@@ -8,50 +8,51 @@ function finish(resquest_url){
 	// var charge_account = document.getElementById("charge_account").value;
 	var manager_account = document.getElementById("manager_account").value;
 	var dev_auth = document.getElementById("dev_auth").value;
-	mui.plusReady(function(){
-				 var self = plus.webview.currentWebview();
-				  var user = self.user;
-				  var charge_account=user.userAccount;
-				 // var s ="";
-				 	
-				 // for (var p in user) {
-				 // 	s= s+"n "+p+": "+user[p];
-				 // }
-				 // alert(s);
-				 var add_buy_url=request_url+'devBuy?devName='+dev_name+'&devType='+dev_type+'&devPrise='+dev_prise+'&devPeriod='+dev_period+'&chargeAccount='+charge_account+'&managerAccount='+manager_account+'&devAuth='+dev_auth+'&number='+dev_num;
-				 mui.ajax({
-					 type:'GET',
-					 url:add_buy_url,
-					 timeout:10000,	
-					 dataType:"json",
-					 success:function(data){
-							
-							if(data.message=="success"){
-								mui.toast("添加成功！");
-								mui.back();
-							}
-							else {
-								mui.toast(data.message);
-							}
-							
-					 },
-					 error: function(xhr,type,errorThrown){
-					 	mui.toast("服务器内部出错！");
-					 }
-				 });
-	        });
+	mui.plusReady(function() {
+		var self = plus.webview.currentWebview();
+		var user = self.user;
+		var charge_account = user.userAccount;
+		// var s ="";
+
+		// for (var p in user) {
+		// 	s= s+"n "+p+": "+user[p];
+		// }
+		// alert(s);
+		var add_buy_url = request_url + 'devBuy?devName=' + dev_name + '&devType=' + dev_type + '&devPrise=' + dev_prise +
+			'&devPeriod=' + dev_period + '&chargeAccount=' + charge_account + '&managerAccount=' + manager_account +
+			'&devAuth=' + dev_auth + '&number=' + dev_num;
+		mui.ajax({
+			type: 'GET',
+			url: add_buy_url,
+			timeout: 10000,
+			dataType: "json",
+			success: function(data) {
+
+				if (data.message == "success") {
+					mui.toast("添加成功！");
+					mui.back();
+				} else {
+					mui.toast(data.message);
+				}
+
+			},
+			error: function(xhr, type, errorThrown) {
+				mui.toast("服务器内部出错！");
+			}
+		});
+	});
 	// var s ="";
-		
+
 	// for (var p in buymore_new) {
 	// 	s= s+"n "+p+": "+buymore_new[p];
 	// }
 	// alert(s);
 }
-	
 
-function quit(){
+
+function quit() {
 	mui.init();
-	mui.plusReady(function () {
-			mui.back();
+	mui.plusReady(function() {
+		mui.back();
 	});
 }

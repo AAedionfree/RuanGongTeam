@@ -13,8 +13,10 @@
 		<script type="text/javascript">
 			mui.init()
 			var user;
-			mui('body').on('click','a',function(){document.location.href=this.href;});
-			mui.plusReady(function(){
+			mui('body').on('click', 'a', function() {
+				document.location.href = this.href;
+			});
+			mui.plusReady(function() {
 				var self = plus.webview.currentWebview();
 				user = self.user;
 			});
@@ -48,44 +50,45 @@
 		<header class="mui-bar mui-bar-nav">
 			<h1 class="mui-title">我的</h1>
 		</header>
-		
-		
+
+
 		<div class="mui-content" style="background-color: #ffe6f5; height: 200px;"></div>
 		<div class="mui-list-unstyled">
 			<img src="images/newhead.png" id="head_img" style="position: absolute; margin-top: -120px; margin-left: 250px; border-radius:100px;width:100px;height:100px">
 			<h1 id="my_username" style="position: absolute; margin-left: 20px;margin-top: -80px;"></h1>
 			<h1 id="my_auth" style="position: absolute; margin-left: 20px;margin-top: -30px; font-size: 16px;"></h1>
 		</div>
-		
-		
+
+
 		<ul class="mui-table-view">
-		    <li onclick="to_myinfo(user)" class="mui-table-view-cell mui-media">
-		        <a href="javascript:;">
-		            <img class="mui-media-object mui-pull-left" src="images/account_flat.png" style="width:20px;height:20px">
-		            <div class="mui-media-body">个人信息</div>
-		        </a>
-		    </li>
+			<li onclick="to_myinfo(user)" class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="images/account_flat.png" style="width:20px;height:20px">
+					<div class="mui-media-body">个人信息</div>
+				</a>
+			</li>
 			<li onclick="to_question(user)" class="mui-table-view-cell mui-media">
-			    <a href="javascript:;">
-			        <img class="mui-media-object mui-pull-left" src="images/massage_flat.png" style="width:20px;height:20px">
-			        <div class="mui-media-body">意见反馈</div>
-			    </a>
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="images/massage_flat.png" style="width:20px;height:20px">
+					<div class="mui-media-body">意见反馈</div>
+				</a>
 			</li>
 			<li onclick="to_about()" class="mui-table-view-cell mui-media">
-			    <a href="javascript:;">
-			        <img class="mui-media-object mui-pull-left" src="images/crown_flat.png" style="width:20px;height:20px">
-			        <div class="mui-media-body">关于</div>
-			    </a>
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="images/crown_flat.png" style="width:20px;height:20px">
+					<div class="mui-media-body">关于</div>
+				</a>
 			</li>
 		</ul>
-		
-		
-		<button onclick="quit_login()" type="button" class="mui-btn" style="position: absolute; margin-top: 240px; margin-left: 30px; width:300px; font-size:16px; color: red;">注 销</button>
-		
-		
-		
-		
-		
+
+
+		<button onclick="quit_login()" type="button" class="mui-btn" style="position: absolute; margin-top: 240px; margin-left: 30px; width:300px; font-size:16px; color: red;">注
+			销</button>
+
+
+
+
+
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item" href="#tabbar-with-home" onclick="to_main(user)">
 				<span class="mui-icon mui-icon-home"></span>
