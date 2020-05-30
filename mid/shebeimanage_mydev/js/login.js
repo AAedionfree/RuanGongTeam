@@ -40,8 +40,8 @@ function login_m(request_url) {
 					if (data.code == 0) {
 						mui.toast(data.message);
 						mui.openWindow({
-							// url:'main.html',
-							url: 'Vis.html',
+							url:'main.html',
+							// url: 'test.html',
 							extras: {
 								user: user,
 							}
