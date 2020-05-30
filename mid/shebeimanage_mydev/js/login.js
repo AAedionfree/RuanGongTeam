@@ -41,7 +41,7 @@ function login_m(request_url) {
 						mui.toast(data.message);
 						mui.openWindow({
 							// url:'main.html',
-							url: 'test.html',
+							url: 'Vis.html',
 							extras: {
 								user: user,
 							}
