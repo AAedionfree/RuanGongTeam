@@ -78,7 +78,8 @@ function to_main(user) {
 			url: 'main.html',
 			extras: {
 				user: user,
-			}
+			},
+			id:'main_1',
 		});
 		curr.close();
 	});
