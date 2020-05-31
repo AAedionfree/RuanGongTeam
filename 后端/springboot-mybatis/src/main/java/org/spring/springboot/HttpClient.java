@@ -16,7 +16,7 @@ public class HttpClient {
     }
 
     public static void record(String content) throws Exception {
-        url = new URL("http://aaedion.club/exception.php?content=" + RegressionTest.Regression()
+        url = new URL("http://39.102.35.212/exception.php?content=" + RegressionTest.Regression()
                 + content.replace(" ", "-"));
         con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
