@@ -108,8 +108,36 @@ function more(dev_data_num, request_url) {
 									s = s + "\n" + "设备出借状态" + ": " + "出借";
 								}
 							}
-						} else {
-							s = s + "\n" + p + ": " + dev_chadata[p];
+						} 
+						else if(p=="devId"){
+							s= s+"\n"+"设备序号"+": "+dev_chadata[p];
+						}
+						else if(p=="devName"){
+							s= s+"\n"+"设备名称"+": "+dev_chadata[p];
+						}
+						else if(p=="devType"){
+							s= s+"\n"+"设备类型"+": "+dev_chadata[p];
+						}
+						else if(p=="devPrise"){
+							s= s+"\n"+"设备价格"+": "+dev_chadata[p];
+						}
+						else if(p=="devDate"){
+							s= s+"\n"+"设备日期"+": "+dev_chadata[p];
+						}
+						else if(p=="devPeriod"){
+							s= s+"\n"+"设备保质期"+": "+dev_chadata[p];
+						}
+						else if(p=="chargeAccount"){
+							s= s+"\n"+"经办人"+": "+dev_chadata[p];
+						}
+						else if(p=="managerAccount"){
+							s= s+"\n"+"设备负责人"+": "+dev_chadata[p];
+						}
+						else if(p=="devAuth"){
+							s= s+"\n"+"设备权限"+": "+dev_chadata[p];
+						}
+						else if(p=="userAccount"){
+							s= s+"\n"+"用户账号"+": "+dev_chadata[p];
 						}
 					}
 					alert(s);
@@ -178,8 +206,36 @@ function more_zujie(dev_data_num, request_url) {
 									s = s + "\n" + "设备出借状态" + ": " + "出借";
 								}
 							}
-						} else {
-							s = s + "\n" + p + ": " + dev_chadata[p];
+						}
+						else if(p=="devId"){
+							s= s+"\n"+"设备序号"+": "+dev_chadata[p];
+						}
+						else if(p=="devName"){
+							s= s+"\n"+"设备名称"+": "+dev_chadata[p];
+						}
+						else if(p=="devType"){
+							s= s+"\n"+"设备类型"+": "+dev_chadata[p];
+						}
+						else if(p=="devPrise"){
+							s= s+"\n"+"设备价格"+": "+dev_chadata[p];
+						}
+						else if(p=="devDate"){
+							s= s+"\n"+"设备日期"+": "+dev_chadata[p];
+						}
+						else if(p=="devPeriod"){
+							s= s+"\n"+"设备保质期"+": "+dev_chadata[p];
+						}
+						else if(p=="chargeAccount"){
+							s= s+"\n"+"经办人"+": "+dev_chadata[p];
+						}
+						else if(p=="managerAccount"){
+							s= s+"\n"+"设备负责人"+": "+dev_chadata[p];
+						}
+						else if(p=="devAuth"){
+							s= s+"\n"+"设备权限"+": "+dev_chadata[p];
+						}
+						else if(p=="userAccount"){
+							s= s+"\n"+"用户账号"+": "+dev_chadata[p];
 						}
 					}
 					alert(s);
