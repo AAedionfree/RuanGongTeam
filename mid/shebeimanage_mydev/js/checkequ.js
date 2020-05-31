@@ -26,7 +26,7 @@ function check_equ(request_url){
 							dev_data_f=data.data;
 								
 							for(i = 0, j = 0; i < dev_data_f.length; i++){
-								if((dev_data_f[i].managerAccount==user.userAccount)||(dev_data_f[i].chargeAccount==user.userAccount)){
+								if((dev_data_f[i].managerAccount==user.userAccount)||(dev_data_f[i].userAccount==user.userAccount)){
 									dev_data[j]=dev_data_f[i];
 									j++;
 								}
@@ -75,7 +75,7 @@ function more(dev_data_num,request_url){
 							dev_data_f=data.data;
 								
 							for(i = 0, j = 0; i < dev_data_f.length; i++){
-								if((dev_data_f[i].managerAccount==user.userAccount)||(dev_data_f[i].chargeAccount==user.userAccount)){
+								if((dev_data_f[i].managerAccount==user.userAccount)||(dev_data_f[i].managerAccount==user.userAccount)){
 									dev_data[j]=dev_data_f[i];
 									j++;
 								}
