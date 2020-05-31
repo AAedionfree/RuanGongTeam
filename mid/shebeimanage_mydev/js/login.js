@@ -44,7 +44,8 @@ function login_m(request_url) {
 							// url: 'lineVis.html',
 							extras: {
 								user: user,
-							}
+							},
+							id:'main_1',
 						});
 					} else {
 						mui.toast(data.message);
