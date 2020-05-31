@@ -127,38 +127,38 @@
 				return arr;
 			}
 
-			function draw1(data, label) {
-				var options = {
-					series: data,
-					chart: {
-						width: 380,
-						type: 'donut',
-					},
-					dataLabels: {
-						enabled: false
-					},
-					labels: label,
-					responsive: [{
-						breakpoint: 480,
-						options: {
-							chart: {
-								width: 200
-							},
-							legend: {
-								show: false
-							}
-						}
-					}],
-					legend: {
-						position: 'right',
-						offsetY: 0,
-						height: 230,
-					}
-				};
+			// function draw1(data, label) {
+			// 	var options = {
+			// 		series: data,
+			// 		chart: {
+			// 			width: 380,
+			// 			type: 'donut',
+			// 		},
+			// 		dataLabels: {
+			// 			enabled: false
+			// 		},
+			// 		labels: label,
+			// 		responsive: [{
+			// 			breakpoint: 480,
+			// 			options: {
+			// 				chart: {
+			// 					width: 200
+			// 				},
+			// 				legend: {
+			// 					show: false
+			// 				}
+			// 			}
+			// 		}],
+			// 		legend: {
+			// 			position: 'right',
+			// 			offsetY: 0,
+			// 			height: 230,
+			// 		}
+			// 	};
 
-				chart = new ApexCharts(document.querySelector("#chart"), options);
-				chart.render();
-			}
+			// 	chart = new ApexCharts(document.querySelector("#chart"), options);
+			// 	chart.render();
+			// }
 
 
 			function draw(equipments, equipmentsCategories) {
@@ -322,7 +322,6 @@
 			async function oneAsync(equipments, equipmentsCategories) {
 				await sleep(500);
 				draw(equipments, equipmentsCategories)
-				draw1(equipments, equipmentsCategories)
 			}
 
 			oneAsync(equipments, equipmentsCategories, colors)
