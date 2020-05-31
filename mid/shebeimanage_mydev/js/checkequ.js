@@ -22,7 +22,15 @@ function check_equ(request_url){
 							
 						if((data.data!=null)){
 							var dev_data = new Array();
-							dev_data=data.data;
+							var dev_data_f = new Array();
+							dev_data_f=data.data;
+								
+							for(i = 0, j = 0; i < dev_data_f.length; i++){
+								if((dev_data_f[i].managerAccount==user.userAccount)||(dev_data_f[i].chargeAccount==user.userAccount)){
+									dev_data[j]=dev_data_f[i];
+									j++;
+								}
+							}
 							// var s ="";
 								
 							// for (var p in dev_data[0]) {
@@ -63,7 +71,15 @@ function more(dev_data_num,request_url){
 							
 						if((data.data!=null)){
 							var dev_data = new Array();
-							dev_data=data.data;
+							var dev_data_f = new Array();
+							dev_data_f=data.data;
+								
+							for(i = 0, j = 0; i < dev_data_f.length; i++){
+								if((dev_data_f[i].managerAccount==user.userAccount)||(dev_data_f[i].chargeAccount==user.userAccount)){
+									dev_data[j]=dev_data_f[i];
+									j++;
+								}
+							}
 							var dev_chadata=dev_data[dev_data_num];
 							var s ="";
 								

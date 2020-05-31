@@ -25,10 +25,10 @@ function my_apply(request_url) {
 						var now_data = new Array();
 						var al_data = new Array();
 						for (i = 0, j = 0, k = 0; i < log_data.length; i++) {
-							if (log_data[i].tokenStatus == 1) {
+							if ((log_data[i].tokenStatus != 3)&&(log_data[i].senderAccount==user.userAccount)) {
 								al_data[j] = log_data[i];
 								j++;
-							} else if (log_data[i].tokenStatus == 3) {
+							} else if ((log_data[i].tokenStatus == 3)&&(log_data[i].senderAccount==user.userAccount)) {
 								now_data[k] = log_data[i];
 								k++;
 							}
@@ -83,10 +83,10 @@ function my_apply(request_url) {
 						var now_data = new Array();
 						var al_data = new Array();
 						for (i = 0, j = 0, k = 0; i < log_data.length; i++) {
-							if (log_data[i].tokenStatus == 1) {
+							if ((log_data[i].tokenStatus != 3)&&(log_data[i].senderAccount==user.userAccount)) {
 								al_data[j] = log_data[i];
 								j++;
-							} else if (log_data[i].tokenStatus == 3) {
+							} else if ((log_data[i].tokenStatus == 3)&&(log_data[i].senderAccount==user.userAccount)) {
 								now_data[k] = log_data[i];
 								k++;
 							}
