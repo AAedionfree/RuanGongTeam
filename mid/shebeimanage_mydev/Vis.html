@@ -46,7 +46,7 @@
     
   </head>
 
-  <body>
+  <body onload="mainDraw()">
      <div id="chart"></div>
 
     <script>
@@ -87,56 +87,7 @@
           var chart = new ApexCharts(document.querySelector("#chart"), options);
           chart.render();
         }
-        statusData = new Array()
-		mui.plusReady(function() {
-			var self = plus.webview.currentWebview();
-			mui('body').on('click', 'a', function() {
-				document.location.href = this.href;
-			});
-			mui.plusReady(function() {
-				var self = plus.webview.currentWebview();
-				user = self.user;
-			});
-			user = self.user;
-			var t = 0
-			var request_url = localStorage.getItem('request_url');
-			var getMyEquipmentsUrl = request_url + 'devManagerAccount?managerAccount=' + user.userAccount
-			var getTempEquipmentsUrl = request_url + 'devDevUserAccount?userAccount=' + user.userAccount;
-			mui.ajax({
-				type: 'GET',
-				url: getMyEquipmentsUrl,
-				dataType: "json",
-				success: function(data) {
-					if ((data.data != null) && (user.userAuthority < 3)) {
-						for (var i = 0; i < data.data.length; i++) {
-							statusData[t++] = data.data[i].devWorkStatus
-						}
-					}
-					console.log("arrive")
-					flagTempEquipment = 1
-				},
-				error: function(xhr, type, errorThrown) {
-					mui.toast("服务器内部出错！");
-				}
-			});
-			mui.ajax({
-				type: 'GET',
-				url: getTempEquipmentsUrl,
-				dataType: "json",
-				success: function(data) {
-					if ((data.data != null) && (user.userAuthority < 3)) {
-						for (var i = 0; i < data.data.length; i++) {
-							statusData[t++] = data.data[i].devWorkStatus
-						}
-					}
-					console.log("arrive")
-					flagTempEquipment = 1
-				},
-				error: function(xhr, type, errorThrown) {
-					mui.toast("服务器内部出错！");
-				}
-			});
-		})
+		
 		function sleep(interval) {
 			return new Promise(resolve => {
 				setTimeout(resolve, interval);
@@ -148,7 +99,60 @@
 			drawDevWorkStatus(statusData)
 		}
 		
-		oneAsync(statusData)
+        function mainDraw(){
+			statusData = new Array()
+					mui.plusReady(function() {
+						var self = plus.webview.currentWebview();
+						mui('body').on('click', 'a', function() {
+							document.location.href = this.href;
+						});
+						mui.plusReady(function() {
+							var self = plus.webview.currentWebview();
+							user = self.user;
+						});
+						user = self.user;
+						var t = 0
+						var request_url = localStorage.getItem('request_url');
+						var getMyEquipmentsUrl = request_url + 'devManagerAccount?managerAccount=' + user.userAccount
+						var getTempEquipmentsUrl = request_url + 'devDevUserAccount?userAccount=' + user.userAccount;
+						mui.ajax({
+							type: 'GET',
+							url: getMyEquipmentsUrl,
+							dataType: "json",
+							success: function(data) {
+								if ((data.data != null) && (user.userAuthority < 3)) {
+									for (var i = 0; i < data.data.length; i++) {
+										statusData[t++] = data.data[i].devWorkStatus
+									}
+								}
+								console.log("arrive")
+								flagTempEquipment = 1
+							},
+							error: function(xhr, type, errorThrown) {
+								mui.toast("服务器内部出错！");
+							}
+						});
+						mui.ajax({
+							type: 'GET',
+							url: getTempEquipmentsUrl,
+							dataType: "json",
+							success: function(data) {
+								if ((data.data != null) && (user.userAuthority < 3)) {
+									for (var i = 0; i < data.data.length; i++) {
+										statusData[t++] = data.data[i].devWorkStatus
+									}
+								}
+								console.log("arrive")
+								flagTempEquipment = 1
+							},
+							error: function(xhr, type, errorThrown) {
+								mui.toast("服务器内部出错！");
+							}
+						});
+					})
+					
+					oneAsync(statusData)
+		}
     </script>
 
     

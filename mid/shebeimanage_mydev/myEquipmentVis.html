@@ -234,6 +234,17 @@
 				var Chart = new ApexCharts(document.querySelector("#chart"), options);
 				Chart.render();
 			}
+			
+			function sleep(interval) {
+				return new Promise(resolve => {
+					setTimeout(resolve, interval);
+				})
+			}
+			
+			async function oneAsync(equipments, equipmentsCategories) {
+				await sleep(500);
+				draw(equipments, equipmentsCategories)
+			}
 		</script>
 		<script>
 			var stack = new Array()
@@ -312,17 +323,6 @@
 					}
 				});
 			})
-
-			function sleep(interval) {
-				return new Promise(resolve => {
-					setTimeout(resolve, interval);
-				})
-			}
-
-			async function oneAsync(equipments, equipmentsCategories) {
-				await sleep(500);
-				draw(equipments, equipmentsCategories)
-			}
 
 			oneAsync(equipments, equipmentsCategories, colors)
 		</script>
