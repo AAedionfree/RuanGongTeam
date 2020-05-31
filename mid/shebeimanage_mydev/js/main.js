@@ -54,7 +54,7 @@ function to_arrange(user) {
 		url: 'arrange.html',
 		extras: {
 			user: user,
-		}
+		},
 	});
 }
 
@@ -72,6 +72,8 @@ function to_main(user) {
 	mui.init();
 	mui.plusReady(function() {
 		var curr = plus.webview.currentWebview();
+		var main_1 = plus.webview.getWebviewById('main_1');  
+		       main_1.reload();  
 		mui.openWindow({
 			url: 'main.html',
 			extras: {
