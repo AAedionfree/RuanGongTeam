@@ -5,6 +5,7 @@ function load_xian() {
 		user = self.user;
 		document.getElementById("main_username").innerHTML = user.userName;
 	});
+	
 }
 
 function load_xian_my() {
