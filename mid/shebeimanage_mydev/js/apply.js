@@ -33,6 +33,41 @@ function my_apply(request_url) {
 								k++;
 							}
 						}
+							
+						for(i=0;i<al_data.length;i++){
+								if (al_data[i].tokenId == 0) {
+									al_data[i].tokenId="购置申请";
+								} else if (al_data[i].tokenId == 1) {
+									al_data[i].tokenId= "借取申请";
+								} else if (al_data[i].tokenId== 2) {
+									al_data[i].tokenId= "归还申请";
+								} else if (al_data[i].tokenId == 3) {
+									al_data[i].tokenId= "修理申请";
+								} else if (al_data[i].tokenId == 4) {
+									al_data[i].tokenId= "故障申请";
+								} else if (al_data[i].tokenId == 5) {
+									al_data[i].tokenId="报废申请";
+								} else if (al_data[i].tokenId == 6) {
+									al_data[i].tokenId="确认申请";
+								}
+						}
+						for(i=0;i<now_data.length;i++){
+								if (now_data[i].tokenId == 0) {
+									now_data[i].tokenId="购置申请";
+								} else if (now_data[i].tokenId == 1) {
+									now_data[i].tokenId= "借取申请";
+								} else if (now_data[i].tokenId== 2) {
+									now_data[i].tokenId= "归还申请";
+								} else if (now_data[i].tokenId == 3) {
+									now_data[i].tokenId= "修理申请";
+								} else if (now_data[i].tokenId == 4) {
+									now_data[i].tokenId= "故障申请";
+								} else if (now_data[i].tokenId == 5) {
+									now_data[i].tokenId="报废申请";
+								} else if (now_data[i].tokenId == 6) {
+									now_data[i].tokenId="确认申请";
+								}
+						}
 						var temp_now_shen = document.getElementById('temp_now_shen').innerHTML;
 						document.getElementById('shen_now').innerHTML = template(temp_now_shen, {
 							list: now_data
