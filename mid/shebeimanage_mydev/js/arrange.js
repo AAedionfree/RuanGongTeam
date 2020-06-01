@@ -22,6 +22,23 @@ function load_dai(request_url) {
 					if ((data.data != null) && (user.userAuthority == 0)) {
 						var bao_data = new Array();
 						bao_data = data.data;
+						for(i=0;i<bao_data.length;i++){
+								if (bao_data[i].tokenId == 0) {
+									bao_data[i].tokenId="购置申请";
+								} else if (bao_data[i].tokenId == 1) {
+									bao_data[i].tokenId= "借取申请";
+								} else if (bao_data[i].tokenId== 2) {
+									bao_data[i].tokenId= "归还申请";
+								} else if (bao_data[i].tokenId == 3) {
+									bao_data[i].tokenId= "修理申请";
+								} else if (bao_data[i].tokenId == 4) {
+									bao_data[i].tokenId= "故障申请";
+								} else if (bao_data[i].tokenId == 5) {
+									bao_data[i].tokenId="报废申请";
+								} else if (bao_data[i].tokenId == 6) {
+									bao_data[i].tokenId="确认申请";
+								}
+						}
 						var temp_arrange = document.getElementById('temp_arrange').innerHTML;
 						document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
 							list: bao_data

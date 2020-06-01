@@ -29,7 +29,7 @@
 			<% } %>
 			<% for(var i = 0;i < list.length;i++){ %>		
 					<div class="mui-table-view">
-						<li class="mui-table-view-cell"><%= list[i].logId%></li>
+						<li class="mui-table-view-cell"><%= list[i].tokenId%></li>
 							<button onclick="app_more(1,<%=i%>,request_url)" style="position: absolute;top:6px;right:120px;height:28px;line-height: 15px;">更多</button>
 							<button onclick="back_app(<%= list[i].logId%>,request_url)" style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;">取消申请</button>
 					</div>		
@@ -43,7 +43,7 @@
 			<% } %>
 			<% for(var i = 0;i < list.length;i++){ %>		
 					<div class="mui-table-view">
-						<li class="mui-table-view-cell"><%= list[i].logId%></li>
+						<li class="mui-table-view-cell"><%= list[i].tokenId%></li>
 						<button onclick="app_more(0,<%=i%>,request_url)" style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;">更多</button>
 					</div>		
 				<% } %>
