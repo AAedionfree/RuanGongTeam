@@ -62,7 +62,7 @@
 			<% } %>
 			<% for(var i = 0;i < list.length;i++){ %>
 				<div class="mui-table-view">
-					<li class="mui-table-view-cell"><%= list[i].logId%></li>
+					<li class="mui-table-view-cell"><%= list[i].tokenId%></li>
 						<button style="position: absolute;top:6px;right:140px;height:28px;line-height: 15px;" onclick="more_arr(<%=i%>,request_url)">更多</button>
 					    <button style="position: absolute;top:6px;right:80px;height:28px;line-height: 15px;" onclick="yes_arrange(<%= list[i].logId%>,request_url)">确认</button>
 						<button style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;" onclick="no_arrange(<%= list[i].logId%>,request_url)">驳回</button>
