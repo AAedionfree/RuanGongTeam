@@ -19,7 +19,7 @@
 		<% for(var i = 0;i < list.length;i++){ %>
 				<div class="mui-table-view">
 					<li class="mui-table-view-cell"><%= list[i].devName%></li>
-						<h style="position: absolute;top:11px;right:45%;" onclick="more(<%=i%>,request_url)">设备状态</h>
+						<h style="position: absolute;top:11px;right:45%;"><%= list[i].devWorkStatus%></h>
 						<button style="position: absolute; top:6px; right:20px; height:28px; line-height: 15px;" onclick="more(<%=i%>,request_url)">更多</button>
 				</div>
 			<% } %>

@@ -23,6 +23,19 @@ function search_fuze_zujie(request_url) {
 				if ((data.data != null) && (user.userAuthority < 3)) {
 					var dev_data = new Array();
 					dev_data = data.data;
+					for(i=0;i<dev_data.length;i++){
+								if (dev_data[i].devWorkStatus == 1) {
+									dev_data[i].devWorkStatus= "状态：正常";
+								} else if (dev_data[i].devWorkStatus == 2) {
+									dev_data[i].devWorkStatus= "状态：报废";
+								} else if (dev_data[i].devWorkStatus == 3) {
+									dev_data[i].devWorkStatus= "状态：故障";
+								} else if (dev_data[i].devWorkStatus == 4) {
+									dev_data[i].devWorkStatus= "状态：维修";
+								} else if (dev_data[i].devWorkStatus == 5) {
+									dev_data[i].devWorkStatus="状态：待报废";
+								}
+					}
 					var temp_stable = document.getElementById('temp_stable').innerHTML;
 					document.getElementById('fuze').innerHTML = template(temp_stable, {
 						list: dev_data
@@ -45,6 +58,19 @@ function search_fuze_zujie(request_url) {
 				if ((data.data != null)) {
 					var dev_data = new Array();
 					dev_data = data.data;
+					for(i=0;i<dev_data.length;i++){
+								if (dev_data[i].devWorkStatus == 1) {
+									dev_data[i].devWorkStatus= "状态：正常";
+								} else if (dev_data[i].devWorkStatus == 2) {
+									dev_data[i].devWorkStatus= "状态：报废";
+								} else if (dev_data[i].devWorkStatus == 3) {
+									dev_data[i].devWorkStatus= "状态：故障";
+								} else if (dev_data[i].devWorkStatus == 4) {
+									dev_data[i].devWorkStatus= "状态：维修";
+								} else if (dev_data[i].devWorkStatus == 5) {
+									dev_data[i].devWorkStatus="状态：待报废";
+								}
+					}
 					var temp_stable = document.getElementById('temp_zu').innerHTML;
 					document.getElementById('zujie').innerHTML = template(temp_stable, {
 						list: dev_data
