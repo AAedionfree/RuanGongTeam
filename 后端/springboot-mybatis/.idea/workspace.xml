@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f74b2037-3366-45bc-9e5e-289313a4cfeb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../mid/shebeimanage_mydev/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../mid/shebeimanage_mydev/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -257,6 +256,9 @@
       <workItem from="1590747184951" duration="3845000" />
       <workItem from="1590752314320" duration="1098000" />
       <workItem from="1590761439286" duration="143000" />
+      <workItem from="1590918422165" duration="1911000" />
+      <workItem from="1590927850136" duration="964000" />
+      <workItem from="1590933946566" duration="1977000" />
     </task>
     <servers />
   </component>
