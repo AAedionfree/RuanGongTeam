@@ -52,7 +52,7 @@
     <script>
         function drawDevWorkStatus(devWorkStatusArray){
           let i = 0
-          var data = [0,0,0,0]
+          var data = new Array(0,0,0,0)
           for(i = 0; i < devWorkStatusArray.length ; i++){
               let status = devWorkStatusArray[i]
               if(status == 1){
@@ -120,13 +120,12 @@
 							url: getMyEquipmentsUrl,
 							dataType: "json",
 							success: function(data) {
-								if ((data.data != null) && (user.userAuthority < 3)) {
+								if ((data.data != null) && (user.userAuthority <= 3)) {
 									for (var i = 0; i < data.data.length; i++) {
 										statusData[t++] = data.data[i].devWorkStatus
 									}
 								}
 								console.log("arrive")
-								flagTempEquipment = 1
 							},
 							error: function(xhr, type, errorThrown) {
 								mui.toast("服务器内部出错！");
@@ -137,13 +136,12 @@
 							url: getTempEquipmentsUrl,
 							dataType: "json",
 							success: function(data) {
-								if ((data.data != null) && (user.userAuthority < 3)) {
+								if ((data.data != null) && (user.userAuthority <= 3)) {
 									for (var i = 0; i < data.data.length; i++) {
 										statusData[t++] = data.data[i].devWorkStatus
 									}
 								}
 								console.log("arrive")
-								flagTempEquipment = 1
 							},
 							error: function(xhr, type, errorThrown) {
 								mui.toast("服务器内部出错！");
