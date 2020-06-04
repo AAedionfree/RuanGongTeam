@@ -138,7 +138,7 @@ function more(dev_data_num,request_url){
 									s= s+"\n"+"设备类型"+": "+dev_chadata[p];
 								}
 								else if(p=="devPrise"){
-									s= s+"\n"+"设备价格"+": "+dev_chadata[p];
+									s= s+"\n"+"设备价格(元)"+": "+dev_chadata[p];
 								}
 								else if(p=="devDate"){
 									s= s+"\n"+"设备日期"+": "+dev_chadata[p];
