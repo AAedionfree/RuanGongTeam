@@ -43,7 +43,19 @@
 			<% } %>
 			<% for(var i = 0;i < list.length;i++){ %>		
 					<div class="mui-table-view">
-						<li class="mui-table-view-cell"><%= list[i].tokenId%></li>
+						<li class="mui-table-view-cell" style="height: 40px;"><!-- <%= list[i].tokenId%> --></li>
+						<% if(list[i].tokenId=='修理申请') {%>
+							<li class="mui-badge mui-badge-warning mui-badge-inverted" style="position: absolute;top:6px;left:3%;font-size: 18px;line-height: 30px;">修理申请</li>
+						<% } %>
+						<% if(list[i].tokenId=='确认申请') {%>
+							<li class="mui-badge mui-badge-primary mui-badge-inverted" style="position: absolute;top:6px;left:3%;font-size: 18px;line-height: 30px;">确认申请</li>
+						<% } %>
+						<% if(list[i].tokenId=='故障申请') {%>
+							<li class="mui-badge mui-badge-danger mui-badge-inverted" style="position: absolute;top:6px;left:3%;font-size: 18px;line-height: 30px;">故障申请</li>
+						<% } %>
+						<% if(list[i].tokenId=='报废申请') {%>
+							<li class="mui-badge mui-badge-purple mui-badge-inverted" style="position: absolute;top:6px;left:3%;font-size: 18px;line-height: 30px;">报废申请</li>
+						<% } %>
 						<button onclick="app_more(0,<%=i%>,request_url)" style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;">更多</button>
 					</div>		
 				<% } %>
