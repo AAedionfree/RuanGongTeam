@@ -33,15 +33,15 @@ function check_equ(request_url){
 							}
 							for(i=0;i<dev_data.length;i++){
 										if (dev_data[i].devWorkStatus == 1) {
-											dev_data[i].devWorkStatus= "状态：正常";
+											dev_data[i].devWorkStatus= "正常";
 										} else if (dev_data[i].devWorkStatus == 2) {
-											dev_data[i].devWorkStatus= "状态：报废";
+											dev_data[i].devWorkStatus= "报废";
 										} else if (dev_data[i].devWorkStatus == 3) {
-											dev_data[i].devWorkStatus= "状态：故障";
+											dev_data[i].devWorkStatus= "故障";
 										} else if (dev_data[i].devWorkStatus == 4) {
-											dev_data[i].devWorkStatus= "状态：维修";
+											dev_data[i].devWorkStatus= "维修";
 										} else if (dev_data[i].devWorkStatus == 5) {
-											dev_data[i].devWorkStatus="状态：待报废";
+											dev_data[i].devWorkStatus="待报废";
 										}
 							}
 							// var s ="";
