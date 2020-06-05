@@ -30,14 +30,56 @@
 		<div class="mui-content" style="margin-top:20px;"></div>
 
 		<form class="mui-input-group">
-			<div class="mui-input-row">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-collapse">
+					<label>名称</label>
+					<a class="mui-navigate-right" href="#" style="position: absolute;top:2px;left:31%;"><input id="dev_name" type="text" class="mui-input-clear" placeholder="请输入设备名称"></a>
+					<div class="mui-collapse-content">
+						<p>
+							<ul class="mui-table-view" style="top:-15px;">
+									<li onclick="diy_input('dev_auth_t',1)" class="mui-table-view-cell">
+					                    1
+									</li>
+									<li onclick="diy_input('dev_auth_t',2)" class="mui-table-view-cell">
+										2
+									</li>
+									<li onclick="diy_input('dev_auth_t',3)" class="mui-table-view-cell">
+										3
+									</li>
+								</ul>
+						</p>
+					</div>
+				</li>
+			</ul>
+			<!-- <div class="mui-input-row">
 				<label>名称</label>
 				<input id="dev_name" type="text" class="mui-input-clear" placeholder="请输入设备名称">
-			</div>
-			<div class="mui-input-row">
+			</div> -->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-collapse">
+					<label>类型</label>
+					<a class="mui-navigate-right" href="#" style="position: absolute;top:2px;left:31%;"><input id="dev_type" type="text" class="mui-input-clear" placeholder="请输入设备类型"></a>
+					<div class="mui-collapse-content">
+						<p>
+							<ul class="mui-table-view" style="top:-15px;">
+									<li onclick="diy_input('dev_auth_t',1)" class="mui-table-view-cell">
+					                    1
+									</li>
+									<li onclick="diy_input('dev_auth_t',2)" class="mui-table-view-cell">
+										2
+									</li>
+									<li onclick="diy_input('dev_auth_t',3)" class="mui-table-view-cell">
+										3
+									</li>
+								</ul>
+						</p>
+					</div>
+				</li>
+			</ul>
+			<!-- <div class="mui-input-row">
 				<label>类型</label>
 				<input id="dev_type" type="text" class="mui-input-clear" placeholder="请输入设备类型">
-			</div>
+			</div> -->
 			<div class="mui-input-row">
 				<label>数量</label>
 				<input id="dev_num" type="text" class="mui-input-clear" placeholder="请输入设备数量">
@@ -58,7 +100,7 @@
 				<label>设备负责人</label>
 				<input id="manager_account" type="text" class="mui-input-clear" placeholder="请输入设备负责人账号">
 			</div> -->
-			<ul class="mui-table-view">
+			<!-- <ul class="mui-table-view">
 				<li class="mui-table-view-cell mui-collapse">
 					<label>设备权限</label>
 					<a class="mui-navigate-right" href="#" style="position: absolute;top:2px;left:31%;"><input id="dev_auth_t" type="text" class="mui-input-clear" placeholder="请输入设备权限"></a>
@@ -78,7 +120,7 @@
 						</p>
 					</div>
 				</li>
-			</ul>
+			</ul> -->
 			<div class="mui-input-row">
 				<label>设备权限</label>
 				<select id="dev_auth" class="mui-btn mui-btn-block" style="left: -16%; width: 200px;">
