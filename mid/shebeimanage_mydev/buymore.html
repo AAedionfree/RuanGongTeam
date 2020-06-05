@@ -35,24 +35,31 @@
 				<input id="dev_num" type="text" class="mui-input-clear" placeholder="请输入设备数量">
 			</div>
 			<div class="mui-input-row">
-				<label>价格</label>
+				<label>价格(元)</label>
 				<input id="dev_prise" type="text" class="mui-input-clear" placeholder="请输入设备价格">
 			</div>
 			<div class="mui-input-row">
-				<label>保质期</label>
+				<label>保质期(天)</label>
 				<input id="dev_period" type="text" class="mui-input-clear" placeholder="请输入设备保质期">
 			</div>
 			<!-- <div class="mui-input-row">
 			    <label>经办人</label>
 			    <input id="charge_account" type="text" class="mui-input-clear" placeholder="请输入设备经办人账号">
 			</div> -->
-			<div class="mui-input-row">
+			<!-- <div class="mui-input-row">
 				<label>设备负责人</label>
 				<input id="manager_account" type="text" class="mui-input-clear" placeholder="请输入设备负责人账号">
-			</div>
+			</div> -->
 			<div class="mui-input-row">
 				<label>设备权限</label>
-				<input id="dev_auth" type="text" class="mui-input-clear" placeholder="请输入设备权限">
+				<select id="dev_auth" class="mui-btn mui-btn-block" style="left: -15%; width: 200px;">
+									<option value="item-1">请选择设备权限</option>
+									<option value="item-2">1</option>
+									<option value="item-3">2</option>
+									<option value="item-4">3</option>
+									<option value="item-5">4</option>
+								</select>
+				<!-- <input id="dev_auth" type="text" class="mui-input-clear" placeholder="请输入设备权限"> -->
 			</div>
 		</form>
 		<button onclick="finish(request_url)" type="button" class="mui-btn mui-btn-success" style="margin-left: 30px; margin-top: 10px; width: 150px;">提交</button>
