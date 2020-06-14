@@ -73,7 +73,7 @@ function more(dev_data_num,request_url){
 				 // 	s= s+"n "+p+": "+user[p];
 				 // }
 				 // alert(s);
-				 var search_check_url=request_url+'devUserAccount?userAccount='+user.userAccount;
+				 var search_check_url = request_url+'devUserAccount?userAccount='+user.userAccount;
 				 // alert(search_url);
 				 mui.ajax({
 					 type:'GET',
@@ -88,11 +88,12 @@ function more(dev_data_num,request_url){
 							dev_data_f=data.data;
 								
 							for(i = 0, j = 0; i < dev_data_f.length; i++){
-								if((dev_data_f[i].managerAccount==user.userAccount)||(dev_data_f[i].managerAccount==user.userAccount)){
+								if((dev_data_f[i].managerAccount==user.userAccount)||(dev_data_f[i].userAccount==user.userAccount)){
 									dev_data[j]=dev_data_f[i];
 									j++;
 								}
 							}
+							alert(dev_data_num);
 							var dev_chadata=dev_data[dev_data_num];
 							var s ="";
 								
