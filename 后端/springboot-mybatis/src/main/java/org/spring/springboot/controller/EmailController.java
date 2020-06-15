@@ -35,13 +35,13 @@ public class EmailController {
             @RequestParam(value = "userAccount", required = true) String userAccount,
             @RequestParam(value = "userPassword", required = true) String userPassword,
             @RequestParam(value = "emailAddress", required = true) String emailAddress) {
-        return ExceptionCatch.exceptionCatch(emailService, userAccount, userAccount, userAccount, emailAddress);
+        return ExceptionCatch.exceptionCatch(emailService, userAccount, userAccount, userPassword, emailAddress);
     }
 
     @RequestMapping(value = "/api/EmailUnbind", method = RequestMethod.GET)
     public ResultBean unbindEmail(
             @RequestParam(value = "userAccount", required = true) String userAccount,
             @RequestParam(value = "userPassword", required = true) String userPassword) {
-        return ExceptionCatch.exceptionCatch(emailService, userAccount, userPassword, userAccount);
+        return ExceptionCatch.exceptionCatch(emailService, userAccount,  userAccount, userPassword);
     }
 }
