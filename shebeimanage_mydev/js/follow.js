@@ -9,7 +9,7 @@ function follow_m(request_url) {
 		// 	s= s+"n "+p+": "+user[p];
 		// }
 		// mui.toast(s);
-		var search_url = request_url + 'AttentionFindRecord?userAccount=' + user.userAccount;
+		var search_url = request_url + 'AttentionDevices?userAccount=' + user.userAccount;
 		// alert(search_url);
 		mui.ajax({
 			type: 'GET',
