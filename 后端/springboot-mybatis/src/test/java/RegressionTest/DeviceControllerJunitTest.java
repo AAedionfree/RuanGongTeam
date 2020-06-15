@@ -127,8 +127,7 @@ public class DeviceControllerJunitTest {
         assertEquals(0,buyDeviceTempByDevInfo.getCode());
         assertEquals("success",buyDeviceTempByDevInfo.getMessage());
         assertNull(buyDeviceTempByDevInfo.getData());
-        int devId = devBuyDao.getTempPrimayKey();
-        devBuyDao.delDevTemp(devId);
+
     }
     
 

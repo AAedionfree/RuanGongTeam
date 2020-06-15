@@ -196,7 +196,7 @@ public class LogServiceImp implements LogService {
         if (userAuth > 0) {
             throw new Exception("Authentication user failed with UserAuthority:" + userAuth);
         }
-        if (managerAuth != 2) {
+        if (managerAuth > 2) {
             throw new Exception("No such manager");
         }
         if (logNowStatus != 3) {

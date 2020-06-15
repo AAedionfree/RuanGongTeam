@@ -9,6 +9,7 @@ import org.spring.springboot.ResultBean;
 import org.spring.springboot.controller.DeviceController;
 import org.spring.springboot.controller.LogController;
 import org.spring.springboot.controller.UserController;
+import org.spring.springboot.dao.devices.DevBuyDao;
 import org.spring.springboot.dao.devices.DevWorkStatusDao;
 import org.spring.springboot.domain.Device;
 import org.spring.springboot.domain.Log;
@@ -32,6 +33,9 @@ public class LogControllerJunitTest {
 
     @Autowired
     DeviceController deviceController;
+
+    @Autowired
+    DevBuyDao devBuyDao;
 
     @BeforeClass
     public static void setTestInfo() {
@@ -153,6 +157,19 @@ public class LogControllerJunitTest {
         assertEquals("success", buyDevTempLog.getMessage());
     }
 
+    @Test
+    public void Test009_dealBuyDevTempLog() {
+        ResultBean buyDevTempLog = logController.findBuyDevTempLog("TestUserAccount");
+        int logId = new ArrayList<Log>(buyDevTempLog.getData()).get(0).getLogId();
+        int logStatus = new ArrayList<Log>(buyDevTempLog.getData()).get(0).getTokenStatus();
+        ResultBean dealBuyDevTempLog = logController.dealBuyDevTempLog("TestUserAccount","TestUserAccount",logId,logStatus);
+        assertEquals("success", dealBuyDevTempLog.getMessage());
+        assertEquals(null, dealBuyDevTempLog.getData());
+        assertEquals(0, dealBuyDevTempLog.getCode());
+        int devId = devBuyDao.getTempPrimayKey();
+        devBuyDao.delDevTemp(devId);
+
+    }
 
 
     @After
