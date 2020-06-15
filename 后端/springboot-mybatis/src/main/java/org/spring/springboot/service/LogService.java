@@ -1,5 +1,6 @@
 package org.spring.springboot.service;
 
+import org.apache.ibatis.annotations.Param;
 import org.spring.springboot.domain.Log;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface LogService extends Service {
     List<Log> dealScrapLog(String userAccount, Integer logId, Integer logStatus) throws Exception;
 
     List<Log> cancelRecord(String userAccount, Integer logId, Integer logStatus) throws Exception;
+
+    List<Log> addAttentionRecord(String userAccount, Integer devId) throws Exception;
 }

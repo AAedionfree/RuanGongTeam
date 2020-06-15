@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class LogSeriviceImp implements LogService {
+public class LogServiceImp implements LogService {
     @Autowired
     private UserAccountDao userAccountDao;
 
@@ -57,7 +57,7 @@ public class LogSeriviceImp implements LogService {
         return logsUserAccountDao.findLogsByUserAccount(userAccount);
     }
 
-    private void addBasicRecord(String userAccount, Integer devId, int tokenId, int startStatus, int nextStatus, int tokenStatus) throws Exception {
+    private void addBasicRecord(String userAccount, Integer devId, int tokenId, int startStatus, int tokenStatus) throws Exception {
         String date = new Date().toString();
         Device device = devIdDao.findDeviceBydevId(devId).get(0);
         User user = userAuthDao.findUserByUserAuth().get(0);
@@ -71,15 +71,13 @@ public class LogSeriviceImp implements LogService {
         if (deviceWorkStatus != startStatus) {
             throw new Exception("Can't deal device with devStatus:" + device.getDevWorkStatus());
         }
-        if (tokenId == 5){
+        if (tokenId == 5) {
             logsAddBasicRecordDao.logsAddBasicRecord(logId, devId, deviceStatus, deviceWorkStatus,
                     tokenId, tokenStatus, userAccount, user.getUserAccount(), date, auth);
-        }
-        else {
+        } else {
             logsAddBasicRecordDao.logsAddBasicRecord(logId, devId, deviceStatus, deviceWorkStatus,
                     tokenId, tokenStatus, userAccount, device.getManagerAccount(), date, auth);
         }
-        devWorkStatusDao.updateDevWorkStatusByDevId(devId, nextStatus);
     }
 /*
     @Override List<Log> addLendLog(String userAccount, Integer devId) throws Exception {
@@ -90,19 +88,22 @@ public class LogSeriviceImp implements LogService {
 
     @Override
     public List<Log> addFixLog(String userAccount, Integer devId) throws Exception {
-        addBasicRecord(userAccount, devId, 3, 3, 1, 1);
+        addBasicRecord(userAccount, devId, 3, 3, 1);
+        devWorkStatusDao.updateDevWorkStatusByDevId(devId, 1);
         return null;
     }
 
     @Override
     public List<Log> addDamageLog(String userAccount, Integer devId) throws Exception {
-        addBasicRecord(userAccount, devId, 4, 1, 3, 1);
+        addBasicRecord(userAccount, devId, 4, 1, 1);
+        devWorkStatusDao.updateDevWorkStatusByDevId(devId, 3);
         return null;
     }
 
     @Override
     public List<Log> addScrapLog(String userAccount, Integer devId) throws Exception {
-        addBasicRecord(userAccount, devId, 5, 3, 5, 3);
+        addBasicRecord(userAccount, devId, 5, 3, 3);
+        devWorkStatusDao.updateDevWorkStatusByDevId(devId, 5);
         return null;
     }
 
@@ -118,7 +119,7 @@ public class LogSeriviceImp implements LogService {
     @Override
     public List<Log> dealScrapLog(String userAccount, Integer logId, Integer logStatus) throws Exception {
         String date = new Date().toString();
-        if (logStatus != 1 && logStatus != 2){
+        if (logStatus != 1 && logStatus != 2) {
             throw new Exception("logStatus only can be 1 or 2 but received:" + logStatus);
         }
         int userAuth = userAccountDao.findUserByUserAccount(userAccount).get(0).getUserAuthority();
@@ -131,23 +132,29 @@ public class LogSeriviceImp implements LogService {
         if (logNowStatus != 3) {
             throw new Exception("Authentication Log Status failed with:" + logNowStatus);
         }
-        logsScrapRecordDao.dealScrapRecord(logId,logStatus);
-        devWorkStatusDao.updateDevWorkStatusByDevId(devId,logStatus == 2?3:2);
+        logsScrapRecordDao.dealScrapRecord(logId, logStatus);
+        devWorkStatusDao.updateDevWorkStatusByDevId(devId, logStatus == 2 ? 3 : 2);
         int id = logsAddBasicRecordDao.getPrimayKey() + 1;
-        logsAddBasicRecordDao.logsAddBasicRecord(id, devId, -1, logStatus == 2?3:2,
+        logsAddBasicRecordDao.logsAddBasicRecord(id, devId, -1, logStatus == 2 ? 3 : 2,
                 6, logStatus, userAccount, "NULL", date, -1);
         return null;
     }
 
     @Override
     public List<Log> cancelRecord(String userAccount, Integer logId, Integer logStatus) throws Exception {
-        if (logStatus == 4){
+        if (logStatus == 4) {
             throw new Exception("This log has been canceled");
         }
         Log log = logsIdDao.findLogsByLogId(logId).get(0);
         int devId = log.getDevId();
         logsCancelRecord.cancelRecord(logId);
-        devWorkStatusDao.updateDevWorkStatusByDevId(devId,3);
+        devWorkStatusDao.updateDevWorkStatusByDevId(devId, 3);
+        return null;
+    }
+
+    @Override
+    public List<Log> addAttentionRecord(String userAccount, Integer devId) throws Exception {
+
         return null;
     }
 
