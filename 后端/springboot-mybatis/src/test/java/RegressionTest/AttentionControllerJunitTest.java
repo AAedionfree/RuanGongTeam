@@ -35,15 +35,13 @@ public class AttentionControllerJunitTest {
 
     @Test
     public void addAttentionRecord() {
-        ResultBean<AttentionItem> addAttention = attentionController
-                .addAttentionRecord("TestUserAccount", -1);
+        ResultBean<AttentionItem> addAttention = attentionController.addAttentionRecord("TestUserAccount", -1);
         assertEquals(0, addAttention.getCode());
     }
 
     @Test
     public void FindAttentionRecord() {
-        ResultBean<AttentionItem> findAttention = attentionController
-                .FindAttentionRecord("TestUserAccount");
+        ResultBean<AttentionItem> findAttention = attentionController.FindAttentionRecord("TestUserAccount");
         assertEquals(0, findAttention.getCode());
         ArrayList<AttentionItem> attentionList = new ArrayList<>(findAttention.getData());
         assertEquals(-1, attentionList.get(0).getDevId());
@@ -52,12 +50,10 @@ public class AttentionControllerJunitTest {
 
     @Test
     public void cancelAttentionRecord() {
-        ResultBean<AttentionItem> cancelAttention = attentionController
-                .cancelAttentionRecord("TestUserAccount",-1);
+        ResultBean<AttentionItem> cancelAttention = attentionController.cancelAttentionRecord("TestUserAccount",-1);
         assertEquals(0, cancelAttention.getCode());
 
-        ResultBean<AttentionItem> findAttention = attentionController
-                .FindAttentionRecord("TestUserAccount");
+        ResultBean<AttentionItem> findAttention = attentionController.FindAttentionRecord("TestUserAccount");
         assertEquals(0, findAttention.getCode());
         ArrayList<AttentionItem> attentionList = new ArrayList<>(findAttention.getData());
         assertEquals(0, attentionList.size());

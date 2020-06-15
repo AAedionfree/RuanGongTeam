@@ -1,4 +1,4 @@
-package org.spring.springboot;
+package org.spring.springboot.service.ServiceImp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

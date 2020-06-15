@@ -3,6 +3,7 @@ package org.spring.springboot.controller;
 import org.spring.springboot.ExceptionCatch;
 import org.spring.springboot.ResultBean;
 import org.spring.springboot.service.AttentionService;
+import org.spring.springboot.service.ServiceImp.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,5 +37,14 @@ public class AttentionController {
             @RequestParam(value = "userAccount", required = true) String userAccount
     ) {
         return ExceptionCatch.exceptionCatch(attentionService, userAccount, userAccount);
+    }
+
+    @Autowired
+    EmailService emailService;
+
+    @RequestMapping(value = "api/mail", method = RequestMethod.GET)
+    public ResultBean mail() {
+        emailService.sendMail("164878954@qq.com","DeviceManagement---RuanGong11","收到了吗？？？");
+        return ResultBean.success("id", null);
     }
 }
