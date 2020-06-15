@@ -4,6 +4,7 @@ import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.spring.springboot.Application;
+import org.spring.springboot.service.ServiceImp.EmailClient;
 import org.spring.springboot.RegressionTest;
 import org.spring.springboot.ResultBean;
 import org.spring.springboot.controller.UserController;
@@ -20,7 +21,8 @@ import static org.junit.Assert.*;
 @SpringBootTest(classes = Application.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UserControllerJunitTest {
-
+    @Autowired
+    EmailClient emailClient;
 
     @Autowired
     UserController userController;
@@ -29,6 +31,7 @@ public class UserControllerJunitTest {
     public static void setTestInfo() {
         RegressionTest.setTestInfo("---test.UserControllerJunitTest---:");
     }
+
 
     @Before
     public void testBefore() {
