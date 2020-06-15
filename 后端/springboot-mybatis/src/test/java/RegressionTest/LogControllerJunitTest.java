@@ -168,7 +168,8 @@ public class LogControllerJunitTest {
         assertEquals(0, dealBuyDevTempLog.getCode());
         int devId = devBuyDao.getTempPrimayKey();
         devBuyDao.delDevTemp(devId);
-
+        int devTempId = devBuyDao.getPrimayKey();
+        devBuyDao.delDev(devTempId);
     }
 
 
