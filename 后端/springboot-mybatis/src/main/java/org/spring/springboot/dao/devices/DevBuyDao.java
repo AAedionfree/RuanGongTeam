@@ -55,4 +55,10 @@ public interface DevBuyDao {
             @Result(property = "userAccount", column = "user_account")
     })
     List<Device> findTempDeviceBydevId(@Param("devId") int devId);
+
+    @Delete("DELETE FROM devices where dev_id = #{devId}")
+    void delDev(@Param("devId") int devId);
+
+    @Delete("DELETE FROM devicesTemp where dev_id = #{devId}")
+    void delDevTemp(@Param("devId") int devId);
 }

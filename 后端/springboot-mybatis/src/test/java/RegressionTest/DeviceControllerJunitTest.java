@@ -7,6 +7,8 @@ import org.spring.springboot.Application;
 import org.spring.springboot.RegressionTest;
 import org.spring.springboot.ResultBean;
 import org.spring.springboot.controller.DeviceController;
+import org.spring.springboot.controller.LogController;
+import org.spring.springboot.dao.devices.DevBuyDao;
 import org.spring.springboot.domain.Device;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,6 +26,10 @@ public class DeviceControllerJunitTest {
 
     @Autowired
     DeviceController deviceController;
+    @Autowired
+    LogController logController;
+    @Autowired
+    DevBuyDao devBuyDao;
 
     @BeforeClass
     public static void setTestInfo() {
@@ -105,8 +111,26 @@ public class DeviceControllerJunitTest {
 
     @Test
     public void Test008_buyDeviceByDevInfo() {
-        //ResultBean<Device> buyDeviceByDevInfo = deviceController.buyDeviceByDevInfo();
+        ResultBean<Device> buyDeviceByDevInfo = deviceController.buyDeviceByDevInfo("newDevName","newDevType",100,
+                "newDevPeriod","Charge","Manager1",3,1);
+        assertEquals(0,buyDeviceByDevInfo.getCode());
+        assertEquals("success",buyDeviceByDevInfo.getMessage());
+        assertNotNull(buyDeviceByDevInfo.getData());
+        int devId = devBuyDao.getPrimayKey();
+        devBuyDao.delDev(devId);
     }
+
+    @Test
+    public void Test009_buyDeviceTempByDevInfo() {
+        ResultBean<Device> buyDeviceTempByDevInfo = deviceController.buyDeviceTempByDevInfo("newDevName","newDevType",100,
+                "newDevPeriod","TestUserAccount",3,1);
+        assertEquals(0,buyDeviceTempByDevInfo.getCode());
+        assertEquals("success",buyDeviceTempByDevInfo.getMessage());
+        assertNull(buyDeviceTempByDevInfo.getData());
+        int devId = devBuyDao.getTempPrimayKey();
+        devBuyDao.delDevTemp(devId);
+    }
+    
 
     @After
     public void testAfter() {

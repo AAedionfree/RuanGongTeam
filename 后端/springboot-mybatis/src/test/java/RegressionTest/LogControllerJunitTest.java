@@ -146,6 +146,15 @@ public class LogControllerJunitTest {
         assertEquals(3, dev.getDevWorkStatus());
     }
 
+    @Test
+    public void Test008_findBuyDevTempLog() {
+        ResultBean buyDevTempLog = logController.findBuyDevTempLog("TestUserAccount");
+        assertEquals(0, buyDevTempLog.getCode());
+        assertEquals("success", buyDevTempLog.getMessage());
+    }
+
+
+
     @After
     public void testAfter() {
         System.out.println("LogController Test End:");

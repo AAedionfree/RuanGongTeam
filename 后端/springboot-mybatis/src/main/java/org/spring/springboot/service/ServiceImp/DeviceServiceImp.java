@@ -117,7 +117,7 @@ public class DeviceServiceImp implements DeviceService {
             User manager = managers.get(0);
             int chargerAuth = charger.getUserAuthority();
             int managerAuth = manager.getUserAuthority();
-            if (chargerAuth == 1 && managerAuth <= 2){
+            if ((chargerAuth <= 1) && managerAuth <= 2){
                 for (int i = 0; i <number; i++){
                     int id = devBuyDao.getPrimayKey() + 1;
                     String devDate = new Date().toString();
@@ -143,7 +143,7 @@ public class DeviceServiceImp implements DeviceService {
             User charger = chargers.get(0);
             User user = userAuthDao.findUserByUserAuth().get(0);
             int chargerAuth = charger.getUserAuthority();
-            if (chargerAuth == 1){
+            if (chargerAuth <= 1){
                 for (int i = 0; i <number; i++){
                     int devId = devBuyDao.getTempPrimayKey() + 1;
                     String devDate = new Date().toString();
