@@ -1,5 +1,6 @@
 package org.spring.springboot.service.ServiceImp;
 
+import org.spring.springboot.dao.devices.DevBuyDao;
 import org.spring.springboot.dao.devices.DevIdDao;
 import org.spring.springboot.dao.devices.DevWorkStatusDao;
 import org.spring.springboot.dao.logs.*;
@@ -47,6 +48,12 @@ public class LogServiceImp implements LogService {
     @Autowired
     private UserAuthDao userAuthDao;
 
+    @Autowired
+    private LogsBuyTempDao logsBuyTempDao;
+
+    @Autowired
+    private DevBuyDao devBuyDao;
+
     @Override
     public List<Log> findAllLogs() {
         return logsDao.findAllLogs();
@@ -57,7 +64,7 @@ public class LogServiceImp implements LogService {
         return logsUserAccountDao.findLogsByUserAccount(userAccount);
     }
 
-    private void addBasicRecord(String userAccount, Integer devId, int tokenId, int startStatus, int tokenStatus) throws Exception {
+    public void addBasicRecord(String userAccount, Integer devId, int tokenId, int startStatus, int tokenStatus) throws Exception {
         String date = new Date().toString();
         Device device = devIdDao.findDeviceBydevId(devId).get(0);
         User user = userAuthDao.findUserByUserAuth().get(0);
@@ -157,7 +164,47 @@ public class LogServiceImp implements LogService {
 
         return null;
     }
-
-
+    @Override
+    public List<Log> findBuyDevTempLog(String userAccount) throws Exception {
+        int auth = userAccountDao.findUserByUserAccount(userAccount).get(0).getUserAuthority();
+        if (auth > 0) {
+            throw new Exception("Authentication failed with UserAuthority:" + auth);
+        }
+        return logsBuyTempDao.findBuyTempRecord();
+    }
+    @Override
+    public List<Log> dealBuyDevTempLog(String userAccount, String managerAccount, Integer logId, Integer logStatus) throws Exception{
+        String date = new Date().toString();
+        int userAuth = userAccountDao.findUserByUserAccount(userAccount).get(0).getUserAuthority();
+        int managerAuth = userAccountDao.findUserByUserAccount(managerAccount).get(0).getUserAuthority();
+        Log log = logsIdDao.findLogsByLogId(logId).get(0);
+        int logNowStatus = log.getTokenStatus();
+        int tempDevId = log.getDevId();
+        List<Device> devices = devBuyDao.findTempDeviceBydevId(tempDevId);
+        Device device = devices.get(0);
+        int devId = devBuyDao.getPrimayKey() + 1;
+        String devName = device.getDevName();
+        String devType = device.getDevType();
+        float devPrise = device.getDevPrise();
+        String devDate = device.getDevDate();
+        String devPeriod = device.getDevPeriod();
+        String chargeAccount = device.getChargeAccount();
+        int devAuth = device.getDevAuth();
+        if (logStatus != 3) {
+            throw new Exception("logStatus only can 3 but received:" + logStatus);
+        }
+        if (userAuth > 0) {
+            throw new Exception("Authentication user failed with UserAuthority:" + userAuth);
+        }
+        if (managerAuth != 2) {
+            throw new Exception("No such manager");
+        }
+        if (logNowStatus != 3) {
+            throw new Exception("Authentication Log Status failed with:" + logNowStatus);
+        }
+        devBuyDao.buyDeviceByDevInfo(devId,devName,devType,devPrise,devDate,devPeriod,chargeAccount,managerAccount,devAuth);
+        logsBuyTempDao.logUpdate(devId,logId,date);
+        return null;
+    }
 
 }

@@ -1,7 +1,9 @@
 package org.spring.springboot.service.ServiceImp;
 
 import org.spring.springboot.dao.devices.*;
+import org.spring.springboot.dao.logs.LogsAddBasicRecordDao;
 import org.spring.springboot.dao.users.UserAccountDao;
+import org.spring.springboot.dao.users.UserAuthDao;
 import org.spring.springboot.domain.Device;
 import org.spring.springboot.domain.User;
 import org.spring.springboot.service.DeviceService;
@@ -31,6 +33,10 @@ public class DeviceServiceImp implements DeviceService {
     private DevRevertDao devRevertDao;
     @Autowired
     private DevBuyDao devBuyDao;
+    @Autowired
+    private LogsAddBasicRecordDao logsAddBasicRecordDao;
+    @Autowired
+    private UserAuthDao userAuthDao;
 
     public List<Device> findDeviceByDevId(Integer devId) throws Exception{
         List<Device> devices = devIdDao.findDeviceBydevId(devId);
@@ -133,13 +139,18 @@ public class DeviceServiceImp implements DeviceService {
                                                String chargeAccount, Integer devAuth, Integer number) throws Exception {
         List<User> chargers = userAccountDao.findUserByUserAccount(chargeAccount);
         if (chargers.size() == 1) {
+            String date = new Date().toString();
             User charger = chargers.get(0);
+            User user = userAuthDao.findUserByUserAuth().get(0);
             int chargerAuth = charger.getUserAuthority();
             if (chargerAuth == 1){
                 for (int i = 0; i <number; i++){
-                    int id = devBuyDao.getTempPrimayKey() + 1;
+                    int devId = devBuyDao.getTempPrimayKey() + 1;
                     String devDate = new Date().toString();
-                    devBuyDao.buyDeviceTempByDevInfo(id,devName,devType,devPrise,devDate,devPeriod,chargeAccount,devAuth);
+                    devBuyDao.buyDeviceTempByDevInfo(devId,devName,devType,devPrise,devDate,devPeriod,chargeAccount,devAuth);
+                    int logId = logsAddBasicRecordDao.getPrimayKey() + 1;
+                    logsAddBasicRecordDao.logsAddBasicRecord(logId,devId,1,1,0,3,chargeAccount,
+                            user.getUserAccount(),date,devAuth);
                 }
                 return null;
             }

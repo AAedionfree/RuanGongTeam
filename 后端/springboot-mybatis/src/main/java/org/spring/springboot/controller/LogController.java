@@ -88,4 +88,21 @@ public class LogController {
     ) {
         return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount,new Integer(devId));
     }
+    // find buyDevTemp record
+    @RequestMapping(value = "/api/logFindBuyTempRecord", method = RequestMethod.GET)
+    public ResultBean findBuyDevTempLog(
+            @RequestParam(value = "userAccount", required = true) String userAccount
+    ) {
+        return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount);
+    }
+    // deal buyDevTemp record
+    @RequestMapping(value = "/api/logDealBuyTempRecord", method = RequestMethod.GET)
+    public ResultBean dealBuyDevTempLog(
+            @RequestParam(value = "userAccount", required = true) String userAccount,
+            @RequestParam(value = "managerAccount", required = true) String managerAccount,
+            @RequestParam(value = "logId", required = true) int logId,
+            @RequestParam(value = "logStatus", required = true) int logStatus
+    ) {
+        return ExceptionCatch.exceptionCatch(logService, logId + "", userAccount, managerAccount, new Integer(logId), new Integer(logStatus));
+    }
 }
