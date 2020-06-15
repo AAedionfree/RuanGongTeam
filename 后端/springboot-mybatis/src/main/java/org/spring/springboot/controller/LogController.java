@@ -80,12 +80,4 @@ public class LogController {
     ) {
         return ExceptionCatch.exceptionCatch(logService, logId + "", userAccount,new Integer(logId), new Integer(logStatus));
     }
-    // add attention record
-    @RequestMapping(value = "api/logAddAttentionRecord", method = RequestMethod.GET)
-    public ResultBean addAttentionRecord(
-            @RequestParam(value = "userAccount", required = true) String userAccount,
-            @RequestParam(value = "devId", required = true) int devId
-    ) {
-        return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount,new Integer(devId));
-    }
 }

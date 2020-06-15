@@ -152,11 +152,4 @@ public class LogServiceImp implements LogService {
         return null;
     }
 
-    @Override
-    public List<Log> addAttentionRecord(String userAccount, Integer devId) throws Exception {
-
-        return null;
-    }
-
-
 }

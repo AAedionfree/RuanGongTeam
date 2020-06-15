@@ -22,5 +22,4 @@ public interface LogService extends Service {
 
     List<Log> cancelRecord(String userAccount, Integer logId, Integer logStatus) throws Exception;
 
-    List<Log> addAttentionRecord(String userAccount, Integer devId) throws Exception;
 }

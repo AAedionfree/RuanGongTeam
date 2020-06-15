@@ -1,6 +1,6 @@
 package org.spring.springboot.domain;
 
-public class attentionItem {
+public class AttentionItem {
     String userAccount;
     int devId;
 
