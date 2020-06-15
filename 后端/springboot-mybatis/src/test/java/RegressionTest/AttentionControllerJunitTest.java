@@ -34,14 +34,14 @@ public class AttentionControllerJunitTest {
     }
 
     @Test
-    public void test001_addAttentionRecord() {
+    public void Test001_addAttentionRecord() {
         ResultBean<AttentionItem> addAttention = attentionController
                 .addAttentionRecord("TestUserAccount", -1);
         assertEquals(0, addAttention.getCode());
     }
 
     @Test
-    public void test002_FindAttentionRecord() {
+    public void Test002_FindAttentionRecord() {
         ResultBean<AttentionItem> findAttention = attentionController
                 .FindAttentionRecord("TestUserAccount");
         assertEquals(0, findAttention.getCode());
@@ -51,7 +51,7 @@ public class AttentionControllerJunitTest {
     }
 
     @Test
-    public void test003_cancelAttentionRecord() {
+    public void Test003_cancelAttentionRecord() {
         ResultBean<AttentionItem> cancelAttention = attentionController
                 .cancelAttentionRecord("TestUserAccount",-1);
         assertEquals(0, cancelAttention.getCode());

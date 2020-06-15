@@ -31,12 +31,12 @@ public class DeviceControllerJunitTest {
     }
 
     @Before
-    public void testBefore() {
+    public void TestBefore() {
         System.out.println("DeviceController Test Start:");
     }
 
     @Test
-    public void test001_findDeviceByDevId() {
+    public void Test001_findDeviceByDevId() {
         // find devInfo by devId
         ResultBean<Device> findDeviceByDeviceId = deviceController.findDeviceByDevId(-1);
         ArrayList<Device> device = new ArrayList<Device>(findDeviceByDeviceId.getData());
@@ -56,7 +56,7 @@ public class DeviceControllerJunitTest {
     }
 
     @Test
-    public void test002_findDeviceByManagerAccount() {
+    public void Test002_findDeviceByManagerAccount() {
         ResultBean<Device> findDeviceByManagerAccount = deviceController.findDeviceByManagerAccount("TestManagerAccount");
         assertEquals(0, findDeviceByManagerAccount.getCode());
         assertEquals("success", findDeviceByManagerAccount.getMessage());
@@ -64,7 +64,7 @@ public class DeviceControllerJunitTest {
     }
 
     @Test
-    public void test003_findDeviceByDevAuth() {
+    public void Test003_findDeviceByDevAuth() {
         ResultBean<Device> findDeviceByDevAuth = deviceController.findDeviceByDevAuth(0);
         assertEquals(0, findDeviceByDevAuth.getCode());
         assertEquals("success", findDeviceByDevAuth.getMessage());
@@ -72,7 +72,7 @@ public class DeviceControllerJunitTest {
     }
 
     @Test
-    public void test004_findDeviceByUserAccount() {
+    public void Test004_findDeviceByUserAccount() {
         ResultBean<Device> findDeviceByUserAccount = deviceController.findDeviceByUserAccount("22233");
         assertEquals(-1, findDeviceByUserAccount.getCode());
         assertEquals("userAccount not exist in DataBase", findDeviceByUserAccount.getMessage());
@@ -80,7 +80,7 @@ public class DeviceControllerJunitTest {
     }
 
     @Test
-    public void test005_lendDeviceByDevId() {
+    public void Test005_lendDeviceByDevId() {
         ResultBean<Device> lendDeviceByDevId = deviceController.lendDeviceByDevId("TestUserAccount", -1);
         assertEquals(-1, lendDeviceByDevId.getCode());
         assertEquals("Device can not be lend to you", lendDeviceByDevId.getMessage());
@@ -88,7 +88,7 @@ public class DeviceControllerJunitTest {
     }
 
     @Test
-    public void test006_findDeviceByDevUserAccount() {
+    public void Test006_findDeviceByDevUserAccount() {
         ResultBean<Device> findDeviceByDevUserAccount = deviceController.findDeviceByDevUserAccount("TestUserAccount");
         assertEquals(0, findDeviceByDevUserAccount.getCode());
         assertEquals("success", findDeviceByDevUserAccount.getMessage());
@@ -96,7 +96,7 @@ public class DeviceControllerJunitTest {
     }
 
     @Test
-    public void test007_revertDeviceByDevId() {
+    public void Test007_revertDeviceByDevId() {
         ResultBean<Device> revertDeviceByDevId = deviceController.revertDeviceByDevId("TestUserAccount", -1);
         assertEquals(-1, revertDeviceByDevId.getCode());
         assertEquals("Device can not be reverted", revertDeviceByDevId.getMessage());
@@ -104,7 +104,7 @@ public class DeviceControllerJunitTest {
     }
 
     @Test
-    public void test008_buyDeviceByDevInfo() {
+    public void Test008_buyDeviceByDevInfo() {
         //ResultBean<Device> buyDeviceByDevInfo = deviceController.buyDeviceByDevInfo();
     }
 

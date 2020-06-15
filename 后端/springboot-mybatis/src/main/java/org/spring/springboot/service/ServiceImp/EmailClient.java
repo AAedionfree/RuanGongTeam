@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  * @since 2020 /1/14 23:22
  */
 @Component
-public class EmailService {
+public class EmailClient {
     @Resource
     private JavaMailSender javaMailSender;
     @Value("${spring.mail.username}")
