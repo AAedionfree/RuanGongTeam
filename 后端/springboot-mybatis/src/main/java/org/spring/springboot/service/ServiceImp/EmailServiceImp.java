@@ -42,7 +42,7 @@ public class EmailServiceImp implements EmailService {
     @Override
     public List<Email> bindEmail(String userAccount, String userPassword, String emailAddress) throws Exception{
         checkPassword(userAccount, userPassword);
-        emailUpdateDao.updateEmailAddress(userAccount,emailAddress);
+        emailBindDao.bindEmailAddress(userAccount,emailAddress);
         return null;
     }
 

@@ -64,9 +64,9 @@ public class UserControllerJunitTest {
         assertEquals(1, user.size());
         assertEquals(true, user.get(0).getUserName().equals("TestUserName"));
         assertEquals(true, user.get(0).getUserAccount().equals("TestUserAccount"));
-        assertEquals(true,user.get(0).getUserPassword().equals("TestUserPassword"));
+        assertEquals(true, user.get(0).getUserPassword().equals("TestUserPassword"));
         assertEquals(true, user.get(0).getUserAuthority() == 0);
-        assertEquals(true,user.get(0).getUserId() == -1);
+        assertEquals(true, user.get(0).getUserId() == -1);
     }
 
     @Test

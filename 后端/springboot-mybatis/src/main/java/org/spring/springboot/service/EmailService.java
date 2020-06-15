@@ -1,7 +1,6 @@
 package org.spring.springboot.service;
 
 import org.spring.springboot.domain.Email;
-import org.spring.springboot.service.ServiceImp.EmailClient;
 
 import java.util.List;
 

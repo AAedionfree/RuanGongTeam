@@ -1,5 +1,4 @@
-import RegressionTest.AttentionControllerJunitTest;
-import RegressionTest.LogControllerJunitTest;
+import RegressionTest.*;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -7,15 +6,14 @@ import org.junit.runners.Suite;
 import org.spring.springboot.Application;
 import org.spring.springboot.HttpClient;
 import org.springframework.boot.test.context.SpringBootTest;
-import RegressionTest.DeviceControllerJunitTest;
-import RegressionTest.UserControllerJunitTest;
 
 @SpringBootTest(classes = Application.class)
 @RunWith(Suite.class)
 @Suite.SuiteClasses({UserControllerJunitTest.class,
         DeviceControllerJunitTest.class,
         LogControllerJunitTest.class,
-        AttentionControllerJunitTest.class})
+        AttentionControllerJunitTest.class,
+        EmailControllerJunitTest.class})
 
 public class Regression {
     @BeforeClass
