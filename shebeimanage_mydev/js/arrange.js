@@ -1,23 +1,45 @@
+var w_bao_data= new Array();
+var w_buy_data= new Array();
+var w_man_data= new Array();
+function sleep(interval) {
+				return new Promise(resolve => {
+					setTimeout(resolve, interval);
+				})
+			}
+	
+async function yibu(){
+	await sleep(500);
+	var temp_arrange = document.getElementById('temp_arrange').innerHTML;
+	document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
+		bao_list: w_bao_data,
+		buy_list: w_buy_data,
+		manager_list: w_man_data
+	});
+}			
 function load_dai(request_url) {
 		mui.init();
+		var self;
+		var user;
+		// var arrange_baoload_url;
+		// var arrange_buyload_url;
+		// var arrange_manager_url;
 		mui.plusReady(function() {
-			var self = plus.webview.currentWebview();
-			var user = self.user;
-
+			self = plus.webview.currentWebview();
+			user = self.user;
+			// alert(user);
 			// var s ="";
 
 			// for (var p in user) {
 			// 	s= s+"n "+p+": "+user[p];
 			// }
 			// alert(s);
-			var arrange_baoload_url = request_url + 'devFindScrapRecord?userAccount=' + user.userAccount;
-			var arrange_buyload_url = request_url + 'logFindBuyTempRecord?userAccount=' + user.userAccount;
-			var arrange_manager_url = request_url + 'userAuth?userAuth=2';
-			var w_bao_data= new Array();
-			var w_buy_data= new Array();
-			var w_man_data= new Array();
-			// alert(user.userAuthority);
-			
+			 var arrange_baoload_url = request_url + 'devFindScrapRecord?userAccount=' + user.userAccount;
+			 var arrange_buyload_url = request_url + 'logFindBuyTempRecord?userAccount=' + user.userAccount;
+			 var arrange_manager_url = request_url + 'userAuth?userAuth=2';
+			// var w_bao_data= new Array();
+			// var w_buy_data= new Array();
+			// var w_man_data= new Array();
+			// alert(arrange_buyload_url);
 			////////////////////////////报废申请////////////////////////////////////////////
 			mui.ajax({
 				type: 'GET',
@@ -49,9 +71,10 @@ function load_dai(request_url) {
 						w_bao_data=bao_data;
 						// var temp_arrange = document.getElementById('temp_arrange').innerHTML;
 						// document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
-						// 	list: bao_data
+						// 	list: w_bao_data
 						// });
 					}
+					// alert(w_bao_data[0]);
 					// 	var s ="";
 
 					// 	for (var p in dev_chadata) {
@@ -63,7 +86,6 @@ function load_dai(request_url) {
 					mui.toast("服务器内部出错！");
 				}
 			});
-			
 			////////////////////////购置申请/////////////////////////////////////////////////
 			
 			mui.ajax({
@@ -76,6 +98,7 @@ function load_dai(request_url) {
 					if ((data.data != null) && (user.userAuthority == 0)) {
 						var buy_data = new Array();
 						buy_data = data.data;
+						// alert(buy_data[0].tokenId);
 						for(i=0;i<buy_data.length;i++){
 								if (buy_data[i].tokenId == 0) {
 									buy_data[i].tokenId="购置申请";
@@ -93,10 +116,11 @@ function load_dai(request_url) {
 									buy_data[i].tokenId="确认申请";
 								}
 						}
-						w_buy_data=buy_data;
+						 w_buy_data=buy_data;
+						// alert(w_buy_data[0].tokenId);
 						// var temp_arrange = document.getElementById('temp_arrange').innerHTML;
 						// document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
-						// 	list: bao_data
+						// 	list: w_buy_data
 						// });
 					}
 					// 	var s ="";
@@ -123,10 +147,10 @@ function load_dai(request_url) {
 						var man_data = new Array();
 						man_data = data.data;
 						
-						w_man_data=man_data;
+						 w_man_data=man_data;
 						// var temp_arrange = document.getElementById('temp_arrange').innerHTML;
 						// document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
-						// 	list: bao_data
+						// 	list: w_man_data
 						// });
 					}
 					// 	var s ="";
@@ -140,17 +164,15 @@ function load_dai(request_url) {
 					mui.toast("服务器内部出错！");
 				}
 			});
-			
-			
-			var temp_arrange = document.getElementById('temp_arrange').innerHTML;
-			document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
-				bao_list: w_bao_data,
-				buy_list: w_buy_data,
-				manager_list: w_man_data,
-			});
-			
+			// var temp_arrange = document.getElementById('temp_arrange').innerHTML;
+			// document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
+			// 	bao_list: w_bao_data,
+			// 	buy_list: w_buy_data,
+			// 	manager_list: w_man_data
+			// });
 		});
-	}
+		yibu();
+	}	
 
 	function yes_arrange(logid, request_url) {
 		mui.init();
