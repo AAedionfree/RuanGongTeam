@@ -114,3 +114,13 @@ function to_checkEquipment(user) {
 		}
 	});
 }
+
+function to_follow(user) {
+	mui.init();
+	mui.openWindow({
+		url: 'follow.html',
+		extras: {
+			user: user,
+		}
+	});
+}
