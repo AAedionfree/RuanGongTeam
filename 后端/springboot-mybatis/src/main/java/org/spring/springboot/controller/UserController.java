@@ -27,6 +27,12 @@ public class UserController {
         return ExceptionCatch.exceptionCatch(userService, userId + "", new Integer(userId));
     }
 
+    // find userInfo by userAuth
+    @RequestMapping(value = "/api/userAuth", method = RequestMethod.GET)
+    public ResultBean<User> findUserByUserAuth(@RequestParam(value = "userAuth", required = true) int userAuth) throws RuntimeException {
+        return ExceptionCatch.exceptionCatch(userService, userAuth + "", new Integer(userAuth));
+    }
+
     //  login
     @RequestMapping(value = "/api/login", method = RequestMethod.GET)
     public ResultBean login(@RequestParam(value = "userAccount", required = true) String userAccount,

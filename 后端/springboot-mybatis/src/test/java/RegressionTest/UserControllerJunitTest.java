@@ -100,6 +100,12 @@ public class UserControllerJunitTest {
         assertEquals(0, register.getCode());
     }
 
+    @Test
+    public void Test007_userAuth() {
+        ResultBean userAuth = userController.findUserByUserAuth(0);
+        assertEquals(0,userAuth.getCode());
+    }
+
     @After
     public void testAfter() {
         System.out.println("UserController Test End:");

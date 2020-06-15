@@ -141,7 +141,7 @@ public class DeviceServiceImp implements DeviceService {
         if (chargers.size() == 1) {
             String date = new Date().toString();
             User charger = chargers.get(0);
-            User user = userAuthDao.findUserByUserAuth().get(0);
+            User user = userAuthDao.findUserByUserAuth(0).get(0);
             int chargerAuth = charger.getUserAuthority();
             if (chargerAuth <= 1){
                 for (int i = 0; i <number; i++){
