@@ -22,4 +22,6 @@ public interface DeviceService extends Service {
 
     List<Device> buyDeviceByDevInfo(String devName, String devType, Float devPrise, String devPeriod, String chargeAccount,
                                     String managerAccount, Integer devAuth, Integer number) throws Exception;
+    List<Device> buyDeviceTempByDevInfo(String devName, String devType, Float devPrise, String devPeriod, String chargeAccount,
+                                        Integer devAuth, Integer number) throws Exception;
 }

@@ -128,4 +128,28 @@ public class DeviceServiceImp implements DeviceService {
             throw new Exception("No such charger or manager");
         }
     }
+
+    public List<Device> buyDeviceTempByDevInfo(String devName, String devType, Float devPrise, String devPeriod,
+                                               String chargeAccount, Integer devAuth, Integer number) throws Exception {
+        List<User> chargers = userAccountDao.findUserByUserAccount(chargeAccount);
+        if (chargers.size() == 1) {
+            User charger = chargers.get(0);
+            int chargerAuth = charger.getUserAuthority();
+            if (chargerAuth == 1){
+                for (int i = 0; i <number; i++){
+                    int id = devBuyDao.getTempPrimayKey() + 1;
+                    String devDate = new Date().toString();
+                    devBuyDao.buyDeviceTempByDevInfo(id,devName,devType,devPrise,devDate,devPeriod,chargeAccount,devAuth);
+                }
+                return null;
+            }
+            else {
+                throw new Exception("Wrong charger");
+            }
+        }
+        else {
+            throw new Exception("No such charger");
+        }
+    }
+
 }
