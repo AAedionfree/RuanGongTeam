@@ -95,7 +95,7 @@ function more(dev_data_num, request_url) {
 		// }
 		// alert(s);
 		var search_man_url = request_url + 'devManagerAccount?managerAccount=' + user.userAccount;
-		// alert(search_url);
+		//alert(search_man_url);
 		mui.ajax({
 			type: 'GET',
 			url: search_man_url,
