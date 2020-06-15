@@ -1,3 +1,4 @@
+import RegressionTest.AttentionControllerJunitTest;
 import RegressionTest.LogControllerJunitTest;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -13,7 +14,8 @@ import RegressionTest.UserControllerJunitTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({UserControllerJunitTest.class,
         DeviceControllerJunitTest.class,
-        LogControllerJunitTest.class})
+        LogControllerJunitTest.class,
+        AttentionControllerJunitTest.class})
 
 public class Regression {
     @BeforeClass

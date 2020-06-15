@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.spring.springboot.domain.AttentionItem;
 import org.spring.springboot.domain.User;
 
 import java.util.List;
@@ -14,5 +15,5 @@ public interface AttentionsByUserAccountDao {
             @Result(property = "userAccount", column = "user_account"),
             @Result(property = "devId", column = "dev_id")
     })
-    List<User> findAttentionByUserAccount(@Param("userAccount") String userAccount);
+    List<AttentionItem> findAttentionByUserAccount(@Param("userAccount") String userAccount);
 }

@@ -5,5 +5,5 @@ import org.apache.ibatis.annotations.Param;
 
 public interface AttentionAddDao {
     @Insert("insert into attentions value(#{userAccount}, #{devId})")
-    void addAttention(@Param("userAccount") String userAccount, @Param("devId") String devId);
+    void addAttention(@Param("userAccount") String userAccount, @Param("devId") int devId);
 }
