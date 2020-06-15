@@ -1,4 +1,4 @@
-function is_special_more5(a) {
+function is_special_less5(a) {
 	var flag = 0;
 	if(a.length < 5){
 		flag = 2;

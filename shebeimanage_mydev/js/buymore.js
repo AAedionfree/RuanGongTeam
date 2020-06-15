@@ -26,9 +26,8 @@ function finish(resquest_url) {
 		// 	s= s+"n "+p+": "+user[p];
 		// }
 		// alert(s);
-		var add_buy_url = request_url + 'devBuy?devName=' + dev_name + '&devType=' + dev_type + '&devPrise=' + dev_prise +
-			'&devPeriod=' + dev_period + '&chargeAccount=' + charge_account + '&managerAccount=' + manager_account +
-			'&devAuth=' + dev_auth + '&number=' + dev_num;
+		var add_buy_url = request_url + 'devBuyTemp?devName=' + dev_name + '&devType=' + dev_type + '&devPrise=' + dev_prise +
+			'&devPeriod=' + dev_period + '&chargeAccount=' + charge_account + '&devAuth=' + dev_auth + '&number=' + dev_num;
 		mui.ajax({
 			type: 'GET',
 			url: add_buy_url,

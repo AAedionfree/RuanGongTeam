@@ -46,8 +46,6 @@ function search_fuze_zujie(request_url) {
 				mui.toast("服务器内部出错！");
 			}
 		});
-
-
 		mui.ajax({
 			type: 'GET',
 			url: search_zujie_url,

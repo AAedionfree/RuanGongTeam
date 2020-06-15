@@ -10,11 +10,18 @@ function load_dai(request_url) {
 			// 	s= s+"n "+p+": "+user[p];
 			// }
 			// alert(s);
-			var arrange_load_url = request_url + 'devFindScrapRecord?userAccount=' + user.userAccount;
+			var arrange_baoload_url = request_url + 'devFindScrapRecord?userAccount=' + user.userAccount;
+			var arrange_buyload_url = request_url + 'logFindBuyTempRecord?userAccount=' + user.userAccount;
+			var arrange_manager_url = request_url + 'userAuth?userAuth=2';
+			var w_bao_data= new Array();
+			var w_buy_data= new Array();
+			var w_man_data= new Array();
 			// alert(user.userAuthority);
+			
+			////////////////////////////报废申请////////////////////////////////////////////
 			mui.ajax({
 				type: 'GET',
-				url: arrange_load_url,
+				url: arrange_baoload_url,
 				timeout: 10000,
 				dataType: "json",
 				success: function(data) {
@@ -39,10 +46,11 @@ function load_dai(request_url) {
 									bao_data[i].tokenId="确认申请";
 								}
 						}
-						var temp_arrange = document.getElementById('temp_arrange').innerHTML;
-						document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
-							list: bao_data
-						});
+						w_bao_data=bao_data;
+						// var temp_arrange = document.getElementById('temp_arrange').innerHTML;
+						// document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
+						// 	list: bao_data
+						// });
 					}
 					// 	var s ="";
 
@@ -55,6 +63,92 @@ function load_dai(request_url) {
 					mui.toast("服务器内部出错！");
 				}
 			});
+			
+			////////////////////////购置申请/////////////////////////////////////////////////
+			
+			mui.ajax({
+				type: 'GET',
+				url: arrange_buyload_url,
+				timeout: 10000,
+				dataType: "json",
+				success: function(data) {
+			
+					if ((data.data != null) && (user.userAuthority == 0)) {
+						var buy_data = new Array();
+						buy_data = data.data;
+						for(i=0;i<buy_data.length;i++){
+								if (buy_data[i].tokenId == 0) {
+									buy_data[i].tokenId="购置申请";
+								} else if (buy_data[i].tokenId == 1) {
+									buy_data[i].tokenId= "借取申请";
+								} else if (buy_data[i].tokenId== 2) {
+									buy_data[i].tokenId= "归还申请";
+								} else if (buy_data[i].tokenId == 3) {
+									buy_data[i].tokenId= "修理申请";
+								} else if (buy_data[i].tokenId == 4) {
+									buy_data[i].tokenId= "故障申请";
+								} else if (buy_data[i].tokenId == 5) {
+									buy_data[i].tokenId="报废申请";
+								} else if (buy_data[i].tokenId == 6) {
+									buy_data[i].tokenId="确认申请";
+								}
+						}
+						w_buy_data=buy_data;
+						// var temp_arrange = document.getElementById('temp_arrange').innerHTML;
+						// document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
+						// 	list: bao_data
+						// });
+					}
+					// 	var s ="";
+			
+					// 	for (var p in dev_chadata) {
+					// 		s= s+"\n"+p+": "+dev_chadata[p];
+					// 	}
+					// 	alert(s);
+				},
+				error: function(xhr, type, errorThrown) {
+					mui.toast("服务器内部出错！");
+				}
+			});
+			//////////////////负责人申请////////////////////////////////////
+			
+			mui.ajax({
+				type: 'GET',
+				url: arrange_manager_url,
+				timeout: 10000,
+				dataType: "json",
+				success: function(data) {
+			
+					if ((data.data != null)) {
+						var man_data = new Array();
+						man_data = data.data;
+						
+						w_man_data=man_data;
+						// var temp_arrange = document.getElementById('temp_arrange').innerHTML;
+						// document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
+						// 	list: bao_data
+						// });
+					}
+					// 	var s ="";
+			
+					// 	for (var p in dev_chadata) {
+					// 		s= s+"\n"+p+": "+dev_chadata[p];
+					// 	}
+					// 	alert(s);
+				},
+				error: function(xhr, type, errorThrown) {
+					mui.toast("服务器内部出错！");
+				}
+			});
+			
+			
+			var temp_arrange = document.getElementById('temp_arrange').innerHTML;
+			document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
+				bao_list: w_bao_data,
+				buy_list: w_buy_data,
+				manager_list: w_man_data,
+			});
+			
 		});
 	}
 
@@ -137,7 +231,7 @@ function load_dai(request_url) {
 		});
 	}
 
-	function more_arr(lognum, request_url) {
+	function more_arr(lognum, request_url,type) {  //type=0 报废申请的更多  type=1 购置申请的更多
 		mui.init();
 		mui.plusReady(function() {
 			var self = plus.webview.currentWebview();
@@ -149,7 +243,14 @@ function load_dai(request_url) {
 			// 	s= s+"n "+p+": "+user[p];
 			// }
 			// alert(s);
-			var arrange_load_url = request_url + 'devFindScrapRecord?userAccount=' + user.userAccount;
+			var arrange_load_url;	
+			if(type==0){
+				arrange_load_url = request_url + 'devFindScrapRecord?userAccount=' + user.userAccount;
+			}
+				
+			else if(type==1){
+				arrange_load_url = request_url + 'logFindBuyTempRecord?userAccount=' + user.userAccount;
+			}
 			// alert(user.userAuthority);
 			mui.ajax({
 				type: 'GET',
@@ -232,3 +333,42 @@ function load_dai(request_url) {
 			});
 		});
 	}
+
+	
+function who_manager(logid,request_url){
+	mui.init();
+	mui.plusReady(function() {
+		var self = plus.webview.currentWebview();
+		var user = self.user;
+		var manager_account = document.getElementById("sel_manager").value;
+		// var s ="";
+	
+		// for (var p in user) {
+		// 	s= s+"n "+p+": "+user[p];
+		// }
+		// alert(s);
+		var que_manager_url = request_url + 'logDealBuyTempRecord?userAccount=' + user.userAccount + '&managerAccount=' + manager_account +  '&logId=' + logid +'&logStatus=3';
+		mui.ajax({
+			type: 'GET',
+			url: que_manager_url,
+			timeout: 10000,
+			dataType: "json",
+			success: function(data) {
+	
+				if ((data.code == 0)) {
+					mui.toast("确认成功！")
+					load_dai(request_url);
+				}
+				// 	var s ="";
+	
+				// 	for (var p in dev_chadata) {
+				// 		s= s+"\n"+p+": "+dev_chadata[p];
+				// 	}
+				// 	alert(s);
+			},
+			error: function(xhr, type, errorThrown) {
+				mui.toast("服务器内部出错！");
+			}
+		});
+	});
+}

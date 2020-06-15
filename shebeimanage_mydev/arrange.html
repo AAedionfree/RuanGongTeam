@@ -57,29 +57,29 @@
 		<script type="text/html" id="temp_arrange">
 			<h1 style="margin-left: 10px; margin-top: -410px;font-size: 16px;">待办事项</h1>
 			<ul class="mui-table-view">
-			<% if(list.length==0) {%>
+			<% if((bao_list.length==0)&&(buy_list.length==0)) {%>
 				<li class="mui-table-view-cell">您当前暂无待办事项!</li>
 			<% } %>
-			<% for(var i = 0;i < list.length;i++){ %>
+			<% for(var i = 0;i < buy_list.length;i++){ %>
 				<div class="mui-table-view">
-					<% if(list.length==) {%>			<!-- 分配设备管理员 -->
-						<li class="mui-table-view-cell"><%= list[i].tokenId%></li>
-						<button style="position: absolute;top:6px;right:40%;height:28px;line-height: 15px;" onclick="more_arr(<%=i%>,request_url)">更多</button>
-						<select id="" class="mui-btn" style="position: absolute;top:1px;right: 18%;height:33px;line-height: 15px;width: 80px;">
+			                   			<!-- 分配设备管理员 -->
+						<li class="mui-table-view-cell"><%= buy_list[i].tokenId%></li>
+						<button style="position: absolute;top:6px;right:40%;height:28px;line-height: 15px;" onclick="more_arr(<%=i%>,request_url,1)">更多</button>
+						<select id="sel_manager" class="mui-btn" style="position: absolute;top:1px;right: 18%;height:33px;line-height: 15px;width: 80px;">
 							<option value="item-1">请选择设备管理员</option>
-							<% for(var j = 0;j < list.length;j++){ %>
-								<option value="<%= item-[j+1]%>"><%= list[j].%></option>
+							<% for(var j = 0;j < manager_list.length;j++){ %>
+								<option value="<%= manager_list[i].userAccount%>"><%= manager_list[i].userAccount%></option>
 							<% } %>
 						</select>
-						<button style="position: absolute;top:6px;right:3%x;height:28px;line-height: 15px;" onclick="yes_arrange(<%= list[i].logId%>,request_url)">确认</button>
+						<button style="position: absolute;top:6px;right:3%x;height:28px;line-height: 15px;" onclick="who_manager(<%= buy_list[i].logId%>,request_url)">确认</button>
 					<% } %>
-					<li class="mui-table-view-cell"><%= list[i].tokenId%></li>
-						<button style="position: absolute;top:6px;right:140px;height:28px;line-height: 15px;" onclick="more_arr(<%=i%>,request_url)">更多</button>
+					<% for(var i = 0;i < bao_list.length;i++){ %>
+					<li class="mui-table-view-cell"><%= bao.list[i].tokenId%></li>
+						<button style="position: absolute;top:6px;right:140px;height:28px;line-height: 15px;" onclick="more_arr(<%=i%>,request_url,0)">更多</button>
 					    <button style="position: absolute;top:6px;right:80px;height:28px;line-height: 15px;" onclick="yes_arrange(<%= list[i].logId%>,request_url)">确认</button>
 						<button style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;" onclick="no_arrange(<%= list[i].logId%>,request_url)">驳回</button>
-						
-				</div>			
-				<% } %>
+					<% } %>	
+				</div>
 			</ul>
 			</script>
 
