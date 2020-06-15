@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.css" rel="stylesheet" />
 		<script src="js/mui.js"></script>
+		<script src="js/template.js"></script>
 		<script src="js/follow.js"></script>
 		<script type="text/javascript">
 			mui.init();
@@ -36,7 +37,7 @@
 							<% if(list[i].devWorkStatus=='待报废') {%>
 								<span class="mui-badge mui-badge-purple"  style="position: absolute;top:11px;left:35%;"><%= list[i].devWorkStatus%></span>
 							<% } %>
-							<button style="position: absolute;top:6px;right:3%;height:28px;line-height: 15px;" onclick="more(<%=i%>,request_url)">更多</button>
+							<button style="position: absolute;top:6px;right:3%;height:28px;line-height: 15px;" onclick="more(<%= list[i].devId%>,request_url)">更多</button>
 					</div>		
 				<% } %>
 			</ul>
