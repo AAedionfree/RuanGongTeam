@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface UserAuthDao {
-    @Select("SELECT * FROM users where user_authority = 0")
+    @Select("SELECT * FROM users where user_authority = #{auth}")
     // 返回 Map 结果集
     @Results({
             @Result(property = "userId", column = "user_id"),
@@ -16,5 +16,6 @@ public interface UserAuthDao {
             @Result(property = "userPassword", column = "user_password"),
             @Result(property = "userAuthority", column = "user_authority")
     })
-    List<User> findUserByUserAuth();
+    List<User> findUserByUserAuth(@Param("auth") int auth);
+
 }

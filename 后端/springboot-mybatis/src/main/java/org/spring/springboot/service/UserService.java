@@ -20,4 +20,6 @@ public interface UserService extends Service {
     List<User> userUpdatePassword(String userAccount, String userOldPassword, String userNewPassword) throws Exception;
 
     List<User> userLogout(String userAccount, String userPassword) throws Exception;
+
+    List<User> findUserByUserAuth(Integer userAuth) throws Exception;
 }
