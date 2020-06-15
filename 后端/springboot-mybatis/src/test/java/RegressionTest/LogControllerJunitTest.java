@@ -22,7 +22,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
-@FixMethodOrder(MethodSorters.JVM)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LogControllerJunitTest {
     @Autowired
     LogController logController;
@@ -44,20 +44,20 @@ public class LogControllerJunitTest {
     }
 
     @Test
-    public void findAllLogs() {
+    public void test001_findAllLogs() {
         ResultBean<Log> logs = logController.findAllLogs();
         assertEquals(0, logs.getCode());
     }
 
     @Test
-    public void findLogsByUserId() {
+    public void test002_findLogsByUserId() {
         ResultBean<Log> logs = logController.findLogsByUserAccount("-1");
         assertEquals(0, logs.getCode());
         assertEquals(1, logs.getData().size());
     }
 
     @Test
-    public void addFixLog() {
+    public void test003_addFixLog() {
         ResultBean addFixLogAuthError = logController.addFixLog("AAedion", -1);
         assertEquals(-1, addFixLogAuthError.getCode());
         assertEquals(null, addFixLogAuthError.getData());
@@ -75,7 +75,7 @@ public class LogControllerJunitTest {
     }
 
     @Test
-    public void addDamageLog() {
+    public void test004_addDamageLog() {
         ResultBean addDamageLogAuthError = logController.addDamageLog("AAedion", -1);
         assertEquals(-1, addDamageLogAuthError.getCode());
         assertEquals(null, addDamageLogAuthError.getData());
@@ -93,7 +93,7 @@ public class LogControllerJunitTest {
     }
 
     @Test
-    public void addScrapRecord() {
+    public void test005_addScrapRecord() {
         ResultBean addScrapLogAuthError = logController.addScrapLog("AAedion", -1);
         assertEquals(-1, addScrapLogAuthError.getCode());
         assertEquals(null, addScrapLogAuthError.getData(), null);
@@ -124,14 +124,14 @@ public class LogControllerJunitTest {
     }
 
     @Test
-    public void findScrapRecord() {
+    public void test006_findScrapRecord() {
         ResultBean scrapLog = logController.findScrapLog("TestUserAccount");
         assertEquals(0, scrapLog.getCode());
         assertEquals("success", scrapLog.getMessage());
     }
 
     @Test
-    public void dealScrapRecord() {
+    public void test007_dealScrapRecord() {
         ResultBean scrapLog = logController.findScrapLog("TestUserAccount");
         int logId = new ArrayList<Log>(scrapLog.getData()).get(0).getLogId();
 
