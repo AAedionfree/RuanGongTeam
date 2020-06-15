@@ -6,8 +6,16 @@ function finish(resquest_url) {
 	var dev_prise = document.getElementById("dev_prise").value;
 	var dev_period = document.getElementById("dev_period").value;
 	// var charge_account = document.getElementById("charge_account").value;
-	var manager_account = document.getElementById("manager_account").value;
+	// var manager_account = document.getElementById("manager_account").value;
 	var dev_auth = document.getElementById("dev_auth").value;
+	
+	var cha_name = is_special(dev_name);
+	var cha_type = is_special(dev_type);
+	var cha_num = is_num(dev_num);
+	var cha_prise = is_num(dev_prise);
+	var cha_period = is_num(dev_period);
+	
+	
 	mui.plusReady(function() {
 		var self = plus.webview.currentWebview();
 		var user = self.user;

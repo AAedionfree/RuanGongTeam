@@ -2,11 +2,15 @@ function login_m(request_url) {
 	mui.init();
 	var password = document.getElementById("password").value;
 	var useraccount = document.getElementById("account").value;
-	var cha_psd = is_special(password);
-	var cha_ua = is_special(useraccount);
+	var cha_psd = is_special_less5(password);
+	var cha_ua = is_special_less5(useraccount);
 
 	if (cha_psd == 1 || cha_ua == 1) {
 		mui.toast("输入的格式不正确！应输入数字或字母！");
+		return;
+	}
+	if (cha_psd == 2 || cha_ua == 2) {
+		mui.toast("输入的账号或密码长度应大于5！");
 		return;
 	}
 	if (useraccount.length == 0) {
