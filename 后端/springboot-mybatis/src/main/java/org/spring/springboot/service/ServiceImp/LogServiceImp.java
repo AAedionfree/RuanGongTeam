@@ -151,5 +151,4 @@ public class LogServiceImp implements LogService {
         devWorkStatusDao.updateDevWorkStatusByDevId(devId, 3);
         return null;
     }
-
 }
