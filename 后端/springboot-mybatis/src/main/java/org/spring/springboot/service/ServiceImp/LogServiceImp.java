@@ -67,7 +67,7 @@ public class LogServiceImp implements LogService {
     public void addBasicRecord(String userAccount, Integer devId, int tokenId, int startStatus, int tokenStatus) throws Exception {
         String date = new Date().toString();
         Device device = devIdDao.findDeviceBydevId(devId).get(0);
-        User user = userAuthDao.findUserByUserAuth().get(0);
+        User user = userAuthDao.findUserByUserAuth(0).get(0);
         int logId = logsAddBasicRecordDao.getPrimayKey() + 1;
         int deviceStatus = device.getDevStatus();
         int deviceWorkStatus = device.getDevWorkStatus();

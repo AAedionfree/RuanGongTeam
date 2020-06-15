@@ -1,9 +1,8 @@
 package org.spring.springboot.controller;
 
+import org.spring.springboot.service.ServiceImp.EmailClient;
 import org.spring.springboot.ExceptionCatch;
 import org.spring.springboot.ResultBean;
-import org.spring.springboot.domain.Device;
-import org.spring.springboot.domain.Email;
 import org.spring.springboot.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,4 +43,13 @@ public class EmailController {
             @RequestParam(value = "userPassword", required = true) String userPassword) {
         return ExceptionCatch.exceptionCatch(emailService, userAccount,  userAccount, userPassword);
     }
+
+//    @Autowired
+//    EmailClient emailClient;
+//
+//    @RequestMapping(value = "/api/email", method = RequestMethod.GET)
+//    public void unbindEmail() {
+//        emailClient.sendMail("ym500009@outlook.com","您开始了一次回归测试","");
+//        emailClient.sendMail("AAedion@buaa.edu.cn","您开始了一次回归测试","");
+//    }
 }

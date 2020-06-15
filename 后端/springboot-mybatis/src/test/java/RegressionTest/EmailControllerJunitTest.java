@@ -35,7 +35,10 @@ public class EmailControllerJunitTest {
     }
 
     @Test
-    public void Test001_FindAttentionRecord(){
+    public void Test001_FindEmailByUserAccount(){
+        ResultBean unbindEmail = emailController.unbindEmail("TestUserAccount", "TestUserPassword");
+        assertEquals(0, unbindEmail.getCode());
+
         ResultBean emails = emailController.findEmailByUserAccount("TestUserAccount");
         assertEquals(0, emails.getCode());
         assertEquals(0, emails.getData().size());
@@ -75,6 +78,10 @@ public class EmailControllerJunitTest {
         ResultBean emails = emailController.findEmailByUserAccount("TestUserAccount");
         assertEquals(0, emails.getCode());
         assertEquals(0, emails.getData().size());
+
+        ResultBean bindEmail = emailController.bindEmail("TestUserAccount",
+                "TestUserPassword", "296684505@qq.com");
+        assertEquals(0, bindEmail.getCode());
     }
 
     @After

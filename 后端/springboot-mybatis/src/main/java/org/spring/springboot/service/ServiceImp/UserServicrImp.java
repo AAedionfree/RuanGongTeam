@@ -1,5 +1,6 @@
 package org.spring.springboot.service.ServiceImp;
 
+import org.junit.Before;
 import org.spring.springboot.dao.users.*;
 import org.spring.springboot.domain.User;
 import org.spring.springboot.service.UserService;
@@ -20,6 +21,8 @@ public class UserServicrImp implements UserService {
     private UserUpdatePassword userUpdatePassword;
     @Autowired
     private UserLogoutDao userLogout;
+    @Autowired
+    private UserAuthDao userAuthDao;
 
     @Override
     public List<User> findUserByUserAccount(String userAccount) throws Exception {
@@ -79,6 +82,13 @@ public class UserServicrImp implements UserService {
     public List<User> userLogout(String userAccount, String userPassword) throws Exception{
         List<User> users = login(userAccount, userPassword);
         userLogout.userLogout(userAccount);
+        return users;
+    }
+
+    @Override
+    public List<User> findUserByUserAuth(Integer userAuth) throws Exception {
+        List<User> users = userAuthDao.findUserByUserAuth(userAuth);
+        if (users.size() == 0) throw new Exception("No such user with this auth");
         return users;
     }
 }
