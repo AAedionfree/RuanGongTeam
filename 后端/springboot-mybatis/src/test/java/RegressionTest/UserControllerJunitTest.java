@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
-@FixMethodOrder(MethodSorters.JVM)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UserControllerJunitTest {
 
 
@@ -36,7 +36,7 @@ public class UserControllerJunitTest {
     }
 
     @Test
-    public void login() {
+    public void test001_login() {
         ResultBean<User> login = userController.login("17182626", "17182626");
         assertEquals(0, login.getCode());
         assertEquals("success", login.getMessage());
@@ -46,7 +46,7 @@ public class UserControllerJunitTest {
     }
 
     @Test
-    public void findUserByUserAccount() {
+    public void test002_findUserByUserAccount() {
         // findUserByUserAccount
         ResultBean<User> findUserByUserAccount = userController.findUserByUserAccount("sadaldkj");
         assertEquals(-1, findUserByUserAccount.getCode());
@@ -55,7 +55,7 @@ public class UserControllerJunitTest {
     }
 
     @Test
-    public void findUserByUserId() {
+    public void test003_findUserByUserId() {
         // findUserByUserId
         ResultBean findUserByUserId = userController.findUserByUserId(-1);
         ArrayList<User> user = new ArrayList<User>(findUserByUserId.getData());
@@ -70,7 +70,7 @@ public class UserControllerJunitTest {
     }
 
     @Test
-    public void userUpdatePassword() {
+    public void test004_userUpdatePassword() {
         ResultBean updatePassword = userController.userUpdatePassword("TestUserAccount",
                 "TestUserPassword", "NewTestUserPassword");
         assertEquals(0, updatePassword.getCode());
@@ -83,14 +83,14 @@ public class UserControllerJunitTest {
     }
 
     @Test
-    public void userLogout() {
+    public void test005_userLogout() {
         // logout
         ResultBean logout = userController.userLogout("TestUserAccount", "TestUserPassword");
         assertEquals(0, logout.getCode());
     }
 
     @Test
-    public void userSignUp() {
+    public void test006_userSignUp() {
         // register
         ResultBean register = userController.userSignUp(-1, "TestUserAccount", "TestUserName",
                 "TestUserPassword", 0);

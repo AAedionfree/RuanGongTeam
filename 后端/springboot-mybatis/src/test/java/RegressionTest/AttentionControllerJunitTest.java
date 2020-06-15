@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
-@FixMethodOrder(MethodSorters.JVM)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AttentionControllerJunitTest {
     @Autowired
     AttentionController attentionController;
@@ -34,14 +34,14 @@ public class AttentionControllerJunitTest {
     }
 
     @Test
-    public void addAttentionRecord() {
+    public void test001_addAttentionRecord() {
         ResultBean<AttentionItem> addAttention = attentionController
                 .addAttentionRecord("TestUserAccount", -1);
         assertEquals(0, addAttention.getCode());
     }
 
     @Test
-    public void FindAttentionRecord() {
+    public void test002_FindAttentionRecord() {
         ResultBean<AttentionItem> findAttention = attentionController
                 .FindAttentionRecord("TestUserAccount");
         assertEquals(0, findAttention.getCode());
@@ -51,7 +51,7 @@ public class AttentionControllerJunitTest {
     }
 
     @Test
-    public void cancelAttentionRecord() {
+    public void test003_cancelAttentionRecord() {
         ResultBean<AttentionItem> cancelAttention = attentionController
                 .cancelAttentionRecord("TestUserAccount",-1);
         assertEquals(0, cancelAttention.getCode());
