@@ -20,6 +20,6 @@ public class SendEmail {
     @Test
     public void mail(){
         emailClient.sendMail("164878954@qq.com","RegressionTest Start!!!","");
-        emailClient.sendMail("AAedion@buaa.edu.cn","RegressionTest Start!!!","");
+        emailClient.sendMail("296684505@qq.com","RegressionTest Start!!!","");
     }
 }
