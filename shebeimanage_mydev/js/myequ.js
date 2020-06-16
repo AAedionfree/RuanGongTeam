@@ -46,8 +46,6 @@ function search_fuze_zujie(request_url) {
 				mui.toast("服务器内部出错！");
 			}
 		});
-
-
 		mui.ajax({
 			type: 'GET',
 			url: search_zujie_url,
@@ -97,7 +95,7 @@ function more(dev_data_num, request_url) {
 		// }
 		// alert(s);
 		var search_man_url = request_url + 'devManagerAccount?managerAccount=' + user.userAccount;
-		// alert(search_url);
+		//alert(search_man_url);
 		mui.ajax({
 			type: 'GET',
 			url: search_man_url,
