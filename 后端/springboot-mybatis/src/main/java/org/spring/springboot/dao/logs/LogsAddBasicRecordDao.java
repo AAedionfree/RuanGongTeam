@@ -10,9 +10,8 @@ public interface LogsAddBasicRecordDao {
     @ResultType(Integer.class)
     Integer getPrimayKey();
 
-    @Insert("insert into logs value(#{logId}, #{devId}, #{devStatus}, #{devWorkStatus}, #{tokenId}, #{tokenStatus}, #{senderAccount}, #{receiverAccount}, #{changeTime}, #{auth})")
-    void logsAddBasicRecord(@Param("logId") int logId,
-                            @Param("devId") int devId,
+    @Insert("insert into logs(dev_id, dev_status, dev_work_status, token_id, token_status, sender_account, receiver_account, change_time, auth) value(#{devId}, #{devStatus}, #{devWorkStatus}, #{tokenId}, #{tokenStatus}, #{senderAccount}, #{receiverAccount}, #{changeTime}, #{auth})")
+    void logsAddBasicRecord(@Param("devId") int devId,
                             @Param("devStatus") int devStatus,
                             @Param("devWorkStatus") int devWorkStatus,
                             @Param("tokenId") int tokenId,

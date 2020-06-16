@@ -79,12 +79,12 @@ public class UserServiceImp implements UserService {
     public List<User> login(String userAccount, String userPassword) throws Exception{
         List<User> userByUserAccount = findUserByUserAccount(userAccount);
         if(userByUserAccount.get(0).getUserPassword().equals(userPassword)){
-            List<Email> email = emailService.findEmailByUserAccount(userAccount);
-            if(email.size() > 0){
-                emailClient.sendMail(email.get(0).getEmailAddress(),
-                        "您的账号" + userAccount + "刚刚进行了登录操作",
-                        new Date().toString() + "若非本人操作，请及时修改密码");
-            }
+//            List<Email> email = emailService.findEmailByUserAccount(userAccount);
+//            if(email.size() > 0){
+//                emailClient.sendMail(email.get(0).getEmailAddress(),
+//                        "您的账号" + userAccount + "刚刚进行了登录操作",
+//                        new Date().toString() + "若非本人操作，请及时修改密码");
+//            }
             return userByUserAccount;
         }else{
             throw new Exception("Wrong password");

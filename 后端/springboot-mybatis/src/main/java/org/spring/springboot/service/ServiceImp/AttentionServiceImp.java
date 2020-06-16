@@ -60,7 +60,7 @@ public class AttentionServiceImp implements AttentionService {
             throw new Exception("already attention this device");
         }
         attentionAddDao.addAttention(userAccount, devId);
-        sendMail(userAccount, devId, 1, "我们会及时告知您此设备的状态，感谢您的使用。若非本人操作请及时修改密码");
+//        sendMail(userAccount, devId, 1, "我们会及时告知您此设备的状态，感谢您的使用。若非本人操作请及时修改密码");
         return null;
     }
 
@@ -71,7 +71,7 @@ public class AttentionServiceImp implements AttentionService {
             throw new Exception("attention not exist");
         }
         attentionsCancelByDevId.deleteAttentionsByDevId(userAccount, devId);
-        sendMail(userAccount, devId, 0, "感谢您的使用。若非本人操作请及时修改密码");
+//        sendMail(userAccount, devId, 0, "感谢您的使用。若非本人操作请及时修改密码");
         return null;
     }
 

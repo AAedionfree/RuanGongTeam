@@ -10,6 +10,7 @@ import org.spring.springboot.domain.Device;
 import org.spring.springboot.domain.Log;
 import org.spring.springboot.domain.User;
 import org.spring.springboot.service.LogService;
+import org.spring.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,6 +55,12 @@ public class LogServiceImp implements LogService {
     @Autowired
     private DevBuyDao devBuyDao;
 
+    @Autowired
+    private LogUserAccountRepairDao logUserAccountRepairDao;
+
+    @Autowired
+    private LogUpdateDao logUpdateDao;
+
     @Override
     public List<Log> findAllLogs() {
         return logsDao.findAllLogs();
@@ -68,7 +75,6 @@ public class LogServiceImp implements LogService {
         String date = new Date().toString();
         Device device = devIdDao.findDeviceBydevId(devId).get(0);
         User user = userAuthDao.findUserByUserAuth(0).get(0);
-        int logId = logsAddBasicRecordDao.getPrimayKey() + 1;
         int deviceStatus = device.getDevStatus();
         int deviceWorkStatus = device.getDevWorkStatus();
         int auth = device.getDevAuth();
@@ -80,10 +86,10 @@ public class LogServiceImp implements LogService {
             throw new Exception("Can't deal device with devStatus:" + device.getDevWorkStatus());
         }
         if (tokenId == 5) {
-            logsAddBasicRecordDao.logsAddBasicRecord(logId, devId, deviceStatus, deviceWorkStatus,
+            logsAddBasicRecordDao.logsAddBasicRecord(devId, deviceStatus, deviceWorkStatus,
                     tokenId, tokenStatus, userAccount, user.getUserAccount(), date, auth);
         } else {
-            logsAddBasicRecordDao.logsAddBasicRecord(logId, devId, deviceStatus, deviceWorkStatus,
+            logsAddBasicRecordDao.logsAddBasicRecord(devId, deviceStatus, deviceWorkStatus,
                     tokenId, tokenStatus, userAccount, device.getManagerAccount(), date, auth);
         }
     }
@@ -124,26 +130,30 @@ public class LogServiceImp implements LogService {
         return logsScrapRecordDao.findScrapRecord();
     }
 
-    @Override
-    public List<Log> dealScrapLog(String userAccount, Integer logId, Integer logStatus) throws Exception {
-        String date = new Date().toString();
+    private Log checkLog(String userAccount, int logId, int logStatus, int minAuth) throws Exception {
         if (logStatus != 1 && logStatus != 2) {
             throw new Exception("logStatus only can be 1 or 2 but received:" + logStatus);
         }
         int userAuth = userAccountDao.findUserByUserAccount(userAccount).get(0).getUserAuthority();
-        if (userAuth > 0) {
+        if (userAuth > minAuth) {
             throw new Exception("Authentication user failed with UserAuthority:" + userAuth);
         }
         Log log = logsIdDao.findLogsByLogId(logId).get(0);
         int logNowStatus = log.getTokenStatus();
-        int devId = log.getDevId();
         if (logNowStatus != 3) {
             throw new Exception("Authentication Log Status failed with:" + logNowStatus);
         }
+        return log;
+    }
+
+    @Override
+    public List<Log> dealScrapLog(String userAccount, Integer logId, Integer logStatus) throws Exception {
+        String date = new Date().toString();
+        Log log = checkLog(userAccount, logId, logStatus, 0);
+        int devId = log.getDevId();
         logsScrapRecordDao.dealScrapRecord(logId, logStatus);
         devWorkStatusDao.updateDevWorkStatusByDevId(devId, logStatus == 2 ? 3 : 2);
-        int id = logsAddBasicRecordDao.getPrimayKey() + 1;
-        logsAddBasicRecordDao.logsAddBasicRecord(id, devId, -1, logStatus == 2 ? 3 : 2,
+        logsAddBasicRecordDao.logsAddBasicRecord(devId, -1, logStatus == 2 ? 3 : 2,
                 6, logStatus, userAccount, "NULL", date, -1);
         return null;
     }
@@ -161,11 +171,6 @@ public class LogServiceImp implements LogService {
     }
 
     @Override
-    public List<Log> addAttentionRecord(String userAccount, Integer devId) throws Exception {
-
-        return null;
-    }
-    @Override
     public List<Log> findBuyDevTempLog(String userAccount) throws Exception {
         int auth = userAccountDao.findUserByUserAccount(userAccount).get(0).getUserAuthority();
         if (auth > 0) {
@@ -173,8 +178,9 @@ public class LogServiceImp implements LogService {
         }
         return logsBuyTempDao.findBuyTempRecord();
     }
+
     @Override
-    public List<Log> dealBuyDevTempLog(String userAccount, String managerAccount, Integer logId, Integer logStatus) throws Exception{
+    public List<Log> dealBuyDevTempLog(String userAccount, String managerAccount, Integer logId, Integer logStatus) throws Exception {
         String date = new Date().toString();
         int userAuth = userAccountDao.findUserByUserAccount(userAccount).get(0).getUserAuthority();
         int managerAuth = userAccountDao.findUserByUserAccount(managerAccount).get(0).getUserAuthority();
@@ -203,9 +209,24 @@ public class LogServiceImp implements LogService {
         if (logNowStatus != 3) {
             throw new Exception("Authentication Log Status failed with:" + logNowStatus);
         }
-        devBuyDao.buyDeviceByDevInfo(devId,devName,devType,devPrise,devDate,devPeriod,chargeAccount,managerAccount,devAuth);
-        logsBuyTempDao.logUpdate(devId,logId,date);
+        devBuyDao.buyDeviceByDevInfo(devId, devName, devType, devPrise, devDate, devPeriod, chargeAccount, managerAccount, devAuth);
+        logsBuyTempDao.logUpdate(devId, logId, date);
         return null;
     }
+
+    @Override
+    public List<Log> findRepairLog(String userAccount) throws Exception {
+        return logUserAccountRepairDao.findRepairLogByUserAccount(userAccount);
+    }
+
+    @Override
+    public List<Log> dealRepairLog(String userAccount, Integer logId, Integer logStatus) throws Exception {
+        Log log = checkLog(userAccount, logId, logStatus, 2);
+        int devId = log.getDevId();
+        logUpdateDao.updateByLogId(logId, logStatus);
+        devWorkStatusDao.updateDevWorkStatusByDevId(devId, logStatus == 2 ? 3 : 1);
+        return null;
+    }
+
 
 }

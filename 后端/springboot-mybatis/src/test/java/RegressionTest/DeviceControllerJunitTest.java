@@ -115,10 +115,12 @@ public class DeviceControllerJunitTest {
         assertEquals(0, addAttention.getCode());
 
         ResultBean<Device> revertDeviceByDevId = deviceController.revertDeviceByDevId("TestUserAccount", -1);
+        assertEquals("success", revertDeviceByDevId.getMessage());
         assertEquals(0, revertDeviceByDevId.getCode());
 
         ResultBean<AttentionItem> cancelAttention = attentionController
                 .cancelAttentionRecord("TestUserAccount",-1);
+        assertEquals("success", cancelAttention.getMessage());
         assertEquals(0, cancelAttention.getCode());
 
         revertDeviceByDevId = deviceController.revertDeviceByDevId("TestUserAccount", -1);

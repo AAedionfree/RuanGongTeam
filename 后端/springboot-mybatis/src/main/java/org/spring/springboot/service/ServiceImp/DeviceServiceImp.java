@@ -183,7 +183,7 @@ public class DeviceServiceImp implements DeviceService {
                     String devDate = new Date().toString();
                     devBuyDao.buyDeviceTempByDevInfo(devId,devName,devType,devPrise,devDate,devPeriod,chargeAccount,devAuth);
                     int logId = logsAddBasicRecordDao.getPrimayKey() + 1;
-                    logsAddBasicRecordDao.logsAddBasicRecord(logId,devId,1,1,0,3,chargeAccount,
+                    logsAddBasicRecordDao.logsAddBasicRecord(devId,1,1,0,3,chargeAccount,
                             user.getUserAccount(),date,devAuth);
                 }
                 return null;

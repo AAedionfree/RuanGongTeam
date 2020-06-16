@@ -3,6 +3,7 @@ package org.spring.springboot.controller;
 import org.spring.springboot.ExceptionCatch;
 import org.spring.springboot.ResultBean;
 import org.spring.springboot.domain.User;
+import org.spring.springboot.service.ServiceImp.EmailClient;
 import org.spring.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -76,7 +77,12 @@ public class UserController {
         return ExceptionCatch.exceptionCatch(userService, userAccount, userAccount, userPassword);
     }
 
-
+    @Autowired
+    EmailClient emailClient;
+    @RequestMapping(value = "/api/send", method = RequestMethod.GET)
+    public void sendmail(){
+        emailClient.sendMail("296684505@qq.com","text","text");
+    }
 }
 
 
