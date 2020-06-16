@@ -27,4 +27,6 @@ public interface LogService extends Service {
     List<Log> findBuyDevTempLog(String userAccount) throws Exception;
 
     List<Log> dealBuyDevTempLog(String userAccount, String managerAccount, Integer logId, Integer logStatus) throws Exception;
+
+    List<Log> addRepairRecord(String userAccount, Integer devId) throws Exception;
 }

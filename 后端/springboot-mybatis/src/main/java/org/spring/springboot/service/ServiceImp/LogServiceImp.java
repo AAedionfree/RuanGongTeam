@@ -208,4 +208,15 @@ public class LogServiceImp implements LogService {
         return null;
     }
 
+    @Override
+    public List<Log> addRepairRecord(String userAccount, Integer devId) throws Exception {
+        Device device = devIdDao.findDeviceBydevId(devId).get(0);
+        int devWorkStatus = device.getDevWorkStatus();
+        if (devWorkStatus != 3){
+            throw new Exception("This dev can't be repaired");
+        }
+        addBasicRecord(userAccount, devId, 7, 3, 3);
+        return null;
+    }
+
 }
