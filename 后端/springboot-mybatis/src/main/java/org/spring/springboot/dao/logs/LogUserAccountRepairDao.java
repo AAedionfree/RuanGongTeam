@@ -9,7 +9,7 @@ import org.spring.springboot.domain.Log;
 import java.util.List;
 
 public interface LogUserAccountRepairDao {
-    @Select("SELECT * FROM logs where token_id = 7 and user_account = #{userAccount}")
+    @Select("SELECT * FROM logs where token_id = 7 and token_status = 3 and receiver_account = #{userAccount}")
     // 返回 Map 结果集
     @Results({
             @Result(property = "logId", column = "log_id"),
@@ -18,8 +18,8 @@ public interface LogUserAccountRepairDao {
             @Result(property = "devWorkStatus", column = "dev_work_status"),
             @Result(property = "tokenId", column = "token_id"),
             @Result(property = "tokenStatus", column = "token_status"),
-            @Result(property = "senderAccount", column = "sender_Account"),
-            @Result(property = "receiverAccount", column = "receiver_Account"),
+            @Result(property = "senderAccount", column = "sender_account"),
+            @Result(property = "receiverAccount", column = "receiver_account"),
             @Result(property = "changeTime", column = "change_time"),
             @Result(property = "auth", column = "auth")
     })
