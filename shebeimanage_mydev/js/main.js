@@ -124,3 +124,13 @@ function to_follow(user) {
 		}
 	});
 }
+
+	function to_email(user) {
+		mui.init();
+		mui.openWindow({
+			url: 'email.html',
+			extras: {
+				user: user,
+			}
+		});
+	}

@@ -29,4 +29,6 @@ public interface LogService extends Service {
     List<Log> findRepairLog(String userAccount) throws Exception;
 
     List<Log> dealRepairLog(String userAccount, Integer logId, Integer logStatus) throws Exception;
+    
+    List<Log> addRepairRecord(String userAccount, Integer devId) throws Exception;
 }
