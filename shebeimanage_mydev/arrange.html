@@ -68,7 +68,7 @@
 						<select id="sel_manager" class="mui-btn" style="position: absolute;top:2px;right: 18%;height:33px;line-height: 15px;width: 95px;">
 							<option value="item-1">选择管理员</option>
 							<% for(var j = 0;j < manager_list.length;j++){ %>
-								<option value="<%= manager_list[i].userAccount%>"><%= manager_list[i].userAccount%></option>
+								<option value="<%= manager_list[j].userAccount%>"><%= manager_list[j].userAccount%></option>
 							<% } %>
 						</select>
 						<button style="position: absolute;top:6px;right:3%;height:28px;line-height: 15px;" onclick="who_manager(<%= buy_list[i].logId%>,request_url)">确认</button>
