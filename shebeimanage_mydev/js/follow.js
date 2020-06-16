@@ -1,3 +1,10 @@
+
+
+function follow(request_url){
+	is_have_mail(request_url);
+	follow_m(request_url);
+}
+
 function follow_m(request_url) {
 	mui.init();
 	mui.plusReady(function() {
@@ -38,6 +45,46 @@ function follow_m(request_url) {
 					document.getElementById('follow_tb').innerHTML = template(follow_text, {
 						list: dev_data
 					});
+				}
+			},
+			error: function(xhr, type, errorThrown) {
+				mui.toast("服务器内部出错！");
+			}
+		});
+	});
+}
+
+function is_have_mail(request_url) {
+	mui.init();
+	mui.plusReady(function() {
+		var self = plus.webview.currentWebview();
+		var user = self.user;
+		// var s ="";
+
+		// for (var p in user) {
+		// 	s= s+"n "+p+": "+user[p];
+		// }
+		// mui.toast(s);
+		var search_url = request_url + 'EmailFindByUserAccount?userAccount=' + user.userAccount;
+		// alert(search_url);
+		mui.ajax({
+			type: 'GET',
+			url: search_url,
+			timeout: 10000,
+			dataType: "json",
+			success: function(data) {
+
+				if (data.data != null) {
+					var dev_data = new Array();
+					dev_data = data.data;
+					if(dev_data.length == 0){
+					    var btn_is_mail = ['稍后再说', '现在绑定'];
+						mui.confirm("您还没有绑定邮箱!\n若您不绑定邮箱,您将无法通过邮箱获得您关注设备的事实信息。","提示",btn_is_mail,function(e) {
+							if (e.index == 1) {
+								to_email(request_url);
+							}
+						});
+					}	
 				}
 			},
 			error: function(xhr, type, errorThrown) {
@@ -142,3 +189,13 @@ function more(dev_data_num, request_url) {
 	// }
 	// alert(s);
 }
+
+	function to_email(user) {
+		mui.init();
+		mui.openWindow({
+			url: 'email.html',
+			extras: {
+				user: user,
+			}
+		});
+	}
