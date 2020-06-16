@@ -2,27 +2,41 @@ package org.spring.springboot.service.ServiceImp;
 
 import org.junit.Before;
 import org.spring.springboot.dao.users.*;
+import org.spring.springboot.domain.Email;
 import org.spring.springboot.domain.User;
+import org.spring.springboot.service.EmailService;
 import org.spring.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
-public class UserServicrImp implements UserService {
+public class UserServiceImp implements UserService {
     @Autowired
     private UserAccountDao userAccountDao;
+
     @Autowired
     private UserIdDao userIdDao;
+
     @Autowired
     private UserSignUp userSignUp;
+
     @Autowired
     private UserUpdatePassword userUpdatePassword;
+
     @Autowired
     private UserLogoutDao userLogout;
+
     @Autowired
     private UserAuthDao userAuthDao;
+
+    @Autowired
+    private EmailService emailService;
+
+    @Autowired
+    private EmailClient emailClient;
 
     @Override
     public List<User> findUserByUserAccount(String userAccount) throws Exception {
@@ -65,6 +79,12 @@ public class UserServicrImp implements UserService {
     public List<User> login(String userAccount, String userPassword) throws Exception{
         List<User> userByUserAccount = findUserByUserAccount(userAccount);
         if(userByUserAccount.get(0).getUserPassword().equals(userPassword)){
+            List<Email> email = emailService.findEmailByUserAccount(userAccount);
+            if(email.size() > 0){
+                emailClient.sendMail(email.get(0).getEmailAddress(),
+                        "您的账号" + userAccount + "刚刚进行了登录操作",
+                        new Date().toString() + "若非本人操作，请及时修改密码");
+            }
             return userByUserAccount;
         }else{
             throw new Exception("Wrong password");

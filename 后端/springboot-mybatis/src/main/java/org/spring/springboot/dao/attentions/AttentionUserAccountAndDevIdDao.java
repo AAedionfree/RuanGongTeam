@@ -8,11 +8,12 @@ import org.spring.springboot.domain.AttentionItem;
 
 import java.util.List;
 
-public interface AttentionDevIdDao {
-    @Select("SELECT * FROM attentions where dev_id = #{devId}")
+public interface AttentionUserAccountAndDevIdDao {
+    @Select("SELECT * FROM attentions where user_account = #{userAccount} and dev_id = #{devId}")
     @Results({
             @Result(property = "userAccount", column = "user_account"),
             @Result(property = "devId", column = "dev_id")
     })
-    List<AttentionItem> findAttentionByDevId(@Param("devId") int devId);
+    List<AttentionItem> findAttentionByUserAccountAndDevId(@Param("userAccount") String userAccount,
+                                                   @Param("devId") int devId);
 }

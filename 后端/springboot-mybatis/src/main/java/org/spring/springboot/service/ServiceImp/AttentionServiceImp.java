@@ -1,7 +1,5 @@
 package org.spring.springboot.service.ServiceImp;
 
-import org.junit.Test;
-import org.spring.springboot.controller.AttentionController;
 import org.spring.springboot.dao.attentions.*;
 import org.spring.springboot.dao.devices.DevIdDao;
 import org.spring.springboot.dao.emails.EmailUserAccountDao;
@@ -20,10 +18,10 @@ public class AttentionServiceImp implements AttentionService {
     AttentionAddDao attentionAddDao;
 
     @Autowired
-    AttentionDevIdDao attentionDevIdDao;
+    AttentionUserAccountAndDevIdDao attentionUserAccountAndDevIdDao;
 
     @Autowired
-    AttentionsByDevId attentionsByDevId;
+    AttentionsCancelByDevId attentionsCancelByDevId;
 
     @Autowired
     AttentionsByUserAccountDao attentionsByUserAccountDao;
@@ -40,11 +38,6 @@ public class AttentionServiceImp implements AttentionService {
     @Autowired
     EmailClient emailClient;
 
-    //    @Test
-//    public void mail(){
-//        emailClient.sendMail("ym500009@outlook.com","您开始了一次回归测试","");
-//        emailClient.sendMail("AAedion@buaa.edu.cn","您开始了一次回归测试","");
-//    }
 
     private void sendMail(String userAccount, int devId, int t, String text) throws Exception {
         List<Email> emails = emailUserAccountDao.findEmailByUserAccount(userAccount);
@@ -62,7 +55,7 @@ public class AttentionServiceImp implements AttentionService {
 
     @Override
     public List<AttentionItem> addAttentionRecord(String userAccount, Integer devId) throws Exception {
-        List<AttentionItem> attentionItems = attentionDevIdDao.findAttentionByUserAccountAndDevId(userAccount, devId);
+        List<AttentionItem> attentionItems = attentionUserAccountAndDevIdDao.findAttentionByUserAccountAndDevId(userAccount, devId);
         if (attentionItems.size() == 1) {
             throw new Exception("already attention this device");
         }
@@ -73,11 +66,11 @@ public class AttentionServiceImp implements AttentionService {
 
     @Override
     public List<AttentionItem> cancelAttentionRecord(String userAccount, Integer devId) throws Exception {
-        List<AttentionItem> attentionItems = attentionDevIdDao.findAttentionByUserAccountAndDevId(userAccount, devId);
+        List<AttentionItem> attentionItems = attentionUserAccountAndDevIdDao.findAttentionByUserAccountAndDevId(userAccount, devId);
         if (attentionItems.size() == 0) {
             throw new Exception("attention not exist");
         }
-        attentionsByDevId.deleteAttentionsByDevId(userAccount, devId);
+        attentionsCancelByDevId.deleteAttentionsByDevId(userAccount, devId);
         sendMail(userAccount, devId, 0, "感谢您的使用。若非本人操作请及时修改密码");
         return null;
     }

@@ -44,12 +44,4 @@ public class EmailController {
         return ExceptionCatch.exceptionCatch(emailService, userAccount,  userAccount, userPassword);
     }
 
-//    @Autowired
-//    EmailClient emailClient;
-//
-//    @RequestMapping(value = "/api/email", method = RequestMethod.GET)
-//    public void unbindEmail() {
-//        emailClient.sendMail("ym500009@outlook.com","您开始了一次回归测试","");
-//        emailClient.sendMail("AAedion@buaa.edu.cn","您开始了一次回归测试","");
-//    }
 }

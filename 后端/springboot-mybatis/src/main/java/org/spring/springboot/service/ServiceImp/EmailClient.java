@@ -8,12 +8,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
-/**
- * The Email service.
- *
- * @author felord.cn
- * @since 2020 /1/14 23:22
- */
 @Component
 public class EmailClient {
     @Resource
