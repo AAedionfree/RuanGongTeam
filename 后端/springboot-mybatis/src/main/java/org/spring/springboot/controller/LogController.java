@@ -113,6 +113,8 @@ public class LogController {
             @RequestParam(value = "logStatus", required = true) int logStatus
     ) {
         return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount, new Integer(logId), new Integer(logStatus));
+    }
+
     // add repair record
     @RequestMapping(value = "/api/logAddRepairRecord", method = RequestMethod.GET)
     public ResultBean addRepairRecord(
