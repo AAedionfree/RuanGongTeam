@@ -110,6 +110,7 @@ public class LogServiceImp implements LogService {
 
     @Override
     public List<Log> addScrapLog(String userAccount, Integer devId) throws Exception {
+        checkLogOnce(userAccount,devId,5);
         addBasicRecord(userAccount, devId, 5, 3, 3);
         devWorkStatusDao.updateDevWorkStatusByDevId(devId, 5);
         return null;
@@ -208,13 +209,17 @@ public class LogServiceImp implements LogService {
         return null;
     }
 
+    public void checkLogOnce(String userAccount, Integer devId, Integer tokenId) throws Exception {
+        List<Log> logs = logsUserAccountDao.findLogsByUser(userAccount,devId,3,tokenId);
+        if (logs.size() > 0){
+            throw new Exception("Can't add more than one log");
+        }
+
+    }
+
     @Override
     public List<Log> addRepairRecord(String userAccount, Integer devId) throws Exception {
-        Device device = devIdDao.findDeviceBydevId(devId).get(0);
-        int devWorkStatus = device.getDevWorkStatus();
-        if (devWorkStatus != 3){
-            throw new Exception("This dev can't be repaired");
-        }
+        checkLogOnce(userAccount,devId,7);
         addBasicRecord(userAccount, devId, 7, 3, 3);
         return null;
     }
