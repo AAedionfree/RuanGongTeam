@@ -363,8 +363,8 @@ function who_manager(logid,request_url){
 		var self = plus.webview.currentWebview();
 		var user = self.user;
 		var manager_account = document.getElementById("sel_manager").value;
+		alert(manager_account);
 		// var s ="";
-	
 		// for (var p in user) {
 		// 	s= s+"n "+p+": "+user[p];
 		// }
