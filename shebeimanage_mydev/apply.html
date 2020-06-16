@@ -56,6 +56,9 @@
 						<% if(list[i].tokenId=='报废申请') {%>
 							<li class="mui-badge mui-badge-purple mui-badge-inverted" style="position: absolute;top:6px;left:3%;font-size: 18px;line-height: 30px;">报废申请</li>
 						<% } %>
+						<% if(list[i].tokenId=='购置申请') {%>
+							<li class="mui-badge mui-badge-yellow mui-badge-inverted" style="position: absolute;top:6px;left:3%;font-size: 18px;line-height: 30px;">购置申请</li>
+						<% } %>
 						<button onclick="app_more(0,<%=i%>,request_url)" style="position: absolute;top:6px;right:20px;height:28px;line-height: 15px;">更多</button>
 					</div>		
 				<% } %>
