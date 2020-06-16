@@ -381,6 +381,10 @@ function who_manager(logid,request_url){
 					mui.toast("确认成功！")
 					load_dai(request_url);
 				}
+				else{
+					mui.toast("操作失败！")
+					load_dai(request_url);
+				}
 				// 	var s ="";
 	
 				// 	for (var p in dev_chadata) {
