@@ -2,10 +2,7 @@ package org.spring.springboot.service.ServiceImp;
 
 import org.junit.Test;
 import org.spring.springboot.controller.AttentionController;
-import org.spring.springboot.dao.attentions.AttentionAddDao;
-import org.spring.springboot.dao.attentions.AttentionDevIdDao;
-import org.spring.springboot.dao.attentions.AttentionsByDevId;
-import org.spring.springboot.dao.attentions.AttentionsByUserAccountDao;
+import org.spring.springboot.dao.attentions.*;
 import org.spring.springboot.dao.devices.DevIdDao;
 import org.spring.springboot.dao.emails.EmailUserAccountDao;
 import org.spring.springboot.domain.AttentionItem;
@@ -36,6 +33,9 @@ public class AttentionServiceImp implements AttentionService {
 
     @Autowired
     DevIdDao devIdDao;
+
+    @Autowired
+    AttentionDeviceDao attentionDeviceDao;
 
     @Autowired
     EmailClient emailClient;
@@ -85,5 +85,10 @@ public class AttentionServiceImp implements AttentionService {
     @Override
     public List<AttentionItem> FindAttentionRecord(String userAccount) throws Exception {
         return attentionsByUserAccountDao.findAttentionByUserAccount(userAccount);
+    }
+
+    @Override
+    public List<Device> FindAttentionDevices(String userAccount) throws Exception {
+        return attentionDeviceDao.findDevice(userAccount);
     }
 }

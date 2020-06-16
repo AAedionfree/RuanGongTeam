@@ -37,4 +37,11 @@ public class AttentionController {
     ) {
         return ExceptionCatch.exceptionCatch(attentionService, userAccount, userAccount);
     }
+
+    @RequestMapping(value = "api/AttentionDevices", method = RequestMethod.GET)
+    public ResultBean FindAttentionDevices(
+            @RequestParam(value = "userAccount", required = true) String userAccount
+    ) {
+        return ExceptionCatch.exceptionCatch(attentionService, userAccount, userAccount);
+    }
 }
