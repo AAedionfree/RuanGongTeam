@@ -6,9 +6,11 @@ import org.junit.runners.MethodSorters;
 import org.spring.springboot.Application;
 import org.spring.springboot.RegressionTest;
 import org.spring.springboot.ResultBean;
+import org.spring.springboot.controller.AttentionController;
 import org.spring.springboot.controller.DeviceController;
 import org.spring.springboot.controller.LogController;
 import org.spring.springboot.dao.devices.DevBuyDao;
+import org.spring.springboot.domain.AttentionItem;
 import org.spring.springboot.domain.Device;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,6 +32,8 @@ public class DeviceControllerJunitTest {
     LogController logController;
     @Autowired
     DevBuyDao devBuyDao;
+    @Autowired
+    AttentionController attentionController;
 
     @BeforeClass
     public static void setTestInfo() {
@@ -55,9 +59,9 @@ public class DeviceControllerJunitTest {
         assertEquals(true, device.get(0).getDevDate().equals("TestDevDate"));
         assertEquals(true, device.get(0).getDevPeriod().equals("TestDevPeriod"));
         assertEquals(true, device.get(0).getChargeAccount().equals("TestChargeAccount"));
-        assertEquals(true, device.get(0).getManagerAccount().equals("TestManagerAccount"));
-        assertEquals(true, device.get(0).getDevWorkStatus() == 3);
-        assertEquals(true, device.get(0).getDevStatus() == 0);
+        assertEquals(true, device.get(0).getManagerAccount().equals("TestUserAccount"));
+        assertEquals(true, device.get(0).getDevWorkStatus() == 1);
+        assertEquals(true, device.get(0).getDevStatus() == 1);
         assertEquals(true, device.get(0).getDevAuth() == 0);
     }
 
@@ -88,6 +92,9 @@ public class DeviceControllerJunitTest {
     @Test
     public void Test005_lendDeviceByDevId() {
         ResultBean<Device> lendDeviceByDevId = deviceController.lendDeviceByDevId("TestUserAccount", -1);
+        assertEquals(0, lendDeviceByDevId.getCode());
+
+        lendDeviceByDevId = deviceController.lendDeviceByDevId("TestUserAccount", -1);
         assertEquals(-1, lendDeviceByDevId.getCode());
         assertEquals("Device can not be lend to you", lendDeviceByDevId.getMessage());
         assertNull(lendDeviceByDevId.getData());
@@ -103,7 +110,18 @@ public class DeviceControllerJunitTest {
 
     @Test
     public void Test007_revertDeviceByDevId() {
+        ResultBean<AttentionItem> addAttention = attentionController
+                .addAttentionRecord("TestUserAccount", -1);
+        assertEquals(0, addAttention.getCode());
+
         ResultBean<Device> revertDeviceByDevId = deviceController.revertDeviceByDevId("TestUserAccount", -1);
+        assertEquals(0, revertDeviceByDevId.getCode());
+
+        ResultBean<AttentionItem> cancelAttention = attentionController
+                .cancelAttentionRecord("TestUserAccount",-1);
+        assertEquals(0, cancelAttention.getCode());
+
+        revertDeviceByDevId = deviceController.revertDeviceByDevId("TestUserAccount", -1);
         assertEquals(-1, revertDeviceByDevId.getCode());
         assertEquals("Device can not be reverted", revertDeviceByDevId.getMessage());
         assertNull(revertDeviceByDevId.getData());

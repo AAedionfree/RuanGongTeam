@@ -41,8 +41,8 @@ public class UserControllerJunitTest {
     @Test
     public void Test001_login() {
         ResultBean<User> login = userController.login("17182626", "17182626");
-        assertEquals(0, login.getCode());
         assertEquals("success", login.getMessage());
+        assertEquals(0, login.getCode());
         login = userController.login("123133", "AAedion");
         assertEquals(-1, login.getCode());
         assertEquals("UserAccount not Exist in DataBase", login.getMessage());

@@ -62,12 +62,15 @@ public class LogControllerJunitTest {
 
     @Test
     public void Test003_addFixLog() {
+        ResultBean addFixDamageWorkStatusError = logController.addDamageLog("TestUserAccount", -1);
+        assertEquals(0, addFixDamageWorkStatusError.getCode());
+
         ResultBean addFixLogAuthError = logController.addFixLog("AAedion", -1);
+        assertEquals("Authentication failed AAedion", addFixLogAuthError.getMessage());
         assertEquals(-1, addFixLogAuthError.getCode());
         assertEquals(null, addFixLogAuthError.getData());
-        assertEquals("Authentication failed AAedion", addFixLogAuthError.getMessage());
 
-        ResultBean addFixDamageWorkStatusError = logController.addDamageLog("TestUserAccount", -1);
+        addFixDamageWorkStatusError = logController.addDamageLog("TestUserAccount", -1);
         assertEquals(-1, addFixDamageWorkStatusError.getCode());
         assertEquals(null, addFixDamageWorkStatusError.getData());
         assertEquals("Can't deal device with devStatus:3", addFixDamageWorkStatusError.getMessage());
@@ -148,6 +151,11 @@ public class LogControllerJunitTest {
         Device dev = new ArrayList<Device>(device.getData()).get(0);
         assertEquals(0, device.getCode());
         assertEquals(3, dev.getDevWorkStatus());
+
+        ResultBean addFixLog = logController.addFixLog("TestUserAccount", -1);
+        assertEquals(0, addFixLog.getCode());
+        assertEquals(null, addFixLog.getData());
+        assertEquals("success", addFixLog.getMessage());
     }
 
     @Test

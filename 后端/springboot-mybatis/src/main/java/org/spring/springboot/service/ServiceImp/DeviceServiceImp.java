@@ -1,10 +1,14 @@
 package org.spring.springboot.service.ServiceImp;
 
+import org.spring.springboot.dao.attentions.AttentionDevIdDao;
 import org.spring.springboot.dao.devices.*;
+import org.spring.springboot.dao.emails.EmailUserAccountDao;
 import org.spring.springboot.dao.logs.LogsAddBasicRecordDao;
 import org.spring.springboot.dao.users.UserAccountDao;
 import org.spring.springboot.dao.users.UserAuthDao;
+import org.spring.springboot.domain.AttentionItem;
 import org.spring.springboot.domain.Device;
+import org.spring.springboot.domain.Email;
 import org.spring.springboot.domain.User;
 import org.spring.springboot.service.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,22 +25,39 @@ public class DeviceServiceImp implements DeviceService {
     private DevIdDao devIdDao;
     @Autowired
     private DevManagerAccountDao devManagerAccountDao;
+
     @Autowired
     private DevAuthDao devAuthDao;
+
     @Autowired
     private UserAccountDao userAccountDao;
+
     @Autowired
     private DevRentDao devRentDao;
+
     @Autowired
     private DevUserAccountDao devUserAccountDao;
+
     @Autowired
     private DevRevertDao devRevertDao;
+
     @Autowired
     private DevBuyDao devBuyDao;
+
     @Autowired
     private LogsAddBasicRecordDao logsAddBasicRecordDao;
+
     @Autowired
     private UserAuthDao userAuthDao;
+
+    @Autowired
+    private AttentionDevIdDao attentionDevIdDao;
+
+    @Autowired
+    private EmailClient emailClient;
+
+    @Autowired
+    private EmailUserAccountDao emailUserAccountDao;
 
     public List<Device> findDeviceByDevId(Integer devId) throws Exception{
         List<Device> devices = devIdDao.findDeviceBydevId(devId);
@@ -95,6 +116,19 @@ public class DeviceServiceImp implements DeviceService {
             String devUserAccount = device.getUserAccount();
             if (devStatus == 2 && devUserAccount.equals(userAccount)) {
                 devRevertDao.revertDeviceByDevId(devId);
+                List<AttentionItem> attentionItemList = attentionDevIdDao.findAttentionByDevId(devId);
+                for(AttentionItem item : attentionItemList){
+                    String attentionUserAccount = item.getUserAccount();
+                    System.out.println(attentionUserAccount);
+                    List<Email> emails = emailUserAccountDao.findEmailByUserAccount(attentionUserAccount);
+                    if(emails.size() == 0){
+                        throw new Exception(userAccount + " unbind a Email");
+                    }
+                    String emailAddress = emails.get(0).getEmailAddress();
+                    emailClient.sendMail(emailAddress,
+                            "您关注的设备"+device.getDevName()+"当前处于空闲状态",
+                            "时间:" + new Date());
+                }
                 return devIdDao.findDeviceBydevId(devId);
             } else {
                 throw new Exception("Device can not be reverted");

@@ -21,11 +21,11 @@ public class SendEmail {
 
     @Test
     public void mail(){
-        emailClient.sendMail("164878954@qq.com",
-                "RegressionTest Start!!!",
-                "开始时间：" + new Date().toString());
-        emailClient.sendMail("296684505@qq.com",
-                "RegressionTest Start!!!",
-                "开始时间：" + new Date().toString());
+//        emailClient.sendMail("164878954@qq.com",
+//                "RegressionTest Start!!!",
+//                "开始时间：" + new Date().toString());
+//        emailClient.sendMail("296684505@qq.com",
+//                "RegressionTest Start!!!",
+//                "开始时间：" + new Date().toString());
     }
 }

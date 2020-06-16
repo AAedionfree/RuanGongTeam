@@ -72,7 +72,8 @@ public class LogServiceImp implements LogService {
         int deviceStatus = device.getDevStatus();
         int deviceWorkStatus = device.getDevWorkStatus();
         int auth = device.getDevAuth();
-        if ((device.getUserAccount() != null && !device.getUserAccount().equals(userAccount)) && !device.getChargeAccount().equals(userAccount)) {
+        if (!(device.getUserAccount() != null && device.getUserAccount().equals(userAccount))
+                && !device.getManagerAccount().equals(userAccount)) {
             throw new Exception("Authentication failed " + userAccount);
         }
         if (deviceWorkStatus != startStatus) {
