@@ -24,7 +24,15 @@ function quit_login() {
 			}
 		});
 	}
-
+	function to_email(user) {
+		mui.init();
+		mui.openWindow({
+			url: 'email.html',
+			extras: {
+				user: user,
+			}
+		});
+	}
 	function to_about() {
 		mui.init();
 		mui.openWindow({
