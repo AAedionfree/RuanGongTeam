@@ -49,6 +49,7 @@ function search_fuze_zujie(request_url) {
 		mui.ajax({
 			type: 'GET',
 			url: search_zujie_url,
+			
 			timeout: 10000,
 			dataType: "json",
 			success: function(data) {
@@ -408,6 +409,36 @@ function back(request_url, dev_data_num) {
 		mui.ajax({
 			type: 'GET',
 			url: back_url,
+			timeout: 10000,
+			dataType: "json",
+			success: function(data) {
+				mui.toast(data.message);
+				search_fuze_zujie(request_url);
+			},
+			error: function(xhr, type, errorThrown) {
+				mui.toast("服务器内部出错！");
+			}
+		});
+	});
+}
+
+function add_guzhang(dev_data_num,request_url) {
+	mui.init();
+	mui.plusReady(function() {
+		var self = plus.webview.currentWebview();
+		var user = self.user;
+
+		// var s ="";
+
+		// for (var p in user) {
+		// 	s= s+"n "+p+": "+user[p];
+		// }
+		// alert(s);
+		var add_xiuli_url = request_url + 'logAddRepairRecord?userAccount=' + user.userAccount + '&devId=' + dev_data_num;
+		 alert(add_xiuli_url);
+		mui.ajax({
+			type: 'GET',
+			url: add_xiuli_url,
 			timeout: 10000,
 			dataType: "json",
 			success: function(data) {
