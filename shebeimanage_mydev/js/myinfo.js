@@ -4,8 +4,9 @@ function my_info() {
 			var self = plus.webview.currentWebview();
 			var user = self.user;
 			document.getElementById("username").innerHTML = user.userName;
+			document.getElementById("username1").innerHTML = user.userName;
 			document.getElementById("myinfo_hao").innerHTML = user.userAccount;
-			document.getElementById("myinfo_id").innerHTML = user.userId;
+			// document.getElementById("myinfo_id").innerHTML = user.userId;
 			if (user.userAuthority == 3) {
 				document.getElementById("myinfo_auth").innerHTML = "租借用户";
 			} else if (user.userAuthority == 2) {
