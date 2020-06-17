@@ -318,7 +318,7 @@ function load_dai(request_url) {
 		});
 	}
 
-	function more_arr(lognum, request_url,type) {  //type=0 报废申请的更多  type=1 购置申请的更多
+	function more_arr(dev_id, request_url,type) {  //type=0 报废申请的更多  type=1 购置申请的更多   type =2 报修申请的更多
 		mui.init();
 		mui.plusReady(function() {
 			var self = plus.webview.currentWebview();
@@ -330,16 +330,17 @@ function load_dai(request_url) {
 			// 	s= s+"n "+p+": "+user[p];
 			// }
 			// alert(s);
+			// alert(dev_id);
 			var arrange_load_url;	
 			if(type==0){
-				arrange_load_url = request_url + 'devFindScrapRecord?userAccount=' + user.userAccount;
+				arrange_load_url = request_url + 'devId?devId=' + dev_id;
 			}
 				
 			else if(type==1){
-				arrange_load_url = request_url + 'logFindBuyTempRecord?userAccount=' + user.userAccount;
+				arrange_load_url = request_url + 'devFindTemp?devId=' + dev_id;
 			}
 			else if(type==2){
-				arrange_load_url =request_url + 'logFindRepairLog?userAccount='+user.userAccount;
+				arrange_load_url = request_url + 'devId?devId=' + dev_id;
 			}
 			// alert(user.userAuthority);
 			mui.ajax({
@@ -349,73 +350,81 @@ function load_dai(request_url) {
 				dataType: "json",
 				success: function(data) {
 					if ((data.data != null)) {
-						var log_data = new Array();
-						log_data = data.data;
-						xian_log = log_data[lognum];
-						var s = "";
-
-						for (var p in xian_log) {
-							if (p == "logId") {
-								s = s + "\n" + p + ": " + xian_log[p];
-							} else if (p == "devId") {
-								s = s + "\n" + p + ": " + xian_log[p];
-							} else if (p == "devStatus") {
-								if (xian_log[p] == 1) {
-									s = s + "\n" + "设备出借状态" + ": " + "空闲";
-								} else if (xian_log[p] == 2) {
-									s = s + "\n" + "设备出借状态" + ": " + "出借";
+						var dev_data = data.data[0];
+							var s ="";
+							//alert(dev_data);
+							for (var p in dev_data) {
+								if ((p == "devWorkStatus") || (p == "devStatus")) {
+						
+									if (p == "devWorkStatus") {
+										if (dev_data[p] == 1) {
+											s = s + "\n" + "设备状态" + ": " + "正常";
+										} else if (dev_data[p] == 2) {
+											s = s + "\n" + "设备状态" + ": " + "报废";
+										} else if (dev_data[p] == 3) {
+											s = s + "\n" + "设备状态" + ": " + "故障";
+										} else if (dev_data[p] == 4) {
+											s = s + "\n" + "设备状态" + ": " + "维修";
+										} else if (dev_data[p] == 5) {
+											s = s + "\n" + "设备状态" + ": " + "待报废";
+										}
+									} else if (p == "devStatus") {
+										if (dev_data[p] == 1) {
+											s = s + "\n" + "设备出借状态" + ": " + "空闲";
+										} else if (dev_data[p] == 2) {
+											s = s + "\n" + "设备出借状态" + ": " + "出借";
+										}
+									}
+								} 
+								else if(p=="devId"){
+									s= s+"\n"+"设备序号"+": "+dev_data[p];
 								}
-							} else if (p == "devWorkStatus") {
-								if (xian_log[p] == 1) {
-									s = s + "\n" + "设备状态" + ": " + "正常";
-								} else if (xian_log[p] == 2) {
-									s = s + "\n" + "设备状态" + ": " + "报废";
-								} else if (xian_log[p] == 3) {
-									s = s + "\n" + "设备状态" + ": " + "故障";
-								} else if (xian_log[p] == 4) {
-									s = s + "\n" + "设备状态" + ": " + "维修";
-								} else if (xian_log[p] == 5) {
-									s = s + "\n" + "设备状态" + ": " + "待报废";
+								else if(p=="devName"){
+									s= s+"\n"+"设备名称"+": "+dev_data[p];
 								}
-							} else if (p == "tokenId") {
-								if (xian_log[p] == 0) {
-									s = s + "\n" + "指令编号" + ": " + "购置";
-								} else if (xian_log[p] == 1) {
-									s = s + "\n" + "指令编号" + ": " + "借取";
-								} else if (xian_log[p] == 2) {
-									s = s + "\n" + "指令编号" + ": " + "归还";
-								} else if (xian_log[p] == 3) {
-									s = s + "\n" + "指令编号" + ": " + "修理";
-								} else if (xian_log[p] == 4) {
-									s = s + "\n" + "指令编号" + ": " + "故障";
-								} else if (xian_log[p] == 5) {
-									s = s + "\n" + "指令编号" + ": " + "报废";
-								} else if (xian_log[p] == 6) {
-									s = s + "\n" + "指令编号" + ": " + "确认";
+								else if(p=="devType"){
+									s= s+"\n"+"设备类型"+": "+dev_data[p];
 								}
-							} else if (p == "tokenStatus") {
-								if (xian_log[p] == 1) {
-									s = s + "\n" + "指令执行状态" + ": " + "执行成功";
-								} else if (xian_log[p] == 2) {
-									s = s + "\n" + "指令执行状态" + ": " + "执行失败";
-								} else if (xian_log[p] == 3) {
-									s = s + "\n" + "指令执行状态" + ": " + "代办";
-								} else if (xian_log[p] == 4) {
-									s = s + "\n" + "指令执行状态" + ": " + "已撤回";
+								else if(p=="devPrise"){
+									s= s+"\n"+"设备价格"+": "+dev_data[p];
 								}
-							} else if (p == "senderAccount") {
-								s = s + "\n" + "执行操作用户账号" + ": " + xian_log[p];
-							} else if (p == "receiver_account") {
-								s = s + "\n" + "接收人账号" + ": " + xian_log[p];
-							} else if (p == "change_time") {
-								s = s + "\n" + "更改日期" + ": " + xian_log[p];
-							} else if (p == "auth") {
-								s = s + "\n" + p + ": " + quan_chin(xian_log[p]);
+								else if(p=="devDate"){
+									var data=new Array();
+									var ti_me=new Array();
+									data=dev_data[p].split(" ");
+									ti_me=data[3].split(":");
+									var mon=date_chin(data[1]);
+									s= s+"\n"+"设备日期"+": "+data[5]+ "年" + mon + "月" + data[2]+"日"+"  "+ ti_me[0]+":"+ ti_me[1];
+								}
+								else if(p=="devPeriod"){
+									s= s+"\n"+"设备保质期"+": "+dev_data[p];
+								}
+								else if(p=="chargeAccount"){
+									s= s+"\n"+"经办人"+": "+dev_data[p];
+								}
+								else if(p=="managerAccount"){
+									if(dev_data[p]==null){
+										s= s+"\n"+"设备负责人"+": 无";
+									}
+									else{
+									s= s+"\n"+"设备负责人"+": "+dev_data[p];
+									}
+								}
+								else if(p=="devAuth"){
+									s= s+"\n"+"设备权限"+": "+quan_chin(dev_data[p]);
+								}
+								else if(p=="userAccount"){
+									if(dev_data[p]!=null){
+									s= s+"\n"+"用户账号"+": "+dev_data[p];
+									}
+									else {
+										s= s+"\n"+"用户账号"+": 无";
+									}
+								}
 							}
+							alert(s);
 						}
-						alert(s);
-					}
-
+						// alert(data.message);
 				},
 				error: function(xhr, type, errorThrown) {
 					mui.toast("服务器内部出错！");
@@ -425,13 +434,15 @@ function load_dai(request_url) {
 	}
 
 	
-function who_manager(logid,request_url){
+function who_manager(sel_num,logid,request_url){
 	mui.init();
 	mui.plusReady(function() {
 		var self = plus.webview.currentWebview();
 		var user = self.user;
-		var manager_account = document.getElementById("sel_manager").value;
-		alert(manager_account);
+		// alert(sel_num);
+		var manager_account_se = document.getElementById("sel_manager-"+sel_num);
+		var manager_account = manager_account_se.options[manager_account_se.selectedIndex].value;
+		// alert(manager_account);
 		// var s ="";
 		// for (var p in user) {
 		// 	s= s+"n "+p+": "+user[p];

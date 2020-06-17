@@ -175,7 +175,12 @@ function more(dev_data_num, request_url) {
 							s= s+"\n"+"设备权限"+": "+quan_chin(dev_data[p]);
 						}
 						else if(p=="userAccount"){
+							if(dev_data[p]!="null"){
 							s= s+"\n"+"用户账号"+": "+dev_data[p];
+							}
+							else {
+								s= s+"\n"+"用户账号"+": 无";
+							}
 						}
 					}
 					alert(s);

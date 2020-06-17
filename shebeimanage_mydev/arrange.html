@@ -31,6 +31,9 @@
 				var self = plus.webview.currentWebview();
 				user = self.user;
 			});
+			window.addEventListener('refresh_a', function(e){//执行刷新
+			    location.reload();
+			 });
 		</script>
 	</head>
 
@@ -63,20 +66,20 @@
 			<% for(var i = 0;i < buy_list.length;i++){ %>
 				<div class="mui-table-view"><!-- 分配设备管理员 -->
 					<li class="mui-table-view-cell"><%= buy_list[i].tokenId%></li>
-						<button style="position: absolute;top:6px;right:44%;height:28px;line-height: 15px;" onclick="more_arr(<%=i%>,request_url,1)">更多</button>
-						<select id="sel_manager" class="mui-btn" style="position: absolute;top:2px;right: 18%;height:33px;line-height: 15px;width: 95px;">
+						<button style="position: absolute;top:6px;right:44%;height:28px;line-height: 15px;" onclick="more_arr(<%=buy_list[i].devId%>,request_url,1)">更多</button>
+						<select id="sel_manager-<%=i%>" class="mui-btn" style="position: absolute;top:2px;right: 18%;height:33px;line-height: 15px;width: 95px;">
 							<option>选择管理员</option>
 							<% for(var j = 0;j < manager_list.length;j++){ %>
 								<option value="<%= manager_list[j].userAccount%>"><%= manager_list[j].userAccount%></option>
 							<% } %>
 						</select>
-						<button style="position: absolute;top:6px;right:3%;height:28px;line-height: 15px;" onclick="who_manager(<%= buy_list[i].logId%>,request_url)">确认</button>
+						<button style="position: absolute;top:6px;right:3%;height:28px;line-height: 15px;" onclick="who_manager(<%=i%>,<%= buy_list[i].logId%>,request_url)">确认</button>
 				</div>
 			<% } %>
 			<% for(var i = 0;i < bao_list.length;i++){ %>
 				<div class="mui-table-view">
 					<li class="mui-table-view-cell"><%= bao_list[i].tokenId%></li>
-						<button style="position: absolute;top:6px;right:35%;height:28px;line-height: 15px;" onclick="more_arr(<%=i%>,request_url,0)">更多</button>
+						<button style="position: absolute;top:6px;right:35%;height:28px;line-height: 15px;" onclick="more_arr(<%=bao_list[i].devId%>,request_url,0)">更多</button>
 						<button style="position: absolute;top:6px;right:19%;height:28px;line-height: 15px;" onclick="yes_arrange(<%= bao_list[i].logId%>,request_url,0)">确认</button>
 						<button style="position: absolute;top:6px;right:3%;height:28px;line-height: 15px;" onclick="no_arrange(<%= bao_list[i].logId%>,request_url,0)">驳回</button>
 				</div>
@@ -84,7 +87,7 @@
 			<% for(var i = 0;i < xiu_list.length;i++){ %>
 				<div class="mui-table-view">
 					<li class="mui-table-view-cell"><%= xiu_list[i].tokenId%></li>
-						<button style="position: absolute;top:6px;right:35%;height:28px;line-height: 15px;" onclick="more_arr(<%=i%>,request_url,2)">更多</button>
+						<button style="position: absolute;top:6px;right:35%;height:28px;line-height: 15px;" onclick="more_arr(<%=xiu_list[i].devId%>,request_url,2)">更多</button>
 						<button style="position: absolute;top:6px;right:19%;height:28px;line-height: 15px;" onclick="yes_arrange(<%= xiu_list[i].logId%>,request_url,1)">确认</button>
 						<button style="position: absolute;top:6px;right:3%;height:28px;line-height: 15px;" onclick="no_arrange(<%= xiu_list[i].logId%>,request_url,1)">驳回</button>
 				</div>
