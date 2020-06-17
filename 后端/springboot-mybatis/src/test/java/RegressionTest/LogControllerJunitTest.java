@@ -20,6 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
@@ -178,6 +179,44 @@ public class LogControllerJunitTest {
         devBuyDao.delDevTemp(devId);
         int devTempId = devBuyDao.getPrimayKey();
         devBuyDao.delDev(devTempId);
+    }
+
+    @Test
+    public void Test010_addRepairRecord() {
+        ResultBean devLend = deviceController.lendDeviceByDevId("TestUserAccount",-1);
+        assertEquals(0,devLend.getCode());
+
+        ResultBean addFixDamageWorkStatusError = logController.addDamageLog("TestUserAccount", -1);
+        assertEquals(0, addFixDamageWorkStatusError.getCode());
+
+        ResultBean addRepairRecord = logController.addRepairRecord("TestUserAccount", -1);
+        assertEquals(0,addRepairRecord.getCode());
+        assertEquals(null,addRepairRecord.getData());
+        assertEquals("success",addRepairRecord.getMessage());
+    }
+
+    @Test
+    public void Test011_findRepairLog() {
+        ResultBean findRepairLog = logController.findRepairLog("TestUserAccount");
+        assertEquals(0,findRepairLog.getCode());
+        assertEquals("success",findRepairLog.getMessage());
+        assertNotNull(findRepairLog.getData());
+    }
+
+    @Test
+    public void Test012_dealRepairLog() {
+        ResultBean findRepairLog = logController.findRepairLog("TestUserAccount");
+        assertEquals(0,findRepairLog.getCode());
+
+        int logId = new ArrayList<Log>(findRepairLog.getData()).get(0).getLogId();
+        ResultBean dealRepairLog = logController.dealRepairLog("TestUserAccount",logId,1);
+        assertEquals(0,dealRepairLog.getCode());
+        assertEquals("success",dealRepairLog.getMessage());
+        assertEquals(null,dealRepairLog.getData());
+
+        ResultBean revertDev = deviceController.revertDeviceByDevId("TestUserAccount",-1);
+        assertEquals(0,revertDev.getCode());
+        assertEquals("success",revertDev.getMessage());
     }
 
 
