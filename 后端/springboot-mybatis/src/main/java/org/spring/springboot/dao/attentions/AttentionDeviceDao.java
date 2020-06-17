@@ -9,7 +9,7 @@ import org.spring.springboot.domain.Device;
 import java.util.List;
 
 public interface AttentionDeviceDao {
-    @Select("select * from devices where dev_id = (select dev_id from attentions where user_account = #{userAccount})")
+    @Select("select * from devices dev inner join attentions att on dev.dev_id = att.dev_id where att.user_account = #{userAccount}")
     // 返回 Map 结果集
     @Results({
             @Result(property = "devId", column = "dev_id"),
