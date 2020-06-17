@@ -86,4 +86,10 @@ public class DeviceController {
                 devPeriod, chargeAccount, devAuth, number);
     }
 
+    // find dev by devInfo in temp
+    @RequestMapping(value = "api/devFindTemp", method = RequestMethod.GET)
+    public ResultBean<Device> findTemp(@RequestParam(value = "devId", required = true) Integer devId) {
+        return ExceptionCatch.exceptionCatch(deviceService,devId + "", devId);
+    }
+
 }

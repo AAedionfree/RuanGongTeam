@@ -81,7 +81,7 @@ function is_have_mail(request_url) {
 					    var btn_is_mail = ['稍后再说', '现在绑定'];
 						mui.confirm("您还没有绑定邮箱!\n若您不绑定邮箱,您将无法通过邮箱获得您关注设备的事实信息。","提示",btn_is_mail,function(e) {
 							if (e.index == 1) {
-								to_email(request_url);
+								to_email(user);
 							}
 						});
 					}	
