@@ -59,6 +59,7 @@ function date_chin(yue){
 	
 function quan_chin(quan){
 	var quan_map = new Map();
+	quan_map.set(-1,"内测");
 	quan_map.set(1,"初级");
 	quan_map.set(2,"中级");
 	quan_map.set(3,"高级");
