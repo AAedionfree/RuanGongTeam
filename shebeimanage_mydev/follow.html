@@ -13,6 +13,7 @@
 		<script type="text/javascript">
 			mui.init();
 			localStorage.setItem('request_url','http://aaedion.club:8002/api/');
+			var request_url = localStorage.getItem('request_url');
 		</script>
 		<script type="text/html" id="follow_texts">
 			<h>关注的设备</h>
@@ -53,10 +54,6 @@
 		</header>
 		<div class="mui-content" style="margin-top:20px;"></div>
 		<div id="follow_tb"></div>
-		<script type="text/javascript">
-					mui.init()
-					var request_url = localStorage.getItem('request_url');
-				</script>
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item" href="#tabbar-with-search">
 				<span class="mui-icon mui-icon-loop"></span>

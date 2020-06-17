@@ -64,7 +64,8 @@ function unbind_mail(request_url) {
 		// 	s= s+"n "+p+": "+user[p];
 		// }
 		// mui.toast(s);
-		var search_url = request_url + 'EmailFindByUserAccount?userAccount=' + user.userAccount;
+		var search_url = request_url + '9' + user.userAccount;
+		http://aaedion.club:8002/api/EmailUnbind?userAccount=17182626&userPassword=17182626
 		// alert(search_url);
 		mui.ajax({
 			type: 'GET',
@@ -84,6 +85,44 @@ function unbind_mail(request_url) {
 							}
 						});
 					}	
+					
+				}
+			},
+			error: function(xhr, type, errorThrown) {
+				mui.toast("服务器内部出错！");
+			}
+		});
+	});
+}
+
+function is_bind_mail(request_url,user) {
+	mui.init();
+	mui.plusReady(function() {
+		var self = plus.webview.currentWebview();
+		var user = self.user;
+		// var s ="";
+
+		// for (var p in user) {
+		// 	s= s+"n "+p+": "+user[p];
+		// }
+		// mui.toast(s);
+		var search_url = request_url + 'EmailFindByUserAccount?userAccount=' + user.userAccount;
+		// alert(search_url);
+		mui.ajax({
+			type: 'GET',
+			url: search_url,
+			timeout: 10000,
+			dataType: "json",
+			success: function(data) {
+
+				if (data.data != null) {
+					var dev_data = new Array();
+					dev_data = data.data;
+					if(dev_data.length == 0){
+						to_email(user);
+					}else{
+						to_undoemail(user);
+					}
 					
 				}
 			},

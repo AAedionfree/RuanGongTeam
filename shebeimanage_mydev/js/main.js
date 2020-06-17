@@ -134,3 +134,13 @@ function to_follow(user) {
 			}
 		});
 	}
+	
+	function to_undoemail(user) {
+		mui.init();
+		mui.openWindow({
+			url: 'undoemail.html',
+			extras: {
+				user: user,
+			}
+		});
+	}
