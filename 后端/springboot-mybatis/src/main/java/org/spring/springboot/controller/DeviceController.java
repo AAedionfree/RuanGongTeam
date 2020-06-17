@@ -17,8 +17,8 @@ public class DeviceController {
 
     // find devInfo by devId
     @RequestMapping(value = "/api/devId", method = RequestMethod.GET)
-    public ResultBean<Device> findDeviceByDevId(@RequestParam(value = "devId", required = true) int devId) {
-        return ExceptionCatch.exceptionCatch(deviceService, devId + "", new Integer(devId));
+    public ResultBean<Device> findDeviceByDevId(@RequestParam(value = "devId", required = true) Integer devId) {
+        return ExceptionCatch.exceptionCatch(deviceService, devId + "", devId);
     }
 
     // find devInfo by ManagerAccount
@@ -29,8 +29,8 @@ public class DeviceController {
 
     // find devInfo by userAuth
     @RequestMapping(value = "/api/devAuth", method = RequestMethod.GET)
-    public ResultBean<Device> findDeviceByDevAuth(@RequestParam(value = "devAuth", required = true) int devAuth) {
-        return ExceptionCatch.exceptionCatch(deviceService, "devAuth:" + devAuth, new Integer(devAuth));
+    public ResultBean<Device> findDeviceByDevAuth(@RequestParam(value = "devAuth", required = true) Integer devAuth) {
+        return ExceptionCatch.exceptionCatch(deviceService, "devAuth:" + devAuth, devAuth);
     }
 
     // find devInfo by userAccount
@@ -42,7 +42,7 @@ public class DeviceController {
     //lend dev by devId
     @RequestMapping(value = "/api/devLend", method = RequestMethod.GET)
     public ResultBean<Device> lendDeviceByDevId(@RequestParam(value = "userAccount", required = true) String userAccount,
-                                                @RequestParam(value = "devId", required = true) int devId) {
+                                                @RequestParam(value = "devId", required = true) Integer devId) {
         return ExceptionCatch.exceptionCatch(deviceService, userAccount, userAccount, devId);
     }
 
@@ -55,7 +55,7 @@ public class DeviceController {
     //revert dev by devId
     @RequestMapping(value = "/api/devRevert", method = RequestMethod.GET)
     public ResultBean<Device> revertDeviceByDevId(@RequestParam(value = "userAccount", required = true) String userAccount,
-                                                  @RequestParam(value = "devId", required = true) int devId) {
+                                                  @RequestParam(value = "devId", required = true) Integer devId) {
         return ExceptionCatch.exceptionCatch(deviceService, userAccount, userAccount, devId);
     }
 
@@ -67,8 +67,8 @@ public class DeviceController {
                                                  @RequestParam(value = "devPeriod", required = true) String devPeriod,
                                                  @RequestParam(value = "chargeAccount", required = true) String chargeAccount,
                                                  @RequestParam(value = "managerAccount", required = true) String managerAccount,
-                                                 @RequestParam(value = "devAuth", required = true) int devAuth,
-                                                 @RequestParam(value = "number", required = true) int number) {
+                                                 @RequestParam(value = "devAuth", required = true) Integer devAuth,
+                                                 @RequestParam(value = "number", required = true) Integer number) {
         return  ExceptionCatch.exceptionCatch(deviceService, chargeAccount, devName, devType, devPrise,
                                                 devPeriod, chargeAccount, managerAccount, devAuth, number);
     }
@@ -80,8 +80,8 @@ public class DeviceController {
                                                      @RequestParam(value = "devPrise", required = true) float devPrise,
                                                      @RequestParam(value = "devPeriod", required = true) String devPeriod,
                                                      @RequestParam(value = "chargeAccount", required = true) String chargeAccount,
-                                                     @RequestParam(value = "devAuth", required = true) int devAuth,
-                                                     @RequestParam(value = "number", required = true) int number) {
+                                                     @RequestParam(value = "devAuth", required = true) Integer devAuth,
+                                                     @RequestParam(value = "number", required = true) Integer number) {
         return  ExceptionCatch.exceptionCatch(deviceService, chargeAccount, devName, devType, devPrise,
                 devPeriod, chargeAccount, devAuth, number);
     }

@@ -30,8 +30,8 @@ public class UserController {
 
     // find userInfo by userAuth
     @RequestMapping(value = "/api/userAuth", method = RequestMethod.GET)
-    public ResultBean<User> findUserByUserAuth(@RequestParam(value = "userAuth", required = true) in userAuth) throws RuntimeException {
-        return ExceptionCatch.exceptionCatch(userService, userAuth + "", new Integer(userAuth));
+    public ResultBean<User> findUserByUserAuth(@RequestParam(value = "userAuth", required = true) Integer userAuth) throws RuntimeException {
+        return ExceptionCatch.exceptionCatch(userService, userAuth + "", userAuth);
     }
 
     //  login
