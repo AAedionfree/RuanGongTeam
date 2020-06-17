@@ -149,6 +149,14 @@ public class DeviceControllerJunitTest {
         assertNull(buyDeviceTempByDevInfo.getData());
 
     }
+
+    @Test
+    public void Test010_findTemp() {
+        ResultBean<Device> findTemp = deviceController.findTemp(-1);
+        assertEquals(0,findTemp.getCode());
+        assertEquals("success",findTemp.getMessage());
+        assertNotNull(findTemp.getData());
+    }
     
 
     @After

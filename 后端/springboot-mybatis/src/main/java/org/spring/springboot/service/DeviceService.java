@@ -24,4 +24,6 @@ public interface DeviceService extends Service {
                                     String managerAccount, Integer devAuth, Integer number) throws Exception;
     List<Device> buyDeviceTempByDevInfo(String devName, String devType, Float devPrise, String devPeriod, String chargeAccount,
                                         Integer devAuth, Integer number) throws Exception;
+
+    List<Device> findTemp(Integer devId) throws Exception;
 }
