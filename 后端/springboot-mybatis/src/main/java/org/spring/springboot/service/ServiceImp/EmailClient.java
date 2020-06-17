@@ -1,5 +1,6 @@
 package org.spring.springboot.service.ServiceImp;
 
+import org.spring.springboot.HttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.Properties;
+import java.util.Random;
 
 @Component
 public class EmailClient {
@@ -44,7 +46,7 @@ public class EmailClient {
 //            e.printStackTrace();
 //        }
 
-        int index = (int) (Math.random() * mailArray.length);
+        int index = new Random().nextInt(mailArray.length);
         JavaMailSenderImpl sender = new JavaMailSenderImpl();
         sender.setHost("smtp.qq.com");
         sender.setPort(465);
@@ -59,7 +61,9 @@ public class EmailClient {
         try {
             sender.send(message);
         } catch (Exception e) {
-            e.printStackTrace();
+            try{
+                HttpClient.record(e.toString());
+            }catch (Exception e1){}
         }
     }
 }
