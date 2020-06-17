@@ -18,7 +18,7 @@ function is_special_less5(a) {
 function is_special(a){
 	var flag = 0;
 	for (var i = 0; i < a.length; i++) {
-		if ((0 <= a[i] && a[i] <= 9) || ('a' <= a[i] && a[i] <= 'z') || ('A' <= a[i] && a[i] <= 'Z')) {
+		if ((0 <= a[i] && a[i] <= 9) || ('a' <= a[i] && a[i] <= 'z') || ('A' <= a[i] && a[i] <= 'Z')||(a[i]=='_')) {
 				continue;
 	
 			} else {
