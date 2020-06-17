@@ -196,7 +196,7 @@ function my_apply(request_url) {
 							} else if (p == "change_time") {
 								s = s + "\n" + "更改日期" + ": " + xian_log[p];
 							} else if (p == "auth") {
-								s = s + "\n" + p + ": " + xian_log[p];
+								s = s + "\n" + p + ": " + quan_chin(xian_log[p]);
 							}
 						}
 						alert(s);
