@@ -33,7 +33,9 @@ function my_apply(request_url) {
 								k++;
 							}
 						}
-							
+						al_data.sort(function(x,y){
+							return y.logId-x.logId;
+						});
 						for(i=0;i<al_data.length;i++){
 								if (al_data[i].tokenId == 0) {
 									al_data[i].tokenId="购置申请";
@@ -126,6 +128,9 @@ function my_apply(request_url) {
 								k++;
 							}
 						}
+						al_data.sort(function(x,y){
+							return y.logId-x.logId;
+						});
 						if (type == 0) {
 							var xian_log = al_data[log_num];
 

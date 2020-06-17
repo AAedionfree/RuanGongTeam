@@ -163,7 +163,7 @@ function more(dev_data_num, request_url) {
 							s= s+"\n"+"设备负责人"+": "+dev_chadata[p];
 						}
 						else if(p=="devAuth"){
-							s= s+"\n"+"设备权限"+": "+dev_chadata[p];
+							s= s+"\n"+"设备权限"+": "+quan_chin(dev_chadata[p]);
 						}
 						else if(p=="userAccount"){
 							if(dev_chadata[p]!="null"){
@@ -271,7 +271,7 @@ function more_zujie(dev_data_num, request_url) {
 							s= s+"\n"+"设备负责人"+": "+dev_chadata[p];
 						}
 						else if(p=="devAuth"){
-							s= s+"\n"+"设备权限"+": "+dev_chadata[p];
+							s= s+"\n"+"设备权限"+": "+quan_chin(dev_chadata[p]);
 						}
 						else if(p=="userAccount"){
 							if(dev_chadata[p]!="null"){

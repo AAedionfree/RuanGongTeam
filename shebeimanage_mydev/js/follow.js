@@ -11,7 +11,6 @@ function follow_m(request_url) {
 		var self = plus.webview.currentWebview();
 		var user = self.user;
 		// var s ="";
-
 		// for (var p in user) {
 		// 	s= s+"n "+p+": "+user[p];
 		// }
@@ -24,7 +23,7 @@ function follow_m(request_url) {
 			timeout: 10000,
 			dataType: "json",
 			success: function(data) {
-
+				// alert(data.message);
 				if (data.data != null) {
 					var dev_data = new Array();
 					dev_data = data.data;
@@ -41,6 +40,7 @@ function follow_m(request_url) {
 									dev_data[i].devWorkStatus="待报废";
 								}
 					}*/
+					// alert(dev_data[0]);
 					var temp_stable = document.getElementById('follow_texts').innerHTML;
 					document.getElementById('follow_tb').innerHTML = template(temp_stable, {
 						list: dev_data
