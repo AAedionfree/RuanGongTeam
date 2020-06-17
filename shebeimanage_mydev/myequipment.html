@@ -89,7 +89,7 @@
 								<option value="item-3">添加故障记录</option>
 								<option value="item-4">添加报废记录</option>
 							</select-->
-							<button style="position: absolute;top:6px;right: 17%;height:28px;line-height: 15px;" onclick="more_zujie(<%=i%>,request_url)">故障申请</button>
+							<button style="position: absolute;top:6px;right: 17%;height:28px;line-height: 15px;" onclick="shen_xiu(request_url,<%= list[i].devId%>)">申请报修</button>
 							<button style="position: absolute;top:6px;right:2%;height:28px;line-height: 15px;" onclick="back(request_url,<%= list[i].devId%>)">归还</button>
 					</div>		
 				<% } %>

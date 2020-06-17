@@ -430,3 +430,31 @@ function back(request_url, dev_data_num) {
 		});
 	});
 }
+function shen_xiu(request_url,dev_data_num){
+	mui.init();
+	mui.plusReady(function() {
+		var self = plus.webview.currentWebview();
+		var user = self.user;
+	
+		// var s ="";
+	
+		// for (var p in user) {
+		// 	s= s+"n "+p+": "+user[p];
+		// }
+		// alert(s);
+		var shen_fix_url = request_url + 'logAddRepairRecord?userAccount=' + user.userAccount + '&devId=' + dev_data_num;
+		mui.ajax({
+			type: 'GET',
+			url: shen_fix_url,
+			timeout: 10000,
+			dataType: "json",
+			success: function(data) {
+				mui.toast(data.message);
+				search_fuze_zujie(request_url);
+			},
+			error: function(xhr, type, errorThrown) {
+				mui.toast("服务器内部出错！");
+			}
+		});
+	});
+}
