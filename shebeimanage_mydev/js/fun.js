@@ -40,3 +40,19 @@ function is_num(a){
 	return flag;
 	
 }
+function date_chin(yue){
+	var date_map = new Map();
+	date_map.set("Jan","1");
+	date_map.set("Feb","2");
+	date_map.set("Mar","3");
+	date_map.set("Apr","4");
+	date_map.set("May","5");
+	date_map.set("Jun","6");
+	date_map.set("Jul","7");
+	date_map.set("Aug","8");
+	date_map.set("Sep","9");
+	date_map.set("Oct","10");
+	date_map.set("Nov","11");
+	date_map.set("Dec","12");
+	return date_map.get(yue);
+}
