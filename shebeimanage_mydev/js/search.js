@@ -17,7 +17,7 @@ function search_wzj_text(request_url) {
 		// }
 		// mui.toast(s);
 		var search_url = request_url + 'devUserAccount?userAccount=' + user.userAccount;
-		// alert(search_url);
+		 //alert(search_url);
 		mui.ajax({
 			type: 'GET',
 			url: search_url,
@@ -28,9 +28,19 @@ function search_wzj_text(request_url) {
 				if (data.data != null) {
 					var dev_data = new Array();
 					dev_data = data.data;
-					var temp_stable = document.getElementById('temp_stable').innerHTML;
+					var temp_data = new Array();
+					var i =0;
+					var j =0;
+					for(var i = 0,j = 0;i < dev_data.length;i++){
+							
+						if(dev_data[i].devWorkStatus == 1 && dev_data[i].devStatus == 1){
+							temp_data[j] = dev_data[i];
+							j++;
+						}
+					}
+					var temp_stable = document.getElementById('temp_stable_wzj').innerHTML;
 					document.getElementById('tb').innerHTML = template(temp_stable, {
-						list: dev_data
+						list: temp_data
 					});
 				}
 			},
@@ -64,9 +74,19 @@ function search_yzj_text(request_url) {
 				if (data.data != null) {
 					var dev_data = new Array();
 					dev_data = data.data;
+					var temp_data = new Array();
+					var i =0;
+					var j =0;
+					for(i = 0,j = 0;i < dev_data.length;i++){
+							
+						if(dev_data[i].devStatus == 2){
+							temp_data[j] = dev_data[i];
+							j++;
+						}
+					}
 					var temp_stable = document.getElementById('temp_stable_yzj').innerHTML;
 					document.getElementById('tb_yzj').innerHTML = template(temp_stable, {
-						list: dev_data
+						list: temp_data
 					});
 				}
 			},
@@ -128,8 +148,8 @@ function search_yzj(dev_id, request_url) {
 		// 	s= s+"n "+p+": "+user[p];
 		// }
 		// alert(s);
-		var search_url = request_url + "logAddRepairLog?userAccount=" + user.userAccount + "&devId=" + dev_id;
-		// alert(search_url);
+		var search_url = request_url + "AttentionAddRecord?userAccount=" + user.userAccount + "&devId=" + dev_id;
+		 //alert(search_url);
 		mui.ajax({
 			type: 'GET',
 			url: search_url,
@@ -137,14 +157,13 @@ function search_yzj(dev_id, request_url) {
 			dataType: "json",
 			success: function(data) {
 
-				if (data.data != null) {
+				if (data.message == "success") {
 					var dev_data = new Array();
 					dev_data = data.data;
 					alert("已添加关注！");
 					search_m(request_url);
-				} else {
-					alert(dev_data);
-					print(dev_data);
+				} else if(data.message == "already attention this device"){
+					alert("您已经关注了此设备！");
 					search_m(request_url);
 				}
 			},

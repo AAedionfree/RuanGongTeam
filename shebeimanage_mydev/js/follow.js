@@ -28,7 +28,7 @@ function follow_m(request_url) {
 				if (data.data != null) {
 					var dev_data = new Array();
 					dev_data = data.data;
-					for(i=0;i<dev_data.length;i++){
+					/*for(i=0;i<dev_data.length;i++){
 								if (dev_data[i].devWorkStatus == 1) {
 									dev_data[i].devWorkStatus= "正常";
 								} else if (dev_data[i].devWorkStatus == 2) {
@@ -40,9 +40,9 @@ function follow_m(request_url) {
 								} else if (dev_data[i].devWorkStatus == 5) {
 									dev_data[i].devWorkStatus="待报废";
 								}
-					}
-					var follow_text = document.getElementById('follow_texts').innerHTML;
-					document.getElementById('follow_tb').innerHTML = template(follow_text, {
+					}*/
+					var temp_stable = document.getElementById('follow_texts').innerHTML;
+					document.getElementById('follow_tb').innerHTML = template(temp_stable, {
 						list: dev_data
 					});
 				}
