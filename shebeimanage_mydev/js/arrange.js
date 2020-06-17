@@ -167,60 +167,58 @@ function load_dai(request_url) {
 					mui.toast("服务器内部出错！");
 				}
 			});
-			// var temp_arrange = document.getElementById('temp_arrange').innerHTML;
-			// document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
-			// 	bao_list: w_bao_data,
-			// 	buy_list: w_buy_data,
-			// 	manager_list: w_man_data
-			// });
-		});
-		//////////////报修申请//////////////////////////////
-		mui.ajax({
-			type: 'GET',
-			url: arrange_xiuload_url,
-			timeout: 10000,
-			dataType: "json",
-			success: function(data) {
-		
-				if ((data.data != null) && (user.userAuthority ==2)) {
-					var xiu_data = new Array();
-					xiu_data = data.data;
-					// alert(buy_data[0].tokenId);
-					for(i=0;i<xiu_data.length;i++){
-							if (xiu_data[i].tokenId == 0) {
-								xiu_data[i].tokenId="购置申请";
-							} else if (xiu_data[i].tokenId == 1) {
-								xiu_data[i].tokenId= "借取申请";
-							} else if (xiu_data[i].tokenId== 2) {
-								xiu_data[i].tokenId= "归还申请";
-							} else if (xiu_data[i].tokenId == 3) {
-								xiu_data[i].tokenId= "修理申请";
-							} else if (xiu_data[i].tokenId == 4) {
-								xiu_data[i].tokenId= "故障申请";
-							} else if (xiu_data[i].tokenId == 5) {
-								xiu_data[i].tokenId="报废申请";
-							} else if (xiu_data[i].tokenId == 6) {
-								xiu_data[i].tokenId="确认申请";
-							}
+			
+			//////////////报修申请//////////////////////////////
+			mui.ajax({
+				type: 'GET',
+				url: arrange_xiuload_url,
+				timeout: 10000,
+				dataType: "json",
+				success: function(data) {
+			
+					if ((data.data != null) && (user.userAuthority ==2)) {
+						var xiu_data = new Array();
+						xiu_data = data.data;
+						// alert(xiu_data[0].tokenId);
+						for(i=0;i<xiu_data.length;i++){
+								if (xiu_data[i].tokenId == 0) {
+									xiu_data[i].tokenId="购置申请";
+								} else if (xiu_data[i].tokenId == 1) {
+									xiu_data[i].tokenId= "借取申请";
+								} else if (xiu_data[i].tokenId== 2) {
+									xiu_data[i].tokenId= "归还申请";
+								} else if (xiu_data[i].tokenId == 3) {
+									xiu_data[i].tokenId= "修理申请";
+								} else if (xiu_data[i].tokenId == 4) {
+									xiu_data[i].tokenId= "故障申请";
+								} else if (xiu_data[i].tokenId == 5) {
+									xiu_data[i].tokenId="报废申请";
+								} else if (xiu_data[i].tokenId == 6) {
+									xiu_data[i].tokenId="确认申请";
+								}else if (xiu_data[i].tokenId == 7) {
+									xiu_data[i].tokenId="报修申请";
+								}
+						}
+						 w_xiu_data=xiu_data;
+						// alert(w_buy_data[0].tokenId);
+						// var temp_arrange = document.getElementById('temp_arrange').innerHTML;
+						// document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
+						// 	list: w_buy_data
+						// });
 					}
-					 w_xiu_data=xiu_data;
-					// alert(w_buy_data[0].tokenId);
-					// var temp_arrange = document.getElementById('temp_arrange').innerHTML;
-					// document.getElementById('bao_arrange').innerHTML = template(temp_arrange, {
-					// 	list: w_buy_data
-					// });
+					// 	var s ="";
+			
+					// 	for (var p in dev_chadata) {
+					// 		s= s+"\n"+p+": "+dev_chadata[p];
+					// 	}
+					// 	alert(s);
+				},
+				error: function(xhr, type, errorThrown) {
+					mui.toast("服务器内部出错！");
 				}
-				// 	var s ="";
-		
-				// 	for (var p in dev_chadata) {
-				// 		s= s+"\n"+p+": "+dev_chadata[p];
-				// 	}
-				// 	alert(s);
-			},
-			error: function(xhr, type, errorThrown) {
-				mui.toast("服务器内部出错！");
-			}
+			});
 		});
+		
 		yibu();
 	}	
 
@@ -239,7 +237,7 @@ function load_dai(request_url) {
 			var arrange_yes_url;
 			var arrange_yes_url_0 = request_url + 'devDealScrapRecord?userAccount=' + user.userAccount + '&logId=' + logid +
 				'&logStatus=1';
-			var arrange_yes_url_1 = request_url + 'ogDealRepairLog?userAccount=' + user.userAccount + '&logId=' + logid +
+			var arrange_yes_url_1 = request_url + 'logDealRepairLog?userAccount=' + user.userAccount + '&logId=' + logid +
 				'&logStatus=1';
 				if(type==0){
 					arrange_yes_url=arrange_yes_url_0;
@@ -288,7 +286,7 @@ function load_dai(request_url) {
 			var arrange_no_url;
 			var arrange_no_url_0 = request_url + 'devDealScrapRecord?userAccount=' + user.userAccount + '&logId=' + logid +
 				'&logStatus=2';
-			var arrange_no_url_1 = request_url + 'ogDealRepairLog?userAccount=' + user.userAccount + '&logId=' + logid +
+			var arrange_no_url_1 = request_url + 'logDealRepairLog?userAccount=' + user.userAccount + '&logId=' + logid +
 				'&logStatus=2';
 				if(type==0){
 					arrange_no_url=arrange_no_url_0;
