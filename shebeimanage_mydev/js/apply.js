@@ -51,6 +51,8 @@ function my_apply(request_url) {
 									al_data[i].tokenId="报废申请";
 								} else if (al_data[i].tokenId == 6) {
 									al_data[i].tokenId="确认申请";
+								}else if (al_data[i].tokenId ==7) {
+									al_data[i].tokenId="报修申请";
 								}
 						}
 						for(i=0;i<now_data.length;i++){
@@ -68,6 +70,8 @@ function my_apply(request_url) {
 									now_data[i].tokenId="报废申请";
 								} else if (now_data[i].tokenId == 6) {
 									now_data[i].tokenId="确认申请";
+								}else if (now_data[i].tokenId == 7) {
+									now_data[i].tokenId="报修申请";
 								}
 						}
 						var temp_now_shen = document.getElementById('temp_now_shen').innerHTML;

@@ -15,7 +15,35 @@ function finish(resquest_url) {
 	var cha_prise = is_num(dev_prise);
 	var cha_period = is_num(dev_period);
 	
-	
+	if(dev_name.length==0){
+		mui.toast("设备名称不能为空！");
+		return ;
+	}
+	if(dev_type.length==0){
+		mui.toast("设备类型不能为空！");
+		return ;
+	}
+	if(dev_num.length==0){
+		mui.toast("设备数量不能为空！");
+		return ;
+	}
+	if(dev_prise.length==0){
+		mui.toast("设备价格不能为空！");
+		return ;
+	}
+	if(dev_period.length==0){
+		mui.toast("设备保质期不能为空！");
+		return ;
+	}
+	if((cha_name==1)||(cha_type==1)||(cha_num==1)||(cha_prise==1)||(cha_period==1)){
+		mui.toast("您输入的格式不正确！提示：字母或数字");
+		return ;
+	}
+		
+	if(dev_num>5){
+		mui.toast("抱歉！目前一次最多购置5个设备！");
+		return ;
+	}
 	mui.plusReady(function() {
 		var self = plus.webview.currentWebview();
 		var user = self.user;
