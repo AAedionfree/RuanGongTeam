@@ -68,13 +68,9 @@ public class ResultBean<T> {
         try {
             HttpClient.record(id + "---" + func + "---" + state + "!");
         } catch (Exception e) {
-            System.out.println("----------------------");
-            System.out.println("----------------------");
-            System.out.println("----------------------");
-            e.printStackTrace();
-            System.out.println("----------------------");
-            System.out.println("----------------------");
-            System.out.println("----------------------");
+            try{
+                HttpClient.record(e.toString());
+            }catch (Exception e1){}
         }
     }
 }

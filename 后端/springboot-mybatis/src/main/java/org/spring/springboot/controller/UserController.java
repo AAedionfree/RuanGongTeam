@@ -24,14 +24,14 @@ public class UserController {
 
     //  find userInfo by userId
     @RequestMapping(value = "/api/userId", method = RequestMethod.GET)
-    public ResultBean<User> findUserByUserId(@RequestParam(value = "userId", required = true) int userId) throws RuntimeException {
-        return ExceptionCatch.exceptionCatch(userService, userId + "", new Integer(userId));
+    public ResultBean<User> findUserByUserId(@RequestParam(value = "userId", required = true) Integer userId) throws RuntimeException {
+        return ExceptionCatch.exceptionCatch(userService, userId.toString(), userId);
     }
 
     // find userInfo by userAuth
     @RequestMapping(value = "/api/userAuth", method = RequestMethod.GET)
-    public ResultBean<User> findUserByUserAuth(@RequestParam(value = "userAuth", required = true) int userAuth) throws RuntimeException {
-        return ExceptionCatch.exceptionCatch(userService, userAuth + "", new Integer(userAuth));
+    public ResultBean<User> findUserByUserAuth(@RequestParam(value = "userAuth", required = true) Integer userAuth) throws RuntimeException {
+        return ExceptionCatch.exceptionCatch(userService, userAuth.toString(), userAuth);
     }
 
     //  login

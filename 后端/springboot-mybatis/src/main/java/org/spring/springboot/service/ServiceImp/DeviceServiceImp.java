@@ -197,4 +197,12 @@ public class DeviceServiceImp implements DeviceService {
         }
     }
 
+    public List<Device> findTemp(Integer devId) throws Exception{
+        List<Device> devices = devIdDao.findDeviceTempBydevId(devId);
+        if(devices.size() == 0) {
+            throw new Exception("No such dev in temp");
+        }
+        return devices;
+    }
+
 }

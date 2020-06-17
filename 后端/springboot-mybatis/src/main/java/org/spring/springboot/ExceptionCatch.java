@@ -17,7 +17,9 @@ public class ExceptionCatch {
             return ResultBean.success(id, (Collection<?>) method.invoke(service, args));
         } catch (Exception e) {
             if (e.getCause() == null) {
-                e.printStackTrace();
+                try{
+                    HttpClient.record(e.toString());
+                }catch (Exception e1){}
             }
             return ResultBean.error(id, -1, e.getCause().getMessage());
         }

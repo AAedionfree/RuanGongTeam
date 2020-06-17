@@ -31,27 +31,27 @@ public class LogController {
     @RequestMapping(value = "/api/devAddFixRecord", method = RequestMethod.GET)
     public ResultBean addFixLog(
             @RequestParam(value = "userAccount", required = true) String userAccount,
-            @RequestParam(value = "devId", required = true) int devId
+            @RequestParam(value = "devId", required = true) Integer devId
     ) {
-        return ExceptionCatch.exceptionCatch(logService, devId + "", userAccount, new Integer(devId));
+        return ExceptionCatch.exceptionCatch(logService, devId.toString(), userAccount, devId);
     }
 
     // add damage record
     @RequestMapping(value = "/api/devAddDamageRecord", method = RequestMethod.GET)
     public ResultBean addDamageLog(
             @RequestParam(value = "userAccount", required = true) String userAccount,
-            @RequestParam(value = "devId", required = true) int devId
+            @RequestParam(value = "devId", required = true) Integer devId
     ) {
-        return ExceptionCatch.exceptionCatch(logService, devId + "", userAccount, new Integer(devId));
+        return ExceptionCatch.exceptionCatch(logService, devId.toString(), userAccount, devId);
     }
 
     // add scrapped record
     @RequestMapping(value = "/api/devAddScrapRecord", method = RequestMethod.GET)
     public ResultBean addScrapLog(
             @RequestParam(value = "userAccount", required = true) String userAccount,
-            @RequestParam(value = "devId", required = true) int devId
+            @RequestParam(value = "devId", required = true) Integer devId
     ) {
-        return ExceptionCatch.exceptionCatch(logService, devId + "", userAccount, new Integer(devId));
+        return ExceptionCatch.exceptionCatch(logService, devId.toString(), userAccount, devId);
     }
 
     // find scrap record
@@ -66,19 +66,20 @@ public class LogController {
     @RequestMapping(value = "/api/devDealScrapRecord", method = RequestMethod.GET)
     public ResultBean dealScrapLog(
             @RequestParam(value = "userAccount", required = true) String userAccount,
-            @RequestParam(value = "logId", required = true) int logId,
-            @RequestParam(value = "logStatus", required = true) int logStatus
+            @RequestParam(value = "logId", required = true) Integer logId,
+            @RequestParam(value = "logStatus", required = true) Integer logStatus
     ) {
-        return ExceptionCatch.exceptionCatch(logService, logId + "", userAccount, new Integer(logId), new Integer(logStatus));
+        return ExceptionCatch.exceptionCatch(logService, logId.toString(), userAccount, logId, logStatus);
     }
+
     // cancel record
     @RequestMapping(value = "api/logCancelRecord", method = RequestMethod.GET)
     public ResultBean cancelRecord(
             @RequestParam(value = "userAccount", required = true) String userAccount,
-            @RequestParam(value = "logId", required = true) int logId,
-            @RequestParam(value = "logStatus", required = true) int logStatus
+            @RequestParam(value = "logId", required = true) Integer logId,
+            @RequestParam(value = "logStatus", required = true) Integer logStatus
     ) {
-        return ExceptionCatch.exceptionCatch(logService, logId + "", userAccount,new Integer(logId), new Integer(logStatus));
+        return ExceptionCatch.exceptionCatch(logService, logId.toString(), userAccount, logId, logStatus);
     }
 
     // find buyDevTemp record
@@ -88,15 +89,16 @@ public class LogController {
     ) {
         return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount);
     }
+
     // deal buyDevTemp record
     @RequestMapping(value = "/api/logDealBuyTempRecord", method = RequestMethod.GET)
     public ResultBean dealBuyDevTempLog(
             @RequestParam(value = "userAccount", required = true) String userAccount,
             @RequestParam(value = "managerAccount", required = true) String managerAccount,
-            @RequestParam(value = "logId", required = true) int logId,
-            @RequestParam(value = "logStatus", required = true) int logStatus
+            @RequestParam(value = "logId", required = true) Integer logId,
+            @RequestParam(value = "logStatus", required = true) Integer logStatus
     ) {
-        return ExceptionCatch.exceptionCatch(logService, logId + "", userAccount, managerAccount, new Integer(logId), new Integer(logStatus));
+        return ExceptionCatch.exceptionCatch(logService, logId.toString(), userAccount, managerAccount, logId, logStatus);
     }
 
     @RequestMapping(value = "/api/logFindRepairLog", method = RequestMethod.GET)
@@ -109,18 +111,18 @@ public class LogController {
     @RequestMapping(value = "/api/logDealRepairLog", method = RequestMethod.GET)
     public ResultBean dealRepairLog(
             @RequestParam(value = "userAccount", required = true) String userAccount,
-            @RequestParam(value = "logId", required = true) int logId,
-            @RequestParam(value = "logStatus", required = true) int logStatus
+            @RequestParam(value = "logId", required = true) Integer logId,
+            @RequestParam(value = "logStatus", required = true) Integer logStatus
     ) {
-        return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount, new Integer(logId), new Integer(logStatus));
+        return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount, logId, logStatus);
     }
 
     // add repair record
     @RequestMapping(value = "/api/logAddRepairRecord", method = RequestMethod.GET)
     public ResultBean addRepairRecord(
             @RequestParam(value = "userAccount", required = true) String userAccount,
-            @RequestParam(value = "devId", required = true) int devId
+            @RequestParam(value = "devId", required = true) Integer devId
     ) {
-        return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount, new Integer(devId));
+        return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount, devId);
     }
 }

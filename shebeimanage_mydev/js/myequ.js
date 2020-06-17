@@ -439,13 +439,11 @@ function add_guzhang(dev_data_num,request_url) {
 		var user = self.user;
 
 		// var s ="";
-
 		// for (var p in user) {
 		// 	s= s+"n "+p+": "+user[p];
 		// }
 		// alert(s);
 		var add_xiuli_url = request_url + 'logAddRepairRecord?userAccount=' + user.userAccount + '&devId=' + dev_data_num;
-		 alert(add_xiuli_url);
 		mui.ajax({
 			type: 'GET',
 			url: add_xiuli_url,

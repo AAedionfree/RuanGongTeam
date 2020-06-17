@@ -57,7 +57,7 @@
 		<script type="text/html" id="temp_arrange">
 			<h1 style="margin-left: 10px; margin-top: -410px;font-size: 16px;">待办事项</h1>
 			<ul class="mui-table-view">
-			<% if((bao_list.length==0)&&(buy_list.length==0)) {%>
+			<% if((bao_list.length==0)&&(buy_list.length==0)&&(xiu_list.length==0)) {%>
 				<li class="mui-table-view-cell">您当前暂无待办事项!</li>
 			<% } %>
 			<% for(var i = 0;i < buy_list.length;i++){ %>
@@ -77,8 +77,16 @@
 				<div class="mui-table-view">
 					<li class="mui-table-view-cell"><%= bao_list[i].tokenId%></li>
 						<button style="position: absolute;top:6px;right:35%;height:28px;line-height: 15px;" onclick="more_arr(<%=i%>,request_url,0)">更多</button>
-						<button style="position: absolute;top:6px;right:19%;height:28px;line-height: 15px;" onclick="yes_arrange(<%= bao_list[i].logId%>,request_url)">确认</button>
-						<button style="position: absolute;top:6px;right:3%;height:28px;line-height: 15px;" onclick="no_arrange(<%= bao_list[i].logId%>,request_url)">驳回</button>
+						<button style="position: absolute;top:6px;right:19%;height:28px;line-height: 15px;" onclick="yes_arrange(<%= bao_list[i].logId%>,request_url,0)">确认</button>
+						<button style="position: absolute;top:6px;right:3%;height:28px;line-height: 15px;" onclick="no_arrange(<%= bao_list[i].logId%>,request_url,0)">驳回</button>
+				</div>
+			<% } %>	
+			<% for(var i = 0;i < xiu_list.length;i++){ %>
+				<div class="mui-table-view">
+					<li class="mui-table-view-cell"><%= xiu_list[i].tokenId%></li>
+						<button style="position: absolute;top:6px;right:35%;height:28px;line-height: 15px;" onclick="more_arr(<%=i%>,request_url,2)">更多</button>
+						<button style="position: absolute;top:6px;right:19%;height:28px;line-height: 15px;" onclick="yes_arrange(<%= xiu_list[i].logId%>,request_url,1)">确认</button>
+						<button style="position: absolute;top:6px;right:3%;height:28px;line-height: 15px;" onclick="no_arrange(<%= xiu_list[i].logId%>,request_url,1)">驳回</button>
 				</div>
 			<% } %>	
 			</ul>
