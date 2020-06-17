@@ -10,6 +10,7 @@
 		<script src="js/email.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			localStorage.setItem('request_url','http://aaedion.club:8002/api/');
 		</script>
 	</head>
 
@@ -31,9 +32,13 @@
 					<label>密码</label>
 					<input id="user_password" type="password" class="mui-input-password" style="position: absolute;margin-left: -10%" placeholder="请输入用户密码(非邮箱密码)">
 				</div>
+				<script type="text/javascript">
+							mui.init()
+							var request_url = localStorage.getItem('request_url');
+						</script>
 				<div class="mui-button-row">
-					<button type="button" class="mui-btn mui-btn-primary" style="width: 40%;">确认</button>
-					<button type="button" class="mui-btn mui-btn-danger" style="width: 40%;">取消</button>
+					<button type="button" class="mui-btn mui-btn-primary" style="width: 40%;" onclick = "yes_email(request_url)")>确认</button>
+					<!--button type="button" class="mui-btn mui-btn-danger" style="width: 40%;">取消</button -->
 				</div>
 			</form>
 			
