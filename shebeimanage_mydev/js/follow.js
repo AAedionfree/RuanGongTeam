@@ -11,7 +11,6 @@ function follow_m(request_url) {
 		var self = plus.webview.currentWebview();
 		var user = self.user;
 		// var s ="";
-
 		// for (var p in user) {
 		// 	s= s+"n "+p+": "+user[p];
 		// }
@@ -24,7 +23,7 @@ function follow_m(request_url) {
 			timeout: 10000,
 			dataType: "json",
 			success: function(data) {
-
+				// alert(data.message);
 				if (data.data != null) {
 					var dev_data = new Array();
 					dev_data = data.data;
@@ -41,6 +40,7 @@ function follow_m(request_url) {
 									dev_data[i].devWorkStatus="待报废";
 								}
 					}*/
+					// alert(dev_data[0]);
 					var temp_stable = document.getElementById('follow_texts').innerHTML;
 					document.getElementById('follow_tb').innerHTML = template(temp_stable, {
 						list: dev_data
@@ -155,7 +155,12 @@ function more(dev_data_num, request_url) {
 							s= s+"\n"+"设备价格"+": "+dev_data[p];
 						}
 						else if(p=="devDate"){
-							s= s+"\n"+"设备日期"+": "+dev_data[p];
+							var data=new Array();
+							var ti_me=new Array();
+							data=dev_data[p].split(" ");
+							ti_me=data[3].split(":");
+							var mon=date_chin(data[1]);
+							s= s+"\n"+"设备日期"+": "+data[5]+ "年" + mon + "月" + data[2]+"日"+"  "+ ti_me[0]+":"+ ti_me[1];
 						}
 						else if(p=="devPeriod"){
 							s= s+"\n"+"设备保质期"+": "+dev_data[p];
@@ -167,7 +172,7 @@ function more(dev_data_num, request_url) {
 							s= s+"\n"+"设备负责人"+": "+dev_data[p];
 						}
 						else if(p=="devAuth"){
-							s= s+"\n"+"设备权限"+": "+dev_data[p];
+							s= s+"\n"+"设备权限"+": "+quan_chin(dev_data[p]);
 						}
 						else if(p=="userAccount"){
 							s= s+"\n"+"用户账号"+": "+dev_data[p];

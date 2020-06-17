@@ -237,7 +237,12 @@ function more(dev_data_num, request_url) {
 							s= s+"\n"+"设备价格(元)"+": "+dev_chadata[p];
 						}
 						else if(p=="devDate"){
-							s= s+"\n"+"设备日期"+": "+dev_chadata[p];
+							var data=new Array();
+							var ti_me=new Array();
+							data=dev_chadata[p].split(" ");
+							ti_me=data[3].split(":");
+							var mon=date_chin(data[1]);
+							s= s+"\n"+"设备日期"+": "+data[5]+ "年" + mon + "月" + data[2]+"日"+"  "+ ti_me[0]+":"+ ti_me[1];
 						}
 						else if(p=="devPeriod"){
 							s= s+"\n"+"设备保质期"+": "+dev_chadata[p];
@@ -249,10 +254,15 @@ function more(dev_data_num, request_url) {
 							s= s+"\n"+"设备负责人"+": "+dev_chadata[p];
 						}
 						else if(p=="devAuth"){
-							s= s+"\n"+"设备权限"+": "+dev_chadata[p];
+							s= s+"\n"+"设备权限"+": "+quan_chin(dev_chadata[p]);
 						}
 						else if(p=="userAccount"){
+							if(dev_chadata[p]!="null"){
 							s= s+"\n"+"用户账号"+": "+dev_chadata[p];
+							}
+							else {
+								s= s+"\n"+"用户账号"+": 无";
+							}
 						}
 					}
 					alert(s);

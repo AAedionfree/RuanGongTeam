@@ -17,9 +17,12 @@ public class EmailClient {
     @Value("${spring.mail.username}")
     private String from;
 
-    private static int cnt = 0;
-    private String[] mailArray = {"1375090938@qq.com","13121001661@qq.com","1154892415@qq.com"};
-    private String[] passwordArray = {"xsxdvkbmsvkebadc","dfueevndrgunfdgj","ngrkgvjxvfxqgeje"};
+    // 296684505 ok
+    // 1375090938 ok
+    // 13121001661
+    // 1154892415 ok
+    private String[] mailArray = {"1597012840@qq.com", "1375090938@qq.com", "1332694851@qq.com", "1154892415@qq.com", "296684505@qq.com"};
+    private String[] passwordArray = {"qcxsawvrzcgdjhij", "xsxdvkbmsvkebadc", "gfmeclxyufrmbaea", "ngrkgvjxvfxqgeje", "bcipetcwvtrbbjga"};
 
 
     /**
@@ -35,24 +38,28 @@ public class EmailClient {
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);
+//        try {
+//            javaMailSender.send(message);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+
+        int index = (int) (Math.random() * mailArray.length);
+        JavaMailSenderImpl sender = new JavaMailSenderImpl();
+        sender.setHost("smtp.qq.com");
+        sender.setPort(465);
+        System.out.println(mailArray[index]);
+        System.out.println(passwordArray[index]);
+        sender.setUsername(mailArray[index]);
+        sender.setPassword(passwordArray[index]);
+        Properties p = new Properties();
+        p.setProperty("mail.smtp.ssl.enable", "true");
+        p.setProperty("mail.smtp.auth", "true");
+        sender.setJavaMailProperties(p);
         try {
-            javaMailSender.send(message);
-        }catch (Exception e){
+            sender.send(message);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
-//        int index = (int)(Math.random()*mailArray.length);
-//        JavaMailSenderImpl sender = new JavaMailSenderImpl();
-//        sender.setHost("smtp.qq.com");
-//        sender.setPort(465);
-//        System.out.println(mailArray[index]);
-//        System.out.println(passwordArray[index]);
-//        sender.setUsername(mailArray[index]);
-//        sender.setPassword(passwordArray[index]);
-//        Properties p = new Properties();
-//        p.setProperty("mail.smtp.ssl.enable","true");
-//        p.setProperty("mail.smtp.auth","true");
-//        sender.setJavaMailProperties(p);
-//        sender.send(message);
     }
 }
