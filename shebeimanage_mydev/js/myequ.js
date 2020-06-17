@@ -431,24 +431,41 @@ function back(request_url, dev_data_num) {
 		});
 	});
 }
+<<<<<<< HEAD
+function shen_xiu(request_url,dev_data_num){
+=======
 
 function add_guzhang(dev_data_num,request_url) {
+>>>>>>> a11cbcdc758af48a1342ea6cf01e92e99a4d132a
 	mui.init();
 	mui.plusReady(function() {
 		var self = plus.webview.currentWebview();
 		var user = self.user;
+<<<<<<< HEAD
+	
+		// var s ="";
+	
+=======
 
 		// var s ="";
 
+>>>>>>> a11cbcdc758af48a1342ea6cf01e92e99a4d132a
 		// for (var p in user) {
 		// 	s= s+"n "+p+": "+user[p];
 		// }
 		// alert(s);
+<<<<<<< HEAD
+		var shen_fix_url = request_url + 'logAddRepairRecord?userAccount=' + user.userAccount + '&devId=' + dev_data_num;
+		mui.ajax({
+			type: 'GET',
+			url: shen_fix_url,
+=======
 		var add_xiuli_url = request_url + 'logAddRepairRecord?userAccount=' + user.userAccount + '&devId=' + dev_data_num;
 		 alert(add_xiuli_url);
 		mui.ajax({
 			type: 'GET',
 			url: add_xiuli_url,
+>>>>>>> a11cbcdc758af48a1342ea6cf01e92e99a4d132a
 			timeout: 10000,
 			dataType: "json",
 			success: function(data) {
