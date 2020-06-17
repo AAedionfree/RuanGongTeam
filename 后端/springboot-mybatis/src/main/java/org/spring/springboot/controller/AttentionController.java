@@ -18,17 +18,17 @@ public class AttentionController {
     @RequestMapping(value = "api/AttentionAddRecord", method = RequestMethod.GET)
     public ResultBean addAttentionRecord(
             @RequestParam(value = "userAccount", required = true) String userAccount,
-            @RequestParam(value = "devId", required = true) int devId
+            @RequestParam(value = "devId", required = true) Integer devId
     ) {
-        return ExceptionCatch.exceptionCatch(attentionService, userAccount, userAccount,new Integer(devId));
+        return ExceptionCatch.exceptionCatch(attentionService, userAccount, userAccount,devId);
     }
 
     @RequestMapping(value = "api/AttentionCancelRecord", method = RequestMethod.GET)
     public ResultBean cancelAttentionRecord(
             @RequestParam(value = "userAccount", required = true) String userAccount,
-            @RequestParam(value = "devId", required = true) int devId
+            @RequestParam(value = "devId", required = true) Integer devId
     ) {
-        return ExceptionCatch.exceptionCatch(attentionService, userAccount, userAccount,new Integer(devId));
+        return ExceptionCatch.exceptionCatch(attentionService, userAccount, userAccount,devId);
     }
 
     @RequestMapping(value = "api/AttentionFindRecord", method = RequestMethod.GET)

@@ -109,18 +109,18 @@ public class LogController {
     @RequestMapping(value = "/api/logDealRepairLog", method = RequestMethod.GET)
     public ResultBean dealRepairLog(
             @RequestParam(value = "userAccount", required = true) String userAccount,
-            @RequestParam(value = "logId", required = true) int logId,
-            @RequestParam(value = "logStatus", required = true) int logStatus
+            @RequestParam(value = "logId", required = true) Integer logId,
+            @RequestParam(value = "logStatus", required = true) Integer logStatus
     ) {
-        return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount, new Integer(logId), new Integer(logStatus));
+        return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount, logId, logStatus);
     }
 
     // add repair record
     @RequestMapping(value = "/api/logAddRepairRecord", method = RequestMethod.GET)
     public ResultBean addRepairRecord(
             @RequestParam(value = "userAccount", required = true) String userAccount,
-            @RequestParam(value = "devId", required = true) int devId
+            @RequestParam(value = "devId", required = true) Integer devId
     ) {
-        return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount, new Integer(devId));
+        return ExceptionCatch.exceptionCatch(logService, userAccount, userAccount, devId);
     }
 }
